@@ -316,6 +316,13 @@ class GainImputer(BaseEstimator, TransformerMixin):
             G_loss_curr.backward()
             optimizer_G.step()
 
+            if it % 100 == 0:
+                print('Iter: {}'.format(it))
+                print('Train_loss: {:.4}'.format(np.sqrt(MSE_train_loss_curr.item())))
+                print('Test_loss: {:.4}'.format(np.sqrt(MSE_test_loss_curr.item())))
+                print()
+            
+
         Z_mb = self.uniform_sampler(0, 0.01, no, dim)
         M_mb = X_mask
         X_mb = norm_data_filled
@@ -341,16 +348,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
             if len(np.unique(temp)) < 20:
                 renorm_data[:, i] = np.round(renorm_data[:, i])
         return renorm_data
-
-
-
-
-
-
-
-
-        return 
-
+    
     def _binary_sampler(self, p, rows, cols):
         '''Sample binary random variables.
         Args:
