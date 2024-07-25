@@ -634,7 +634,7 @@ class GAINImputer(BaseEstimator, TransformerMixin):
         no, dim = data_x.shape
         # Hidden state dimensions
         h_dim = int(dim)
-        # Normalization
+        #Normalization
         norm_data, norm_parameters = self.normalization(data_x)
         norm_data_x = np.nan_to_num(norm_data, 0)
         ## GAIN architecture   
