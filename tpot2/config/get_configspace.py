@@ -28,6 +28,7 @@ from tpot2.builtin_modules import AddTransformer, mul_neg_1_Transformer, MulTran
 from tpot2.builtin_modules.genetic_encoders import DominantEncoder, RecessiveEncoder, HeterosisEncoder, UnderDominanceEncoder, OverDominanceEncoder 
 from tpot2.builtin_modules import ZeroCount, ColumnOneHotEncoder, PassKBinsDiscretizer
 from tpot2.builtin_modules import Passthrough, SkipTransformer
+from tpot2.builtin_modules.imputer import GainImputer
 from sklearn.linear_model import SGDClassifier, LogisticRegression, SGDRegressor, Ridge, Lasso, ElasticNet, Lars, LassoLars, LassoLarsCV, RidgeCV, ElasticNetCV, PassiveAggressiveClassifier, ARDRegression
 from sklearn.ensemble import BaggingClassifier, RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier, ExtraTreesRegressor, ExtraTreesClassifier, AdaBoostRegressor, AdaBoostClassifier, GradientBoostingRegressor,RandomForestRegressor, BaggingRegressor, ExtraTreesRegressor, HistGradientBoostingClassifier, HistGradientBoostingRegressor
 from sklearn.neural_network import MLPClassifier, MLPRegressor
@@ -48,6 +49,7 @@ from sklearn.gaussian_process import GaussianProcessRegressor, GaussianProcessCl
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
 
+
 all_methods = [SGDClassifier, RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier, MLPClassifier, DecisionTreeClassifier, XGBClassifier, KNeighborsClassifier, SVC, LogisticRegression, LGBMClassifier, LinearSVC, GaussianNB, BernoulliNB, MultinomialNB, ExtraTreesRegressor, RandomForestRegressor, GradientBoostingRegressor, BaggingRegressor, DecisionTreeRegressor, KNeighborsRegressor, XGBRegressor,  ZeroCount, ColumnOneHotEncoder, Binarizer, FastICA, FeatureAgglomeration, MaxAbsScaler, MinMaxScaler, Normalizer, Nystroem, PCA, PolynomialFeatures, RBFSampler, RobustScaler, StandardScaler, SelectFwe, SelectPercentile, VarianceThreshold, SGDRegressor, Ridge, Lasso, ElasticNet, Lars, LassoLars, LassoLarsCV, RidgeCV, SVR, LinearSVR, AdaBoostRegressor, GradientBoostingRegressor, RandomForestRegressor, BaggingRegressor, ExtraTreesRegressor, DecisionTreeRegressor, KNeighborsRegressor, ElasticNetCV,
                AdaBoostClassifier,MLPRegressor,
                GaussianProcessRegressor, HistGradientBoostingClassifier, HistGradientBoostingRegressor,
@@ -57,7 +59,7 @@ all_methods = [SGDClassifier, RandomForestClassifier, ExtraTreesClassifier, Grad
                GaussianProcessClassifier, BaggingClassifier,LGBMRegressor,
                Passthrough,SkipTransformer,
                PassKBinsDiscretizer,
-               SimpleImputer, IterativeImputer, KNNImputer
+               SimpleImputer, IterativeImputer, KNNImputer, GainImputer
                ]
 
 
@@ -125,7 +127,7 @@ GROUPNAMES = {
         "all_transformers" : ["transformers", "scalers"],
 
         "arithmatic": ["AddTransformer", "mul_neg_1_Transformer", "MulTransformer", "SafeReciprocalTransformer", "EQTransformer", "NETransformer", "GETransformer", "GTTransformer", "LETransformer", "LTTransformer", "MinTransformer", "MaxTransformer"],
-        "imputers": ["SimpleImputer", "IterativeImputer", "KNNImputer"],
+        "imputers": ["SimpleImputer", "IterativeImputer", "KNNImputer", "GainImputer"],
         "skrebate": ["ReliefF", "SURF", "SURFstar", "MultiSURF"],
         "genetic_encoders": ["DominantEncoder", "RecessiveEncoder", "HeterosisEncoder", "UnderDominanceEncoder", "OverDominanceEncoder"],
 
@@ -357,6 +359,8 @@ def get_configspace(name, n_classes=3, n_samples=1000, n_features=100, random_st
             return imputers.get_IterativeImputer_config_space(n_features=n_features, random_state=random_state)
         case "KNNImputer":
             return imputers.get_KNNImputer_config_space(n_samples=n_samples)
+        case "GainImputer":
+            return imputers.gain_imputer_cs
 
         #mdr_configs.py
         case "MDR":

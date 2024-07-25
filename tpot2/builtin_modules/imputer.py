@@ -155,14 +155,12 @@ class GainImputer(BaseEstimator, TransformerMixin):
                  alpha=100, 
                  iterations=10000,
                  missing_values=np.nan, 
-                 n_jobs=-1,
                  random_state=None):
         self.batch_size = batch_size
         self.hint_rate = hint_rate
         self.alpha = alpha
         self.iterations = iterations
         self.missing_values = missing_values
-        self.n_jobs = n_jobs
         self.random_state = random_state
         self.device = (
             "cuda"
@@ -172,6 +170,8 @@ class GainImputer(BaseEstimator, TransformerMixin):
             else "cpu"
             )
         torch.set_default_device(self.device)
+        if random_state is not None:
+            torch.manual_seed(self.random_state)
         
 
     def fit(self, X, y=None):

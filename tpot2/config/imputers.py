@@ -73,3 +73,13 @@ def IterativeImputer_hyperparameter_parser(params):
         final_params['random_state'] = params['random_state']
 
     return final_params
+
+gain_imputer_cs = ConfigurationSpace(
+    space = {
+        'batch_size': Integer('batch_size', bounds=(1, 1000), log=True),
+        'hint_rate': Float('hint_rate', bounds=(0.01, 0.99)),
+        'alpha': Integer('alpha', bounds=(0, 100)),
+        'iterations': Integer('iterations', bounds=(1, 100000), log=True),
+    },
+    
+)
