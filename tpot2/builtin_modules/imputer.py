@@ -35,7 +35,6 @@ import numpy as np
 from scipy import sparse
 
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.utils._param_validation import _MissingValues
 from sklearn.utils import check_array
 from sklearn.utils.validation import check_is_fitted, _check_feature_names_in
 from sklearn.preprocessing import OneHotEncoder
@@ -170,8 +169,12 @@ class GainImputer(BaseEstimator, TransformerMixin):
             else "cpu"
             )
         torch.set_default_device(self.device)
+        torch.set_default_dtype(torch.float32)
+        torch.set_grad_enabled(True)
         if random_state is not None:
             torch.manual_seed(self.random_state)
+
+        
         
 
     def fit(self, X, y=None):
@@ -179,9 +182,6 @@ class GainImputer(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
-        check_is_fitted(self, )
-        force_all_finite = False if self.missing_values in ["NaN", 
-                            np.nan] else True
         if hasattr(X, 'dtypes'):
             X = X.to_numpy()
         #define mask matrix
@@ -201,20 +201,20 @@ class GainImputer(BaseEstimator, TransformerMixin):
         norm_parameters = {'min_val': min_val, 'max_val': max_val}
         norm_data_filled = np.nan_to_num(norm_data, 0)
 
-        Z_mb = self.uniform_sampler(0, 0.01, no, dim)
+        Z_mb = self._uniform_sampler(0, 0.01, no, dim)
         M_mb = X_mask
         X_mb = norm_data_filled
-        X_mb = M_mb * X_mb + (1 - M_mb)*Z_mb
+        New_X_mb = M_mb * X_mb + (1 - M_mb)*Z_mb
 
-        X_mb = torch.tensor(X_mb)
-        M_mb = torch.tensor(M_mb)
-        New_X_mb = torch.tensor(New_X_mb)
+        X_mb = torch.tensor(X_mb, dtype=torch.float32)
+        M_mb = torch.tensor(M_mb, dtype=torch.float32)
+        New_X_mb = torch.tensor(New_X_mb, dtype=torch.float32)
         #test loss
         G_sample = self.modelG.G_prob(New_X_mb, M_mb)
         MSE_final = torch.mean(((1-M_mb)*X_mb-(1-M_mb)*G_sample)**2)/ torch.mean(1-M_mb)
         print('Final Test RMSE: ' + str(np.sqrt(MSE_final.item())))
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
-        imputed_data = imputed_data.detach().numpy
+        imputed_data = imputed_data.cpu().detach().numpy()
         _, dim = imputed_data.shape
         renorm_data = imputed_data.copy()
         for i in range(dim):
@@ -248,21 +248,21 @@ class GainImputer(BaseEstimator, TransformerMixin):
         norm_data_filled = np.nan_to_num(norm_data, 0)
         #Torch version of Gain
         # Initalize discriminator weights, gives hints and data as inputs
-        D_W1 = torch.tensor(self._xavier_init([dim*2, int_dim])) 
-        D_b1 = torch.zeros(size=[int_dim])
-        D_W2 = torch.tensor(self._xavier_init([int_dim, int_dim]))
-        D_b2 = torch.zeros(size=[int_dim])
-        D_W3 = torch.tensor(self._xavier_init([int_dim, dim]))
-        D_b3 = torch.zeros(size=[dim])
+        D_W1 = torch.tensor(self._xavier_init([dim*2, int_dim]), dtype=torch.float32) 
+        D_b1 = torch.zeros(size=[int_dim], dtype=torch.float32)
+        D_W2 = torch.tensor(self._xavier_init([int_dim, int_dim]), dtype=torch.float32)
+        D_b2 = torch.zeros(size=[int_dim], dtype=torch.float32)
+        D_W3 = torch.tensor(self._xavier_init([int_dim, dim]), dtype=torch.float32)
+        D_b3 = torch.zeros(size=[dim], dtype=torch.float32)
         theta_D = [D_W1, D_W2, D_W3, D_b1, D_b2, D_b3]
         self.modelD = self.Discriminator(theta_D).to(self.device)
         # Initalize generator weights, gives hints and data as inputs
-        G_W1 = torch.tensor(self._xavier_init([dim*2, int_dim])) 
-        G_b1 = torch.zeros(size=[int_dim])
-        G_W2 = torch.tensor(self._xavier_init([int_dim, int_dim]))
-        G_b2 = torch.zeros(size=[int_dim])
-        G_W3 = torch.tensor(self._xavier_init([int_dim, dim]))
-        G_b3 = torch.zeros(size=[dim])
+        G_W1 = torch.tensor(self._xavier_init([dim*2, int_dim]), dtype=torch.float32) 
+        G_b1 = torch.zeros(size=[int_dim], dtype=torch.float32)
+        G_W2 = torch.tensor(self._xavier_init([int_dim, int_dim]), dtype=torch.float32)
+        G_b2 = torch.zeros(size=[int_dim], dtype=torch.float32)
+        G_W3 = torch.tensor(self._xavier_init([int_dim, dim]), dtype=torch.float32)
+        G_b3 = torch.zeros(size=[dim], dtype=torch.float32)
         theta_G = [G_W1, G_W2, G_W3, G_b1, G_b2, G_b3]
         self.modelG = self.Generator(theta_G).to(self.device)
         #Data + Mask as inputs (Random noise is in missing components)
@@ -300,19 +300,21 @@ class GainImputer(BaseEstimator, TransformerMixin):
                                              self.batch_size, dim)
             H_mb = M_mb * H_mb_temp
             #combine vectors with observed vectors
-            X_mb = M_mb*X_mb + (1-M_mb)*Z_mb #Introduce Missin Data
+            New_X_mb = M_mb*X_mb + (1-M_mb)*Z_mb #Introduce Missin Data
 
-            X_mb = torch.tensor(X_mb)
-            M_mb = torch.tensor(M_mb)
-            H_mb = torch.tensor(H_mb)
-            New_X_mb = torch.tensor(New_X_mb)
+            X_mb = torch.tensor(X_mb, dtype=torch.float32)
+            M_mb = torch.tensor(M_mb, dtype=torch.float32)
+            H_mb = torch.tensor(H_mb, dtype=torch.float32)
+            New_X_mb = torch.tensor(New_X_mb, dtype=torch.float32)
 
             optimizer_D.zero_grad()
             D_loss_curr = discriminator_loss(M=M_mb, New_X=New_X_mb, H=H_mb)
+            D_loss_curr.requires_grad = True
             D_loss_curr.backward()
             optimizer_D.step()
             optimizer_G.zero_grad()
             G_loss_curr, MSE_train_loss_curr, MSE_test_loss_curr = generator_loss(X=X_mb, M=M_mb, New_X=New_X_mb, H=H_mb)
+            G_loss_curr.requires_grad = True
             G_loss_curr.backward()
             optimizer_G.step()
 
@@ -323,20 +325,23 @@ class GainImputer(BaseEstimator, TransformerMixin):
                 print()
             
 
-        Z_mb = self.uniform_sampler(0, 0.01, no, dim)
+        Z_mb = self._uniform_sampler(0, 0.01, no, dim)
         M_mb = X_mask
         X_mb = norm_data_filled
-        X_mb = M_mb * X_mb + (1 - M_mb)*Z_mb
+        New_X_mb = M_mb * X_mb + (1 - M_mb)*Z_mb
 
-        X_mb = torch.tensor(X_mb)
-        M_mb = torch.tensor(M_mb)
-        New_X_mb = torch.tensor(New_X_mb)
+        X_mb = torch.tensor(X_mb, dtype=torch.float32)
+        M_mb = torch.tensor(M_mb, dtype=torch.float32)
+        New_X_mb = torch.tensor(New_X_mb, dtype=torch.float32)
+
+        print(f'M_mb size: {M_mb.shape}')
+        print(f'New_X_mb size: {New_X_mb.shape}')
         #test loss
         G_sample = self.modelG.G_prob(New_X_mb, M_mb)
         MSE_final = torch.mean(((1-M_mb)*X_mb-(1-M_mb)*G_sample)**2)/ torch.mean(1-M_mb)
         print('Final Test RMSE: ' + str(np.sqrt(MSE_final.item())))
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
-        imputed_data = imputed_data.detach().numpy
+        imputed_data = imputed_data.cpu().detach().numpy()
         _, dim = imputed_data.shape
         renorm_data = imputed_data.copy()
         for i in range(dim):
@@ -386,6 +391,17 @@ class GainImputer(BaseEstimator, TransformerMixin):
         batch_idx = total_idx[:batch_size]
         return batch_idx
     
+    def _xavier_init(self, size):
+            '''Xavier initialization.
+            Args:
+                - size: vector size
+            Returns:
+                - initialized random vector.
+            '''
+            in_dim = size[0]
+            xavier_stddev = 1./np.sqrt(in_dim / 2.)
+            return np.random.normal(scale = xavier_stddev, size=size)
+    
     class Generator(torch.nn.Module):
         def __init__(self, params):
             super().__init__()
@@ -409,17 +425,6 @@ class GainImputer(BaseEstimator, TransformerMixin):
                 torch.matmul(G_h2, self.G_W3) + self.G_b3
                 )
             return g_prob
-
-        def _xavier_init(self, size):
-            '''Xavier initialization.
-            Args:
-                - size: vector size
-            Returns:
-                - initialized random vector.
-            '''
-            in_dim = size[0]
-            xavier_stddev = 1./torch.sqrt(in_dim / 2.)
-            return torch.normal(std = xavier_stddev, size=size)
         
     class Discriminator(torch.nn.Module):
         def __init__(self, params):
@@ -444,26 +449,3 @@ class GainImputer(BaseEstimator, TransformerMixin):
                 torch.matmul(D_h2, self.D_W3) + self.D_b3
                 )
             return d_prob
-
-        def _xavier_init(self, size):
-            '''Xavier initialization.
-            Args:
-                - size: vector size
-            Returns:
-                - initialized random vector.
-            '''
-            in_dim = size[0]
-            xavier_stddev = 1./torch.sqrt(in_dim / 2.)
-            return torch.normal(std = xavier_stddev, size=size)
-
-        
-    
-                
-        
-
-        
-                    
-        
-        
-
-
