@@ -153,7 +153,6 @@ class GainImputer(BaseEstimator, TransformerMixin):
                  hint_rate=0.9, 
                  alpha=100, 
                  iterations=10000,
-                 train_rate = 0.8,
                  learning_rate = 0.001,
                  p_miss = 0.2,
                  random_state=None):
@@ -161,7 +160,6 @@ class GainImputer(BaseEstimator, TransformerMixin):
         self.hint_rate = hint_rate
         self.alpha = alpha
         self.iterations = iterations
-        self.train_rate = train_rate
         self.learning_rate = learning_rate
         self.p_miss = p_miss
         self.random_state = random_state

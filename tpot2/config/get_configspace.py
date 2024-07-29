@@ -360,7 +360,7 @@ def get_configspace(name, n_classes=3, n_samples=1000, n_features=100, random_st
         case "KNNImputer":
             return imputers.get_KNNImputer_config_space(n_samples=n_samples)
         case "GainImputer":
-            return imputers.gain_imputer_cs
+            return imputers.get_GainImputer_config_space(random_state=random_state)
 
         #mdr_configs.py
         case "MDR":
