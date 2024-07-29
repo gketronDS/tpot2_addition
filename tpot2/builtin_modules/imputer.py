@@ -184,15 +184,16 @@ class GainImputer(BaseEstimator, TransformerMixin):
         
         self.modelG.load_state_dict(self._Gen_params)
 
-        if hasattr(X, 'dtypes'):
-            X = X.to_numpy()
+        if isinstance(X, pd.DataFrame):
+            X_copy = X.copy()
+            X_copy = X.to_numpy()
         #define mask matrix
-        X_mask = 1 - np.isnan(X)
+        X_mask = 1 - np.isnan(X_copy)
         #get dimensions
-        no, self.dim = X.shape
+        no, self.dim = X_copy.shape
         self.int_dim = int(self.dim)
         #normalize the original data, and save parameters for renormalization
-        norm_data = X.copy()
+        norm_data = X_copy.copy()
         min_val = np.zeros(self.dim)
         max_val = np.zeros(self.dim)
         for i in range(self.dim):
@@ -235,22 +236,30 @@ class GainImputer(BaseEstimator, TransformerMixin):
             renorm_data[:,i] = renorm_data[:,i] * (max_val[i] + 1e-6)   
             renorm_data[:,i] = renorm_data[:,i] + min_val[i]
         for i in range(dim):
-            temp = X[~np.isnan(X[:, i]), i]
+            temp = X_copy[~np.isnan(X_copy[:, i]), i]
             # Only for the categorical variable
             if len(np.unique(temp)) < 20:
                 renorm_data[:, i] = np.round(renorm_data[:, i])
+
+        if isinstance(X, pd.DataFrame):
+            out = pd.DataFrame(renorm_data, columns=X.columns)
+            return out
+        else:
+            return renorm_data
+        
         return renorm_data
         
     def fit_transform(self, X, y=None):
-        if hasattr(X, 'dtypes'):
-            X = X.to_numpy()
+        if isinstance(X, pd.DataFrame):
+            X_copy = X.copy()
+            X_copy = X.to_numpy()
         #define mask matrix
-        X_mask = 1 - np.isnan(X)
+        X_mask = 1 - np.isnan(X_copy)
         #get dimensions
-        no, self.dim = X.shape
+        no, self.dim = X_copy.shape
         self.int_dim = int(self.dim)
         #normalize the original data, and save parameters for renormalization
-        norm_data = X.copy()
+        norm_data = X_copy.copy()
         min_val = np.zeros(self.dim)
         max_val = np.zeros(self.dim)
         for i in range(self.dim):
@@ -356,11 +365,16 @@ class GainImputer(BaseEstimator, TransformerMixin):
             renorm_data[:,i] = renorm_data[:,i] * (max_val[i] + 1e-6)   
             renorm_data[:,i] = renorm_data[:,i] + min_val[i]
         for i in range(dim):
-            temp = X[~np.isnan(X[:, i]), i]
+            temp = X_copy[~np.isnan(X_copy[:, i]), i]
             # Only for the categorical variable
             if len(np.unique(temp)) < 20:
                 renorm_data[:, i] = np.round(renorm_data[:, i])
-        return renorm_data
+        if isinstance(X, pd.DataFrame):
+            out = pd.DataFrame(renorm_data, columns=X.columns)
+            return out
+        else:
+            return renorm_data
+
     
     def _sample_M(self, rows, cols, p):
         '''Sample binary random variables.
