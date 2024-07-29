@@ -236,7 +236,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
             # Only for the categorical variable
             if len(np.unique(temp)) < 20:
                 renorm_data[:, i] = np.round(renorm_data[:, i])
-        return 
+        return renorm_data
         
     def fit_transform(self, X, y=None):
         if hasattr(X, 'dtypes'):
