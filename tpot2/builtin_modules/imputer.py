@@ -225,7 +225,10 @@ class GainImputer(BaseEstimator, TransformerMixin):
         print('Final Test RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
-        imputed_data = imputed_data.cpu().detach().numpy()
+        if self.device != 'cpu':
+            imputed_data = imputed_data.cpu().detach().numpy()
+        else:
+            imputed_data = imputed_data.detach().numpy()
         _, dim = imputed_data.shape
         renorm_data = imputed_data.copy()
         for i in range(dim):
@@ -306,7 +309,10 @@ class GainImputer(BaseEstimator, TransformerMixin):
             #Train Generator
             G_sample = self.modelG(X_mb, New_X_mb, M_mb)
             D_prob = self.modelD(X_mb, M_mb, G_sample, H_mb)
-            D_prob.cpu().detach()
+            if self.device != 'cpu':
+                D_prob.cpu().detach()
+            else:
+                D_prob.detach()
             G_loss1 = ((1-M_mb)*(torch.sigmoid(D_prob)+1e-8).log()).mean()/(1-M_mb).sum()
             G_mse_loss = mse_loss(M_mb*X_mb, M_mb*G_sample)/M_mb.sum()
             G_loss = G_loss1 + self.alpha*G_mse_loss
@@ -340,7 +346,10 @@ class GainImputer(BaseEstimator, TransformerMixin):
         #print('Final Train RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
-        imputed_data = imputed_data.cpu().detach().numpy()
+        if self.device != 'cpu':
+            imputed_data = imputed_data.cpu().detach().numpy()
+        else:
+            imputed_data = imputed_data.detach().numpy()
         _, dim = imputed_data.shape
         renorm_data = imputed_data.copy()
         for i in range(dim):
