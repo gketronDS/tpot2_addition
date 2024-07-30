@@ -8,5 +8,5 @@ echo RunStart
 
 python main.py \
 --n_jobs 8 \
---savepath logs \
+--savepath tpot2/ImputerExperiments/data \
 --num_runs 3

@@ -102,198 +102,197 @@ def load_task(base_save_folder, task_id, r_or_c):
     return X_train, y_train, X_test, y_test
 
 
-def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r_or_c):
+def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r_or_c, n_jobs):
     for taskid in task_id_lists:
         save_folder = f"{base_save_folder}/{taskid}"
         time.sleep(random.random()*5)
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
         X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
+        for level in [0.01, 0.1, 0.3, 0.5]:
+                for type_1 in ['MAR', 'MCAR', 'MNAR']:
+                    X_train_pandas = pd.DataFrame(X_train)
+                    print(X_train_pandas)
+                    X_test_pandas = pd.DataFrame(X_test)
+                    print(X_test_pandas)
+                    X_train_missing_p, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type_1)
+                    X_test_missing_p, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type_1)
+                    X_train_missing_n = X_train_missing_p.to_numpy()
+                    X_test_missing_n = X_test_missing_p.to_numpy()
+                    for exp in experiments:
+                        for num_run in range(num_runs):
+                            #print('loc4')
+                            levelstr = str(level)
+                            save_folder = f"{base_save_folder}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
+                            checkpoint_folder = f"{base_save_folder}/checkpoint/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
+                            #print('loc5')
+                            time.sleep(random.random()*5)
+                            if not os.path.exists(save_folder):
+                                os.makedirs(save_folder)
+                            #print('loc6')
+                            time.sleep(random.random()*5)
+                            if not os.path.exists(checkpoint_folder):
+                                os.makedirs(checkpoint_folder)
 
-        for exp in experiments:
-            #print('loc4')
-            levelstr = str(level)
-            save_folder = f"{base_save_folder}/{taskid}/{exp['exp_name']}_{type}_{levelstr}"
-            checkpoint_folder = f"{base_save_folder}/checkpoint/{taskid}/{exp['exp_name']}_{type}_{levelstr}"
-            #print('loc5')
-            time.sleep(random.random()*5)
-            if not os.path.exists(save_folder):
-                os.makedirs(save_folder)
-            #print('loc6')
-            time.sleep(random.random()*5)
-            if not os.path.exists(checkpoint_folder):
-                os.makedirs(checkpoint_folder)
+                            print("working on ")
+                            print(save_folder)
 
-            print("working on ")
-            print(save_folder)
+                            start = time.time()
+                            time.sleep(random.random()*5)
+                            duration = time.time() - start
+                            print(duration)
 
-            start = time.time()
-            time.sleep(random.random()*5)
-            duration = time.time() - start
-            print(duration)
+                            try:
 
-            try: 
-                print("loading data")
-                X_train, y_train, X_test, y_test = load_task(base_save_folder=base_save_folder, exp=exp, type=type, levelstr=levelstr, task_id=taskid, preprocess=True)
-                print(y_train)
-                X_train_pandas = pd.DataFrame(X_train)
-                print(X_train_pandas)
-                X_test_pandas = pd.DataFrame(X_test)
-                print(X_test_pandas)
-                X_train_missing_p, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type)
-                X_test_missing_p, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type)
-                X_train_missing_n = X_train_missing_p.to_numpy()
-                X_test_missing_n = X_test_missing_p.to_numpy()
+                                print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
+                                
+                                #Simple Impute 
+                                all_scores = {}
+                            
+                                if exp['exp_name'] == 'tpot2_base_normal':
+                                    SimpleImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
+                                    SimpleImputeSpace.fit(X_train_missing_p)
+                                    print('simple fit')
+                                    simple_impute = SimpleImputeSpace.transform(X_test_missing_p)
+                                    print('simple transform')
+                                    print(simple_impute)
+                                    simple_rmse = SimpleImputeSpace.study.best_trial.value
+                                    simple_space = SimpleImputeSpace.study.best_trial.params
+                                    simple_impute = simple_impute.to_numpy()
+                                    print(simple_rmse)
+                                    print(simple_space)
+                                    all_scores['impute_rmse'] = simple_rmse
+                                    all_scores['impute_space'] = simple_space
+                                    imputed = simple_impute
+                                else:
+                                    #Auto Impute 
+                                    AutoImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
+                                    AutoImputeSpace.fit(X_train_missing_p)
+                                    print('auto fit')
+                                    auto_impute = AutoImputeSpace.transform(X_test_missing_p)
+                                    print('auto transform')
+                                    print(auto_impute)
+                                    auto_rmse = AutoImputeSpace.study.best_trial.value
+                                    auto_space = AutoImputeSpace.study.best_trial.params
+                                    auto_impute = auto_impute.to_numpy()
+                                    print(auto_rmse)
+                                    print(auto_space)
+                                    all_scores['impute_rmse'] = auto_rmse
+                                    all_scores['impute_space'] = auto_space
+                                    imputed = auto_impute
+                                
+                                print("running experiment 2/3 - Does reconstruction give good automl predictions")
+                                #this section trains off of original train data, and then tests on the original, the simpleimputed,
+                                #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
+                                # not the role of various imputers in the tpot optimization space. 
 
-                print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
-                
-                #Simple Impute 
-                all_scores = {}
-            
-                if exp['exp_name'] == 'tpot2_base_normal':
-                    SimpleImputeSpace = autoimpute.AutoImputer(missing_type=type, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
-                    SimpleImputeSpace.fit(X_train_missing_p)
-                    print('simple fit')
-                    simple_impute = SimpleImputeSpace.transform(X_test_missing_p)
-                    print('simple transform')
-                    print(simple_impute)
-                    simple_rmse = SimpleImputeSpace.study.best_trial.value
-                    simple_space = SimpleImputeSpace.study.best_trial.params
-                    simple_impute = simple_impute.to_numpy()
-                    print(simple_rmse)
-                    print(simple_space)
-                    all_scores['impute_rmse'] = simple_rmse
-                    all_scores['impute_space'] = simple_space
-                    imputed = simple_impute
-                else:
-                    #Auto Impute 
-                    AutoImputeSpace = autoimpute.AutoImputer(missing_type=type, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
-                    AutoImputeSpace.fit(X_train_missing_p)
-                    print('auto fit')
-                    auto_impute = AutoImputeSpace.transform(X_test_missing_p)
-                    print('auto transform')
-                    print(auto_impute)
-                    auto_rmse = AutoImputeSpace.study.best_trial.value
-                    auto_space = AutoImputeSpace.study.best_trial.params
-                    auto_impute = auto_impute.to_numpy()
-                    print(auto_rmse)
-                    print(auto_space)
-                    all_scores['impute_rmse'] = auto_rmse
-                    all_scores['impute_space'] = auto_space
-                    imputed = auto_impute
-                
-                print("running experiment 2/3 - Does reconstruction give good automl predictions")
-                #this section trains off of original train data, and then tests on the original, the simpleimputed,
-                #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
-                # not the role of various imputers in the tpot optimization space. 
+                                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
+                                exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
+                                est = exp['automl'](**normal_params)
 
-                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
-                exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
-                est = exp['automl'](**normal_params)
+                                print('Start est fit')
+                                start = time.time()
+                                est.fit(X_train, y_train)
+                                stop = time.time()
+                                duration = stop - start
+                                print('Fitted')
+                                if exp['automl'] is tpot.TPOTClassifier:
+                                    est.classes_ = est.fitted_pipeline_.classes_
+                                print(est.fitted_pipeline_)
+                                print('score start')
+                                train_score = score(est, X_train, y_train)
+                                print('train score:', train_score)
+                                ori_test_score = score(est, X_test, y_test)
+                                print('original test score:', ori_test_score)
+                                imputed_test_score = score(est, imputed, y_test)
+                                print('imputed test score:', imputed_test_score)
+                                print('score end')
+                                train_score = {f"train_{k}": v for k, v in train_score.items()}
+                                all_scores['train_score'] = train_score
+                                all_scores['ori_test_score']=ori_test_score
+                                all_scores['imputed_test_score'] = imputed_test_score
+                                all_scores["start"] = start
+                                all_scores["taskid"] = taskid
+                                all_scores["level"] = level
+                                all_scores["type"] = type_1
+                                all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
+                                all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                                all_scores["duration"] = duration
+                                all_scores["run"] = num_runs
+                                all_scores["fit_model"] = est.fitted_pipeline_
 
-                print('Start est fit')
-                start = time.time()
-                est.fit(X_train, y_train)
-                stop = time.time()
-                duration = stop - start
-                print('Fitted')
-                if exp['automl'] is tpot.TPOTClassifier:
-                    est.classes_ = est.fitted_pipeline_.classes_
-                print(est.fitted_pipeline_)
-                print('score start')
-                train_score = score(est, X_train, y_train)
-                print('train score:', train_score)
-                ori_test_score = score(est, X_test, y_test)
-                print('original test score:', ori_test_score)
-                imputed_test_score = score(est, imputed, y_test)
-                print('imputed test score:', imputed_test_score)
-                print('score end')
-                train_score = {f"train_{k}": v for k, v in train_score.items()}
-                all_scores['train_score'] = train_score
-                all_scores['ori_test_score']=ori_test_score
-                all_scores['imputed_test_score'] = imputed_test_score
-                all_scores["start"] = start
-                all_scores["taskid"] = taskid
-                all_scores["level"] = level
-                all_scores["type"] = type
-                all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
-                all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
-                all_scores["duration"] = duration
-                all_scores["run"] = num_runs
-                all_scores["fit_model"] = est.fitted_pipeline_
+                                if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
+                                    with open(f"{save_folder}/est_evaluated_individuals.pkl", "wb") as f:
+                                        pickle.dump(est.evaluated_individuals, f)
+                                        print('estimator working as intended')
+                                print('check intended')
+                                with open(f"{save_folder}/est_fitted_pipeline.pkl", "wb") as f:
+                                    pickle.dump(est.fitted_pipeline_, f)
 
-                if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-                    with open(f"{save_folder}/est_evaluated_individuals.pkl", "wb") as f:
-                        pickle.dump(est.evaluated_individuals, f)
-                        print('estimator working as intended')
-                print('check intended')
-                with open(f"{save_folder}/est_fitted_pipeline.pkl", "wb") as f:
-                    pickle.dump(est.fitted_pipeline_, f)
+                                with open(f"{save_folder}/all_scores.pkl", "wb") as f:
+                                    pickle.dump(all_scores, f)
 
-                with open(f"{save_folder}/all_scores.pkl", "wb") as f:
-                    pickle.dump(all_scores, f)
+                                print('EXP2 Finished')
+                            
 
-                print('EXP2 Finished')
-            
+                                print("running experiment 3/3 - What is the best automl settings?")
 
-                print("running experiment 3/3 - What is the best automl settings?")
+                                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
+                                exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
+                                tpot_space = exp['automl'](**exp['params'])
+                                print(exp['automl'])
+                                print('Start tpot fit')
+                                start = time.time()
+                                tpot_space.fit(X_train_missing_n, y_train)
+                                stop = time.time()
+                                duration = stop - start
+                                print('Fitted')
+                                if exp['automl'] is tpot.TPOTClassifier:
+                                    tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
+                                print(tpot_space.fitted_pipeline_)
+                                print('score start')
+                                train_score = score(tpot_space, X_train_missing_n, y_train)
+                                print('train score:', train_score)
+                                test_score = score(tpot_space, X_test_missing_n, y_test)
+                                print('test score:', test_score)
+                                print('score end')
+                                tpot_space_scores = {}
+                                train_score = {f"train_{k}": v for k, v in train_score.items()}
+                                
+                                tpot_space_scores['train_score'] = train_score
+                                tpot_space_scores['ori_test_score']=test_score        
+                                tpot_space_scores["start"] = start
+                                tpot_space_scores["taskid"] = taskid
+                                tpot_space_scores["exp_name"] = exp['exp_name']
+                                tpot_space_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                                tpot_space_scores["duration"] = duration
+                                tpot_space_scores["run"] = num_runs
+                                tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
 
-                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
-                exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
-                tpot_space = exp['automl'](**exp['params'])
-                print(exp['automl'])
-                print('Start tpot fit')
-                start = time.time()
-                tpot_space.fit(X_train_missing_n, y_train)
-                stop = time.time()
-                duration = stop - start
-                print('Fitted')
-                if exp['automl'] is tpot.TPOTClassifier:
-                    tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
-                print(tpot_space.fitted_pipeline_)
-                print('score start')
-                train_score = score(tpot_space, X_train_missing_n, y_train)
-                print('train score:', train_score)
-                test_score = score(tpot_space, X_test_missing_n, y_test)
-                print('test score:', test_score)
-                print('score end')
-                tpot_space_scores = {}
-                train_score = {f"train_{k}": v for k, v in train_score.items()}
-                
-                tpot_space_scores['train_score'] = train_score
-                tpot_space_scores['ori_test_score']=test_score        
-                tpot_space_scores["start"] = start
-                tpot_space_scores["taskid"] = taskid
-                tpot_space_scores["exp_name"] = exp['exp_name']
-                tpot_space_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
-                tpot_space_scores["duration"] = duration
-                tpot_space_scores["run"] = num_runs
-                tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
+                                if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
+                                    with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
+                                        pickle.dump(tpot_space.evaluated_individuals, f)
 
-                if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-                    with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
-                        pickle.dump(tpot_space.evaluated_individuals, f)
+                                with open(f"{save_folder}/tpot_space_fitted_pipeline.pkl", "wb") as f:
+                                    pickle.dump(tpot_space.fitted_pipeline_, f)
 
-                with open(f"{save_folder}/tpot_space_fitted_pipeline.pkl", "wb") as f:
-                    pickle.dump(tpot_space.fitted_pipeline_, f)
+                                with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
+                                    pickle.dump(tpot_space_scores, f)
+                                
+                                #return
+                                
+                            except Exception as e:
+                                trace =  traceback.format_exc() 
+                                pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_runs, "error": str(e), "trace": trace, "level": level, "type": type_1}
+                                print("failed on ")
+                                print(save_folder)
+                                print(e)
+                                print(trace)
 
-                with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
-                    pickle.dump(tpot_space_scores, f)
-                
-                #return
-                
-            except Exception as e:
-                trace =  traceback.format_exc() 
-                pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_runs, "error": str(e), "trace": trace, "level": level, "type": type}
-                print("failed on ")
-                print(save_folder)
-                print(e)
-                print(trace)
+                                with open(f"{save_folder}/failed.pkl", "wb") as f:
+                                    pickle.dump(pipeline_failure_dict, f)
 
-                with open(f"{save_folder}/failed.pkl", "wb") as f:
-                    pickle.dump(pipeline_failure_dict, f)
-
-                return
+                                return
                 
         print(taskid)
         print('finished')
