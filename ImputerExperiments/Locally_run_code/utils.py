@@ -64,7 +64,7 @@ def score(est, X, y, r_or_c):
 #https://github.com/automl/ASKL2.0_experiments/blob/84a9c0b3af8f7ac6e2a003d4dea5e6dce97d4315/experiment_scripts/utils.py
 def load_task(base_save_folder, task_id, r_or_c):
     
-    cached_data_path = f"{base_save_folder}/{task_id}.pkl"
+    cached_data_path = f"{base_save_folder}/{r_or_c}/{task_id}/{task_id}.pkl"
     print(cached_data_path)
     if os.path.exists(cached_data_path):
         d = pickle.load(open(cached_data_path, "rb"))
@@ -75,7 +75,14 @@ def load_task(base_save_folder, task_id, r_or_c):
         X, y, _, _ = task.get_data(dataset_format="dataframe")
         X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.1)
 
-        preprocessing_pipeline = sklearn.pipeline.make_pipeline(tpot2.builtin_modules.ColumnSimpleImputer("categorical", strategy='most_frequent'), tpot2.builtin_modules.ColumnSimpleImputer("numeric", strategy='mean'), tpot2.builtin_modules.ColumnOneHotEncoder("categorical", min_frequency=0.001, handle_unknown="ignore"))
+        preprocessing_pipeline = sklearn.pipeline.make_pipeline(
+            tpot2.builtin_modules.ColumnSimpleImputer(
+                "categorical", strategy='most_frequent'), 
+            tpot2.builtin_modules.ColumnSimpleImputer(
+                "numeric", strategy='mean'), 
+                tpot2.builtin_modules.ColumnOneHotEncoder(
+                    "categorical", min_frequency=0.001, handle_unknown="ignore")
+            )
         X_train = preprocessing_pipeline.fit_transform(X_train)
         X_test = preprocessing_pipeline.transform(X_test)
 
@@ -94,8 +101,8 @@ def load_task(base_save_folder, task_id, r_or_c):
 
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
-        if not os.path.exists(f"{base_save_folder}/{task_id}"):
-            os.makedirs(f"{base_save_folder}/{task_id}")
+        if not os.path.exists(f"{base_save_folder}/{r_or_c}/{task_id}/"):
+            os.makedirs(f"{base_save_folder}/{r_or_c}/{task_id}/")
         with open(cached_data_path, "wb") as f:
             pickle.dump(d, f)
 
@@ -104,27 +111,23 @@ def load_task(base_save_folder, task_id, r_or_c):
 
 def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r_or_c, n_jobs):
     for taskid in task_id_lists:
-        save_folder = f"{base_save_folder}/{taskid}"
+        save_folder = f"{base_save_folder}/{r_or_c}/{taskid}/"
         time.sleep(random.random()*5)
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
         X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
         for level in [0.01, 0.1, 0.3, 0.5]:
                 for type_1 in ['MAR', 'MCAR', 'MNAR']:
-                    X_train_pandas = pd.DataFrame(X_train)
-                    print(X_train_pandas)
-                    X_test_pandas = pd.DataFrame(X_test)
-                    print(X_test_pandas)
-                    X_train_missing_p, mask_train = add_missing(X_train_pandas, add_missing=level, missing_type=type_1)
-                    X_test_missing_p, mask_test = add_missing(X_test_pandas, add_missing=level, missing_type=type_1)
-                    X_train_missing_n = X_train_missing_p.to_numpy()
-                    X_test_missing_n = X_test_missing_p.to_numpy()
+                    X_train_M, mask_train = add_missing(X_train, add_missing=level, missing_type=type_1)
+                    X_test_M, mask_test = add_missing(X_test, add_missing=level, missing_type=type_1)
+                    X_train_M = X_train_M.to_numpy()
+                    X_test_M = X_test_M.to_numpy()
                     for exp in experiments:
                         for num_run in range(num_runs):
                             #print('loc4')
                             levelstr = str(level)
-                            save_folder = f"{base_save_folder}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
-                            checkpoint_folder = f"{base_save_folder}/checkpoint/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
+                            save_folder = f"{base_save_folder}/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
+                            checkpoint_folder = f"{base_save_folder}/checkpoint//{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
                             #print('loc5')
                             time.sleep(random.random()*5)
                             if not os.path.exists(save_folder):
@@ -143,17 +146,18 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                             print(duration)
 
                             try:
-
                                 print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
-                                
                                 #Simple Impute 
                                 all_scores = {}
-                            
-                                if exp['exp_name'] == 'tpot2_base_normal':
-                                    SimpleImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer'], n_jobs=48, show_progress=False, random_state=num_runs)
-                                    SimpleImputeSpace.fit(X_train_missing_p)
+                                if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
+                                    SimpleImputeSpace = autoimpute.AutoImputer(
+                                        missing_type=type_1, 
+                                        model_names=['SimpleImputer'], 
+                                        n_jobs=n_jobs, show_progress=False, 
+                                        random_state=num_runs)
+                                    SimpleImputeSpace.fit(X_train_M)
                                     print('simple fit')
-                                    simple_impute = SimpleImputeSpace.transform(X_test_missing_p)
+                                    simple_impute = SimpleImputeSpace.transform(X_test_M)
                                     print('simple transform')
                                     print(simple_impute)
                                     simple_rmse = SimpleImputeSpace.study.best_trial.value

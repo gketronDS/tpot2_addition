@@ -7,6 +7,7 @@ import time
 import sklearn.datasets
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
+import utils
 
 
 
