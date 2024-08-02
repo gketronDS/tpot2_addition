@@ -70,9 +70,11 @@ def load_task(base_save_folder, task_id, r_or_c):
         #kwargs = {'force_refresh_cache': True}
         task = openml.datasets.get_dataset(task_id)
         X, y, _, _  = task.get_data(dataset_format="dataframe")
+        print(X)
+        print(y)
         if y is None: 
-            y = X[:, -1]
-            X = X[:, :-1]
+            y = X.iloc[:, -1:]
+            X = X.iloc[:, :-1]
         print(X)
         print(y)
         X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.1)
