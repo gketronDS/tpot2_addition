@@ -238,7 +238,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 all_scores["level"] = level
                                 all_scores["type"] = type_1
                                 all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
-                                all_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                                all_scores["name"] = openml.datasets.get_dataset(taskid).name
                                 all_scores["duration"] = duration
                                 all_scores["run"] = num_runs
                                 all_scores["fit_model"] = est.fitted_pipeline_
@@ -297,7 +297,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 tpot_space_scores["start"] = start
                                 tpot_space_scores["taskid"] = taskid
                                 tpot_space_scores["exp_name"] = exp['exp_name']
-                                tpot_space_scores["name"] = openml.datasets.get_dataset(openml.tasks.get_task(taskid).dataset_id).name
+                                tpot_space_scores["name"] = openml.datasets.get_dataset(taskid).name
                                 tpot_space_scores["duration"] = duration
                                 tpot_space_scores["run"] = num_runs
                                 tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
