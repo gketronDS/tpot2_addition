@@ -153,8 +153,10 @@ def main():
     
     print('starting loops')
     start = time.time()
+    '''
     utils.loop_through_tasks(class_experiments, classification_id_list, 
                              base_save_folder, num_runs, 'c', n_jobs=n_jobs)
+    '''
     utils.loop_through_tasks(reg_experiments, regression_id_list, 
                              base_save_folder, num_runs, 'r', n_jobs=n_jobs)
     stop = time.time()

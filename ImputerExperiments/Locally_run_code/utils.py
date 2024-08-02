@@ -61,7 +61,7 @@ def score(est, X, y, r_or_c):
 #https://github.com/automl/ASKL2.0_experiments/blob/84a9c0b3af8f7ac6e2a003d4dea5e6dce97d4315/experiment_scripts/utils.py
 def load_task(base_save_folder, task_id, r_or_c):
     
-    cached_data_path = f"{base_save_folder}/{r_or_c}/{task_id}/{task_id}.pkl"
+    cached_data_path = f"{base_save_folder}/{task_id}.pkl"
     print(cached_data_path)
     if os.path.exists(cached_data_path):
         d = pickle.load(open(cached_data_path, "rb"))
@@ -69,7 +69,12 @@ def load_task(base_save_folder, task_id, r_or_c):
     else:
         #kwargs = {'force_refresh_cache': True}
         task = openml.datasets.get_dataset(task_id)
-        X, y, _, _ = task.get_data(dataset_format="dataframe")
+        X, y, _, _  = task.get_data(dataset_format="dataframe")
+        if y is None: 
+            y = X[:, -1]
+            X = X[:, :-1]
+        print(X)
+        print(y)
         X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.1)
 
         preprocessing_pipeline = sklearn.pipeline.make_pipeline(
@@ -98,8 +103,8 @@ def load_task(base_save_folder, task_id, r_or_c):
 
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
-        if not os.path.exists(f"{base_save_folder}/{r_or_c}/{task_id}/"):
-            os.makedirs(f"{base_save_folder}/{r_or_c}/{task_id}/")
+        if not os.path.exists(f"{base_save_folder}"):
+            os.makedirs(f"{base_save_folder}")
         with open(cached_data_path, "wb") as f:
             pickle.dump(d, f)
 
@@ -108,7 +113,7 @@ def load_task(base_save_folder, task_id, r_or_c):
 
 def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r_or_c, n_jobs):
     for taskid in task_id_lists:
-        save_folder = f"{base_save_folder}/{r_or_c}/{taskid}/"
+        save_folder = f"{base_save_folder}/{r_or_c}/{taskid}"
         time.sleep(random.random()*5)
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
@@ -124,7 +129,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                             #print('loc4')
                             levelstr = str(level)
                             save_folder = f"{base_save_folder}/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
-                            checkpoint_folder = f"{base_save_folder}/checkpoint//{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
+                            checkpoint_folder = f"{base_save_folder}/checkpoint/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_run}"
                             #print('loc5')
                             time.sleep(random.random()*5)
                             if not os.path.exists(save_folder):
