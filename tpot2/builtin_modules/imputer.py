@@ -223,7 +223,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
         G_sample = self.modelG(X_mb, New_X_mb, M_mb)
         mse_loss = torch.nn.MSELoss(reduction='mean')
         mse_final = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
-        print('Final Test RMSE: ' + str(np.sqrt(mse_final.item())))
+        #print('Final Test RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
         if self.device != 'cpu':

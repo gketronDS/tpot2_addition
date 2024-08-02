@@ -178,7 +178,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     all_scores['impute_space'] = simple_space
                                 else:
                                     #Auto Impute 
-                                    AutoImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'RandomForestImputer'], n_jobs=n_jobs, show_progress=False, random_state=num_runs)
+                                    AutoImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN'], n_jobs=n_jobs, show_progress=False, random_state=num_runs)
                                     impute_train = AutoImputeSpace.fit_transform(X_train_M)
                                     print('auto fit')
                                     impute_test = AutoImputeSpace.transform(X_test_M)
