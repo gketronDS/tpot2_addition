@@ -135,6 +135,7 @@ def main():
             },
             ]
     #try with 67 / 69 benchmark sets
+    '''
     classification_id_list = [6, 26, 30, 32, 137, 151, 183, 184, 251, 310, 375, 725,
                               728, 737, 803, 847, 871, 881, 901, 923, 1046, 
                               1120, 1220, 1558, 1526, 1507, 1489, 1496, 1481,
@@ -143,6 +144,10 @@ def main():
                               41671, 41146, 42192]
     regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 42183, 
                           42545, 42225, 42712, 287, 42688, 23515]
+    '''
+    classification_id_list = [6]
+    regression_id_list = [189]
+
     
     print('starting loops')
     start = time.time()

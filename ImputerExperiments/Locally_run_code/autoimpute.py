@@ -7,14 +7,19 @@ from sklearn.model_selection import ShuffleSplit
 from sklearn.model_selection import KFold
 import time
 import utils
-import autoutils
 import warnings
 warnings.filterwarnings("ignore")
+import optuna
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
+from sklearn.impute import KNNImputer
+from sklearn.impute import SimpleImputer
+from ...tpot2.builtin_modules.imputer import GainImputer
 
 
 class AutoImputer():
   def __init__(self, internal_folds=10, n_trials=200, 
-               random_state = 42, CV_state = True, added_missing = 0.05, 
+               random_state = None, CV_state = True, added_missing = 0.05, 
                missing_type: str = 'MAR', 
                model_names: list = ['SimpleImputer' , 
                                     'IterativeImputer',
@@ -43,7 +48,6 @@ class AutoImputer():
     self.n_trials=n_trials
     self.random_state = random_state
     self.internal_folds = internal_folds
-    self.acc_model = sklearn.linear_model.LogisticRegression()
     self.CV_state = CV_state
     self.added_missing = added_missing
     self.missing_type = missing_type
@@ -64,13 +68,13 @@ class AutoImputer():
       splitting = KFold(n_splits=self.internal_folds, 
                         random_state=self.random_state, shuffle=True)
     def obj(trial):
-      my_params = autoutils.trial_suggestion(trial, self.model_names, 
-                                             column_len=len(X.columns), 
+      my_params = trial_suggestion(trial, self.model_names, 
+                                             column_len=X.shape[1],
+                                             n_samples = X.shape[0], 
                                              random_state=self.random_state)
       trial.set_user_attr("out_params", my_params)
-      my_model = autoutils.MyModel(random_state = self.random_state, 
-                                   **my_params)
-      return autoutils.score(trial, splitting, my_model, X, 
+      my_model = MyModel(**my_params)
+      return score(trial, splitting, my_model, X, 
                              self.missing_set_train, self.masked_set_train)
     self.study = optuna.create_study(sampler=self.sampler, 
                                      direction=self.direction)
@@ -78,8 +82,7 @@ class AutoImputer():
                         n_jobs=self.n_jobs, 
                         show_progress_bar=self.show_progress, 
                         gc_after_trial=self.garbage_collect)
-    self.best_model = autoutils.MyModel(random_state = self.random_state, 
-                              **self.study.best_trial.user_attrs["out_params"]) 
+    self.best_model = MyModel(**self.study.best_trial.user_attrs["out_params"]) 
     self.best_model.fit(X)
     stop_time = time.time()
     self.fit_time = stop_time - start_time
@@ -97,67 +100,65 @@ class AutoImputer():
 
   def fit_transform(self, X: pd.DataFrame, y: pd.DataFrame = None):
     self.fit(X, y)
-    imputed_set = self.transform(X, y)
-    return imputed_set
+    return self.transform(X, y)
   
   def missing_sets(self):
     return self.missing_set_train, self.masked_set_train, self.missing_set_test, self.masked_set_test
-  
-import numpy as np
-import pandas as pd
-import optuna
-from sklearn.impute import SimpleImputer
-from sklearn.experimental import enable_iterative_imputer
-from sklearn.impute import IterativeImputer
-from sklearn.impute import KNNImputer
-from sklearn.impute import SimpleImputer
-from param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
-from transformers import RandomForestImputer, GAINImputer
 
-
-def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len,random_state):
+def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len, n_samples, random_state):
     model_name = trial.suggest_categorical('model_name', model_names)# Model names set up to run on multiple or individual models. Options include: 'SimpleImputer' , 'IterativeImputer','KNNImputer', 'VAEImputer', 'GAIN', 'Opt.SVM', 'Opt.Trees'.  Not yet working: 'DLImputer', Random Forest Imputer 
-    my_params = {}
     match model_name:
       case 'SimpleImputer':
-        my_params = params_SimpleImpute(trial, model_name)  #Takes data from each column to input a value for all missing data. 
+        my_params = params_SimpleImpute(trial)  #Takes data from each column to input a value for all missing data. 
       case 'IterativeImputer':
-        my_params = params_IterativeImpute(trial,model_name) #Uses the dependence between columns in the data set to predict for the one column. Predictions occur through a variety of strategies.
+        my_params = params_IterativeImpute(trial, column_len,random_state) #Uses the dependence between columns in the data set to predict for the one column. Predictions occur through a variety of strategies.
       case 'KNNImputer':
-        my_params = params_KNNImpute(trial,model_name) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
+        my_params = params_KNNImpute(trial, n_samples) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
       case 'GAIN':
-        my_params = params_GAINImpute(trial,model_name) #Uses a generative adversarial network model to predict values. 
-      case 'RandomForestImputer': #uses a hyperparameter optimized SVM model to predict values to impute.
-        my_params = params_RandomForestImpute(trial, model_name)
+        my_params = params_GAINImpute(trial, random_state) #Uses a generative adversarial network model to predict values. 
     my_params['model_name'] = model_name
     return my_params
   
-def MyModel(random_state, **params):
+def MyModel(**params):
     these_params = params
     model_name = these_params['model_name']
     del these_params['model_name']
-
     match model_name:
         case 'SimpleImputer':
             this_model = SimpleImputer(
                 **these_params
                 )
         case 'IterativeImputer':
+            match params['estimator']:
+                case 'Bayesian':
+                        estimator = sklearn.linear_model.BayesianRidge()
+                case 'RFR':
+                        estimator = sklearn.ensemble.RandomForestRegressor()
+                case 'Ridge':
+                        estimator = sklearn.linear_model.Ridge()
+                case 'KNN':
+                        estimator = sklearn.neighbors.KNeighborsRegressor()
+            final_params = {
+            'estimator' : estimator,
+            'initial_strategy' : params['initial_strategy'],
+            'n_nearest_features' : params['n_nearest_features'],
+            'imputation_order' : params['imputation_order'],
+            }
+            if 'sample_posterior' in params:
+                final_params['sample_posterior'] = params['sample_posterior']
+            if 'random_state' in params:
+                final_params['random_state'] = params['random_state']
             this_model = IterativeImputer(
-                **these_params
+                **final_params
                 )
         case 'KNNImputer':
             this_model = KNNImputer( 
                 **these_params
                 )
         case 'GAIN':
-            this_model = GAINImputer(
+            this_model = GainImputer(
                 **these_params
                 )
-        case 'RandomForestImputer': #uses a hyperparameter optimized SVM model to predict values to impute.
-            this_model = RandomForestImputer(
-                **these_params
-            )
     return this_model
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
@@ -202,127 +203,39 @@ def rmse_loss(ori_data, imputed_data, data_m):
     rmse = np.sqrt(nominator/float(denominator))
     return rmse
 
-""" BEYOND THIS POINT WRITTEN BY Piotr Slomka - https://www.nature.com/articles/s41598-021-93651-5.pdf"""
-
-def convert_col(pd_series,keep_missing=True):
-    df = pd.DataFrame(pd_series)
-    new_df =  df.stack().str.get_dummies(sep=',')
-    new_df.columns = new_df.columns.str.strip()
-    if keep_missing and 'nan' in new_df.columns: #this means there were missing values
-        new_df.loc[new_df['nan']==1] = np.nan
-        new_df.drop('nan', inplace=True,axis=1)
-    new_df = new_df.stack().groupby(level=[0,1,2]).sum().unstack(level=[1,2])
-    return new_df
-
-#One hot encodes all categorical features. (if continuous included, each value will be counted as a discrete category)
-def convert_all_cols(df,features_to_one_hot,keep_missing=True):
-    new_df = pd.concat([convert_col(df[feature],keep_missing) for feature in features_to_one_hot],axis=1)
-    return pd.concat([df.drop(features_to_one_hot, axis = 1),new_df],axis=1)
-
-def one_hot_encode(spect_df,keep_missing=True):
-    categorical_feature_names = spect_df.select_dtypes(include=object).columns
-    numerical_feature_names = spect_df.select_dtypes(include=float).columns
-    spect_df = convert_all_cols(spect_df,categorical_feature_names,keep_missing=keep_missing)
-    #change binary ints into floats
-    spect_df = spect_df.astype(float)
-    #change column names from tuples to strings for the imputer to work better
-    change_column_name_from_tuple_to_string = lambda cname: '__'.join(cname) if type(cname)==tuple else cname
-    spect_df.columns = spect_df.columns.map(change_column_name_from_tuple_to_string)
-    return spect_df
-
-import tpot2
-import optuna
-import sklearn
-
-def params_SimpleImpute(trial, name=None):
+def params_SimpleImpute(trial):
     params = {}
     params['strategy'] = trial.suggest_categorical('strategy', ['mean', 'median', 'most_frequent', 'constant'])
-    param_grid = {
-        'strategy': params['strategy']
-    }
+    return params
 
-    return param_grid
-
-def params_IterativeImpute(trial, name=None):
+def params_IterativeImpute(trial, column_len, random_state=None):
     params = {}
-    #params['estimator'] = trial.suggest_categorical('estimator', ['Bayesian', 'RFR', 'Ridge', 'KNN'])
-    params['sample_posterior'] = trial.suggest_categorical('sample_posterior', [True, False])
+    params['estimator'] = trial.suggest_categorical('estimator', ['Bayesian', 'RFR', 'Ridge', 'KNN'])
     params['initial_strategy'] = trial.suggest_categorical('initial_strategy', ['mean', 'median', 'most_frequent', 'constant'])
-    params['n_nearest_features'] = None
+    params['n_nearest_features'] = trial.suggest_int('n_nearest_features', 1, column_len)
     params['imputation_order'] = trial.suggest_categorical('imputation_order', ['ascending', 'descending', 'roman', 'arabic', 'random'])
-    
-    est = params['estimator']
-    match est:
-        case 'Bayesian':
-                estimator = sklearn.linear_model.BayesianRidge()
-        case 'RFR':
-                estimator = sklearn.ensemble.RandomForestRegressor()
-        case 'Ridge':
-                estimator = sklearn.linear_model.Ridge()
-        case 'KNN':
-                estimator = sklearn.neighbors.KNeighborsRegressor()
-    
-    final_params = {
-            'estimator' : estimator,
-            'sample_posterior' : params['sample_posterior'],
-            'initial_strategy' : params['initial_strategy'],
-            'n_nearest_features' : params['n_nearest_features'],
-            'imputation_order' : params['imputation_order'],
-    }
+    if params['estimator'] =='Bayesian':
+        params['sample_posterior'] = trial.suggest_categorical('sample_posterior', [True, False])
+    if random_state is not None:
+        params['random_state'] = random_state
+    return params
 
-    if "random_state" in params:
-        final_params['random_state'] = params['random_state']
-
-    return final_params
-    return param_grid
-
-def params_KNNImpute(trial, name=None):
+def params_KNNImpute(trial, n_samples):
     params = {}
-    #params['n_nearest_features'] = None
+    params['n_neighbors'] = trial.suggest_int('n_neighbors', 1, max(100, n_samples))
     params['weights'] = trial.suggest_categorical('weights', ['uniform', 'distance'])
-    params['keep_empty_features'] = trial.suggest_categorical('keep_empty_features', [False])
-    param_grid = {
-        #'n_neighbors': params['n_nearest_features'],
-        'weights': params['weights'],
-        'add_indicator': False,
-        'keep_empty_features': params['keep_empty_features'],
-    }
-    return param_grid
+    return params
 
-def params_RandomForestImpute(trial, name=None):
-    params = {}
-    params['max_iter'] = trial.suggest_int('max_iter', 1, 100, step = 1, log = True)
-    params['decreasing'] = trial.suggest_categorical('decreasing', [True, False])
-    params['n_estimators'] = trial.suggest_int('max_iter', 50, 200, step = 1, log=True)
-    params['max_depth'] = None
-    params['min_samples_split'] = trial.suggest_float('min_samples_split', 0.0, 1.0, step = 0.1)
-    params['min_samples_leaf'] = trial.suggest_float('min_samples_leaf', 0.1, 0.9, step = 0.1)
-    params['max_features'] = trial.suggest_float('max_features', 0.1, 0.9, step = 0.1)
-    params['max_leaf_nodes'] = None
-    #params['bootstrap'] = trial.suggest_categorical('bootstrap', [True, False])
-    #params['oob_score'] = trial.suggest_categorical('oob_score', [True, False])
-    params['warm_start'] = trial.suggest_categorical('warm_start', [True, False])
-    params['class_weight'] = None
-    param_grid = {
-        'max_iter': params['max_iter'],
-        'decreasing': params['decreasing'],
-        'n_estimators': params['n_estimators'],
-        'max_depth': params['max_depth'],
-        'min_samples_split': params['min_samples_split'],
-        'min_samples_leaf': params['min_samples_leaf'],
-        'max_features': params['max_features'], 
-        'max_leaf_nodes': params['max_leaf_nodes'],
-        #'bootstrap': params['bootstrap'],
-        #'oob_score': params['oob_score'],
-        'warm_start': params['warm_start'],
-        'class_weight': params['class_weight']
-    }
-    return param_grid
-
-def params_GAINImpute(trial, name=None):
-    return { 
+def params_GAINImpute(trial, random_state=None):
+    params ={ 
         'batch_size': trial.suggest_int('batch_size', 1, 1000, log=True),
-        'hint_rate': trial.suggest_float('hint_rate', 0.01, 0.99, step = 0.01),
-        'alpha': trial.suggest_int('alpha', 0, 100, step = 1),
-        'iterations': trial.suggest_int('iterations', 1, 100000, log=True)
+        'hint_rate': trial.suggest_float('hint_rate', 0.01, 0.99),
+        'alpha': trial.suggest_int('alpha', 0, 100),
+        'iterations': trial.suggest_int('iterations', 1, 100000, log=True),
+        'learning_rate': trial.suggest_float('learning_rate', 0.0001, 0.1, log=True),
+        'p_miss': trial.suggest_float('learning_rate', 0.01, 0.3),
     }
+    if random_state is not None: 
+            params['random_state'] = random_state
+    return params
+
