@@ -26,37 +26,49 @@ from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
 
 
 def score(est, X, y, r_or_c):
+    if r_or_c == 'c':
+        try:
+            this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
+        except:
+            y_preds = est.predict(X)
+            y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+            this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds_onehot, multi_class="ovr")
+        
+        try:
+            this_logloss = sklearn.metrics.get_scorer("neg_log_loss")(est, X, y)*-1
+        except:
+            y_preds = est.predict(X)
+            y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
+            this_logloss = log_loss(y, y_preds_onehot)
 
-    try:
-        this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
-    except:
-        y_preds = est.predict(X)
-        y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds_onehot, multi_class="ovr")
-    
-    try:
-        this_logloss = sklearn.metrics.get_scorer("neg_log_loss")(est, X, y)*-1
-    except:
-        y_preds = est.predict(X)
-        y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-        this_logloss = log_loss(y, y_preds_onehot)
+        this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
+        this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
+        this_f1_score = sklearn.metrics.get_scorer("f1_weighted")(est, X, y)
 
-    this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
-    this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
+        return { "auroc": this_auroc_score,
+                "accuracy": this_accuracy_score,
+                "balanced_accuracy": this_balanced_accuracy_score,
+                "logloss": this_logloss,
+                "f1": this_f1_score,
+                }
+    else:
+        try: 
+            this_explained_score = sklearn.metrics.get_scorer("explained_variance")(est, X, y)
+        except:
+            y_preds = est.predict(X)
+            this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds)
+        try: 
+            this_rmse = sklearn.metrics.get_scorer("neg_mean_squared_error")(est, X, y)*-1
+        except:
+            y_preds = est.predict(X)
+            this_rmse = sklearn.metrics.mean_squared_error(y, y_preds)*-1
 
-    return { "auroc": this_auroc_score,
-            "accuracy": this_accuracy_score,
-            "balanced_accuracy": this_balanced_accuracy_score,
-            "logloss": this_logloss,
-            }
-
-
-'''
-    return { "explained_var": this_explained_score,
-            "r2": this_r2_score,
-            "rmse": this_rmse,
+        this_r2_score = sklearn.metrics.get_scorer("r2")(est, X, y)
+        return { "explained_var": this_explained_score,
+                "r2": this_r2_score,
+                "rmse": this_rmse,
     }
-'''
+
 
 #https://github.com/automl/ASKL2.0_experiments/blob/84a9c0b3af8f7ac6e2a003d4dea5e6dce97d4315/experiment_scripts/utils.py
 def load_task(base_save_folder, task_id, r_or_c):
@@ -75,10 +87,7 @@ def load_task(base_save_folder, task_id, r_or_c):
         if y is None: 
             y = X.iloc[:, -1:]
             X = X.iloc[:, :-1]
-        print(X)
-        print(y)
-        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.1)
-
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
         preprocessing_pipeline = sklearn.pipeline.make_pipeline(
             tpot2.builtin_modules.ColumnSimpleImputer(
                 "categorical", strategy='most_frequent'), 
@@ -193,7 +202,6 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
                                 # not the role of various imputers in the tpot optimization space. 
 
-                                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
                                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                                 if r_or_c == 'c':
                                     estimator_params = exp['params']
@@ -256,7 +264,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
 
                                 print("running experiment 3/3 - What is the best automl settings?")
 
-                                exp['params']['cv'] = sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs)
+        
                                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                                 tpot_space = exp['automl'](**exp['params'])
                                 print(exp['automl'])
@@ -271,7 +279,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 print(tpot_space.fitted_pipeline_)
                                 X_train_transform = tpot_space.fitted_pipeline_[0].transform(X_train_M)
                                 print('transform worked')
-                                rmse_loss_train3 = autoimpute.rmse_loss(ori_data=X_train, imputed_data=X_train_transform, data_m=np.multiply(mask_test.to_numpy(),1))
+                                rmse_loss_train3 = autoimpute.rmse_loss(ori_data=X_train, imputed_data=X_train_transform, data_m=np.multiply(mask_train.to_numpy(),1))
                                 print('try transform')
                                 X_test_transform = tpot_space.fitted_pipeline_[0].transform(X_test_M)
                                 print('transform worked')

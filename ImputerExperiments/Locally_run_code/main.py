@@ -54,7 +54,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 50, 
                     'n_jobs':n_jobs,
-                    'cv': 10,
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -70,7 +70,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 50, 
                     'n_jobs':n_jobs,
-                    'cv': 10,
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -87,7 +87,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 50, 
                     'n_jobs':n_jobs,
-                    'cv': 10,
+                    'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -103,7 +103,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 50, 
                     'n_jobs':n_jobs,
-                    'cv': 10,
+                    'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -153,10 +153,10 @@ def main():
     
     print('starting loops')
     start = time.time()
-    '''
+    
     utils.loop_through_tasks(class_experiments, classification_id_list, 
                              base_save_folder, num_runs, 'c', n_jobs=n_jobs)
-    '''
+    
     utils.loop_through_tasks(reg_experiments, regression_id_list, 
                              base_save_folder, num_runs, 'r', n_jobs=n_jobs)
     stop = time.time()
