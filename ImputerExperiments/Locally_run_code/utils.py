@@ -117,6 +117,16 @@ def load_task(base_save_folder, task_id, r_or_c):
 
 
 def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r_or_c, n_jobs):
+    device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else "mps"
+            if torch.backends.mps.is_available()
+            else "cpu"
+            )
+    torch.set_default_device(device)
+    torch.set_default_dtype(torch.float32)
+    torch.set_grad_enabled(True)
     for taskid in task_id_lists:
         save_folder = f"{base_save_folder}/{r_or_c}/{taskid}"
         time.sleep(random.random()*5)
