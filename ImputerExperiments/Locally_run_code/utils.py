@@ -11,9 +11,7 @@ import traceback
 import dill as pickle
 import os
 import time
-import tpot
 import openml
-import tpot2
 import sklearn.datasets
 import numpy as np
 import time
@@ -25,8 +23,7 @@ import pandas as pd
 import autoimpute
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
-from transformers import RandomForestImputer, GAINImputer
-from param_grids import params_SimpleImpute, params_IterativeImpute, params_KNNImpute, params_RandomForestImpute, params_GAINImpute
+
 
 def score(est, X, y, r_or_c):
 
@@ -210,7 +207,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 stop = time.time()
                                 duration = stop - start
                                 print('Fitted')
-                                if exp['automl'] is tpot.TPOTClassifier:
+                                if exp['automl'] is tpot2.TPOTClassifier:
                                     est.classes_ = est.fitted_pipeline_.classes_
                                 print(est.fitted_pipeline_)
                                 print('score start')
@@ -262,7 +259,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 stop = time.time()
                                 duration = stop - start
                                 print('Fitted')
-                                if exp['automl'] is tpot.TPOTClassifier:
+                                if exp['automl'] is tpot2.TPOTClassifier:
                                     tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
                                 print(tpot_space.fitted_pipeline_)
                                 X_train_transform = tpot_space.fitted_pipeline_[0].transform(X_train_M)

@@ -14,7 +14,7 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 from sklearn.impute import KNNImputer
 from sklearn.impute import SimpleImputer
-from ...tpot2.builtin_modules.imputer import GainImputer
+from tpot2.builtin_modules.imputer import GainImputer
 
 
 class AutoImputer():
