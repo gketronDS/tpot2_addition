@@ -18,7 +18,7 @@ from tpot2.builtin_modules.imputer import GainImputer
 
 
 class AutoImputer():
-  def __init__(self, internal_folds=10, n_trials=1, 
+  def __init__(self, internal_folds=10, n_trials=5, 
                random_state = None, CV_state = True, added_missing = 0.05, 
                missing_type: str = 'MAR', 
                model_names: list = ['SimpleImputer' , 

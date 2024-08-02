@@ -52,7 +52,7 @@ def main():
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 1, 
+                    'generations' : 5, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
@@ -68,7 +68,7 @@ def main():
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 1, 
+                    'generations' : 5, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
@@ -85,7 +85,7 @@ def main():
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 1, 
+                    'generations' : 5, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
@@ -101,7 +101,7 @@ def main():
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
-                    'generations' : 1, 
+                    'generations' : 5, 
                     'n_jobs':n_jobs,
                     'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs),
                     'verbose':5, 
@@ -147,8 +147,8 @@ def main():
     regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 42183, 
                           42545, 42225, 42712, 287, 42688, 23515]
     '''
-    classification_id_list = [6]
-    regression_id_list = [189]
+    classification_id_list = [26]
+    regression_id_list = [197]
 
     
     print('starting loops')
