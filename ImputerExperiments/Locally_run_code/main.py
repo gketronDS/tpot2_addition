@@ -20,6 +20,8 @@ def main():
     #where to save the results/models
     parser.add_argument("-s", "--savepath", default="binary_results", required=False, nargs='?')
 
+    parser.add_argument("-r", "--num_runs", default=1, required=False, nargs='?')
+
     args = parser.parse_args()
     n_jobs = int(args.n_jobs)
     base_save_folder = args.savepath
