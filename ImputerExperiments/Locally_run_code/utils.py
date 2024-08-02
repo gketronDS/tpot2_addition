@@ -118,15 +118,9 @@ def load_task(base_save_folder, task_id, r_or_c):
 
 def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r_or_c, n_jobs):
     device = (
-            "cuda"
-            if torch.cuda.is_available()
-            else "mps"
-            if torch.backends.mps.is_available()
-            else "cpu"
+            "cpu"
             )
     torch.set_default_device(device)
-    torch.set_default_dtype(torch.float32)
-    torch.set_grad_enabled(True)
     for taskid in task_id_lists:
         save_folder = f"{base_save_folder}/{r_or_c}/{taskid}"
         time.sleep(random.random()*5)
@@ -177,7 +171,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     print('simple fit')
                                     impute_test = SimpleImputeSpace.transform(X_test_M)
                                     print('simple transform')
-                                    print(impute_test)
+                                    print(impute_train.isna().sum())
+                                    print(impute_test.isna().sum())
                                     simple_rmse = SimpleImputeSpace.study.best_trial.value
                                     simple_space = SimpleImputeSpace.study.best_trial.params
                                     impute_train = impute_train.to_numpy()
@@ -193,7 +188,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     print('auto fit')
                                     impute_test = AutoImputeSpace.transform(X_test_M)
                                     print('auto transform')
-                                    print(impute_test)
+                                    print(impute_train.isna().sum())
+                                    print(impute_test.isna().sum())
                                     auto_rmse = AutoImputeSpace.study.best_trial.value
                                     auto_space = AutoImputeSpace.study.best_trial.params
                                     impute_train = impute_train.to_numpy()
@@ -355,7 +351,7 @@ def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
     missing_mask = missing_mask.mask(missing_mask.isna(), True)
     missing_mask = missing_mask.mask(missing_mask.notna(), False)
     X = X.mask(X.isna(), 0)
-    T = torch.tensor(X.to_numpy(), dtype=torch.float32)
+    T = torch.tensor(X.to_numpy())
 
     match missing_type:
         case 'MAR':
@@ -382,7 +378,7 @@ def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
 def MCAR(X, p_miss):
     out = {'X': X.double()}
     for p in p_miss: 
-        mask = (torch.rand(X.shape, dtype=torch.float32) < p).double()
+        mask = (torch.rand(X.shape) < p).double()
         X_nas = X.clone()
         X_nas[mask.bool()] = np.nan
         model_name = 'Missing'
@@ -395,25 +391,25 @@ def MAR(X,p_miss,p_obs=0.5):
     out = {'X': X.double()}
     for p in p_miss:
         n, d = X.shape
-        mask = torch.zeros(n, d, dtype=torch.float32).bool()
+        mask = torch.zeros(n, d).bool()
         num_no_missing = max(int(p_obs * d), 1)
         num_missing = d - num_no_missing
         obs_samples = np.random.choice(d, num_no_missing, replace=False)
         copy_samples = np.array([i for i in range(d) if i not in obs_samples])
         len_obs = len(obs_samples)
         len_na = len(copy_samples)
-        coeffs = torch.randn(len_obs, len_na, dtype=torch.float32).double()
+        coeffs = torch.randn(len_obs, len_na).double()
         Wx = X[:, obs_samples].mm(coeffs)
-        coeffs /= torch.std(Wx, 0, keepdim=True, dtype=torch.float32)
+        coeffs /= torch.std(Wx, 0, keepdim=True)
         coeffs.double()
         len_obs, len_na = coeffs.shape
-        intercepts = torch.zeros(len_na, dtype=torch.float32)
+        intercepts = torch.zeros(len_na)
         for j in range(len_na):
             def f(x):
-                return torch.sigmoid(X[:, obs_samples].mv(coeffs[:, j]) + x, dtype=torch.float32).mean().item() - p
+                return torch.sigmoid(X[:, obs_samples].mv(coeffs[:, j]) + x).mean().item() - p
             intercepts[j] = optimize.bisect(f, -50, 50)
-        ps = torch.sigmoid(X[:, obs_samples].mm(coeffs) + intercepts, dtype=torch.float32)
-        ber = torch.rand(n, len_na, dtype=torch.float32)
+        ps = torch.sigmoid(X[:, obs_samples].mm(coeffs) + intercepts)
+        ber = torch.rand(n, len_na)
         mask[:, copy_samples] = ber < ps
         X_nas = X.clone()
         X_nas[mask.bool()] = np.nan
@@ -451,10 +447,10 @@ def MNAR_mask_logistic(X, p_miss, p_params =.5, exclude_inputs=True):
     out = {'X_init_MNAR': X.double()}
     for p in p_miss: 
         n, d = X.shape
-        to_torch = torch.is_tensor(X, dtype=torch.float32) ## output a pytorch tensor, or a numpy array
+        to_torch = torch.is_tensor(X) ## output a pytorch tensor, or a numpy array
         if not to_torch:
-            X = torch.from_numpy(X, dtype=torch.float32)
-        mask = torch.zeros(n, d, dtype=torch.float32).bool() if to_torch else np.zeros((n, d)).astype(bool)
+            X = torch.from_numpy(X)
+        mask = torch.zeros(n, d).bool() if to_torch else np.zeros((n, d)).astype(bool)
         d_params = max(int(p_params * d), 1) if exclude_inputs else d ## number of variables used as inputs (at least 1)
         d_na = d - d_params if exclude_inputs else d ## number of variables masked with the logistic model
         ### Sample variables that will be parameters for the logistic regression:
@@ -465,25 +461,25 @@ def MNAR_mask_logistic(X, p_miss, p_params =.5, exclude_inputs=True):
         ### Pick coefficients so that W^Tx has unit variance (avoids shrinking)
         len_obs = len(idxs_params)
         len_na = len(idxs_nas)
-        coeffs = torch.randn(len_obs, len_na, dtype=torch.float32).double()
+        coeffs = torch.randn(len_obs, len_na).double()
         Wx = X[:, idxs_params].mm(coeffs)
-        coeffs /= torch.std(Wx, 0, keepdim=True, dtype=torch.float32)
+        coeffs /= torch.std(Wx, 0, keepdim=True)
         coeffs.double()
         ### Pick the intercepts to have a desired amount of missing values
         len_obs, len_na = coeffs.shape
-        intercepts = torch.zeros(len_na, dtype=torch.float32)
+        intercepts = torch.zeros(len_na)
         for j in range(len_na):
             def f(x):
-                return torch.sigmoid(X[:, idxs_params].mv(coeffs[:, j]) + x, dtype=torch.float32).mean().item() - p
+                return torch.sigmoid(X[:, idxs_params].mv(coeffs[:, j]) + x).mean().item() - p
             intercepts[j] = optimize.bisect(f, -50, 50)
-        ps = torch.sigmoid(X[:, idxs_params].mm(coeffs) + intercepts, dtype=torch.float32)
-        ber = torch.rand(n, d_na, dtype=torch.float32)
+        ps = torch.sigmoid(X[:, idxs_params].mm(coeffs) + intercepts)
+        ber = torch.rand(n, d_na)
         mask[:, idxs_nas] = ber < ps
         ## If the inputs of the logistic model are excluded from MNAR missingness,
         ## mask some values used in the logistic model at random.
         ## This makes the missingness of other variables potentially dependent on masked values
         if exclude_inputs:
-            mask[:, idxs_params] = torch.rand(n, d_params, dtype=torch.float32) < p
+            mask[:, idxs_params] = torch.rand(n, d_params) < p
         X_nas = X.clone()
         X_nas[mask.bool()] = np.nan
         model_name = 'Missing'
