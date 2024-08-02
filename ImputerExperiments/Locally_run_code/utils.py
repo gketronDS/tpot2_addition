@@ -106,12 +106,6 @@ def load_task(base_save_folder, task_id, r_or_c):
             le = sklearn.preprocessing.LabelEncoder()
             y_train = le.fit_transform(y_train)
             y_test = le.transform(y_test)
-        
-        X_train = X_train.to_numpy()
-        X_test = X_test.to_numpy()
-        y_train = y_train.to_numpy()
-        y_test = y_train.to_numpy()
-
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
         if not os.path.exists(f"{base_save_folder}"):
@@ -131,10 +125,12 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
         X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
         for level in [0.01, 0.1, 0.3, 0.5]:
                 for type_1 in ['MAR', 'MCAR', 'MNAR']:
+                    X_train = pd.DataFrame(X_train)
+                    X_test = pd.DataFrame(X_test)
                     X_train_M, mask_train = add_missing(X_train, add_missing=level, missing_type=type_1)
                     X_test_M, mask_test = add_missing(X_test, add_missing=level, missing_type=type_1)
-                    X_train_M = X_train_M.to_numpy()
-                    X_test_M = X_test_M.to_numpy()
+                    X_train_n = X_train_M.to_numpy()
+                    X_test_n = X_test_M.to_numpy()
                     for exp in experiments:
                         for num_run in range(num_runs):
                             #print('loc4')
@@ -270,7 +266,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 print(exp['automl'])
                                 print('Start tpot fit')
                                 start = time.time()
-                                tpot_space.fit(X_train_M, y_train)
+                                tpot_space.fit(X_train_n, y_train)
                                 stop = time.time()
                                 duration = stop - start
                                 print('Fitted')
@@ -285,9 +281,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 print('transform worked')
                                 rmse_loss_test3 = autoimpute.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
                                 print('score start')
-                                train_score = score(tpot_space, X_train_M, y_train)
+                                train_score = score(tpot_space, X_train_n, y_train)
                                 print('train score:', train_score)
-                                test_score = score(tpot_space, X_test_M, y_test)
+                                test_score = score(tpot_space, X_test_n, y_test)
                                 print('test score:', test_score)
                                 ori_test_score = score(est, X_test, y_test)
                                 print('original test score:', ori_test_score)

@@ -107,6 +107,7 @@ class AutoImputer():
 
 def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len, n_samples, random_state):
     model_name = trial.suggest_categorical('model_name', model_names)# Model names set up to run on multiple or individual models. Options include: 'SimpleImputer' , 'IterativeImputer','KNNImputer', 'VAEImputer', 'GAIN', 'Opt.SVM', 'Opt.Trees'.  Not yet working: 'DLImputer', Random Forest Imputer 
+    my_params = {}
     match model_name:
       case 'SimpleImputer':
         my_params = params_SimpleImpute(trial)  #Takes data from each column to input a value for all missing data. 
@@ -120,6 +121,7 @@ def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len, n_sample
     return my_params
   
 def MyModel(**params):
+    this_model = {}
     these_params = params
     model_name = these_params['model_name']
     del these_params['model_name']
@@ -233,7 +235,7 @@ def params_GAINImpute(trial, random_state=None):
         'alpha': trial.suggest_int('alpha', 0, 100),
         'iterations': trial.suggest_int('iterations', 1, 100000, log=True),
         'learning_rate': trial.suggest_float('learning_rate', 0.0001, 0.1, log=True),
-        'p_miss': trial.suggest_float('learning_rate', 0.01, 0.3),
+        'p_miss': trial.suggest_float('p_miss', 0.01, 0.3),
     }
     if random_state is not None: 
             params['random_state'] = random_state
