@@ -84,7 +84,7 @@ def get_GainImputer_config_space(random_state):
             'batch_size': Integer('batch_size', bounds=(1, 1000), log=True),
             'hint_rate': Float('hint_rate', bounds=(0.01, 0.99)),
             'alpha': Integer('alpha', bounds=(0, 100)),
-            'iterations': Integer('iterations', bounds=(1, 100000), log=True),
+            'iterations': Integer('iterations', bounds=(1, 10000), log=True),
             'learning_rate': Float('learning_rate', bounds=(0.0001, 0.1), log=True),
             'p_miss': Float('p_miss', bounds=(0.01, 0.30)),
     }

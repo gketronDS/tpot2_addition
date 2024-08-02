@@ -18,7 +18,7 @@ from tpot2.builtin_modules.imputer import GainImputer
 
 
 class AutoImputer():
-  def __init__(self, internal_folds=10, n_trials=200, 
+  def __init__(self, internal_folds=10, n_trials=1, 
                random_state = None, CV_state = True, added_missing = 0.05, 
                missing_type: str = 'MAR', 
                model_names: list = ['SimpleImputer' , 
@@ -27,7 +27,7 @@ class AutoImputer():
                                     'RandomForestImputer'], 
               sampler = optuna.samplers.TPESampler(), 
               direction ='minimize', n_jobs = 1, 
-              show_progress = True, garbage_collect=True):
+              show_progress = False, garbage_collect=True):
     '''
     Loads in meta-parameters. 
 
@@ -68,6 +68,7 @@ class AutoImputer():
       splitting = KFold(n_splits=self.internal_folds, 
                         random_state=self.random_state, shuffle=True)
     def obj(trial):
+      print('running')
       my_params = trial_suggestion(trial, self.model_names, 
                                              column_len=X.shape[1],
                                              n_samples = X.shape[0], 
@@ -84,6 +85,7 @@ class AutoImputer():
                         gc_after_trial=self.garbage_collect)
     self.best_model = MyModel(**self.study.best_trial.user_attrs["out_params"]) 
     self.best_model.fit(X)
+    print('fit')
     stop_time = time.time()
     self.fit_time = stop_time - start_time
     
@@ -233,7 +235,7 @@ def params_GAINImpute(trial, random_state=None):
         'batch_size': trial.suggest_int('batch_size', 1, 1000, log=True),
         'hint_rate': trial.suggest_float('hint_rate', 0.01, 0.99),
         'alpha': trial.suggest_int('alpha', 0, 100),
-        'iterations': trial.suggest_int('iterations', 1, 100000, log=True),
+        'iterations': trial.suggest_int('iterations', 1, 10000, log=True),
         'learning_rate': trial.suggest_float('learning_rate', 0.0001, 0.1, log=True),
         'p_miss': trial.suggest_float('p_miss', 0.01, 0.3),
     }
