@@ -80,7 +80,7 @@ def main():
     }
 
     regression_full = {
-                    'scorers':['neg_root_mean_square_error'],
+                    'scorers':['neg_root_mean_squared_error'],
                     'scorers_weights':[1],
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
@@ -96,7 +96,7 @@ def main():
                     'preprocessing':False,
     }
     regression_simple = {
-                    'scorers':['neg_root_mean_square_error'],
+                    'scorers':['neg_root_mean_squared_error'],
                     'scorers_weights':[1],
                     'population_size' : n_jobs,
                     'survival_percentage':1, 

@@ -5,7 +5,7 @@ import sklearn.metrics
 import sklearn
 from sklearn.metrics import (roc_auc_score, roc_curve, precision_score, auc, recall_score, precision_recall_curve, \
                              roc_auc_score, accuracy_score, balanced_accuracy_score, f1_score, log_loss,
-                             f1_score)
+                             f1_score, root_mean_squared_error)
 from sklearn.model_selection import train_test_split
 import traceback
 import dill as pickle
@@ -58,10 +58,10 @@ def score(est, X, y, r_or_c):
             y_preds = est.predict(X)
             this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds)
         try: 
-            this_rmse = sklearn.metrics.get_scorer("neg_mean_squared_error")(est, X, y)*-1
+            this_rmse = sklearn.metrics.get_scorer('neg_root_mean_squared_error')(est, X, y)*-1
         except:
             y_preds = est.predict(X)
-            this_rmse = sklearn.metrics.mean_squared_error(y, y_preds)*-1
+            this_rmse = sklearn.metrics.root_mean_squared_error(y, y_preds)*-1
 
         this_r2_score = sklearn.metrics.get_scorer("r2")(est, X, y)
         return { "explained_var": this_explained_score,
