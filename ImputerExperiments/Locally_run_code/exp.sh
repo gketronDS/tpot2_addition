@@ -1,12 +1,34 @@
+#!/bin/bash -l
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH -t 110:00:00
+#SBATCH --mem=0
+#SBATCH --job-name=tpot2-impute
+#SBATCH -p moore
+#SBATCH --exclusive
+#SBATCH --exclude=esplhpc-cp040
+#SBATCH --mail-type=FAIL,BEGIN,END
+#SBATCH --mail-user=Gabriel.Ketron@cshs.org
+#SBATCH --mail-user=gketron@uci.edu
+#SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
+#SBATCH --array=1-3
 
-echo "Initalize"
+RUN=${SLURM_ARRAY_TASK_ID:-1}
 
+echo "Run: ${RUN}"
 
-source ../../../env2/bin/activate
+module load git/2.33.1
+
+source /common/ketrong/tpotexp/env/bin/activate
+'''
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+'''
 
 echo RunStart
 
-python main.py \
---n_jobs 5 \
+srun -u /common/ketrong/tpotexp/env/bin/activate/python main.py \
+--n_jobs 48 \
 --savepath ../data \
---num_runs 3
+--num_runs ${RUN} \
