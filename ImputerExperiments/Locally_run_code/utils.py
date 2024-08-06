@@ -163,7 +163,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 #Simple Impute 
 
                                 all_scores = {}
-                                '''
+                                
                                 if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
                                     SimpleImputeSpace = autoimpute.AutoImputer(
                                         missing_type=type_1, 
@@ -200,7 +200,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     print(auto_space)
                                     all_scores['impute_rmse'] = auto_rmse
                                     all_scores['impute_space'] = auto_space
-                                '''
+                                
                                 print("running experiment 2/3 - Does reconstruction give good automl predictions")
                                 #this section trains off of original train data, and then tests on the original, the simpleimputed,
                                 #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
@@ -222,7 +222,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
 
                                 print('Start est fit')
                                 start = time.time()
-                                est.fit(X_train, y_train)
+                                est.fit(impute_train, y_train)
                                 stop = time.time()
                                 duration = stop - start
                                 print('Fitted')
@@ -230,11 +230,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     est.classes_ = est.fitted_pipeline_.classes_
                                 print(est.fitted_pipeline_)
                                 print('score start')
-                                train_score = score(est, X_train, y_train, r_or_c=r_or_c)
+                                train_score = score(est, impute_train, y_train, r_or_c=r_or_c)
                                 print('train score:', train_score)
                                 ori_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
                                 print('original test score:', ori_test_score)
-                                imputed_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
+                                imputed_test_score = score(est, impute_test, y_test, r_or_c=r_or_c)
                                 print('imputed test score:', imputed_test_score)
                                 print('score end')
                                 train_score = {f"train_{k}": v for k, v in train_score.items()}
