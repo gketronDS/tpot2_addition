@@ -24,6 +24,8 @@ import autoimpute
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
 
+import tpot2.tpot_estimator
+
 
 def score(est, X, y, r_or_c):
     if r_or_c == 'c':
@@ -32,7 +34,7 @@ def score(est, X, y, r_or_c):
         except:
             y_preds = est.predict(X)
             y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-            this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds_onehot, multi_class="ovr")
+            this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds_onehot)
         
         try:
             this_logloss = sklearn.metrics.get_scorer("neg_log_loss")(est, X, y)*-1
@@ -133,8 +135,6 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                     X_test = pd.DataFrame(X_test)
                     X_train_M, mask_train = add_missing(X_train, add_missing=level, missing_type=type_1)
                     X_test_M, mask_test = add_missing(X_test, add_missing=level, missing_type=type_1)
-                    X_train_n = X_train_M.to_numpy()
-                    X_test_n = X_test_M.to_numpy()
                     for exp in experiments:
                         for num_run in range(num_runs):
                             #print('loc4')
@@ -161,7 +161,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                             try:
                                 print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
                                 #Simple Impute 
+
                                 all_scores = {}
+                                '''
                                 if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
                                     SimpleImputeSpace = autoimpute.AutoImputer(
                                         missing_type=type_1, 
@@ -198,7 +200,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     print(auto_space)
                                     all_scores['impute_rmse'] = auto_rmse
                                     all_scores['impute_space'] = auto_space
-                                
+                                '''
                                 print("running experiment 2/3 - Does reconstruction give good automl predictions")
                                 #this section trains off of original train data, and then tests on the original, the simpleimputed,
                                 #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
@@ -206,21 +208,21 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
 
                                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
                                 if r_or_c == 'c':
-                                    estimator_params = exp['params']
+                                    estimator_params = exp['params'].copy()
                                     estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline(
                                         [tpot2.config.get_search_space("classifiers"),]
                                         )
-                                    est = exp['automl'](**estimator_params)
+                                    est = tpot2.tpot_estimator.TPOTEstimator(**estimator_params)
                                 else: 
                                     estimator_params = exp['params']
                                     estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline(
                                         [tpot2.config.get_search_space("regressors"),]
                                         )
-                                    est = exp['automl'](**estimator_params)
+                                    est = tpot2.tpot_estimator.TPOTEstimator(**estimator_params)
 
                                 print('Start est fit')
                                 start = time.time()
-                                est.fit(impute_train, y_train)
+                                est.fit(X_train, y_train)
                                 stop = time.time()
                                 duration = stop - start
                                 print('Fitted')
@@ -228,11 +230,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     est.classes_ = est.fitted_pipeline_.classes_
                                 print(est.fitted_pipeline_)
                                 print('score start')
-                                train_score = score(est, impute_train, y_train, r_or_c=r_or_c)
+                                train_score = score(est, X_train, y_train, r_or_c=r_or_c)
                                 print('train score:', train_score)
                                 ori_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
                                 print('original test score:', ori_test_score)
-                                imputed_test_score = score(est, impute_test, y_test, r_or_c=r_or_c)
+                                imputed_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
                                 print('imputed test score:', imputed_test_score)
                                 print('score end')
                                 train_score = {f"train_{k}": v for k, v in train_score.items()}
@@ -262,17 +264,17 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                     pickle.dump(all_scores, f)
 
                                 print('EXP2 Finished')
-                            
+                                
 
                                 print("running experiment 3/3 - What is the best automl settings?")
+                                os.remove(f"{checkpoint_folder}/population.pkl")
 
-        
                                 exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
-                                tpot_space = exp['automl'](**exp['params'])
-                                print(exp['automl'])
+                                tpot_space = exp['automl']
+                                print(exp['params']['search_space'])
                                 print('Start tpot fit')
                                 start = time.time()
-                                tpot_space.fit(X_train_n, y_train)
+                                tpot_space.fit(X_train_M, y_train)
                                 stop = time.time()
                                 duration = stop - start
                                 print('Fitted')
@@ -287,11 +289,11 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 print('transform worked')
                                 rmse_loss_test3 = autoimpute.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
                                 print('score start')
-                                train_score = score(tpot_space, X_train_n, y_train, r_or_c=r_or_c)
+                                train_score = score(tpot_space, X_train_M, y_train, r_or_c=r_or_c)
                                 print('train score:', train_score)
-                                test_score = score(tpot_space, X_test_n, y_test, r_or_c=r_or_c)
+                                test_score = score(tpot_space, X_test_M, y_test, r_or_c=r_or_c)
                                 print('test score:', test_score)
-                                ori_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
+                                ori_test_score = score(tpot_space, X_test, y_test, r_or_c=r_or_c)
                                 print('original test score:', ori_test_score)
                                 print('score end')
                                 tpot_space_scores = {}
@@ -312,7 +314,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                                 tpot_space_scores["rmse_loss_test3"] = rmse_loss_test3
 
 
-                                if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
+                                if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.tpot_estimator.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
                                     with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
                                         pickle.dump(tpot_space.evaluated_individuals, f)
 
