@@ -1,12 +1,11 @@
 #!/bin/bash -l
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=48
-#SBATCH -t 110:00:00
-#SBATCH --mem=0
+#SBATCH --cpus-per-task=16
+#SBATCH -t 250:00:00
+#SBATCH --mem=100000
 #SBATCH --job-name=tpot2-impute
-#SBATCH -p moore
-#SBATCH --exclusive
+#SBATCH -p defq,moore
 #SBATCH --exclude=esplhpc-cp040
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
@@ -28,7 +27,7 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u /common/ketrong/tpotexp/env/bin/activate/python main.py \
---n_jobs 48 \
+srun -u python3.10 main.py \
+--n_jobs 16 \
 --savepath ../data \
 --num_runs ${RUN} \
