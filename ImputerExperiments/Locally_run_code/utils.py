@@ -89,7 +89,10 @@ def load_task(base_save_folder, task_id, r_or_c):
         if y is None: 
             y = X.iloc[:, -1:]
             X = X.iloc[:, :-1]
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+        if r_or_c =='c':
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, stratify=y)
+        else: 
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
         preprocessing_pipeline = sklearn.pipeline.make_pipeline(
             tpot2.builtin_modules.ColumnSimpleImputer(
                 "categorical", strategy='most_frequent'), 
@@ -105,9 +108,9 @@ def load_task(base_save_folder, task_id, r_or_c):
         X_test = sklearn.preprocessing.normalize(X_test)
 
         if r_or_c =='c':
-            le = sklearn.preprocessing.OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
+            le = sklearn.preprocessing.LabelEncoder()
             y_train = le.fit_transform(y_train).reshape(-1,1)
-            y_test = le.transform(y_test).reshape(-1, 1)
+            y_test = le.transform(y_test).reshape(-1,1)
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
         if not os.path.exists(f"{base_save_folder}"):
