@@ -1,0 +1,38 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job913224/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+starting loops
+../data/r/1193/1193.pkl
+      LOW  ...        class
+0       0  ...  3323.165188
+1       1  ...  2306.884032
+2       1  ...  1772.771838
+3       1  ...  1412.204586
+4       0  ...  2943.023808
+...    ..  ...          ...
+31099   1  ...  1840.620254
+31100   1  ...  1895.120348
+31101   0  ...  3315.873842
+31102   0  ...  2437.853543
+31103   1  ...  2535.616613
+
+[31104 rows x 10 columns]
+None
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main.py", line 172, in <module>
+    main()
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main.py", line 161, in main
+    utils.loop_through_tasks(reg_experiments, regression_id_list, 
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 140, in loop_through_tasks
+    X_test_M, mask_test = add_missing(X_test, add_missing=level, missing_type=type_1)
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 362, in add_missing
+    out = MAR(T, [add_missing])
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 414, in MAR
+    intercepts[j] = optimize.bisect(f, -50, 50)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/scipy/optimize/_zeros_py.py", line 577, in bisect
+    r = _zeros._bisect(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs
+srun: error: esplhpc-cp004: task 0: Exited with exit code 1

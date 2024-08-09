@@ -148,8 +148,8 @@ def main():
     regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 42183, 
                           42545, 42225, 42712, 287, 42688, 23515]
     '''
-    #classification_id_list = [6]
-    regression_id_list = [215]
+    #classification_id_list = [26]
+    regression_id_list = [287]
 
     
     print('starting loops')
