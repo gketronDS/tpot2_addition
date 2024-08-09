@@ -144,23 +144,23 @@ def main():
                               1471, 4552, 1459, 4135, 40498, 40497, 40677, 
                               40685, 23395, 40983, 41027, 23517, 40701, 40922,
                               41671, 41146, 42192]
-    ran_reg[189, 197, 198, 215, 216, 218, 1193, 1199, 
+    ran_reg
     regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 42183, 
                           42545, 42225, 42712, 287, 42688, 23515]
     '''
-    classification_id_list = [6]
-    #regression_id_list = [23515]
+    #classification_id_list = [6]
+    regression_id_list = [215]
 
     
     print('starting loops')
     start = time.time()
-    
+    '''
     utils.loop_through_tasks(class_experiments, classification_id_list, 
                              base_save_folder, num_runs, 'c', n_jobs=n_jobs)
     '''
     utils.loop_through_tasks(reg_experiments, regression_id_list, 
                              base_save_folder, num_runs, 'r', n_jobs=n_jobs)
-    '''
+    
     stop = time.time()
     duration = stop - start
     print('full run takes')

@@ -105,9 +105,9 @@ def load_task(base_save_folder, task_id, r_or_c):
         X_test = sklearn.preprocessing.normalize(X_test)
 
         if r_or_c =='c':
-            le = sklearn.preprocessing.LabelEncoder()
-            y_train = le.fit_transform(y_train)
-            y_test = le.transform(y_test)
+            le = sklearn.preprocessing.OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
+            y_train = le.fit_transform(y_train).reshape(-1,1)
+            y_test = le.transform(y_test).reshape(-1, 1)
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
         if not os.path.exists(f"{base_save_folder}"):
@@ -335,8 +335,8 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
 
                             with open(f"{save_folder}/failed.pkl", "wb") as f:
                                 pickle.dump(pipeline_failure_dict, f)
-
                             return
+                    del X_train_M, X_test_M, mask_train, mask_test, levelstr, save_folder, checkpoint_folder, start, duration, all_scores, impute_train, impute_test, est, stop, train_score, ori_test_score, imputed_test_score, tpot_space, X_train_transform, X_test_transform, rmse_loss_test3, rmse_loss_train3, tpot_space_scores 
                 
         print(taskid)
         print('finished')

@@ -2,8 +2,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH -t 250:00:00
-#SBATCH --mem=100000
+#SBATCH -t 120:00:00
+#SBATCH --mem=330000
 #SBATCH --job-name=tpot2-impute
 #SBATCH -p defq,moore
 #SBATCH --exclude=esplhpc-cp040
