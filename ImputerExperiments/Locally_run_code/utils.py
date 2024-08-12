@@ -84,11 +84,20 @@ def load_task(base_save_folder, task_id, r_or_c):
         #kwargs = {'force_refresh_cache': True}
         task = openml.datasets.get_dataset(task_id)
         X, y, _, _  = task.get_data(dataset_format="dataframe")
-        print(X)
-        print(y)
         if y is None: 
             y = X.iloc[:, -1:]
             X = X.iloc[:, :-1]
+        X = pd.DataFrame(X)
+        y = pd.DataFrame(y)
+        pd.set_option('display.max_columns', None)
+        print(X)
+        print(type(X))
+        print(y)
+        print(type(y))
+        X = pd.get_dummies(X, dtype=float)
+        X = X*int(1)
+        print(X)
+        print(type(X))
         if r_or_c =='c':
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, stratify=y)
         else: 
@@ -101,7 +110,8 @@ def load_task(base_save_folder, task_id, r_or_c):
                 tpot2.builtin_modules.ColumnOneHotEncoder(
                     "categorical", min_frequency=0.001, handle_unknown="ignore")
             )
-        X_train = preprocessing_pipeline.fit_transform(X_train)
+        preprocessing_pipeline.fit(X_train)
+        X_train = preprocessing_pipeline.transform(X_train)
         X_test = preprocessing_pipeline.transform(X_test)
 
         X_train = sklearn.preprocessing.normalize(X_train)
@@ -109,8 +119,8 @@ def load_task(base_save_folder, task_id, r_or_c):
 
         if r_or_c =='c':
             le = sklearn.preprocessing.LabelEncoder()
-            y_train = le.fit_transform(y_train).reshape(-1,1)
-            y_test = le.transform(y_test).reshape(-1,1)
+            y_train = le.fit_transform(y_train)
+            y_test = le.transform(y_test)
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
         if not os.path.exists(f"{base_save_folder}"):
@@ -126,224 +136,588 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             "cpu"
             )
     torch.set_default_device(device)
+
     for taskid in task_id_lists:
         save_folder = f"{base_save_folder}/{r_or_c}/{taskid}"
         time.sleep(random.random()*5)
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
         X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
-        for level in [0.01, 0.1, 0.3, 0.5]:
-                for type_1 in ['MAR', 'MCAR', 'MNAR']:
-                    X_train = pd.DataFrame(X_train)
-                    X_test = pd.DataFrame(X_test)
-                    X_train_M, mask_train = add_missing(X_train, add_missing=level, missing_type=type_1)
-                    X_test_M, mask_test = add_missing(X_test, add_missing=level, missing_type=type_1)
-                    for exp in experiments:
-                        #print('loc4')
-                        levelstr = str(level)
-                        save_folder = f"{base_save_folder}/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_runs}"
-                        checkpoint_folder = f"{base_save_folder}/checkpoint/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_runs}"
-                        #print('loc5')
-                        time.sleep(random.random()*5)
-                        if not os.path.exists(save_folder):
-                            os.makedirs(save_folder)
-                        #print('loc6')
-                        time.sleep(random.random()*5)
-                        if not os.path.exists(checkpoint_folder):
-                            os.makedirs(checkpoint_folder)
+        match num_runs: 
+            case 1: 
+                level = 0.01
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 2: 
+                level = 0.1
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 3: 
+                level = 0.3
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 4: 
+                level = 0.5
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 5: 
+                level = 0.01
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 6: 
+                level = 0.1
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 7: 
+                level = 0.3
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 8: 
+                level = 0.5
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 9: 
+                level = 0.01
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 10: 
+                level = 0.1
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 11: 
+                level = 0.3
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 12: 
+                level = 0.5
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[0]
+            case 13: 
+                level = 0.01
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 14: 
+                level = 0.1
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 15: 
+                level = 0.3
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 16: 
+                level = 0.5
+                type_1 = 'MCAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 17: 
+                level = 0.01
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 18: 
+                level = 0.1
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 19: 
+                level = 0.3
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 20: 
+                level = 0.5
+                type_1 = 'MAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 21: 
+                level = 0.01
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 22: 
+                level = 0.1
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 23: 
+                level = 0.3
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 24: 
+                level = 0.5
+                type_1 = 'MNAR'
+                num_iter = 1
+                exp = experiments[1]
+            case 25: 
+                level = 0.01
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 26: 
+                level = 0.1
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 27: 
+                level = 0.3
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 28: 
+                level = 0.5
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 29: 
+                level = 0.01
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 30: 
+                level = 0.1
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 31: 
+                level = 0.3
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 32: 
+                level = 0.5
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 33: 
+                level = 0.01
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 34: 
+                level = 0.1
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 35: 
+                level = 0.3
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 36: 
+                level = 0.5
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[0]
+            case 37: 
+                level = 0.01
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 38: 
+                level = 0.1
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 39: 
+                level = 0.3
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 40: 
+                level = 0.5
+                type_1 = 'MCAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 41: 
+                level = 0.01
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 42: 
+                level = 0.1
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 43: 
+                level = 0.3
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 44: 
+                level = 0.5
+                type_1 = 'MAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 45: 
+                level = 0.01
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 46: 
+                level = 0.1
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 47: 
+                level = 0.3
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 48: 
+                level = 0.5
+                type_1 = 'MNAR'
+                num_iter = 2
+                exp = experiments[1]
+            case 49: 
+                level = 0.01
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 50: 
+                level = 0.1
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 51: 
+                level = 0.3
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 52: 
+                level = 0.5
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 53: 
+                level = 0.01
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 54: 
+                level = 0.1
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 55: 
+                level = 0.3
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 56: 
+                level = 0.5
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 57: 
+                level = 0.01
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 58: 
+                level = 0.1
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 59: 
+                level = 0.3
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 60: 
+                level = 0.5
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[0]
+            case 61: 
+                level = 0.01
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 62: 
+                level = 0.1
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 63: 
+                level = 0.3
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 64: 
+                level = 0.5
+                type_1 = 'MCAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 65: 
+                level = 0.01
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 66: 
+                level = 0.1
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 67: 
+                level = 0.3
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 68: 
+                level = 0.5
+                type_1 = 'MAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 69: 
+                level = 0.01
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 70: 
+                level = 0.1
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 71: 
+                level = 0.3
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[1]
+            case 72: 
+                level = 0.5
+                type_1 = 'MNAR'
+                num_iter = 3
+                exp = experiments[1]
+        X_train = X_train.round(8)                    
+        X_test = X_test.round(8)
+        X_train_M, mask_train = add_missing(X_train, add_missing=level, missing_type=type_1)
+        X_test_M, mask_test = add_missing(X_test, add_missing=level, missing_type=type_1)
+        levelstr = str(level)
+        save_folder = f"{base_save_folder}/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_iter}"
+        checkpoint_folder = f"{base_save_folder}/checkpoint/{r_or_c}/{taskid}/{exp['exp_name']}_{type_1}_{levelstr}_{num_iter}"
+        #print('loc5')
+        time.sleep(random.random()*5)
+        if not os.path.exists(save_folder):
+            os.makedirs(save_folder)
+        #print('loc6')
+        time.sleep(random.random()*5)
+        if not os.path.exists(checkpoint_folder):
+            os.makedirs(checkpoint_folder)
 
-                        print("working on ")
-                        print(save_folder)
+        print("working on ")
+        print(save_folder)
 
-                        start = time.time()
-                        time.sleep(random.random()*5)
-                        duration = time.time() - start
-                        print(duration)
+        start = time.time()
+        time.sleep(random.random()*5)
+        duration = time.time() - start
+        print(duration)
 
-                        try:
-                            print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
-                            #Simple Impute 
+        try:
+            print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
+            #Simple Impute 
+            
+            all_scores = {}
+            
+            if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
+                SimpleImputeSpace = autoimpute.AutoImputer(
+                    missing_type=type_1, 
+                    model_names=['SimpleImputer'], 
+                    n_jobs=n_jobs, show_progress=False, random_state=num_iter)
+                impute_train = SimpleImputeSpace.fit_transform(X_train_M)
+                print('simple fit')
+                impute_test = SimpleImputeSpace.transform(X_test_M)
+                print('simple transform')
+                print(impute_train.isna().sum())
+                print(impute_test.isna().sum())
+                simple_rmse = SimpleImputeSpace.study.best_trial.value
+                simple_space = SimpleImputeSpace.study.best_trial.params
+                impute_train = impute_train.to_numpy()
+                impute_test = impute_test.to_numpy()
+                print(simple_rmse)
+                print(simple_space)
+                all_scores['impute_rmse'] = simple_rmse
+                all_scores['impute_space'] = simple_space
+            else:
+                #Auto Impute 
+                AutoImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN'], n_jobs=n_jobs, show_progress=False, random_state=num_iter)
+                impute_train = AutoImputeSpace.fit_transform(X_train_M)
+                print('auto fit')
+                impute_test = AutoImputeSpace.transform(X_test_M)
+                print('auto transform')
+                print(impute_train.isna().sum())
+                print(impute_test.isna().sum())
+                auto_rmse = AutoImputeSpace.study.best_trial.value
+                auto_space = AutoImputeSpace.study.best_trial.params
+                impute_train = impute_train.to_numpy()
+                impute_test = impute_test.to_numpy()
+                print(auto_rmse)
+                print(auto_space)
+                all_scores['impute_rmse'] = auto_rmse
+                all_scores['impute_space'] = auto_space
+            
+            print("running experiment 2/3 - Does reconstruction give good automl predictions")
+            #this section trains off of original train data, and then tests on the original, the simpleimputed,
+            #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
+            # not the role of various imputers in the tpot optimization space. 
 
-                            all_scores = {}
-                            
-                            if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
-                                SimpleImputeSpace = autoimpute.AutoImputer(
-                                    missing_type=type_1, 
-                                    model_names=['SimpleImputer'], 
-                                    n_jobs=n_jobs, show_progress=False, random_state=num_runs)
-                                impute_train = SimpleImputeSpace.fit_transform(X_train_M)
-                                print('simple fit')
-                                impute_test = SimpleImputeSpace.transform(X_test_M)
-                                print('simple transform')
-                                print(impute_train.isna().sum())
-                                print(impute_test.isna().sum())
-                                simple_rmse = SimpleImputeSpace.study.best_trial.value
-                                simple_space = SimpleImputeSpace.study.best_trial.params
-                                impute_train = impute_train.to_numpy()
-                                impute_test = impute_test.to_numpy()
-                                print(simple_rmse)
-                                print(simple_space)
-                                all_scores['impute_rmse'] = simple_rmse
-                                all_scores['impute_space'] = simple_space
-                            else:
-                                #Auto Impute 
-                                AutoImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN'], n_jobs=n_jobs, show_progress=False, random_state=num_runs)
-                                impute_train = AutoImputeSpace.fit_transform(X_train_M)
-                                print('auto fit')
-                                impute_test = AutoImputeSpace.transform(X_test_M)
-                                print('auto transform')
-                                print(impute_train.isna().sum())
-                                print(impute_test.isna().sum())
-                                auto_rmse = AutoImputeSpace.study.best_trial.value
-                                auto_space = AutoImputeSpace.study.best_trial.params
-                                impute_train = impute_train.to_numpy()
-                                impute_test = impute_test.to_numpy()
-                                print(auto_rmse)
-                                print(auto_space)
-                                all_scores['impute_rmse'] = auto_rmse
-                                all_scores['impute_space'] = auto_space
-                            
-                            print("running experiment 2/3 - Does reconstruction give good automl predictions")
-                            #this section trains off of original train data, and then tests on the original, the simpleimputed,
-                            #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
-                            # not the role of various imputers in the tpot optimization space. 
+            exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
+            if r_or_c == 'c':
+                estimator_params = exp['params'].copy()
+                estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline(
+                    [tpot2.config.get_search_space("classifiers"),]
+                    )
+                est = tpot2.tpot_estimator.TPOTEstimator(**estimator_params)
+            else: 
+                estimator_params = exp['params']
+                estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline(
+                    [tpot2.config.get_search_space("regressors"),]
+                    )
+                est = tpot2.tpot_estimator.TPOTEstimator(**estimator_params)
 
-                            exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
-                            if r_or_c == 'c':
-                                estimator_params = exp['params'].copy()
-                                estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline(
-                                    [tpot2.config.get_search_space("classifiers"),]
-                                    )
-                                est = tpot2.tpot_estimator.TPOTEstimator(**estimator_params)
-                            else: 
-                                estimator_params = exp['params']
-                                estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline(
-                                    [tpot2.config.get_search_space("regressors"),]
-                                    )
-                                est = tpot2.tpot_estimator.TPOTEstimator(**estimator_params)
+            print('Start est fit')
+            start = time.time()
+            est.fit(impute_train, y_train)
+            stop = time.time()
+            duration = stop - start
+            print('Fitted')
+            if exp['automl'] is tpot2.TPOTClassifier:
+                est.classes_ = est.fitted_pipeline_.classes_
+            print(est.fitted_pipeline_)
+            print('score start')
+            train_score = score(est, impute_train, y_train, r_or_c=r_or_c)
+            print('train score:', train_score)
+            ori_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
+            print('original test score:', ori_test_score)
+            imputed_test_score = score(est, impute_test, y_test, r_or_c=r_or_c)
+            print('imputed test score:', imputed_test_score)
+            print('score end')
+            train_score = {f"train_{k}": v for k, v in train_score.items()}
+            all_scores['train_score'] = train_score
+            all_scores['ori_test_score']=ori_test_score
+            all_scores['imputed_test_score'] = imputed_test_score
+            all_scores["start"] = start
+            all_scores["taskid"] = taskid
+            all_scores["level"] = level
+            all_scores["type"] = type_1
+            all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
+            all_scores["name"] = openml.datasets.get_dataset(taskid).name
+            all_scores["duration"] = duration
+            all_scores["run"] = num_iter
+            all_scores["fit_model"] = est.fitted_pipeline_
+            all_scores["r_or_c"] = r_or_c
 
-                            print('Start est fit')
-                            start = time.time()
-                            est.fit(impute_train, y_train)
-                            stop = time.time()
-                            duration = stop - start
-                            print('Fitted')
-                            if exp['automl'] is tpot2.TPOTClassifier:
-                                est.classes_ = est.fitted_pipeline_.classes_
-                            print(est.fitted_pipeline_)
-                            print('score start')
-                            train_score = score(est, impute_train, y_train, r_or_c=r_or_c)
-                            print('train score:', train_score)
-                            ori_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
-                            print('original test score:', ori_test_score)
-                            imputed_test_score = score(est, impute_test, y_test, r_or_c=r_or_c)
-                            print('imputed test score:', imputed_test_score)
-                            print('score end')
-                            train_score = {f"train_{k}": v for k, v in train_score.items()}
-                            all_scores['train_score'] = train_score
-                            all_scores['ori_test_score']=ori_test_score
-                            all_scores['imputed_test_score'] = imputed_test_score
-                            all_scores["start"] = start
-                            all_scores["taskid"] = taskid
-                            all_scores["level"] = level
-                            all_scores["type"] = type_1
-                            all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
-                            all_scores["name"] = openml.datasets.get_dataset(taskid).name
-                            all_scores["duration"] = duration
-                            all_scores["run"] = num_runs
-                            all_scores["fit_model"] = est.fitted_pipeline_
-                            all_scores["r_or_c"] = r_or_c
+            if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
+                with open(f"{save_folder}/est_evaluated_individuals.pkl", "wb") as f:
+                    pickle.dump(est.evaluated_individuals, f)
+                    print('estimator working as intended')
+            print('check intended')
+            with open(f"{save_folder}/est_fitted_pipeline.pkl", "wb") as f:
+                pickle.dump(est.fitted_pipeline_, f)
 
-                            if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-                                with open(f"{save_folder}/est_evaluated_individuals.pkl", "wb") as f:
-                                    pickle.dump(est.evaluated_individuals, f)
-                                    print('estimator working as intended')
-                            print('check intended')
-                            with open(f"{save_folder}/est_fitted_pipeline.pkl", "wb") as f:
-                                pickle.dump(est.fitted_pipeline_, f)
+            with open(f"{save_folder}/all_scores.pkl", "wb") as f:
+                pickle.dump(all_scores, f)
 
-                            with open(f"{save_folder}/all_scores.pkl", "wb") as f:
-                                pickle.dump(all_scores, f)
+            print('EXP2 Finished')
+            
 
-                            print('EXP2 Finished')
-                            
-
-                            print("running experiment 3/3 - What is the best automl settings?")
-                            os.remove(f"{checkpoint_folder}/population.pkl")
-
-                            exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
-                            tpot_space = exp['automl']
-                            print(exp['params']['search_space'])
-                            print('Start tpot fit')
-                            start = time.time()
-                            tpot_space.fit(X_train_M, y_train)
-                            stop = time.time()
-                            duration = stop - start
-                            print('Fitted')
-                            if exp['automl'] is tpot2.TPOTClassifier:
-                                tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
-                            print(tpot_space.fitted_pipeline_)
-                            X_train_transform = tpot_space.fitted_pipeline_[0].transform(X_train_M)
-                            print('transform worked')
-                            rmse_loss_train3 = autoimpute.rmse_loss(ori_data=X_train, imputed_data=X_train_transform, data_m=np.multiply(mask_train.to_numpy(),1))
-                            print('try transform')
-                            X_test_transform = tpot_space.fitted_pipeline_[0].transform(X_test_M)
-                            print('transform worked')
-                            rmse_loss_test3 = autoimpute.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
-                            print('score start')
-                            train_score = score(tpot_space, X_train_M, y_train, r_or_c=r_or_c)
-                            print('train score:', train_score)
-                            test_score = score(tpot_space, X_test_M, y_test, r_or_c=r_or_c)
-                            print('test score:', test_score)
-                            ori_test_score = score(tpot_space, X_test, y_test, r_or_c=r_or_c)
-                            print('original test score:', ori_test_score)
-                            print('score end')
-                            tpot_space_scores = {}
-                            train_score = {f"train_{k}": v for k, v in train_score.items()}
-                            
-                            tpot_space_scores['train_score'] = train_score
-                            tpot_space_scores['test_score']=test_score    
-                            tpot_space_scores['ori_test_score']=ori_test_score    
-                            tpot_space_scores["start"] = start
-                            tpot_space_scores["taskid"] = taskid
-                            tpot_space_scores["exp_name"] = exp['exp_name']
-                            tpot_space_scores["name"] = openml.datasets.get_dataset(taskid).name
-                            tpot_space_scores["duration"] = duration
-                            tpot_space_scores["run"] = num_runs
-                            tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
-                            tpot_space_scores["r_or_c"] = r_or_c
-                            tpot_space_scores["rmse_loss_train3"] = rmse_loss_train3
-                            tpot_space_scores["rmse_loss_test3"] = rmse_loss_test3
+            print("running experiment 3/3 - What is the best automl settings?")
+            os.remove(f"{checkpoint_folder}/population.pkl")
+            
+            exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
+            tpot_space = exp['automl']
+            print(exp['params']['search_space'])
+            print('Start tpot fit')
+            start = time.time()
+            tpot_space.fit(X_train_M, y_train)
+            stop = time.time()
+            duration = stop - start
+            print('Fitted')
+            if exp['automl'] is tpot2.TPOTClassifier:
+                tpot_space.classes_ = tpot_space.fitted_pipeline_.classes_
+            print(tpot_space.fitted_pipeline_)
+            X_train_transform = tpot_space.fitted_pipeline_[0].transform(X_train_M)
+            print('transform worked')
+            rmse_loss_train3 = autoimpute.rmse_loss(ori_data=X_train, imputed_data=X_train_transform, data_m=np.multiply(mask_train.to_numpy(),1))
+            print('try transform')
+            X_test_transform = tpot_space.fitted_pipeline_[0].transform(X_test_M)
+            print('transform worked')
+            rmse_loss_test3 = autoimpute.rmse_loss(ori_data=X_test, imputed_data=X_test_transform, data_m=np.multiply(mask_test.to_numpy(),1))
+            print('score start')
+            train_score = score(tpot_space, X_train_M, y_train, r_or_c=r_or_c)
+            print('train score:', train_score)
+            test_score = score(tpot_space, X_test_M, y_test, r_or_c=r_or_c)
+            print('test score:', test_score)
+            ori_test_score = score(tpot_space, X_test, y_test, r_or_c=r_or_c)
+            print('original test score:', ori_test_score)
+            print('score end')
+            tpot_space_scores = {}
+            train_score = {f"train_{k}": v for k, v in train_score.items()}
+            
+            tpot_space_scores['train_score'] = train_score
+            tpot_space_scores['test_score']=test_score    
+            tpot_space_scores['ori_test_score']=ori_test_score    
+            tpot_space_scores["start"] = start
+            tpot_space_scores["taskid"] = taskid
+            tpot_space_scores["exp_name"] = exp['exp_name']
+            tpot_space_scores["name"] = openml.datasets.get_dataset(taskid).name
+            tpot_space_scores["duration"] = duration
+            tpot_space_scores["run"] = num_iter
+            tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
+            tpot_space_scores["r_or_c"] = r_or_c
+            tpot_space_scores["rmse_loss_train3"] = rmse_loss_train3
+            tpot_space_scores["rmse_loss_test3"] = rmse_loss_test3
 
 
-                            if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.tpot_estimator.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-                                with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
-                                    pickle.dump(tpot_space.evaluated_individuals, f)
+            if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.tpot_estimator.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
+                with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
+                    pickle.dump(tpot_space.evaluated_individuals, f)
 
-                            with open(f"{save_folder}/tpot_space_fitted_pipeline.pkl", "wb") as f:
-                                pickle.dump(tpot_space.fitted_pipeline_, f)
+            with open(f"{save_folder}/tpot_space_fitted_pipeline.pkl", "wb") as f:
+                pickle.dump(tpot_space.fitted_pipeline_, f)
 
-                            with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
-                                pickle.dump(tpot_space_scores, f)
-                            
-                            #return
-                            
-                        except Exception as e:
-                            trace =  traceback.format_exc() 
-                            pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_runs, "error": str(e), "trace": trace, "level": level, "type": type_1}
-                            print("failed on ")
-                            print(save_folder)
-                            print(e)
-                            print(trace)
+            with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
+                pickle.dump(tpot_space_scores, f)
+            
+            #return
+            
+        except Exception as e:
+            trace =  traceback.format_exc() 
+            pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_iter, "error": str(e), "trace": trace, "level": level, "type": type_1}
+            print("failed on ")
+            print(save_folder)
+            print(e)
+            print(trace)
 
-                            with open(f"{save_folder}/failed.pkl", "wb") as f:
-                                pickle.dump(pipeline_failure_dict, f)
-                            return
-                    del X_train_M, X_test_M, mask_train, mask_test, levelstr, save_folder, checkpoint_folder, start, duration, all_scores, impute_train, impute_test, est, stop, train_score, ori_test_score, imputed_test_score, tpot_space, X_train_transform, X_test_transform, rmse_loss_test3, rmse_loss_train3, tpot_space_scores 
+            with open(f"{save_folder}/failed.pkl", "wb") as f:
+                pickle.dump(pipeline_failure_dict, f)
+            return 
                 
         print(taskid)
+        print('lvl')
+        print(level)
+        print('type')
+        print(type_1)
+        print('num_run')
+        print(num_iter)
+        print(exp['exp_name'])
         print('finished')
-    print("all finished")
+    print('all finished')
     return
 
 

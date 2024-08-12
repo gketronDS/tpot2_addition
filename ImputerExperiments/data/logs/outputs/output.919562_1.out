@@ -1,0 +1,1493 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job919562/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+starting loops
+../data/c/32/32.pkl
+       input1  ...  class
+0        47.0  ...      8
+1         0.0  ...      2
+2         0.0  ...      1
+3         0.0  ...      4
+4         0.0  ...      1
+...       ...  ...    ...
+10987    36.0  ...      4
+10988    16.0  ...      2
+10989    56.0  ...      0
+10990    19.0  ...      0
+10991    38.0  ...      4
+
+[10992 rows x 17 columns]
+None
+working on 
+../data/c/32/class_full_MAR_0.01_1
+2.3400375843048096
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x1554365061d0>
+Start tpot fit
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554764d2470> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554764d2890> 
+
+Generation:  1
+Best f1_score score: 0.9899787039217612
+Generation:   4%|▍         | 1/25 [10:02<4:01:05, 602.72s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475b79ff0> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+corrupted size vs. prev_size
+2024-08-12 11:56:28,928 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:41643' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-013d6fb64159349ef5c7442951c8ccc1', 'ndarray-2537211c881dca1dba663bf4631e1865'} (stimulus_id='handle-worker-cleanup-1723488988.9280205')
+Cancelled future (likely memory related)
+Generation:  2
+2024-08-12 11:56:28,962 - distributed.nanny - WARNING - Restarting worker
+Best f1_score score: 0.9940313849007987
+Generation:   8%|▊         | 2/25 [16:38<3:04:17, 480.77s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  3
+Best f1_score score: 0.9940313849007987
+Generation:  12%|█▏        | 3/25 [16:40<1:36:08, 262.19s/it]2024-08-12 11:56:32,982 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:33,011 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:33,012 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-548' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  4
+Best f1_score score: 0.9940313849007987
+Generation:  16%|█▌        | 4/25 [16:42<55:48, 159.47s/it]  Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  5
+Best f1_score score: 0.9940313849007987
+Generation:  20%|██        | 5/25 [16:44<34:15, 102.75s/it]2024-08-12 11:56:37,252 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:37,252 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:37,253 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-921871' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  6
+Best f1_score score: 0.9940313849007987
+Generation:  24%|██▍       | 6/25 [16:46<21:41, 68.52s/it] Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  7
+Best f1_score score: 0.9940313849007987
+Generation:  28%|██▊       | 7/25 [16:48<13:59, 46.64s/it]2024-08-12 11:56:40,747 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:40,748 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:40,748 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-922692' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  8
+Best f1_score score: 0.9940313849007987
+Generation:  32%|███▏      | 8/25 [16:49<09:10, 32.39s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  9
+Best f1_score score: 0.9940313849007987
+Generation:  36%|███▌      | 9/25 [16:52<06:07, 22.95s/it]2024-08-12 11:56:44,483 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:44,483 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:44,484 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-923469' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  10
+Best f1_score score: 0.9940313849007987
+Generation:  40%|████      | 10/25 [16:53<04:05, 16.34s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  11
+Best f1_score score: 0.9940313849007987
+Generation:  44%|████▍     | 11/25 [16:55<02:48, 12.05s/it]2024-08-12 11:56:48,887 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:48,888 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:48,892 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-924401' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  12
+Best f1_score score: 0.9940313849007987
+Generation:  48%|████▊     | 12/25 [16:58<01:57,  9.02s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  13
+Best f1_score score: 0.9940313849007987
+Generation:  52%|█████▏    | 13/25 [16:59<01:21,  6.77s/it]2024-08-12 11:56:52,392 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:52,392 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:52,393 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-925205' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  14
+Best f1_score score: 0.9940313849007987
+Generation:  56%|█████▌    | 14/25 [17:01<00:58,  5.30s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  15
+Best f1_score score: 0.9940313849007987
+Generation:  60%|██████    | 15/25 [17:03<00:41,  4.19s/it]2024-08-12 11:56:56,212 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:56,212 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:56,213 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-926310' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  16
+Best f1_score score: 0.9940313849007987
+Generation:  64%|██████▍   | 16/25 [17:05<00:32,  3.59s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  17
+Best f1_score score: 0.9940313849007987
+Generation:  68%|██████▊   | 17/25 [17:07<00:24,  3.02s/it]2024-08-12 11:56:59,912 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:59,912 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:56:59,913 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-927413' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  18
+Best f1_score score: 0.9940313849007987
+Generation:  72%|███████▏  | 18/25 [17:09<00:19,  2.72s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  19
+Best f1_score score: 0.9940313849007987
+Generation:  76%|███████▌  | 19/25 [17:10<00:14,  2.44s/it]2024-08-12 11:57:03,295 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:57:03,295 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:57:03,296 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-928349' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  20
+Best f1_score score: 0.9940313849007987
+Generation:  80%|████████  | 20/25 [17:12<00:10,  2.18s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  21
+Best f1_score score: 0.9940313849007987
+Generation:  84%|████████▍ | 21/25 [17:14<00:08,  2.23s/it]2024-08-12 11:57:07,446 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:57:07,446 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:57:07,447 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-929312' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  22
+Best f1_score score: 0.9940313849007987
+Generation:  88%|████████▊ | 22/25 [17:16<00:06,  2.11s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  23
+Best f1_score score: 0.9940313849007987
+Generation:  92%|█████████▏| 23/25 [17:18<00:04,  2.13s/it]2024-08-12 11:57:11,171 - distributed.scheduler - ERROR - Error transitioning 'ndarray-2537211c881dca1dba663bf4631e1865' from 'waiting' to 'processing'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:57:11,171 - distributed.scheduler - ERROR - <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' processing>
+2024-08-12 11:57:11,172 - distributed.core - ERROR - Exception while handling op register-client
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Task exception was never retrieved
+future: <Task finished name='Task-930036' coro=<Server._handle_comm() done, defined at /common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py:735> exception=AssertionError(<TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>)>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 829, in _handle_comm
+    result = await result
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 5792, in add_client
+    await self.handle_stream(comm=comm, extra={"client": client})
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 910, in handle_stream
+    await handler(**merge(extra, msg))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils.py", line 837, in wrapper
+    return await func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4788, in update_graph
+    self._create_taskstate_from_graph(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 4728, in _create_taskstate_from_graph
+    self.transitions(recommendations, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 8068, in transitions
+    self._transitions(recommendations, client_msgs, worker_msgs, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2129, in _transitions
+    new_recs, new_cmsgs, new_wmsgs = self._transition(key, finish, stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2012, in _transition
+    recommendations, client_msgs, worker_msgs = func(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 2401, in _transition_waiting_processing
+    return self._add_to_processing(ts, ws, stimulus_id=stimulus_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3317, in _add_to_processing
+    return {}, {}, {ws.address: [self._task_to_msg(ts)]}
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/scheduler.py", line 3489, in _task_to_msg
+    assert ts.priority, ts
+AssertionError: <TaskState 'ndarray-2537211c881dca1dba663bf4631e1865' forgotten>
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  24
+Best f1_score score: 0.9940313849007987
+Generation:  96%|█████████▌| 24/25 [17:20<00:01,  1.95s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  25
+Best f1_score score: 0.9940313849007987
+Generation: 100%|██████████| 25/25 [17:22<00:00,  1.88s/it]Generation: 100%|██████████| 25/25 [17:22<00:00, 41.68s/it]
+Fitted
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=66)),
+                ('kneighborsclassifier',
+                 KNeighborsClassifier(n_jobs=1, n_neighbors=4,
+                                      weights='distance'))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 1.0, 'accuracy': 1.0, 'balanced_accuracy': 1.0, 'logloss': 1.0503916829294545e-09, 'f1': 1.0}
+test score: {'auroc': 0.9989495715403495, 'accuracy': 0.9954545454545455, 'balanced_accuracy': 0.9954154253558425, 'logloss': 0.07293360513787249, 'f1': 0.9954582562302648}
+original test score: {'auroc': 0.9989490969949639, 'accuracy': 0.9954545454545455, 'balanced_accuracy': 0.9954154253558425, 'logloss': 0.07275786027084524, 'f1': 0.9954582562302648}
+score end
+working on 
+../data/c/32/class_simple_MAR_0.01_1
+0.32323789596557617
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x1554363864a0>
+Start tpot fit
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]Generation:  1
+Best f1_score score: 0.9911065643481326
+Generation:   4%|▍         | 1/25 [01:27<34:56, 87.35s/it]Generation:  2
+Best f1_score score: 0.9918152434328539
+Generation:   8%|▊         | 2/25 [02:07<22:44, 59.32s/it]Generation:  3
+Best f1_score score: 0.9919216953715265
+Generation:  12%|█▏        | 3/25 [03:58<30:30, 83.19s/it]Generation:  4
+Best f1_score score: 0.9919216953715265
+Generation:  16%|█▌        | 4/25 [05:53<33:32, 95.82s/it]Generation:  5
+Best f1_score score: 0.9922174645028455
+Generation:  20%|██        | 5/25 [07:44<33:42, 101.11s/it]Generation:  6
+Best f1_score score: 0.9924204049768586
+Generation:  24%|██▍       | 6/25 [08:41<27:18, 86.22s/it] Generation:  7
+Best f1_score score: 0.9928245909611471
+Generation:  28%|██▊       | 7/25 [12:23<39:09, 130.54s/it]Generation:  8
+Best f1_score score: 0.9929280688198133
+Generation:  32%|███▏      | 8/25 [13:26<30:52, 108.99s/it]srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 919562 ON esplhpc-cp037 CANCELLED AT 2024-08-12T12:12:05 ***
+slurmstepd: error: *** STEP 919562.0 ON esplhpc-cp037 CANCELLED AT 2024-08-12T12:12:05 ***
