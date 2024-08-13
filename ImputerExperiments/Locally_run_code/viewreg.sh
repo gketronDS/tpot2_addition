@@ -3,7 +3,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH -t 110:00:00
-#SBATCH --mem=1000000
+#SBATCH --mem=100000
 #SBATCH --job-name=tpot2-pkl
 #SBATCH -p defq
 #SBATCH --exclude=esplhpc-cp040
