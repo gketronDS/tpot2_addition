@@ -1,0 +1,662 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job922676/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  initial_strategy='constant',
+                                  n_nearest_features=42)),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=8, n_estimators=80, n_jobs=1,
+                               num_leaves=88, verbose=-1))])
+197MAR_0.01_1/ failed
+197MAR_0.01_2/ failed
+197MAR_0.01_3/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  imputation_order='descending',
+                                  n_nearest_features=79)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=N...
+                              feature_types=None, gamma=0.3445614307437,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0876336279048, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=8, max_leaves=None,
+                              min_child_weight=1, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.1_1/ failed
+197MAR_0.1_2/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  n_nearest_features=32)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=8...14,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.1081238958686, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=7, max_leaves=None,
+                              min_child_weight=4, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.1_3/ failed
+197MAR_0.3_1/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  imputation_order='arabic',
+                                  n_nearest_features=58)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0001996000019,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0799717205308, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=8, max_leaves=None,
+                              min_child_weight=9, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.3_2/ failed
+197MAR_0.3_3/ failed
+197MAR_0.5_1/ failed
+197MAR_0.5_2/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  initial_strategy='most_frequent',
+                                  n_nearest_features=13)),
+                ('extratreesregressor',
+                 ExtraTreesRegressor(criterion='friedman_mse',
+                                     max_features=0.9310834184346,
+                                     min_samples_leaf=3,
+                                     min_samples_split=3))])
+197MAR_0.5_3/ failed
+197MCAR_0.01_1/ failed
+197MCAR_0.01_2/ failed
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=70)),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=8, n_estimators=99, n_jobs=1,
+                               num_leaves=215, verbose=-1))])
+197MCAR_0.01_3/ failed
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=77, weights='distance')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=10, n_estimators=64, n_jobs=1,
+                               num_leaves=212, verbose=-1))])
+197MCAR_0.1_1/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  initial_strategy='median',
+                                  n_nearest_features=61)),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=False,
+                                               l2_regularization=6.4498389e-06,
+                                               learning_rate=0.0928684439682,
+                                               max_features=0.9920057099493,
+                                               max_leaf_nodes=74,
+                                               min_samples_leaf=6,
+                                               tol=0.0001))])
+197MCAR_0.1_2/ failed
+197MCAR_0.1_3/ failed
+197MCAR_0.3_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=10, n_estimators=88, n_jobs=1,
+                               num_leaves=86, verbose=-1))])
+197MCAR_0.3_2/ failed
+197MCAR_0.3_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=9, n_estimators=71, n_jobs=1,
+                               num_leaves=118, verbose=-1))])
+197MCAR_0.5_1/ failed
+197MCAR_0.5_2/ failed
+197MCAR_0.5_3/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  imputation_order='roman',
+                                  initial_strategy='median',
+                                  n_nearest_features=9)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categ...
+                              feature_types=None, gamma=7.0237004366532,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0813598210762, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=9, max_leaves=None,
+                              min_child_weight=3, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.01_1/ failed
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=25)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.2005548330511,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0816098836494, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=16,
+                              max_leaves=None, min_child_weight=8, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.01_2/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  imputation_order='random',
+                                  initial_strategy='most_frequent',
+                                  n_nearest_features=49)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              ena...
+                              feature_types=None, gamma=0.0008084634492,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0656510669415, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=12,
+                              max_leaves=None, min_child_weight=5, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.01_3/ failed
+197MNAR_0.1_1/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  imputation_order='random',
+                                  initial_strategy='median',
+                                  n_nearest_features=88)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_cat...
+                              feature_types=None, gamma=0.0490913246798,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0594050719911, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=13,
+                              max_leaves=None, min_child_weight=14, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.1_2/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  initial_strategy='most_frequent',
+                                  n_nearest_features=87)),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=7, n_estimators=88, n_jobs=1,
+                               num_leaves=103, verbose=-1))])
+197MNAR_0.1_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=8, n_estimators=91, n_jobs=1,
+                               num_leaves=100, verbose=-1))])
+197MNAR_0.3_1/ failed
+197MNAR_0.3_2/ failed
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  imputation_order='arabic',
+                                  initial_strategy='constant',
+                                  n_nearest_features=12)),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categor...
+                              feature_types=None, gamma=0.2021807209719,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0806607157537, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=8, max_leaves=None,
+                              min_child_weight=6, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.3_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=False,
+                                               l2_regularization=2.321783e-07,
+                                               learning_rate=0.2033199419854,
+                                               max_features=0.4119883447716,
+                                               max_leaf_nodes=24,
+                                               min_samples_leaf=15,
+                                               tol=0.0001))])
+197MNAR_0.5_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=9, n_estimators=99, n_jobs=1,
+                               num_leaves=75, verbose=-1))])
+197MNAR_0.5_2/ failed
+197MNAR_0.5_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.9457823635352,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0801059792805, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=6, max_leaves=None,
+                              min_child_weight=1, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.01_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0002136504422,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0885012812604, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=12,
+                              max_leaves=None, min_child_weight=5, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.01_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=True,
+                                               l2_regularization=1.673647e-07,
+                                               learning_rate=0.2354403397918,
+                                               max_features=0.6089694595354,
+                                               max_leaf_nodes=2012,
+                                               min_samples_leaf=29,
+                                               n_iter_no_change=18, tol=0.0001,
+                                               validation_fraction=None))])
+197MAR_0.01_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='constant')),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=True,
+                                               l2_regularization=7.155e-10,
+                                               learning_rate=0.0764760817739,
+                                               max_features=0.7780126751703,
+                                               max_leaf_nodes=121,
+                                               min_samples_leaf=26,
+                                               n_iter_no_change=17, tol=0.0001,
+                                               validation_fraction=0.0194012745549))])
+197MAR_0.1_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('extratreesregressor',
+                 ExtraTreesRegressor(criterion='friedman_mse',
+                                     max_features=0.9786414839119))])
+197MAR_0.1_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0005493849805,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0808320157926, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=18,
+                              max_leaves=None, min_child_weight=15, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.1_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='constant')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=10, n_estimators=92, n_jobs=1,
+                               num_leaves=102, verbose=-1))])
+197MAR_0.3_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('extratreesregressor',
+                 ExtraTreesRegressor(max_features=0.9646220879747,
+                                     min_samples_split=4))])
+197MAR_0.3_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=8, n_estimators=93, n_jobs=1,
+                               num_leaves=221, verbose=-1))])
+197MAR_0.3_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='most_frequent')),
+                ('randomforestregressor',
+                 RandomForestRegressor(bootstrap=False,
+                                       criterion='friedman_mse',
+                                       max_features=0.674053490367))])
+197MAR_0.5_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0006854163195,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.076436170364, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=7, max_leaves=None,
+                              min_child_weight=2, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.5_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=8.8364808190547,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0621317569798, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=7, max_leaves=None,
+                              min_child_weight=3, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MAR_0.5_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='most_frequent')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=8, n_estimators=93, n_jobs=1,
+                               num_leaves=164, verbose=-1))])
+197MCAR_0.01_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0023174642693,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.1433210342699, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=6, max_leaves=None,
+                              min_child_weight=6, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MCAR_0.01_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='constant')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0001378460075,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0822394571324, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=6, max_leaves=None,
+                              min_child_weight=2, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MCAR_0.01_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=False,
+                                               l2_regularization=3.0368e-09,
+                                               learning_rate=0.0646345941688,
+                                               max_features=0.4362804734331,
+                                               max_leaf_nodes=1679,
+                                               min_samples_leaf=11,
+                                               tol=0.0001))])
+197MCAR_0.1_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('randomforestregressor',
+                 RandomForestRegressor(criterion='friedman_mse',
+                                       max_features=0.2495541401522))])
+197MCAR_0.1_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=9, n_jobs=1, num_leaves=133,
+                               verbose=-1))])
+197MCAR_0.1_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0011232914729,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0702919309978, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=12,
+                              max_leaves=None, min_child_weight=10, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MCAR_0.3_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('randomforestregressor',
+                 RandomForestRegressor(bootstrap=False,
+                                       criterion='friedman_mse',
+                                       max_features=0.3336367412829,
+                                       min_samples_leaf=2,
+                                       min_samples_split=13))])
+197MCAR_0.3_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=10, n_estimators=99, n_jobs=1,
+                               num_leaves=158, verbose=-1))])
+197MCAR_0.3_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('randomforestregressor',
+                 RandomForestRegressor(bootstrap=False,
+                                       criterion='friedman_mse',
+                                       max_features=0.2606893191235,
+                                       min_samples_split=12))])
+197MCAR_0.5_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=10, n_estimators=97, n_jobs=1,
+                               num_leaves=48, verbose=-1))])
+197MCAR_0.5_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('extratreesregressor',
+                 ExtraTreesRegressor(criterion='friedman_mse',
+                                     max_features=0.8173484261178,
+                                     min_samples_split=17))])
+197MCAR_0.5_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='constant')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=9, n_estimators=97, n_jobs=1,
+                               num_leaves=20, verbose=-1))])
+197MNAR_0.01_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.003668349739,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.126756158448, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=9, max_leaves=None,
+                              min_child_weight=11, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.01_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=True,
+                                               l2_regularization=3.5834839e-06,
+                                               learning_rate=0.0455680556082,
+                                               max_features=0.7507314032668,
+                                               max_leaf_nodes=596,
+                                               min_samples_leaf=18,
+                                               n_iter_no_change=20, tol=0.0001,
+                                               validation_fraction=None))])
+197MNAR_0.01_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=False,
+                                               l2_regularization=0.0171514607685,
+                                               learning_rate=0.0675153208408,
+                                               max_features=0.413552214006,
+                                               max_leaf_nodes=1833,
+                                               min_samples_leaf=4,
+                                               tol=0.0001))])
+197MNAR_0.1_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.000906680422,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0982978358126, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=14,
+                              max_leaves=None, min_child_weight=14, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.1_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0015035412552,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.162483305389, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=7, max_leaves=None,
+                              min_child_weight=1, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.1_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=True,
+                                               l2_regularization=0.0001961798426,
+                                               learning_rate=0.0352681218993,
+                                               max_features=0.7588111115414,
+                                               max_leaf_nodes=1901,
+                                               min_samples_leaf=5,
+                                               n_iter_no_change=6, tol=0.0001,
+                                               validation_fraction=None))])
+197MNAR_0.3_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='most_frequent')),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=10, n_estimators=91, n_jobs=1,
+                               num_leaves=73, verbose=-1))])
+197MNAR_0.3_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='most_frequent')),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=0.0019803655003,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0905611741962, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=16,
+                              max_leaves=None, min_child_weight=10, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.3_3/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(boosting_type='goss', max_depth=7,
+                               n_estimators=94, n_jobs=1, num_leaves=138,
+                               verbose=-1))])
+197MNAR_0.5_1/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='most_frequent')),
+                ('extratreesregressor',
+                 ExtraTreesRegressor(max_features=0.580980862436))])
+197MNAR_0.5_2/ failed
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('xgbregressor',
+                 XGBRegressor(base_score=None, booster=None, callbacks=None,
+                              colsample_bylevel=None, colsample_bynode=None,
+                              colsample_bytree=None, device=None,
+                              early_stopping_rounds=None,
+                              enable_categorical=False, eval_metric=None,
+                              feature_types=None, gamma=9.6271741838897,
+                              grow_policy=None, importance_type=None,
+                              interaction_constraints=None,
+                              learning_rate=0.0444177335831, max_bin=None,
+                              max_cat_threshold=None, max_cat_to_onehot=None,
+                              max_delta_step=None, max_depth=14,
+                              max_leaves=None, min_child_weight=5, missing=nan,
+                              monotone_constraints=None, multi_strategy=None,
+                              n_estimators=100, n_jobs=1, nthread=1,
+                              num_parallel_tree=None, ...))])
+197MNAR_0.5_3/ failed
+197complete
+all csvs complete

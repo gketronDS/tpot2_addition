@@ -1081,4 +1081,65 @@ WARNING AN INDIVIDUAL TIMED OUT:
 
 Generation:  20
 Best f1_score score: 0.9622409050099121
-Generation:  80%|████████  | 20/25 [2:20:59<36:06, 433.39s/it]
+Generation:  80%|████████  | 20/25 [2:20:59<36:06, 433.39s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545daa00d0> 
+
+Generation:  21
+Best f1_score score: 0.9622409050099121
+Generation:  84%|████████▍ | 21/25 [2:31:03<32:17, 484.45s/it]Generation:  22
+Best f1_score score: 0.9622409050099121
+Generation:  88%|████████▊ | 22/25 [2:32:37<18:22, 367.45s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545dbb3d00> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155454155f60> 
+
+Generation:  23
+Best f1_score score: 0.9622409050099121
+Generation:  92%|█████████▏| 23/25 [2:42:41<14:36, 438.50s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1553a59bb250> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545d5aa980> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547594a200> 
+
+Generation:  24
+Best f1_score score: 0.9622409050099121
+Generation:  96%|█████████▌| 24/25 [2:52:46<08:08, 488.45s/it]Generation:  25
+Best f1_score score: 0.9622409050099121
+Generation: 100%|██████████| 25/25 [2:54:30<00:00, 372.92s/it]Generation: 100%|██████████| 25/25 [2:54:30<00:00, 418.81s/it]
+2024-08-13 14:09:22,703 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:43719' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-23f0eef1ec7034d09b67651117ebaf48', 'DataFrame-6e3d2e7d47a0324727acd6d973fe2166'} (stimulus_id='handle-worker-cleanup-1723583362.7032247')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  initial_strategy='constant',
+                                  n_nearest_features=43)),
+                ('randomforestclassifier',
+                 RandomForestClassifier(class_weight='balanced',
+                                        max_features=0.278434708758,
+                                        min_samples_leaf=2, min_samples_split=7,
+                                        n_estimators=128))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9991541291993276, 'accuracy': 0.9845685279187817, 'balanced_accuracy': 0.9921622773748989, 'logloss': 0.06518589235644007, 'f1': 0.9850893292657387}
+test score: {'auroc': 0.9952978491108802, 'accuracy': 0.9616788321167883, 'balanced_accuracy': 0.8347129834934712, 'logloss': 0.11730875835246038, 'f1': 0.9629997931380951}
+original test score: {'auroc': 0.9960862582202592, 'accuracy': 0.9653284671532847, 'balanced_accuracy': 0.9074402562207441, 'logloss': 0.11390526712578712, 'f1': 0.9665166890424668}
+score end
+30
+lvl
+0.3
+type
+MNAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+7.798402603334851
+hours
+DONE

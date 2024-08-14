@@ -5,12 +5,12 @@
 #SBATCH -t 110:00:00
 #SBATCH --mem=100000
 #SBATCH --job-name=tpot2-pkl
-#SBATCH -p defq
+#SBATCH -p defq,moore
 #SBATCH --exclude=esplhpc-cp040
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
-#SBATCH -o ./logs/outputs/output.%j_%a.out # STDOUT
+#SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
 #SBATCH --array=1
 
 RUN=${SLURM_ARRAY_TASK_ID:-1}
@@ -28,7 +28,4 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 viewreg.py \
---n_jobs 16 \
---savepath ../data \
---num_runs ${RUN} \
+srun -u python3.10 viewreg.py

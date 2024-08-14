@@ -710,4 +710,108 @@ Best f1_score score: 0.9711518970297865
 
 Generation:  14
 Best f1_score score: 0.9711518970297865
-Generation:  56%|█████▌    | 14/25 [1:16:26<1:08:06, 371.45s/it]
+Generation:  56%|█████▌    | 14/25 [1:16:26<1:08:06, 371.45s/it]Generation:  15
+Best f1_score score: 0.9711518970297865
+Generation:  60%|██████    | 15/25 [1:22:30<1:01:30, 369.06s/it]Generation:  16
+Best f1_score score: 0.9711518970297865
+Generation:  64%|██████▍   | 16/25 [1:27:08<51:15, 341.70s/it]  WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475da8be0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475138a30> 
+
+Generation:  17
+Best f1_score score: 0.9711518970297865
+Generation:  68%|██████▊   | 17/25 [1:37:10<56:00, 420.05s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475dc9ed0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475dac4f0> 
+
+Generation:  18
+Best f1_score score: 0.9711518970297865
+Generation:  72%|███████▏  | 18/25 [1:47:14<55:26, 475.20s/it]Generation:  19
+Best f1_score score: 0.9711518970297865
+Generation:  76%|███████▌  | 19/25 [1:47:37<33:57, 339.52s/it]Generation:  20
+Best f1_score score: 0.9711518970297865
+Generation:  80%|████████  | 20/25 [1:50:08<23:33, 282.67s/it]Generation:  21
+Best f1_score score: 0.9711518970297865
+Generation:  84%|████████▍ | 21/25 [1:50:28<13:35, 203.85s/it]Generation:  22
+Best f1_score score: 0.9711518970297865
+Generation:  88%|████████▊ | 22/25 [1:50:47<07:25, 148.59s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554588fa230> 
+
+Generation:  23
+Best f1_score score: 0.9711518970297865
+Generation:  92%|█████████▏| 23/25 [2:00:52<09:30, 285.50s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475d3b100> 
+
+Generation:  24
+Best f1_score score: 0.9711518970297865
+Generation:  96%|█████████▌| 24/25 [2:10:56<06:20, 380.88s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554589616f0> 
+
+Generation:  25
+Best f1_score score: 0.9711518970297865
+Generation: 100%|██████████| 25/25 [2:20:58<00:00, 447.43s/it]Generation: 100%|██████████| 25/25 [2:20:58<00:00, 338.35s/it]
+2024-08-13 14:39:01,011 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:36815' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-8da63bed09931d513abada835d3fa677', 'ndarray-23f0eef1ec7034d09b67651117ebaf48'} (stimulus_id='handle-worker-cleanup-1723585141.0110745')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=BayesianRidge(),
+                                  imputation_order='roman',
+                                  initial_strategy='constant',
+                                  n_nearest_features=96,
+                                  sample_posterior=True)),
+                ('lgbmclassifier',
+                 LGBMClassifier(boosting_type='dart', class_weight='balanced',
+                                max_depth=9, n_jobs=1, num_leaves=160,
+                                verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9993498172803139, 'accuracy': 0.9894416243654822, 'balanced_accuracy': 0.9845344888151946, 'logloss': 0.037072268267085574, 'f1': 0.989050795482766}
+test score: {'auroc': 0.9972857671852825, 'accuracy': 0.9708029197080292, 'balanced_accuracy': 0.9425966986942595, 'logloss': 0.08183349694436293, 'f1': 0.9734057157372311}
+original test score: {'auroc': 0.9978973318131373, 'accuracy': 0.9726277372262774, 'balanced_accuracy': 0.9704730229120473, 'logloss': 0.07862872008453138, 'f1': 0.9738978444767286}
+score end
+30
+lvl
+0.1
+type
+MAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+12.594385261734327
+hours
+DONE
