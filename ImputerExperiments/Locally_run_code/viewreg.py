@@ -3,15 +3,16 @@ import dill as pickle
 import pandas as pd
 import traceback
 
-for taskid in ['197']:
+dflist=[]
+for taskid in ['189','197']:
     fileoutput = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/r/'
     csvout = pd.DataFrame(columns=['DatasetID','Exp_Name','Condition', 'Level', 'Triplicate','Exp1ImputeRMSEAcc','Exp2ImputeModel','Exp2train_explained_var','Exp2train_r2', 
                                             'Exp2train_rmse', 'Exp2ori_explained_var', 'Exp2ori_r2', 'Exp2ori_rmse', 'Exp2impute_explained_var', 'Exp2impute_r2', 
                                             'Exp2impute_rmse', 'Exp2RegressorModel', 'Exp2duration', 'Exp3train_explained_var', 'Exp3train_r2', 'Exp3train_rmse', 'Exp3ori_explained_var', 
                                             'Exp3ori_r2', 'Exp3ori_rmse', 'Exp3impute_explained_var', 'Exp3impute_r2', 'Exp3impute_rmse',  
                                             'Exp3ImputeModel','Exp3ImputeRMSEAcc','Exp3RegressorModel','Exp3duration'],
-                            index=['/'+taskid+'_reg_simple_MAR_0.01_1_1/','/'+taskid+'_reg_simple_MAR_0.1_1/',
-                                   '/'+taskid+'_reg_simple_MAR_0.3_1_1/','/'+taskid+'_reg_simple_MAR_0.5_1/',
+                            index=['/'+taskid+'_reg_simple_MAR_0.01_1/','/'+taskid+'_reg_simple_MAR_0.1_1/',
+                                   '/'+taskid+'_reg_simple_MAR_0.3_1/','/'+taskid+'_reg_simple_MAR_0.5_1/',
                                      '/'+taskid+'_reg_simple_MNAR_0.01_1/',
                                      '/'+taskid+'_reg_simple_MNAR_0.1_1/','/'+taskid+'_reg_simple_MNAR_0.3_1/',
                                      '/'+taskid+'_reg_simple_MNAR_0.5_1/',
@@ -25,7 +26,7 @@ for taskid in ['197']:
                                      '/'+taskid+'_reg_full_MCAR_0.01_1/','/'+taskid+'_reg_full_MCAR_0.1_1/',
                                      '/'+taskid+'_reg_full_MCAR_0.3_1/','/'+taskid+'_reg_full_MCAR_0.5_1/',
                                      '/'+taskid+'_reg_simple_MAR_0.01_2/','/'+taskid+'_reg_simple_MAR_0.1_2/',
-                                   '/'+taskid+'_reg_simple_MAR_0.3_1_2/','/'+taskid+'_reg_simple_MAR_0.5_2/',
+                                   '/'+taskid+'_reg_simple_MAR_0.3_2/','/'+taskid+'_reg_simple_MAR_0.5_2/',
                                      '/'+taskid+'_reg_simple_MNAR_0.01_2/',
                                      '/'+taskid+'_reg_simple_MNAR_0.1_2/','/'+taskid+'_reg_simple_MNAR_0.3_2/',
                                      '/'+taskid+'_reg_simple_MNAR_0.5_2/',
@@ -38,8 +39,8 @@ for taskid in ['197']:
                                      '/'+taskid+'_reg_full_MNAR_0.5_2/',
                                      '/'+taskid+'_reg_full_MCAR_0.01_2/','/'+taskid+'_reg_full_MCAR_0.1_2/',
                                      '/'+taskid+'_reg_full_MCAR_0.3_2/','/'+taskid+'_reg_full_MCAR_0.5_2/',
-                                     '/'+taskid+'_reg_simple_MAR_0.01_1_3/','/'+taskid+'_reg_simple_MAR_0.1_3/',
-                                   '/'+taskid+'_reg_simple_MAR_0.3_1_3/','/'+taskid+'_reg_simple_MAR_0.5_3/',
+                                     '/'+taskid+'_reg_simple_MAR_0.01_3/','/'+taskid+'_reg_simple_MAR_0.1_3/',
+                                   '/'+taskid+'_reg_simple_MAR_0.3_3/','/'+taskid+'_reg_simple_MAR_0.5_3/',
                                      '/'+taskid+'_reg_simple_MNAR_0.01_3/',
                                      '/'+taskid+'_reg_simple_MNAR_0.1_3/','/'+taskid+'_reg_simple_MNAR_0.3_3/',
                                      '/'+taskid+'_reg_simple_MNAR_0.5_3/',
@@ -89,7 +90,8 @@ for taskid in ['197']:
                         trace =  traceback.format_exc()
                         print(e)
                         print(trace) 
-            
-    output = csvout.to_csv(fileoutput+taskid+'.csv')
+    dflist.append(csvout)
     print(taskid + 'complete')
+result = pd.concat(dflist, ignore_index=True)
+output = result.to_csv(fileoutput+'reg'+'.csv')
 print('all csvs complete')

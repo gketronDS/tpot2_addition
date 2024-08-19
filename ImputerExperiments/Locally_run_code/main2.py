@@ -146,7 +146,7 @@ def main():
                               40685, 23395, 40983, 41027, 23517, 40701, 40922,
                               41671, 41146, 42192]
     '''
-    classification_id_list = [26]
+    classification_id_list = [6]
     #regression_id_list = [197]
 
     

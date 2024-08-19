@@ -3,6 +3,7 @@ import dill as pickle
 import pandas as pd
 import traceback
 
+dflist=[]
 for taskid in ['6', '30']:
     fileoutput = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'
     csvout = pd.DataFrame(columns=['DatasetID','Exp_Name','Condition', 'Level', 'Triplicate','Exp1ImputeRMSEAcc','Exp2ImputeModel','Exp2train_auroc','Exp2train_accuracy', 
@@ -14,8 +15,8 @@ for taskid in ['6', '30']:
                                             'Exp3ori_logloss', 'Exp3ori_f1', 'Exp3impute_auroc', 'Exp3impute_accuracy', 'Exp3impute_balanced_accuracy', 
                                             'Exp3impute_logloss', 'Exp3impute_f1',
                                             'Exp3ImputeModel', 'Exp3ImputeRMSEAcc', 'Exp3ClassifierModel', 'Exp3duration'],
-                            index=['/'+taskid+'_class_simple_MAR_0.01_1_1/','/'+taskid+'_class_simple_MAR_0.1_1/',
-                                   '/'+taskid+'_class_simple_MAR_0.3_1_1/','/'+taskid+'_class_simple_MAR_0.5_1/',
+                            index=['/'+taskid+'_class_simple_MAR_0.01_1/','/'+taskid+'_class_simple_MAR_0.1_1/',
+                                   '/'+taskid+'_class_simple_MAR_0.3_1/','/'+taskid+'_class_simple_MAR_0.5_1/',
                                      '/'+taskid+'_class_simple_MNAR_0.01_1/',
                                      '/'+taskid+'_class_simple_MNAR_0.1_1/','/'+taskid+'_class_simple_MNAR_0.3_1/',
                                      '/'+taskid+'_class_simple_MNAR_0.5_1/',
@@ -29,7 +30,7 @@ for taskid in ['6', '30']:
                                      '/'+taskid+'_class_full_MCAR_0.01_1/','/'+taskid+'_class_full_MCAR_0.1_1/',
                                      '/'+taskid+'_class_full_MCAR_0.3_1/','/'+taskid+'_class_full_MCAR_0.5_1/',
                                      '/'+taskid+'_class_simple_MAR_0.01_2/','/'+taskid+'_class_simple_MAR_0.1_2/',
-                                   '/'+taskid+'_class_simple_MAR_0.3_1_2/','/'+taskid+'_class_simple_MAR_0.5_2/',
+                                   '/'+taskid+'_class_simple_MAR_0.3_2/','/'+taskid+'_class_simple_MAR_0.5_2/',
                                      '/'+taskid+'_class_simple_MNAR_0.01_2/',
                                      '/'+taskid+'_class_simple_MNAR_0.1_2/','/'+taskid+'_class_simple_MNAR_0.3_2/',
                                      '/'+taskid+'_class_simple_MNAR_0.5_2/',
@@ -42,8 +43,8 @@ for taskid in ['6', '30']:
                                      '/'+taskid+'_class_full_MNAR_0.5_2/',
                                      '/'+taskid+'_class_full_MCAR_0.01_2/','/'+taskid+'_class_full_MCAR_0.1_2/',
                                      '/'+taskid+'_class_full_MCAR_0.3_2/','/'+taskid+'_class_full_MCAR_0.5_2/',
-                                     '/'+taskid+'_class_simple_MAR_0.01_1_3/','/'+taskid+'_class_simple_MAR_0.1_3/',
-                                   '/'+taskid+'_class_simple_MAR_0.3_1_3/','/'+taskid+'_class_simple_MAR_0.5_3/',
+                                     '/'+taskid+'_class_simple_MAR_0.01_3/','/'+taskid+'_class_simple_MAR_0.1_3/',
+                                   '/'+taskid+'_class_simple_MAR_0.3_3/','/'+taskid+'_class_simple_MAR_0.5_3/',
                                      '/'+taskid+'_class_simple_MNAR_0.01_3/',
                                      '/'+taskid+'_class_simple_MNAR_0.1_3/','/'+taskid+'_class_simple_MNAR_0.3_3/',
                                      '/'+taskid+'_class_simple_MNAR_0.5_3/',
@@ -95,6 +96,8 @@ for taskid in ['6', '30']:
                         print(e)
                         print(trace) 
             
-    output = csvout.to_csv(fileoutput+taskid+'.csv')
+    dflist.append(csvout)
     print(taskid + 'complete')
+result = pd.concat(dflist, ignore_index=True)
+output = result.to_csv(fileoutput+'class'+'.csv')
 print('all csvs complete')
