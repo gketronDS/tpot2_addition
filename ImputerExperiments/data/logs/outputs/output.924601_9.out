@@ -1,0 +1,198 @@
+Run: 9
+/cm/local/apps/slurm/var/spool/job924601/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+starting loops
+../data/c/26/26.pkl
+          parents   has_nurs      form children     housing     finance  \
+0           usual     proper  complete        1  convenient  convenient   
+1           usual     proper  complete        1  convenient  convenient   
+2           usual     proper  complete        1  convenient  convenient   
+3           usual     proper  complete        1  convenient  convenient   
+4           usual     proper  complete        1  convenient  convenient   
+...           ...        ...       ...      ...         ...         ...   
+12955  great_pret  very_crit    foster     more    critical      inconv   
+12956  great_pret  very_crit    foster     more    critical      inconv   
+12957  great_pret  very_crit    foster     more    critical      inconv   
+12958  great_pret  very_crit    foster     more    critical      inconv   
+12959  great_pret  very_crit    foster     more    critical      inconv   
+
+              social       health  
+0            nonprob  recommended  
+1            nonprob     priority  
+2            nonprob    not_recom  
+3      slightly_prob  recommended  
+4      slightly_prob     priority  
+...              ...          ...  
+12955  slightly_prob     priority  
+12956  slightly_prob    not_recom  
+12957    problematic  recommended  
+12958    problematic     priority  
+12959    problematic    not_recom  
+
+[12960 rows x 8 columns]
+<class 'pandas.core.frame.DataFrame'>
+            class
+0       recommend
+1        priority
+2       not_recom
+3       recommend
+4        priority
+...           ...
+12955  spec_prior
+12956   not_recom
+12957  spec_prior
+12958  spec_prior
+12959   not_recom
+
+[12960 rows x 1 columns]
+<class 'pandas.core.frame.DataFrame'>
+       parents_usual  parents_pretentious  parents_great_pret  \
+0                1.0                  0.0                 0.0   
+1                1.0                  0.0                 0.0   
+2                1.0                  0.0                 0.0   
+3                1.0                  0.0                 0.0   
+4                1.0                  0.0                 0.0   
+...              ...                  ...                 ...   
+12955            0.0                  0.0                 1.0   
+12956            0.0                  0.0                 1.0   
+12957            0.0                  0.0                 1.0   
+12958            0.0                  0.0                 1.0   
+12959            0.0                  0.0                 1.0   
+
+       has_nurs_proper  has_nurs_less_proper  has_nurs_improper  \
+0                  1.0                   0.0                0.0   
+1                  1.0                   0.0                0.0   
+2                  1.0                   0.0                0.0   
+3                  1.0                   0.0                0.0   
+4                  1.0                   0.0                0.0   
+...                ...                   ...                ...   
+12955              0.0                   0.0                0.0   
+12956              0.0                   0.0                0.0   
+12957              0.0                   0.0                0.0   
+12958              0.0                   0.0                0.0   
+12959              0.0                   0.0                0.0   
+
+       has_nurs_critical  has_nurs_very_crit  form_complete  form_completed  \
+0                    0.0                 0.0            1.0             0.0   
+1                    0.0                 0.0            1.0             0.0   
+2                    0.0                 0.0            1.0             0.0   
+3                    0.0                 0.0            1.0             0.0   
+4                    0.0                 0.0            1.0             0.0   
+...                  ...                 ...            ...             ...   
+12955                0.0                 1.0            0.0             0.0   
+12956                0.0                 1.0            0.0             0.0   
+12957                0.0                 1.0            0.0             0.0   
+12958                0.0                 1.0            0.0             0.0   
+12959                0.0                 1.0            0.0             0.0   
+
+       form_incomplete  form_foster  children_1  children_2  children_3  \
+0                  0.0          0.0         1.0         0.0         0.0   
+1                  0.0          0.0         1.0         0.0         0.0   
+2                  0.0          0.0         1.0         0.0         0.0   
+3                  0.0          0.0         1.0         0.0         0.0   
+4                  0.0          0.0         1.0         0.0         0.0   
+...                ...          ...         ...         ...         ...   
+12955              0.0          1.0         0.0         0.0         0.0   
+12956              0.0          1.0         0.0         0.0         0.0   
+12957              0.0          1.0         0.0         0.0         0.0   
+12958              0.0          1.0         0.0         0.0         0.0   
+12959              0.0          1.0         0.0         0.0         0.0   
+
+       children_more  housing_convenient  housing_less_conv  housing_critical  \
+0                0.0                 1.0                0.0               0.0   
+1                0.0                 1.0                0.0               0.0   
+2                0.0                 1.0                0.0               0.0   
+3                0.0                 1.0                0.0               0.0   
+4                0.0                 1.0                0.0               0.0   
+...              ...                 ...                ...               ...   
+12955            1.0                 0.0                0.0               1.0   
+12956            1.0                 0.0                0.0               1.0   
+12957            1.0                 0.0                0.0               1.0   
+12958            1.0                 0.0                0.0               1.0   
+12959            1.0                 0.0                0.0               1.0   
+
+       finance_convenient  finance_inconv  social_nonprob  \
+0                     1.0             0.0             1.0   
+1                     1.0             0.0             1.0   
+2                     1.0             0.0             1.0   
+3                     1.0             0.0             0.0   
+4                     1.0             0.0             0.0   
+...                   ...             ...             ...   
+12955                 0.0             1.0             0.0   
+12956                 0.0             1.0             0.0   
+12957                 0.0             1.0             0.0   
+12958                 0.0             1.0             0.0   
+12959                 0.0             1.0             0.0   
+
+       social_slightly_prob  social_problematic  health_recommended  \
+0                       0.0                 0.0                 1.0   
+1                       0.0                 0.0                 0.0   
+2                       0.0                 0.0                 0.0   
+3                       1.0                 0.0                 1.0   
+4                       1.0                 0.0                 0.0   
+...                     ...                 ...                 ...   
+12955                   1.0                 0.0                 0.0   
+12956                   1.0                 0.0                 0.0   
+12957                   0.0                 1.0                 1.0   
+12958                   0.0                 1.0                 0.0   
+12959                   0.0                 1.0                 0.0   
+
+       health_priority  health_not_recom  
+0                  0.0               0.0  
+1                  1.0               0.0  
+2                  0.0               1.0  
+3                  0.0               0.0  
+4                  1.0               0.0  
+...                ...               ...  
+12955              1.0               0.0  
+12956              0.0               1.0  
+12957              0.0               0.0  
+12958              1.0               0.0  
+12959              0.0               1.0  
+
+[12960 rows x 27 columns]
+<class 'pandas.core.frame.DataFrame'>
+working on 
+../data/c/26/class_full_MNAR_0.01_1
+3.162536144256592
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-08-16 10:55:57,688] A new study created in memory with name: no-name-ef86f13d-deb0-4de0-a44f-1b6f558cd15d
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-08-16 10:55:59,012] Trial 3 finished with value: 0.19414992185213423 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 3 with value: 0.19414992185213423.
+[I 2024-08-16 10:55:59,180] Trial 14 finished with value: 0.19414992185213423 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 3 with value: 0.19414992185213423.
+running
+running
+[I 2024-08-16 10:55:59,528] Trial 7 finished with value: 0.19414992185213423 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 3 with value: 0.19414992185213423.
+running
+[I 2024-08-16 10:56:00,052] Trial 13 finished with value: 0.19414992185213423 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 3 with value: 0.19414992185213423.
+running
+[I 2024-08-16 10:56:11,069] Trial 16 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.8132453283087463, 'alpha': 58, 'iterations': 23, 'learning_rate': 0.0002121341072176432, 'p_miss': 0.14564562600691935}. Best is trial 3 with value: 0.19414992185213423.
+running
+[I 2024-08-16 10:56:19,458] Trial 11 finished with value: 0.2915704189304148 and parameters: {'model_name': 'GAIN', 'batch_size': 4, 'hint_rate': 0.5444154287526318, 'alpha': 85, 'iterations': 2, 'learning_rate': 0.00010337084422968867, 'p_miss': 0.12630256151109354}. Best is trial 3 with value: 0.19414992185213423.
+running
+[I 2024-08-16 10:56:21,567] Trial 21 finished with value: 0.19414992185213423 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 3 with value: 0.19414992185213423.
+running
+[I 2024-08-16 10:56:33,107] Trial 8 finished with value: 0.14218865890381996 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1435, 'weights': 'uniform'}. Best is trial 8 with value: 0.14218865890381996.
+running
+[I 2024-08-16 10:56:34,778] Trial 18 finished with value: 0.1412805138324088 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1836, 'weights': 'uniform'}. Best is trial 18 with value: 0.1412805138324088.
+running
+[I 2024-08-16 10:56:37,195] Trial 19 finished with value: 0.14062136680708867 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1972, 'weights': 'uniform'}. Best is trial 19 with value: 0.14062136680708867.
+running

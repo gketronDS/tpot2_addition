@@ -1048,4 +1048,167 @@ WARNING AN INDIVIDUAL TIMED OUT:
 
 Generation:  4
 Best f1_score score: 0.9500340103220613
-Generation:  16%|█▌        | 4/25 [34:05<3:06:04, 531.66s/it]
+Generation:  16%|█▌        | 4/25 [34:05<3:06:04, 531.66s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547537a320> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547502a950> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475dad600> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554759938e0> 
+
+Generation:  5
+Best f1_score score: 0.9500340103220613
+Generation:  20%|██        | 5/25 [44:09<3:05:52, 557.60s/it]Generation:  6
+Best f1_score score: 0.9518142481116392
+Generation:  24%|██▍       | 6/25 [53:22<2:56:08, 556.25s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155417175e70> 
+ Input X contains NaN.
+MLPClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neural_network/_multilayer_perceptron.py", line 751, in fit
+    return self._fit(X, y, incremental=False)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neural_network/_multilayer_perceptron.py", line 441, in _fit
+    X, y = self._validate_input(X, y, incremental, reset=first_pass)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neural_network/_multilayer_perceptron.py", line 1096, in _validate_input
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+MLPClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  7
+Best f1_score score: 0.9518142481116392
+Generation:  28%|██▊       | 7/25 [55:09<2:02:46, 409.24s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475609090> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475963700> 
+
+Generation:  8
+Best f1_score score: 0.9518142481116392
+Generation:  32%|███▏      | 8/25 [1:05:14<2:13:36, 471.54s/it]Generation:  9
+Best f1_score score: 0.952216790190396
+Generation:  36%|███▌      | 9/25 [1:05:52<1:29:36, 336.04s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475193760> 
+
+Generation:  10
+Best f1_score score: 0.952216790190396
+Generation:  40%|████      | 10/25 [1:15:57<1:44:47, 419.17s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475031690> 
+
+Generation:  11
+Best f1_score score: 0.952216790190396
+Generation:  44%|████▍     | 11/25 [1:26:01<1:50:59, 475.68s/it]Generation:  12
+Best f1_score score: 0.952216790190396
+Generation:  48%|████▊     | 12/25 [1:26:39<1:14:12, 342.49s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554756409d0> 
+
+Generation:  13
+Best f1_score score: 0.952216790190396
+Generation:  52%|█████▏    | 13/25 [1:36:44<1:24:24, 422.08s/it]Generation:  14
+Best f1_score score: 0.952216790190396
+Generation:  56%|█████▌    | 14/25 [1:38:12<58:53, 321.27s/it]  Generation:  15
+Best f1_score score: 0.952216790190396
+Generation:  60%|██████    | 15/25 [1:38:33<38:26, 230.61s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474e886a0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554753e0370> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475e26620> 
+
+Generation:  16
+Best f1_score score: 0.952216790190396
+Generation:  64%|██████▍   | 16/25 [1:48:38<51:31, 343.47s/it]Generation:  17
+Best f1_score score: 0.9530670372017008
+Generation:  68%|██████▊   | 17/25 [1:49:42<34:33, 259.21s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554753a6800> 
+
+Generation:  18
+Best f1_score score: 0.9530670372017008
+Generation:  72%|███████▏  | 18/25 [1:59:45<42:17, 362.48s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1553bf7f5d50> 
+
+Generation:  19
+Best f1_score score: 0.9530670372017008
+Generation:  76%|███████▌  | 19/25 [2:09:49<43:31, 435.21s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1553ce6c0760> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475209240> 
+
+Generation:  20
+Best f1_score score: 0.9530670372017008
+Generation:  80%|████████  | 20/25 [2:19:53<40:29, 485.86s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155453ea65f0> 
+
+Generation:  21
+Best f1_score score: 0.9530670372017008
+Generation:  84%|████████▍ | 21/25 [2:29:56<34:43, 520.89s/it]Generation:  22
+Best f1_score score: 0.9530670372017008
+Generation:  88%|████████▊ | 22/25 [2:30:54<19:06, 382.04s/it]Generation:  23
+Best f1_score score: 0.9530670372017008
+Generation:  92%|█████████▏| 23/25 [2:31:31<09:17, 278.51s/it]Generation:  24
+Best f1_score score: 0.9530670372017008
+Generation:  96%|█████████▌| 24/25 [2:34:29<04:08, 248.28s/it]Generation:  25
+Best f1_score score: 0.9530670372017008
+Generation: 100%|██████████| 25/25 [2:35:14<00:00, 187.49s/it]Generation: 100%|██████████| 25/25 [2:35:14<00:00, 372.60s/it]
+2024-08-14 14:16:29,297 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:41141' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-73a03ce328743d32cc730055cf810b7e', 'ndarray-23f0eef1ec7034d09b67651117ebaf48'} (stimulus_id='handle-worker-cleanup-1723670189.2971516')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('lgbmclassifier',
+                 LGBMClassifier(max_depth=4, n_estimators=54, n_jobs=1,
+                                num_leaves=158, verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9979592942257096, 'accuracy': 0.9827411167512691, 'balanced_accuracy': 0.9010858831693799, 'logloss': 0.06044186891635932, 'f1': 0.9821993793842418}
+test score: {'auroc': 0.9255883502073912, 'accuracy': 0.9379562043795621, 'balanced_accuracy': 0.5014042867701404, 'logloss': 0.2015821615546905, 'f1': 0.9299425923908438}
+original test score: {'auroc': 0.9953694903019914, 'accuracy': 0.9635036496350365, 'balanced_accuracy': 0.8294653855629465, 'logloss': 0.09392034332671541, 'f1': 0.9641823749292385}
+score end
+30
+lvl
+0.5
+type
+MNAR
+num_run
+3
+class_full
+finished
+all finished
+full run takes
+8.517798107730018
+hours
+DONE
