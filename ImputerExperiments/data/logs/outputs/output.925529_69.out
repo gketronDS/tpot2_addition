@@ -1783,3 +1783,36 @@ Best root_mean_squared_error score: -0.09914142252650823
     raise InvalidParameterError(
 sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
 
+Generation:  25
+Best root_mean_squared_error score: -0.09914142252650823
+Generation: 100%|██████████| 25/25 [3:29:07<00:00, 420.21s/it]Generation: 100%|██████████| 25/25 [3:29:07<00:00, 501.89s/it]
+2024-08-19 17:54:08,070 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:44721' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-7fec50dc7423e7364af032244dcb7609', 'DataFrame-8935dc55fc97c81f90ad822f93252d86'} (stimulus_id='handle-worker-cleanup-1724115248.0707157')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('mlpregressor',
+                 MLPRegressor(alpha=0.0107883053418, early_stopping=True,
+                              hidden_layer_sizes=[254, 254],
+                              learning_rate_init=0.0004913683621,
+                              n_iter_no_change=32))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.8955581753747692, 'r2': 0.8955084153590261, 'rmse': 0.08539038567461797}
+test score: {'explained_var': 0.8559625253652476, 'r2': 0.8550339387550725, 'rmse': 0.09838484610166971}
+original test score: {'explained_var': 0.8686866400911598, 'r2': 0.8679828849315058, 'rmse': 0.09388801560602363}
+score end
+189
+lvl
+0.01
+type
+MNAR
+num_run
+3
+reg_simple
+finished
+all finished
+full run takes
+7.180985418293211
+hours
+DONE
