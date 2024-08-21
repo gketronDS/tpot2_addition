@@ -1105,3 +1105,43 @@ SVC does not accept missing values encoded as NaN natively. For supervised learn
 ValueError: Input X contains NaN.
 SVC does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474088af0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155453f6db40> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545ffe5390> 
+
+Generation:  25
+Best f1_score score: 0.9145113490824425
+Generation: 100%|██████████| 25/25 [4:04:39<00:00, 605.97s/it]Generation: 100%|██████████| 25/25 [4:04:39<00:00, 587.19s/it]
+2024-08-20 10:17:48,436 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:40805' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-87f326c2b853d5b31aa79dc6c47bda7b', 'DataFrame-4f08bfb4d0ea6331660ccb2a775f241c'} (stimulus_id='handle-worker-cleanup-1724174268.4368792')
+Fitted
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=4, weights='distance')),
+                ('svc',
+                 SVC(C=299.3582322498906, gamma=1.6452956246691, max_iter=3000,
+                     probability=True))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9994750073652334, 'accuracy': 0.9641111111111111, 'balanced_accuracy': 0.9638927613731794, 'logloss': 0.16212392651371307, 'f1': 0.9642017873208394}
+test score: {'auroc': 0.9959498068873925, 'accuracy': 0.8845, 'balanced_accuracy': 0.8840897507731545, 'logloss': 0.3957083352108781, 'f1': 0.8850947626360895}
+original test score: {'auroc': 0.9988993603535108, 'accuracy': 0.9375, 'balanced_accuracy': 0.9373198454693916, 'logloss': 0.23782573269967758, 'f1': 0.9375229088493016}
+score end
+6
+lvl
+0.5
+type
+MAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+22.979442450735306
+hours
+DONE
