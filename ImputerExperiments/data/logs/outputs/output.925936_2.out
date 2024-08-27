@@ -407,3 +407,1069 @@ running
 [I 2024-08-20 15:29:39,338] Trial 52 finished with value: 0.24378763175003346 and parameters: {'model_name': 'GAIN', 'batch_size': 17, 'hint_rate': 0.03735949903147934, 'alpha': 96, 'iterations': 9886, 'learning_rate': 0.00017231626264048973, 'p_miss': 0.2996903044160511}. Best is trial 156 with value: 0.053564243822269667.
 [I 2024-08-20 15:31:12,323] Trial 64 finished with value: 0.2587560325942665 and parameters: {'model_name': 'GAIN', 'batch_size': 60, 'hint_rate': 0.020567288456879607, 'alpha': 95, 'iterations': 8685, 'learning_rate': 0.0001346885907328677, 'p_miss': 0.28777820044183355}. Best is trial 156 with value: 0.053564243822269667.
 [I 2024-08-20 15:33:01,694] Trial 67 finished with value: 0.2674790068183842 and parameters: {'model_name': 'GAIN', 'batch_size': 42, 'hint_rate': 0.12311029418086794, 'alpha': 92, 'iterations': 9856, 'learning_rate': 0.00010977950740142642, 'p_miss': 0.29725430434197214}. Best is trial 156 with value: 0.053564243822269667.
+[I 2024-08-20 22:21:33,594] Trial 173 finished with value: 0.05109225482512205 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'ascending'}. Best is trial 173 with value: 0.05109225482512205.
+[I 2024-08-20 22:25:29,925] Trial 174 finished with value: 0.05089531588903282 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'median', 'n_nearest_features': 13, 'imputation_order': 'ascending'}. Best is trial 174 with value: 0.05089531588903282.
+[I 2024-08-20 22:28:48,613] Trial 181 finished with value: 0.050790315042555344 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'median', 'n_nearest_features': 13, 'imputation_order': 'ascending'}. Best is trial 181 with value: 0.050790315042555344.
+[I 2024-08-20 22:28:49,780] Trial 184 finished with value: 0.05108391965109081 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'ascending'}. Best is trial 181 with value: 0.050790315042555344.
+fit
+auto fit
+auto transform
+0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+6     0
+7     0
+8     0
+9     0
+10    0
+11    0
+12    0
+13    0
+14    0
+15    0
+dtype: int64
+0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+6     0
+7     0
+8     0
+9     0
+10    0
+11    0
+12    0
+13    0
+14    0
+15    0
+dtype: int64
+0.050790315042555344
+{'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'median', 'n_nearest_features': 13, 'imputation_order': 'ascending'}
+running experiment 2/3 - Does reconstruction give good automl predictions
+Start est fit
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]Generation:  1
+Best f1_score score: 0.9238978482537663
+Generation:   4%|▍         | 1/25 [02:50<1:08:01, 170.05s/it]Generation:  2
+Best f1_score score: 0.9238978482537663
+Generation:   8%|▊         | 2/25 [12:47<2:41:27, 421.21s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475bd5870> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475bd4610> 
+
+Generation:  3
+Best f1_score score: 0.9238978482537663
+Generation:  12%|█▏        | 3/25 [22:51<3:05:08, 504.92s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475bb0640> 
+
+Generation:  4
+Best f1_score score: 0.9248871762225169
+Generation:  16%|█▌        | 4/25 [32:56<3:10:29, 544.24s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545e291db0> 
+
+Generation:  5
+Best f1_score score: 0.9268259644104203
+Generation:  20%|██        | 5/25 [43:00<3:08:38, 565.95s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475413d00> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  6
+Best f1_score score: 0.9268259644104203
+Generation:  24%|██▍       | 6/25 [48:39<2:34:45, 488.70s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475449ba0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  7
+Best f1_score score: 0.9268259644104203
+Generation:  28%|██▊       | 7/25 [54:10<2:11:11, 437.32s/it]Generation:  8
+Best f1_score score: 0.9268259644104203
+Generation:  32%|███▏      | 8/25 [1:00:07<1:56:38, 411.70s/it]Generation:  9
+Best f1_score score: 0.9268259644104203
+Generation:  36%|███▌      | 9/25 [1:06:05<1:45:16, 394.79s/it]Generation:  10
+Best f1_score score: 0.9268259644104203
+Generation:  40%|████      | 10/25 [1:15:24<1:51:25, 445.68s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475bb07c0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  11
+Best f1_score score: 0.9268259644104203
+Generation:  44%|████▍     | 11/25 [1:21:59<1:40:20, 430.03s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475b4bc10> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  12
+Best f1_score score: 0.9268259644104203
+Generation:  48%|████▊     | 12/25 [1:30:05<1:36:52, 447.10s/it]Generation:  13
+Best f1_score score: 0.9268259644104203
+Generation:  52%|█████▏    | 13/25 [1:33:26<1:14:30, 372.53s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554740960b0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545ce81780> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545d25d2a0> 
+
+Generation:  14
+Best f1_score score: 0.9268259644104203
+Generation:  56%|█████▌    | 14/25 [1:43:37<1:21:28, 444.39s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547542caf0> 
+
+Generation:  15
+Best f1_score score: 0.9282969589120225
+Generation:  60%|██████    | 15/25 [1:53:47<1:22:23, 494.40s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554752e0b80> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  16
+Best f1_score score: 0.9282969589120225
+Generation:  64%|██████▍   | 16/25 [1:59:33<1:07:28, 449.82s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474a6f490> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  17
+Best f1_score score: 0.9282969589120225
+Generation:  68%|██████▊   | 17/25 [2:02:53<49:58, 374.76s/it]  Generation:  18
+Best f1_score score: 0.9282969589120225
+Generation:  72%|███████▏  | 18/25 [2:05:53<36:52, 316.05s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545f776320> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  19
+Best f1_score score: 0.9282969589120225
+Generation:  76%|███████▌  | 19/25 [2:10:57<31:14, 312.41s/it]Generation:  20
+Best f1_score score: 0.9282969589120225
+Generation:  80%|████████  | 20/25 [2:16:19<26:17, 315.41s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545f360400> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  21
+Best f1_score score: 0.9287119398516435
+Generation:  84%|████████▍ | 21/25 [2:18:45<17:38, 264.58s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474537700> 
+
+Generation:  22
+Best f1_score score: 0.9287119398516435
+Generation:  88%|████████▊ | 22/25 [2:28:59<18:28, 369.39s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547544a9e0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547542ce50> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475412b30> 
+
+Generation:  23
+Best f1_score score: 0.9287119398516435
+Generation:  92%|█████████▏| 23/25 [2:39:13<14:45, 442.79s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547484e7a0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  24
+Best f1_score score: 0.9287119398516435
+Generation:  96%|█████████▌| 24/25 [2:42:53<06:15, 375.85s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547491bfd0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474fae140> 
+
+Generation:  25
+Best f1_score score: 0.9287119398516435
+Generation: 100%|██████████| 25/25 [2:53:08<00:00, 447.85s/it]Generation: 100%|██████████| 25/25 [2:53:12<00:00, 415.71s/it]
+2024-08-21 02:12:04,317 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:37259' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-87f326c2b853d5b31aa79dc6c47bda7b', 'ndarray-a865494039e0a468ea8a0ba69c2f93bd'} (stimulus_id='handle-worker-cleanup-1724231524.3170927')
+Fitted
+Pipeline(steps=[('kneighborsclassifier',
+                 KNeighborsClassifier(n_jobs=1, p=1, weights='distance'))])
+score start
+train score: {'auroc': 1.0, 'accuracy': 1.0, 'balanced_accuracy': 1.0, 'logloss': 2.2204460492503136e-16, 'f1': 1.0}
+original test score: {'auroc': 0.9952260286884387, 'accuracy': 0.9495, 'balanced_accuracy': 0.9490914575132466, 'logloss': 0.4323752765639078, 'f1': 0.9494605703670407}
+imputed test score: {'auroc': 0.9891124387258319, 'accuracy': 0.9365, 'balanced_accuracy': 0.9360588024437496, 'logloss': 0.8618457341010257, 'f1': 0.9366145989089185}
+score end
+check intended
+EXP2 Finished
+running experiment 3/3 - What is the best automl settings?
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x1554365021d0>
+Start tpot fit
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475bb5450> 
+ Input X contains NaN.
+BernoulliNB does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 732, in fit
+    X, y = self._check_X_y(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 1184, in _check_X_y
+    X, y = super()._check_X_y(X, y, reset=reset)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 578, in _check_X_y
+    return self._validate_data(X, y, accept_sparse="csr", reset=reset)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+BernoulliNB does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475be0b50> 
+ Input X contains NaN.
+AdaBoostClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/ensemble/_weight_boosting.py", line 133, in fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+AdaBoostClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475bd1a80> 
+
+Generation:  1
+Best f1_score score: 0.8742006180093546
+Generation:   4%|▍         | 1/25 [10:03<4:01:27, 603.64s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475437fd0> 
+
+Generation:  2
+Best f1_score score: 0.8768171061882244
+Generation:   8%|▊         | 2/25 [20:06<3:51:14, 603.23s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554754fd660> 
+
+Generation:  3
+Best f1_score score: 0.9106958372682931
+Generation:  12%|█▏        | 3/25 [30:11<3:41:24, 603.84s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554754347c0> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547540e6e0> 
+
+Generation:  4
+Best f1_score score: 0.9198148083830983
+Generation:  16%|█▌        | 4/25 [40:15<3:31:25, 604.09s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474f27d00> 
+
+Generation:  5
+Best f1_score score: 0.926813277296682
+Generation:  20%|██        | 5/25 [50:18<3:21:11, 603.58s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155455366a70> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547522f400> 
+
+Generation:  6
+Best f1_score score: 0.9313633557091345
+Generation:  24%|██▍       | 6/25 [1:00:23<3:11:18, 604.15s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554753cc5b0> 
+
+Generation:  7
+Best f1_score score: 0.9313633557091345
+Generation:  28%|██▊       | 7/25 [1:10:26<3:01:07, 603.74s/it]Generation:  8
+Best f1_score score: 0.9313633557091345
+Generation:  32%|███▏      | 8/25 [1:17:28<2:34:37, 545.74s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547505bf70> 
+
+Generation:  9
+Best f1_score score: 0.9313633557091345
+Generation:  36%|███▌      | 9/25 [1:27:32<2:30:23, 563.97s/it]Generation:  10
+Best f1_score score: 0.9313633557091345
+Generation:  40%|████      | 10/25 [1:33:13<2:03:46, 495.13s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15527a955cc0> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474ad29b0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547547fcd0> 
+
+Generation:  11
+Best f1_score score: 0.9313633557091345
+Generation:  44%|████▍     | 11/25 [1:43:18<2:03:25, 528.98s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15527a956a10> 
+
+Generation:  12
+Best f1_score score: 0.9313633557091345
+Generation:  48%|████▊     | 12/25 [1:53:22<1:59:32, 551.71s/it]Generation:  13
+Best f1_score score: 0.9313633557091345
+Generation:  52%|█████▏    | 13/25 [2:03:14<1:52:47, 563.94s/it]Generation:  14
+Best f1_score score: 0.9313633557091345
+Generation:  56%|█████▌    | 14/25 [2:10:53<1:37:34, 532.20s/it]Generation:  15
+Best f1_score score: 0.9315450447210019
+Generation:  60%|██████    | 15/25 [2:17:11<1:20:57, 485.73s/it]Generation:  16
+Best f1_score score: 0.9315450447210019
+Generation:  64%|██████▍   | 16/25 [2:23:31<1:08:05, 453.96s/it]Generation:  17
+Best f1_score score: 0.9315450447210019
+Generation:  68%|██████▊   | 17/25 [2:30:29<59:05, 443.20s/it]  WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545a664550> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155459d62c20> 
+
+Generation:  18
+Best f1_score score: 0.9315450447210019
+Generation:  72%|███████▏  | 18/25 [2:40:33<57:20, 491.44s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d55e70> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545dc4aec0> 
+
+Generation:  19
+Best f1_score score: 0.9315450447210019
+Generation:  76%|███████▌  | 19/25 [2:50:38<52:33, 525.66s/it]Generation:  20
+Best f1_score score: 0.9331921357127321
+Generation:  80%|████████  | 20/25 [2:59:09<43:25, 521.11s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554552c8b50> 
+
+Generation:  21
+Best f1_score score: 0.9331921357127321
+Generation:  84%|████████▍ | 21/25 [3:09:13<36:24, 546.00s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475411540> 
+
+Generation:  22
+Best f1_score score: 0.9331921357127321
+Generation:  88%|████████▊ | 22/25 [3:19:17<28:10, 563.52s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554753ef400> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474a8ec80> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474acef50> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155475de10f0> 
+
+Generation:  23
+Best f1_score score: 0.9331921357127321
+Generation:  92%|█████████▏| 23/25 [3:29:23<19:12, 576.16s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545b17ca00> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545067b0d0> 
+
+Generation:  24
+Best f1_score score: 0.9331921357127321
+Generation:  96%|█████████▌| 24/25 [3:39:28<09:44, 584.71s/it]Generation:  25
+Best f1_score score: 0.9352974716235835
+Generation: 100%|██████████| 25/25 [3:48:25<00:00, 570.62s/it]Generation: 100%|██████████| 25/25 [3:48:25<00:00, 548.24s/it]
+2024-08-21 06:01:14,455 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:40925' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-87f326c2b853d5b31aa79dc6c47bda7b', 'DataFrame-7956ac4577b1bd2e45122072125a2c15'} (stimulus_id='handle-worker-cleanup-1724245274.4549866')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  initial_strategy='median',
+                                  n_nearest_features=80)),
+                ('kneighborsclassifier',
+                 KNeighborsClassifier(n_jobs=1, n_neighbors=4, p=1,
+                                      weights='distance'))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 1.0, 'accuracy': 1.0, 'balanced_accuracy': 1.0, 'logloss': 2.2204460492503136e-16, 'f1': 1.0}
+test score: {'auroc': 0.9901879250216437, 'accuracy': 0.9325, 'balanced_accuracy': 0.9320370479453567, 'logloss': 0.7627737273279952, 'f1': 0.9325890205897508}
+original test score: {'auroc': 0.9952620300294187, 'accuracy': 0.9485, 'balanced_accuracy': 0.9480797548945172, 'logloss': 0.41446035524689584, 'f1': 0.9483566502380673}
+score end
+6
+lvl
+0.1
+type
+MCAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+20.046893913017378
+hours
+DONE

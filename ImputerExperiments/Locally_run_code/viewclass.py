@@ -4,7 +4,7 @@ import pandas as pd
 import traceback
 
 dflist=[]
-for taskid in ['6', '30']:
+for taskid in ['6', '30', '32']:
     fileoutput = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'
     csvout = pd.DataFrame(columns=['DatasetID','Exp_Name','Condition', 'Level', 'Triplicate','Exp1ImputeRMSEAcc','Exp2ImputeModel','Exp2train_auroc','Exp2train_accuracy', 
                                             'Exp2train_balanced_accuracy', 'Exp2train_logloss','Exp2train_f1', 'Exp2ori_auroc','Exp2ori_accuracy', 
