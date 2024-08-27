@@ -139,8 +139,8 @@ def main():
     #try with 67 / 69 benchmark sets
     '''
     ran_reg = [189, 197, 198]
-    regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 42183, 
-                          42545, 42225, 42712, 287, 42688, 23515]
+    regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 1200, 1213, 42183, 
+                          42545, 42225, 42712, 287, 42688, 23515, ]
     '''
     #classification_id_list = [30]
     regression_id_list = [215]
