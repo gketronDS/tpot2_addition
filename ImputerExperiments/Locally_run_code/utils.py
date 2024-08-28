@@ -45,7 +45,7 @@ def score(est, X, y, r_or_c):
 
         this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
         this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
-        this_f1_score = sklearn.metrics.get_scorer("f1_weighted")(est, X, y)
+        this_f1_score = sklearn.metrics.get_scorer("f1_macro")(est, X, y)
 
         return { "auroc": this_auroc_score,
                 "accuracy": this_accuracy_score,
@@ -107,8 +107,7 @@ def load_task(base_save_folder, task_id, r_or_c):
                 "categorical", strategy='most_frequent'), 
             tpot2.builtin_modules.ColumnSimpleImputer(
                 "numeric", strategy='mean'), 
-                tpot2.builtin_modules.ColumnOneHotEncoder(
-                    "categorical", min_frequency=0.001, handle_unknown="ignore")
+            sklearn.preprocessing.OrdinalEncoder(min_frequency=0.001, handle_unknown="ignore"),
             )
         preprocessing_pipeline.fit(X_train)
         X_train = preprocessing_pipeline.transform(X_train)
