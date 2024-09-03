@@ -119,7 +119,7 @@ def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len, n_sample
       case 'GAIN':
         my_params = params_GAINImpute(trial, random_state) #Uses a generative adversarial network model to predict values. 
       case 'VAE':
-        my_params = params_VAEImpute(trial, random_state)
+        my_params = params_VAEImpute(trial)
         
     my_params['model_name'] = model_name
     return my_params
@@ -249,15 +249,13 @@ def params_GAINImpute(trial, random_state=None):
             params['random_state'] = random_state
     return params
 
-def params_VAEImpute(trial, random_state=None):
+def params_VAEImpute(trial):
     params ={ 
         'batch_size': trial.suggest_int('batch_size', 1, 1000, log=True),
         'iterations': trial.suggest_int('iterations', 1, 10000, log=True),
         'learning_rate': trial.suggest_float('learning_rate', 0.0001, 0.1, log=True),
         'p_miss': trial.suggest_float('p_miss', 0.01, 0.3),
     }
-    if random_state is not None: 
-            params['random_state'] = random_state
     return params
 
 
