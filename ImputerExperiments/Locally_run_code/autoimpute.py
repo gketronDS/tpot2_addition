@@ -249,7 +249,7 @@ def params_GAINImpute(trial, random_state=None):
             params['random_state'] = random_state
     return params
 
-def params_VAEImpute(trial):
+def params_VAEImpute(trial, random_state=None):
     params ={ 
         'batch_size': trial.suggest_int('batch_size', 1, 1000, log=True),
         'hint_rate': trial.suggest_float('hint_rate', 0.01, 0.99),
