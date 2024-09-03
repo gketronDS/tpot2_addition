@@ -252,8 +252,6 @@ def params_GAINImpute(trial, random_state=None):
 def params_VAEImpute(trial, random_state=None):
     params ={ 
         'batch_size': trial.suggest_int('batch_size', 1, 1000, log=True),
-        'hint_rate': trial.suggest_float('hint_rate', 0.01, 0.99),
-        'alpha': trial.suggest_int('alpha', 0, 100),
         'iterations': trial.suggest_int('iterations', 1, 10000, log=True),
         'learning_rate': trial.suggest_float('learning_rate', 0.0001, 0.1, log=True),
         'p_miss': trial.suggest_float('p_miss', 0.01, 0.3),
