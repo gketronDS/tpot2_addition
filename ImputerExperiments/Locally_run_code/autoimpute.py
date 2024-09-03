@@ -14,7 +14,7 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 from sklearn.impute import KNNImputer
 from sklearn.impute import SimpleImputer
-from tpot2.builtin_modules.imputer import GainImputer
+from tpot2.builtin_modules.imputer import GainImputer, VAEImputer
 
 
 class AutoImputer():
@@ -23,7 +23,7 @@ class AutoImputer():
                missing_type: str = 'MAR', 
                model_names: list = ['SimpleImputer' , 
                                     'IterativeImputer',
-                                    'KNNImputer', 'GAIN'], 
+                                    'KNNImputer', 'GAIN', 'VAE'], 
               sampler = optuna.samplers.TPESampler(), 
               direction ='minimize', n_jobs = 1, 
               show_progress = False, garbage_collect=True):
@@ -118,6 +118,9 @@ def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len, n_sample
         my_params = params_KNNImpute(trial, n_samples) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
       case 'GAIN':
         my_params = params_GAINImpute(trial, random_state) #Uses a generative adversarial network model to predict values. 
+      case 'VAE':
+        my_params = params_VAEImpute(trial, random_state)
+        
     my_params['model_name'] = model_name
     return my_params
   
@@ -162,6 +165,10 @@ def MyModel(**params):
             this_model = GainImputer(
                 **these_params
                 )
+        case 'VAE':
+            this_model = VAEImputer(
+                **these_params
+            )
     return this_model
 
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
@@ -241,4 +248,19 @@ def params_GAINImpute(trial, random_state=None):
     if random_state is not None: 
             params['random_state'] = random_state
     return params
+
+def params_VAEImpute(trial):
+    params ={ 
+        'batch_size': trial.suggest_int('batch_size', 1, 1000, log=True),
+        'hint_rate': trial.suggest_float('hint_rate', 0.01, 0.99),
+        'alpha': trial.suggest_int('alpha', 0, 100),
+        'iterations': trial.suggest_int('iterations', 1, 10000, log=True),
+        'learning_rate': trial.suggest_float('learning_rate', 0.0001, 0.1, log=True),
+        'p_miss': trial.suggest_float('p_miss', 0.01, 0.3),
+    }
+    if random_state is not None: 
+            params['random_state'] = random_state
+    return params
+
+
 
