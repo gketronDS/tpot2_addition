@@ -8,9 +8,9 @@ for taskid in ['189','197', '198']:
     fileoutput = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/r/'
     csvout = pd.DataFrame(columns=['DatasetID','Exp_Name','Condition', 'Level', 'Triplicate','Exp1ImputeRMSEAcc','Exp2ImputeModel','Exp2train_explained_var','Exp2train_r2', 
                                             'Exp2train_rmse', 'Exp2ori_explained_var', 'Exp2ori_r2', 'Exp2ori_rmse', 'Exp2impute_explained_var', 'Exp2impute_r2', 
-                                            'Exp2impute_rmse', 'Exp2RegressorModel', 'Exp2duration', 'Exp3train_explained_var', 'Exp3train_r2', 'Exp3train_rmse', 'Exp3ori_explained_var', 
+                                            'Exp2impute_rmse', 'Exp2RegressorModel', 'Exp2duration','Exp2inference_duration', 'Exp3train_explained_var', 'Exp3train_r2', 'Exp3train_rmse', 'Exp3ori_explained_var', 
                                             'Exp3ori_r2', 'Exp3ori_rmse', 'Exp3impute_explained_var', 'Exp3impute_r2', 'Exp3impute_rmse',  
-                                            'Exp3ImputeModel','Exp3ImputeRMSEAcc','Exp3RegressorModel','Exp3duration'],
+                                            'Exp3ImputeModel','Exp3ImputeRMSEAcc','Exp3RegressorModel','Exp3duration', 'Exp3inference_duration'],
                             index=['/'+taskid+'_reg_simple_MAR_0.01_1/','/'+taskid+'_reg_simple_MAR_0.1_1/',
                                    '/'+taskid+'_reg_simple_MAR_0.3_1/','/'+taskid+'_reg_simple_MAR_0.5_1/',
                                      '/'+taskid+'_reg_simple_MNAR_0.01_1/',
@@ -77,11 +77,11 @@ for taskid in ['189','197', '198']:
                         csvout.loc['/'+taskid+'_'+exp+item+lvl+iter] = pd.Series({'DatasetID':taskid,'Exp_Name': exp,'Condition': item, 'Level': lvl, 'Triplicate': iter,'Exp1ImputeRMSEAcc': est['impute_rmse'] ,'Exp2ImputeModel': str(est['impute_space']['model_name']),'Exp2train_explained_var': est['train_score']['train_explained_var'],'Exp2train_r2': est['train_score']['train_r2'], 
                                             'Exp2train_rmse': est['train_score']['train_rmse'], 'Exp2ori_explained_var': est['ori_test_score']['explained_var'], 'Exp2ori_r2': est['ori_test_score']['r2'], 
                                             'Exp2ori_rmse': est['ori_test_score']['rmse'], 'Exp2impute_explained_var': est['imputed_test_score']['explained_var'], 'Exp2impute_r2': est['imputed_test_score']['r2'], 
-                                            'Exp2impute_rmse': est['imputed_test_score']['rmse'], 'Exp2RegressorModel': str(est['fit_model'][0]).split('(')[0], 'Exp2duration': est['duration'], 
+                                            'Exp2impute_rmse': est['imputed_test_score']['rmse'], 'Exp2RegressorModel': str(est['fit_model'][0]).split('(')[0], 'Exp2duration': est['duration'],'Exp2inference_duration': est['inference_time'] ,
                                             'Exp3train_explained_var': tpot_space['train_score']['train_explained_var'], 'Exp3train_r2': tpot_space['train_score']['train_r2'], 'Exp3train_rmse': tpot_space['train_score']['train_rmse'], 
                                             'Exp3ori_explained_var': tpot_space['ori_test_score']['explained_var'], 'Exp3ori_r2': tpot_space['ori_test_score']['r2'], 'Exp3ori_rmse': tpot_space['ori_test_score']['rmse'],
                                             'Exp3impute_explained_var': tpot_space['test_score']['explained_var'], 'Exp3impute_r2': tpot_space['test_score']['r2'], 'Exp3impute_rmse': tpot_space['test_score']['rmse'],  
-                                            'Exp3ImputeModel': str(tpot_space['fit_model'][0]).split('(')[0], 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3RegressorModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration']})
+                                            'Exp3ImputeModel': str(tpot_space['fit_model'][0]).split('(')[0], 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3RegressorModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
                         
                         print(taskid+exp+item+lvl+iter+' passed')
 

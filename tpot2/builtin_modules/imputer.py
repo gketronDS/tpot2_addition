@@ -40,12 +40,12 @@ from sklearn.utils.validation import check_is_fitted, _check_feature_names_in
 from sklearn.preprocessing import OneHotEncoder
 import sklearn
 import sklearn.impute
-
+import math
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 import sklearn.compose
-
 import torch
+from torch.utils.data import DataLoader, TensorDataset
 
 class ColumnSimpleImputer(BaseEstimator, TransformerMixin):
     def __init__(self,  columns="all",         
@@ -454,3 +454,436 @@ class GainImputer(BaseEstimator, TransformerMixin):
             out = self.relu(self.D2(out))
             out = self.D3(out)
             return out
+
+
+class VAEImputer(BaseEstimator, TransformerMixin):
+
+    def __init__(self, iterations=1000, batch_size=128, split_size=5, code_size=5, encoder_hidden_sizes=[128, 64], decoder_hidden_sizes=[128, 64],
+                    temperature=None, p_miss = 0.2, learning_rate = 0.001, tolerance=0.001):
+        
+        self.batch_size = batch_size
+        self.iterations = iterations
+        self.split_size = split_size
+        self.code_size = code_size
+        self.encoder_hidden_sizes = encoder_hidden_sizes
+        self.decoder_hidden_sizes = decoder_hidden_sizes
+        self.test_loss_function = torch.nn.MSELoss()
+        self.p_miss = p_miss
+        self.temperature = temperature
+        self.learning_rate = learning_rate
+        self.tolerance = tolerance
+        torch.set_default_dtype(torch.float32)
+
+    def fit(self, X, y=None):
+        self.variable_sizes = [1]*X.shape[1] #list of 1s the same lenght as the features of X
+        
+        self.encoder_hidden_sizes = [int(math.floor(X.shape[1]/2)), int(math.floor(X.shape[1]*3/10))]
+        self.decoder_hidden_sizes = [int(math.floor(X.shape[1]/2)), int(math.floor(X.shape[1]*3/10))]
+        self.split_size =int(math.floor(X.shape[1]/5))
+        self.code_size=int(math.floor(X.shape[1]/5))
+        
+        #print(self.encoder_hidden_sizes)
+
+        features = torch.from_numpy(X.to_numpy()) #X features
+        features = torch.nan_to_num(features)
+
+        num_samples = len(features)
+        variable_masks = []
+        for variable_size in self.variable_sizes:
+            variable_mask = (torch.zeros(num_samples, 1).uniform_(0.0, 1.0) > self.p_miss).float()
+            if variable_size > 1:
+                variable_mask = variable_mask.repeat(1, variable_size)
+            variable_masks.append(variable_mask)
+        mask = torch.cat(variable_masks, dim=1)
+
+        temperature = self.temperature
+        self.model = self.VAE(self,
+                        features.shape[1],
+                        self.split_size,
+                        self.code_size,
+                        encoder_hidden_sizes=self.encoder_hidden_sizes,
+                        decoder_hidden_sizes=self.decoder_hidden_sizes,
+                        variable_sizes=(None if temperature is None else self.variable_sizes),  # do not use multi-output without temperature
+                        temperature=temperature
+                        )
+        
+        self.model.train(mode=True)
+        inverted_mask = 1 - mask
+        observed = features * mask
+        missing = torch.randn_like(features)
+        noisy_features = observed + missing*inverted_mask
+
+        if self.learning_rate is not None:
+            missing = torch.autograd.Variable(missing, requires_grad=True)
+            self.optim = torch.optim.Adam(self.model.parameters(), weight_decay=0, lr=self.learning_rate)
+
+        self.model.train(mode=True)
+        #pbar = tqdm(range(self.iterations))
+        for iterations in range(self.iterations):
+            train_ds = TensorDataset(features.float(), mask.float(), noisy_features.float())
+            losses = []
+            for f, m, n in DataLoader(train_ds, batch_size=self.batch_size, shuffle=True):
+                loss = self.train_batch(f, m, n)
+                losses.append(loss)
+                if loss < self.tolerance:
+                    break
+            #pbar.set_postfix({'loss': min(losses)})
+            '''
+            if iterations % 100 == 0 :
+                print(f'Epoch {iterations} loss: {loss:.4f}')
+            '''
+
+        self._VAE_params = self.model.state_dict()
+        return self
+    
+    def train_batch(self, features, mask, noisy_features):
+        self.optim.zero_grad()
+        #print(features.shape)
+        #print(noisy_features.shape)
+        #noise = torch.autograd.Variable(torch.FloatTensor(len(noisy_features), self.p_miss).normal_())
+        _, reconstructed, mu, log_var = self.model(noisy_features, training=True)
+        #print(reconstructed.shape)
+        #print(reconstructed)
+        # reconstruction of the non-missing values
+        reconstruction_loss = self.masked_reconstruction_loss_function(reconstructed,
+                                                                  features,
+                                                                  mask,
+                                                                  self.variable_sizes)
+        missing_loss = self.masked_reconstruction_loss_function(reconstructed, features, 1-mask, self.variable_sizes)
+        #print(reconstruction_loss)
+        loss = torch.sqrt(self.test_loss_function((mask * features + (1.0 - mask) * reconstructed), features))
+        
+        kld_loss = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
+        #print(kld_loss)
+        observed_loss = reconstruction_loss + kld_loss
+        #loss = loss.type(torch.float32)
+        #print(loss)
+        observed_loss.backward()
+
+        self.optim.step()
+
+        return observed_loss.detach().numpy()
+
+    def fit_transform(self, X, y=None):
+        self.fit(X)
+        return self.transform(X)
+
+    def transform(self, X, y=None):
+        self.model.load_state_dict(self._VAE_params)
+        self.model.train(mode=False)
+        self.variable_sizes = [1]*X.shape[1] #list of 1s the same lenght as the features of X
+
+        features = torch.from_numpy(X.to_numpy()) #X features
+        features = torch.nan_to_num(features)
+        mask = torch.from_numpy(1-np.isnan(X.to_numpy()))
+        inverted_mask = ~mask
+        num_samples = len(features)
+        observed = features * mask
+        missing = torch.randn_like(features)
+        noisy_features = observed + missing*inverted_mask
+        f = features.float()
+        m = mask.float()
+        #print(m)
+        n = noisy_features.float()
+        #print(n)
+        with torch.no_grad():
+            _, reconstructed, _, _ = self.model.forward(n)
+            #print(reconstructed)
+            imputed = m*n + (1.0 - m)*reconstructed
+        return imputed.cpu().numpy()
+
+    def reconstruction_loss_function(self, reconstructed, original, variable_sizes, reduction="mean"):
+        # by default use loss for binary variables
+        if variable_sizes is None:
+            return torch.nn.functional.binary_cross_entropy(reconstructed, original, reduction=reduction)
+        # use the variable sizes when available
+        else:
+            loss = 0
+            start = 0
+            numerical_size = 0
+            for variable_size in variable_sizes:
+                # if it is a categorical variable
+                if variable_size > 1:
+                    # add loss from the accumulated continuous variables
+                    if numerical_size > 0:
+                        end = start + numerical_size
+                        batch_reconstructed_variable = reconstructed[:, start:end]
+                        batch_target = original[:, start:end]
+                        loss += torch.nn.functional.mse_loss(batch_reconstructed_variable, batch_target, reduction=reduction)
+                        start = end
+                        numerical_size = 0
+                    # add loss from categorical variable
+                    end = start + variable_size
+                    batch_reconstructed_variable = reconstructed[:, start:end]
+                    batch_target = torch.argmax(original[:, start:end], dim=1)
+                    loss += torch.nn.functional.cross_entropy(batch_reconstructed_variable, batch_target, reduction=reduction)
+                    start = end
+                # if not, accumulate numerical variables
+                else:
+                    numerical_size += 1
+
+            # add loss from the remaining accumulated numerical variables
+            if numerical_size > 0:
+                end = start + numerical_size
+                batch_reconstructed_variable = reconstructed[:, start:end]
+                batch_target = original[:, start:end]
+                loss += torch.nn.functional.mse_loss(batch_reconstructed_variable, batch_target, reduction=reduction)
+
+            return loss
+
+    def masked_reconstruction_loss_function(self, reconstructed, original, mask, variable_sizes):
+        return self.reconstruction_loss_function(mask * reconstructed,
+                                            mask * original,
+                                            variable_sizes,
+                                            reduction="sum") / torch.sum(mask)
+
+    class Encoder(torch.nn.Module):
+
+        def __init__(self, VAEImputer, input_size, code_size, hidden_sizes=[], variable_sizes=None):
+            super(VAEImputer.Encoder, self).__init__()
+
+            layers = []
+
+            if variable_sizes is None:
+                previous_layer_size = input_size
+                #print(type(previous_layer_size))
+            else:
+                multi_input_layer = VAEImputer.MultiInput(VAEImputer, variable_sizes)
+                layers.append(multi_input_layer)
+                previous_layer_size = multi_input_layer.size
+                #print(type(previous_layer_size))
+
+            layer_sizes = list(hidden_sizes) + [code_size]
+            hidden_activation = torch.nn.Tanh()
+
+            for layer_size in layer_sizes:
+                #print(layer_size)
+                layers.append(torch.nn.Linear(previous_layer_size, layer_size))
+                layers.append(hidden_activation)
+                previous_layer_size = layer_size
+
+            self.hidden_layers = torch.nn.Sequential(*layers)
+
+        def forward(self, inputs):
+            #print(inputs)
+            return self.hidden_layers(inputs)
+    
+    class Decoder(torch.nn.Module):
+
+        def __init__(self, VAEImputer, code_size, output_size, hidden_sizes=[], variable_sizes=None, temperature=None):
+            super(VAEImputer.Decoder, self).__init__()
+
+            hidden_activation = torch.nn.Tanh()
+
+            previous_layer_size = code_size
+            hidden_layers = []
+
+            for layer_size in hidden_sizes:
+                hidden_layers.append(torch.nn.Linear(previous_layer_size, layer_size))
+                hidden_layers.append(hidden_activation)
+                previous_layer_size = layer_size
+
+            if len(hidden_layers) > 0:
+                self.hidden_layers = torch.nn.Sequential(*hidden_layers)
+            else:
+                self.hidden_layers = None
+
+            if variable_sizes is None:
+                self.output_layer = VAEImputer.SingleOutput(VAEImputer, previous_layer_size, output_size, activation=torch.nn.Sigmoid())
+            else:
+                self.output_layer = VAEImputer.MultiOutput(VAEImputer, previous_layer_size, variable_sizes, temperature=temperature)
+
+        def forward(self, code, training=False):
+            if self.hidden_layers is None:
+                hidden = code
+            else:
+                hidden = self.hidden_layers(code)
+
+            return self.output_layer(hidden, training=training)
+
+    class VAE(torch.nn.Module):
+
+        def __init__(self, VAEImputer, input_size, split_size, code_size, encoder_hidden_sizes=[], decoder_hidden_sizes=[],
+                    variable_sizes=None, temperature=None):
+
+            super(VAEImputer.VAE, self).__init__()
+
+            self.encoder = VAEImputer.Encoder(VAEImputer, input_size, split_size, hidden_sizes=encoder_hidden_sizes, variable_sizes=variable_sizes)
+            self.decoder = VAEImputer.Decoder(VAEImputer, code_size, input_size, hidden_sizes=decoder_hidden_sizes, variable_sizes=variable_sizes,
+                                temperature=temperature)
+
+            self.mu_layer = torch.nn.Linear(split_size, code_size)
+            self.log_var_layer = torch.nn.Linear(split_size, code_size)
+
+        def forward(self, inputs, training=False):
+            mu, log_var = self.encode(inputs)
+            #print(mu)
+            #print(log_var)
+            code = self.reparameterize(mu, log_var)
+            #print(code.shape)
+            reconstructed = self.decode(code, training=training)
+            return code, reconstructed, mu, log_var
+
+        def encode(self, inputs):
+            outputs = self.encoder(inputs)
+            #print(outputs.shape)
+            #print(outputs)
+            return self.mu_layer(outputs), self.log_var_layer(outputs)
+
+        def decode(self, code, training=False):
+            return self.decoder(code, training=training)
+        
+        def reparameterize(self, mu, log_var):
+            std = torch.exp(0.5 * log_var)
+            eps = torch.randn_like(std)
+            return eps.mul(std).add_(mu)
+        
+    '''
+    class OutputLayer(torch.nn.Module):
+        """
+        This is just a simple abstract class for single and multi output layers.
+        Both need to have the same interface.
+        """
+
+        def forward(self, hidden, training=None):
+            raise NotImplementedError
+    '''
+
+    class SingleOutput(torch.nn.Module):
+
+        def __init__(self, VAEImputer, previous_layer_size, output_size, activation=None):
+            super(VAEImputer.SingleOutput, self).__init__()
+            if activation is None:
+                self.model = torch.nn.Linear(previous_layer_size, output_size)
+            else:
+                self.model = torch.nn.Sequential(torch.nn.Linear(previous_layer_size, output_size), activation)
+
+        def forward(self, hidden, training=False):
+            return self.model(hidden)
+    
+    class MultiOutput(torch.nn.Module):
+        def __init__(self, VAEImputer, input_size, variable_sizes, temperature=None):
+            super(VAEImputer.MultiOutput, self).__init__()
+
+            self.output_layers = torch.nn.ModuleList()
+            self.output_activations = torch.nn.ModuleList()
+
+            numerical_size = 0
+            for i, variable_size in enumerate(variable_sizes):
+                # if it is a categorical variable
+                if variable_size > 1:
+                    # first create the accumulated numerical layer
+                    if numerical_size > 0:
+                        self.output_layers.append(torch.nn.Linear(input_size, numerical_size))
+                        self.output_activations.append(VAEImputer.NumericalActivation())
+                        numerical_size = 0
+                    # create the categorical layer
+                    self.output_layers.append(torch.nn.Linear(input_size, variable_size))
+                    self.output_activations.append(VAEImputer.CategoricalActivation(temperature))
+                # if not, accumulate numerical variables
+                else:
+                    numerical_size += 1
+
+            # create the remaining accumulated numerical layer
+            if numerical_size > 0:
+                self.output_layers.append(torch.nn.Linear(input_size, numerical_size))
+                self.output_activations.append(VAEImputer.NumericalActivation())
+
+        def forward(self, inputs, training=True, concat=True):
+            outputs = []
+            for output_layer, output_activation in zip(self.output_layers, self.output_activations):
+                logits = output_layer(inputs)
+                output = output_activation(logits, training=training)
+                outputs.append(output)
+
+            if concat:
+                return torch.cat(outputs, dim=1)
+            else:
+                return outputs
+
+
+    class CategoricalActivation(torch.nn.Module):
+
+        def __init__(self, VAEImputer, temperature):
+            super(VAEImputer.CategoricalActivation, self).__init__()
+
+            self.temperature = temperature
+
+        def forward(self, logits, training=True):
+            # gumbel-softmax (training and evaluation)
+            if self.temperature is not None:
+                return torch.nn.functional.gumbel_softmax(logits, hard=not training, tau=self.temperature)
+            # softmax training
+            elif training:
+                return torch.nn.functional.softmax(logits, dim=1)
+            # softmax evaluation
+            else:
+                return torch.distributions.OneHotCategorical(logits=logits).sample()
+
+
+    class NumericalActivation(torch.nn.Module):
+
+        def __init__(self, VAEImputer):
+            super(VAEImputer.NumericalActivation, self).__init__()
+
+        def forward(self, logits, training=True):
+            return torch.sigmoid(logits)
+        
+    class MultiInput(torch.nn.Module):
+
+        def __init__(self, VAEImputer, variable_sizes, min_embedding_size=2, max_embedding_size=50):
+            super(VAEImputer.MultiInput, self).__init__()
+
+            self.has_categorical = False
+            self.size = 0
+
+            embeddings = torch.nn.ParameterList()
+            for i, variable_size in enumerate(variable_sizes):
+                # if it is a numerical variable
+                if variable_size == 1:
+                    embeddings.append(None)
+                    self.size += 1
+                # if it is a categorical variable
+                else:
+                    # this is an arbitrary rule of thumb taken from several blog posts
+                    embedding_size = max(min_embedding_size, min(max_embedding_size, int(variable_size / 2)))
+
+                    # the embedding is implemented manually to be able to use one hot encoding
+                    # PyTorch embedding only accepts as input label encoding
+                    embedding = torch.nn.Parameter(data=torch.Tensor(variable_size, embedding_size).normal_(), requires_grad=True)
+
+                    embeddings.append(embedding)
+                    self.size += embedding_size
+                    self.has_categorical = True
+
+            if self.has_categorical:
+                self.variable_sizes = variable_sizes
+                self.embeddings = embeddings
+
+        def forward(self, inputs):
+            if self.has_categorical:
+                outputs = []
+                start = 0
+                for variable_size, embedding in zip(self.variable_sizes, self.embeddings):
+                    # extract the variable
+                    end = start + variable_size
+                    variable = inputs[:, start:end]
+
+                    # numerical variable
+                    if variable_size == 1:
+                        # leave the input as it is
+                        outputs.append(variable)
+                    # categorical variable
+                    else:
+                        output = torch.matmul(variable, embedding).squeeze(1)
+                        outputs.append(output)
+
+                    # move the variable limits
+                    start = end
+
+                # concatenate all the variable outputs
+                return torch.cat(outputs, dim=1)
+            else:
+                return inputs
+        
+

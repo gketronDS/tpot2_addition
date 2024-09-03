@@ -47,14 +47,14 @@ def main():
     ])
 
     classification_full = {
-                    'scorers':['f1_weighted'],
+                    'scorers':['f1_macro'],
                     'scorers_weights':[1],
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
                     'generations' : 25, 
                     'n_jobs':n_jobs,
-                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs),
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=5, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -63,14 +63,14 @@ def main():
                     'preprocessing':False,
     }
     classification_simple = {
-                    'scorers':['f1_weighted'],
+                    'scorers':['f1_macro'],
                     'scorers_weights':[1],
                     'population_size' : n_jobs,
                     'survival_percentage':1, 
                     'initial_population_size' : n_jobs,
                     'generations' : 25, 
                     'n_jobs':n_jobs,
-                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=10, shuffle=True, random_state=num_runs),
+                    'cv': sklearn.model_selection.StratifiedKFold(n_splits=5, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -87,7 +87,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 25, 
                     'n_jobs':n_jobs,
-                    'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs),
+                    'cv': sklearn.model_selection.KFold(n_splits=5, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -103,7 +103,7 @@ def main():
                     'initial_population_size' : n_jobs,
                     'generations' : 25, 
                     'n_jobs':n_jobs,
-                    'cv': sklearn.model_selection.KFold(n_splits=10, shuffle=True, random_state=num_runs),
+                    'cv': sklearn.model_selection.KFold(n_splits=5, shuffle=True, random_state=num_runs),
                     'verbose':5, 
                     'max_time_seconds': total_duration,
                     'max_eval_time_seconds':60*10, 
@@ -146,7 +146,7 @@ def main():
                               40685, 23395, 40983, 41027, 23517, 40701, 40922,
                               41671, 41146, 42192, 823, 42477, 42493, 42636]
     '''
-    classification_id_list = [32]
+    classification_id_list = [26]
     #regression_id_list = [197]
 
     

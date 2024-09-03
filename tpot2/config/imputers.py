@@ -95,3 +95,18 @@ def get_GainImputer_config_space(random_state):
     return ConfigurationSpace(
             space = space
             )
+
+def get_VAEImputer_config_space(random_state):
+    space = { 
+            'batch_size': Integer('batch_size', bounds=(1, 1000), log=True),
+            'iterations': Integer('iterations', bounds=(1, 10000), log=True),
+            'learning_rate': Float('learning_rate', bounds=(0.0001, 0.1), log=True),
+            'p_miss': Float('p_miss', bounds=(0.01, 0.30)),
+    }
+    if random_state is not None: 
+            #This is required because configspace doesn't allow None as a value
+            space['random_state'] = random_state
+
+    return ConfigurationSpace(
+            space = space
+            )

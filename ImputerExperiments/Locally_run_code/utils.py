@@ -92,29 +92,35 @@ def load_task(base_save_folder, task_id, r_or_c):
         pd.set_option('display.max_columns', None)
         print(X)
         print(type(X))
-        print(y)
-        print(type(y))
-        X = pd.get_dummies(X, dtype=float)
-        X = X*int(1)
-        print(X)
-        print(type(X))
         if r_or_c =='c':
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, stratify=y)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
         else: 
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+        print(X_train)
+        print(type(X_train))
         preprocessing_pipeline = sklearn.pipeline.make_pipeline(
             tpot2.builtin_modules.ColumnSimpleImputer(
                 "categorical", strategy='most_frequent'), 
             tpot2.builtin_modules.ColumnSimpleImputer(
                 "numeric", strategy='mean'), 
-            sklearn.preprocessing.OrdinalEncoder(min_frequency=0.001, handle_unknown="ignore"),
+            tpot2.builtin_modules.column_one_hot_encoder.ColumnOrdinalEncoder("categorical", unknown_value =-1, encoded_missing_value = np.nan, min_frequency=0.001, handle_unknown="use_encoded_value"),
             )
         preprocessing_pipeline.fit(X_train)
         X_train = preprocessing_pipeline.transform(X_train)
         X_test = preprocessing_pipeline.transform(X_test)
 
-        X_train = sklearn.preprocessing.normalize(X_train)
-        X_test = sklearn.preprocessing.normalize(X_test)
+        print(pd.DataFrame(X_train))
+        print(type(X_train))
+        print(pd.DataFrame(X_test))
+        print(type(X_test))
+
+        X_train = sklearn.preprocessing.normalize(X_train, axis=0)
+        X_test = sklearn.preprocessing.normalize(X_test, axis=0)
+
+        print(pd.DataFrame(X_train))
+        print(type(X_train))
+        print(pd.DataFrame(X_test))
+        print(type(X_test))
 
         if r_or_c =='c':
             le = sklearn.preprocessing.LabelEncoder()
@@ -603,7 +609,10 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             print('train score:', train_score)
             ori_test_score = score(est, X_test, y_test, r_or_c=r_or_c)
             print('original test score:', ori_test_score)
+            start2 = time.time()
             imputed_test_score = score(est, impute_test, y_test, r_or_c=r_or_c)
+            stop2 = time.time()
+            inferenceduration2 = stop2 - start2
             print('imputed test score:', imputed_test_score)
             print('score end')
             train_score = {f"train_{k}": v for k, v in train_score.items()}
@@ -617,6 +626,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
             all_scores["name"] = openml.datasets.get_dataset(taskid).name
             all_scores["duration"] = duration
+            all_scores["inference_time"] = inferenceduration2
             all_scores["run"] = num_iter
             all_scores["fit_model"] = est.fitted_pipeline_
             all_scores["r_or_c"] = r_or_c
@@ -660,7 +670,10 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             print('score start')
             train_score = score(tpot_space, X_train_M, y_train, r_or_c=r_or_c)
             print('train score:', train_score)
+            start = time.time()
             test_score = score(tpot_space, X_test_M, y_test, r_or_c=r_or_c)
+            stop = time.time()
+            duration2 = stop - start
             print('test score:', test_score)
             ori_test_score = score(tpot_space, X_test, y_test, r_or_c=r_or_c)
             print('original test score:', ori_test_score)
@@ -676,6 +689,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             tpot_space_scores["exp_name"] = exp['exp_name']
             tpot_space_scores["name"] = openml.datasets.get_dataset(taskid).name
             tpot_space_scores["duration"] = duration
+            tpot_space_scores["inference_time"] = duration2
             tpot_space_scores["run"] = num_iter
             tpot_space_scores["fit_model"] = tpot_space.fitted_pipeline_
             tpot_space_scores["r_or_c"] = r_or_c
