@@ -103,19 +103,12 @@ def load_task(base_save_folder, task_id, r_or_c):
                 "categorical", strategy='most_frequent'), 
             tpot2.builtin_modules.ColumnSimpleImputer(
                 "numeric", strategy='mean'), 
-            tpot2.builtin_modules.column_one_hot_encoder.ColumnOrdinalEncoder("categorical", unknown_value =-1, encoded_missing_value = np.nan, min_frequency=0.001, handle_unknown="use_encoded_value"),
+            tpot2.builtin_modules.column_one_hot_encoder.ColumnOrdinalEncoder(columns="categorical", min_frequency=0.001, handle_unknown="use_encoded_value"),
+            sklearn.preprocessing.MinMaxScaler()
             )
         preprocessing_pipeline.fit(X_train)
         X_train = preprocessing_pipeline.transform(X_train)
         X_test = preprocessing_pipeline.transform(X_test)
-
-        print(pd.DataFrame(X_train))
-        print(type(X_train))
-        print(pd.DataFrame(X_test))
-        print(type(X_test))
-
-        X_train = sklearn.preprocessing.normalize(X_train, axis=0)
-        X_test = sklearn.preprocessing.normalize(X_test, axis=0)
 
         print(pd.DataFrame(X_train))
         print(type(X_train))
