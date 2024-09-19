@@ -153,6 +153,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
                  hint_rate=0.9, 
                  alpha=100, 
                  iterations=10000,
+                 train_rate = 0.8,
                  learning_rate = 0.001,
                  p_miss = 0.2,
                  random_state=None):
@@ -160,6 +161,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
         self.hint_rate = hint_rate
         self.alpha = alpha
         self.iterations = iterations
+        self.train_rate = train_rate
         self.learning_rate = learning_rate
         self.p_miss = p_miss
         self.random_state = random_state
@@ -175,6 +177,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
         torch.set_grad_enabled(True)
         if random_state is not None:
             torch.manual_seed(self.random_state)
+            np.random.seed(self.random_state)
 
     def fit(self, X, y=None):
         self.fit_transform(X)
@@ -182,18 +185,17 @@ class GainImputer(BaseEstimator, TransformerMixin):
 
     def transform(self, X, y = None):
         
-        self.modelG.load_state_dict(self._Gen_params)
+        self.modelG.load_state(self._Gen_params)
 
-        if isinstance(X, pd.DataFrame):
-            X_copy = X.copy()
-            X_copy = X.to_numpy()
+        if hasattr(X, 'dtypes'):
+            X = X.to_numpy()
         #define mask matrix
-        X_mask = 1 - np.isnan(X_copy)
+        X_mask = 1 - np.isnan(X)
         #get dimensions
-        no, self.dim = X_copy.shape
+        no, self.dim = X.shape
         self.int_dim = int(self.dim)
         #normalize the original data, and save parameters for renormalization
-        norm_data = X_copy.copy()
+        norm_data = X.copy()
         min_val = np.zeros(self.dim)
         max_val = np.zeros(self.dim)
         for i in range(self.dim):
@@ -220,46 +222,35 @@ class GainImputer(BaseEstimator, TransformerMixin):
         New_X_mb = torch.tensor(New_X_mb, dtype=torch.float32)
         M_mb = torch.tensor(M_mb, dtype=torch.float32)
 
-        G_sample = self.modelG(X_mb, New_X_mb, M_mb)
+        G_sample = self.modelG.forward(X_mb, New_X_mb, M_mb)
         mse_loss = torch.nn.MSELoss(reduction='mean')
         mse_final = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
-        #print('Final Test RMSE: ' + str(np.sqrt(mse_final.item())))
+        print('Transform RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
-        if self.device != 'cpu':
-            imputed_data = imputed_data.cpu().detach().numpy()
-        else:
-            imputed_data = imputed_data.detach().numpy()
+        imputed_data = imputed_data.cpu().detach().numpy()
         _, dim = imputed_data.shape
         renorm_data = imputed_data.copy()
         for i in range(dim):
             renorm_data[:,i] = renorm_data[:,i] * (max_val[i] + 1e-6)   
             renorm_data[:,i] = renorm_data[:,i] + min_val[i]
         for i in range(dim):
-            temp = X_copy[~np.isnan(X_copy[:, i]), i]
+            temp = X[~np.isnan(X[:, i]), i]
             # Only for the categorical variable
             if len(np.unique(temp)) < 20:
                 renorm_data[:, i] = np.round(renorm_data[:, i])
-
-        if isinstance(X, pd.DataFrame):
-            out = pd.DataFrame(renorm_data, columns=X.columns)
-            return out
-        else:
-            return renorm_data
-        
         return renorm_data
         
     def fit_transform(self, X, y=None):
-        if isinstance(X, pd.DataFrame):
-            X_copy = X.copy()
-            X_copy = X.to_numpy()
+        if hasattr(X, 'dtypes'):
+            X = X.to_numpy()
         #define mask matrix
-        X_mask = 1 - np.isnan(X_copy)
+        X_mask = 1 - np.isnan(X)
         #get dimensions
-        no, self.dim = X_copy.shape
+        no, self.dim = X.shape
         self.int_dim = int(self.dim)
         #normalize the original data, and save parameters for renormalization
-        norm_data = X_copy.copy()
+        norm_data = X.copy()
         min_val = np.zeros(self.dim)
         max_val = np.zeros(self.dim)
         for i in range(self.dim):
@@ -307,8 +298,8 @@ class GainImputer(BaseEstimator, TransformerMixin):
             H_mb = torch.tensor(H_mb, dtype=torch.float32)
 
             #Train Discriminator
-            G_sample = self.modelG(X_mb, New_X_mb, M_mb)
-            D_prob = self.modelD(X_mb, M_mb, G_sample, H_mb)
+            G_sample = self.modelG.forward(X_mb, New_X_mb, M_mb)
+            D_prob = self.modelD.forward(X_mb, M_mb, G_sample, H_mb)
             D_loss = bce_loss(D_prob, M_mb)
 
             D_loss.backward()
@@ -316,12 +307,9 @@ class GainImputer(BaseEstimator, TransformerMixin):
             optimizer_D.zero_grad()
 
             #Train Generator
-            G_sample = self.modelG(X_mb, New_X_mb, M_mb)
-            D_prob = self.modelD(X_mb, M_mb, G_sample, H_mb)
-            if self.device != 'cpu':
-                D_prob.cpu().detach()
-            else:
-                D_prob.detach()
+            G_sample = self.modelG.forward(X_mb, New_X_mb, M_mb)
+            D_prob = self.modelD.forward(X_mb, M_mb, G_sample, H_mb)
+            D_prob.cpu().detach()
             G_loss1 = ((1-M_mb)*(torch.sigmoid(D_prob)+1e-8).log()).mean()/(1-M_mb).sum()
             G_mse_loss = mse_loss(M_mb*X_mb, M_mb*G_sample)/M_mb.sum()
             G_loss = G_loss1 + self.alpha*G_mse_loss
@@ -332,13 +320,12 @@ class GainImputer(BaseEstimator, TransformerMixin):
 
             G_mse_test = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
 
-            '''if it % 100 == 0:
+            if it % 100 == 0:
                 print('Iter: {}'.format(it))
                 print('D_loss: {:.4}'.format(D_loss))
                 print('Train_loss: {:.4}'.format(G_mse_loss))
-                print('Test_loss: {:.4}'.format(G_mse_test))
-                print()'''
-        self._Gen_params = self.modelG.state_dict()
+                print()
+        self._Gen_params = self.modelG.parameters()
 
         Z_mb = self._sample_Z(no, self.dim) 
         M_mb = Missing
@@ -350,31 +337,23 @@ class GainImputer(BaseEstimator, TransformerMixin):
         New_X_mb = torch.tensor(New_X_mb, dtype=torch.float32)
         M_mb = torch.tensor(M_mb, dtype=torch.float32)
 
-        G_sample = self.modelG(X_mb, New_X_mb, M_mb)
+        G_sample = self.modelG.forward(X_mb, New_X_mb, M_mb)
         mse_final = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
-        #print('Final Train RMSE: ' + str(np.sqrt(mse_final.item())))
+        print('Final Train RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
-        if self.device != 'cpu':
-            imputed_data = imputed_data.cpu().detach().numpy()
-        else:
-            imputed_data = imputed_data.detach().numpy()
+        imputed_data = imputed_data.cpu().detach().numpy()
         _, dim = imputed_data.shape
         renorm_data = imputed_data.copy()
         for i in range(dim):
             renorm_data[:,i] = renorm_data[:,i] * (max_val[i] + 1e-6)   
             renorm_data[:,i] = renorm_data[:,i] + min_val[i]
         for i in range(dim):
-            temp = X_copy[~np.isnan(X_copy[:, i]), i]
+            temp = X[~np.isnan(X[:, i]), i]
             # Only for the categorical variable
             if len(np.unique(temp)) < 20:
                 renorm_data[:, i] = np.round(renorm_data[:, i])
-        if isinstance(X, pd.DataFrame):
-            out = pd.DataFrame(renorm_data, columns=X.columns)
-            return out
-        else:
-            return renorm_data
-
+        return renorm_data
     
     def _sample_M(self, rows, cols, p):
         '''Sample binary random variables.
@@ -411,50 +390,66 @@ class GainImputer(BaseEstimator, TransformerMixin):
         batch_idx = total_idx[:batch_size]
         return batch_idx
     
-    class Generator(torch.nn.Module):
+    class Generator():
         def __init__(self, GainImputer):
             super(GainImputer.Generator, self).__init__()
-            self.G1 = torch.nn.Linear(GainImputer.dim*2,GainImputer.int_dim)
-            self.G2 = torch.nn.Linear(GainImputer.int_dim,GainImputer.int_dim)
-            self.G3 = torch.nn.Linear(GainImputer.int_dim,GainImputer.dim)
-            self.relu = torch.nn.ReLU()
-            self.sigmoid = torch.nn.Sigmoid()
-            self.init_weight()
+            self.G_W1 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.dim*2), requires_grad=True, device=GainImputer.device))    # Data + Hint as inputs
+            self.G_b1 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
 
-        def init_weight(self):
-            layers = [self.G1, self.G2, self.G3]
-            [torch.nn.init.xavier_normal_(layer.weight) for layer in layers]
+            self.G_W2 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.G_b2 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
+
+            self.G_W3 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.G_b3 = torch.zeros((GainImputer.dim), requires_grad=True, device=GainImputer.device)   
 
         def forward(self, X: torch.float32, Z: torch.float32, M: torch.float32):
             input = M * X + (1-M)*Z
             input = torch.cat([input, M], dim=1)
-            out = self.relu(self.G1(input))
-            out = self.relu(self.G2(out))
-            out = self.sigmoid(self.G3(out))
+            l1 = torch.nn.functional.linear(input=input, weight=self.G_W1, bias=self.G_b1)
+            out1 = torch.nn.functional.relu(l1)
+            l2 = torch.nn.functional.linear(input=out1, weight=self.G_W2, bias=self.G_b2)
+            out2 = torch.nn.functional.relu(l2)
+            l3 = torch.nn.functional.linear(input=out2, weight=self.G_W3, bias=self.G_b3)
+            out = torch.nn.functional.sigmoid(l3)
             return out
         
-    class Discriminator(torch.nn.Module):
+        def parameters(self):
+            params = [self.G_W1, self.G_b1, self.G_W2, self.G_b2, self.G_W3, self.G_b3]
+            return params
+        
+        def load_state(self, params):
+            self.G_W1 = params[0]
+            self.G_b1 = params[1]
+            self.G_W2 = params[2]
+            self.G_b2 = params[3]
+            self.G_W3 = params[4]
+            self.G_b3 = params[5]
+        
+    class Discriminator():
         def __init__(self, GainImputer):
             super(GainImputer.Discriminator, self).__init__()
-            self.D1 = torch.nn.Linear(GainImputer.dim*2,GainImputer.int_dim)
-            self.D2 = torch.nn.Linear(GainImputer.int_dim,GainImputer.int_dim)
-            self.D3 = torch.nn.Linear(GainImputer.int_dim,GainImputer.dim)
-            self.relu = torch.nn.ReLU()
-            self.sigmoid = torch.nn.Sigmoid()
-            self.init_weight()
-        
-        def init_weight(self):
-            layers = [self.D1, self.D2, self.D3]
-            [torch.nn.init.xavier_normal_(layer.weight) for layer in layers]
+            self.D_W1 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.dim*2), requires_grad=True, device=GainImputer.device))     # Data + Hint as inputs
+            self.D_b1 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
+            self.D_W2 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.D_b2 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
+            self.D_W3 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.D_b3 = torch.zeros((GainImputer.dim), requires_grad=True, device=GainImputer.device)       # Output is multi-variate
+
         
         def forward(self, X, M, G, H):
             input = M * X + (1-M)*G
             input = torch.cat([input, H], dim=1)
-            out = self.relu(self.D1(input))
-            out = self.relu(self.D2(out))
-            out = self.D3(out)
-            return out
-
+            l1 = torch.nn.functional.linear(input=input, weight=self.D_W1, bias=self.D_b1)
+            out1 = torch.nn.functional.relu(l1)
+            l2 = torch.nn.functional.linear(input=out1, weight=self.D_W2, bias=self.D_b2)
+            out2 = torch.nn.functional.relu(l2)
+            l3 = torch.nn.functional.linear(input=out2, weight=self.D_W3, bias=self.D_b3)
+            return l3
+        
+        def parameters(self):
+            params = [self.D_W1, self.D_b1, self.D_W2, self.D_b2, self.D_W3, self.D_b3]
+            return params
+        
 
 class VAEImputer(BaseEstimator, TransformerMixin):
 
