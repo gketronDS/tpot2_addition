@@ -1,6 +1,9 @@
 #install.packages("tidyverse")
-#install.packages(c("agridat", "ggplot2", "ghibli", "ggdist"))
-#library(c("agridat", "ggplot2", "ghibli", "ggdist"))
+i#nstall.packages(c("agridat", "ggplot2", "ghibli", "ggdist"))
+library(agridat)
+library(ggplot2)
+library(ghibli)
+library(ggdist)
 library(tidyverse)
 #install.packages("ggstatsplot")
 library(ggstatsplot)
@@ -16,6 +19,7 @@ myplot <- ggbetweenstats(
     x = RMSEAcc,
     y = value,
     type = "nonparametric",
+    effsize.type = "d",
     p.adjust.method = "bonferroni",
     pairwise.display = "all"
 )
