@@ -225,7 +225,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
         G_sample = self.modelG.forward(X_mb, New_X_mb, M_mb)
         mse_loss = torch.nn.MSELoss(reduction='mean')
         mse_final = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
-        print('Transform RMSE: ' + str(np.sqrt(mse_final.item())))
+        #print('Transform RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
         imputed_data = imputed_data.cpu().detach().numpy()
@@ -242,6 +242,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
         return renorm_data
         
     def fit_transform(self, X, y=None):
+        #print("working")
         if hasattr(X, 'dtypes'):
             X = X.to_numpy()
         #define mask matrix
@@ -319,12 +320,13 @@ class GainImputer(BaseEstimator, TransformerMixin):
             optimizer_G.zero_grad()
 
             G_mse_test = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
-
+            '''
             if it % 100 == 0:
                 print('Iter: {}'.format(it))
                 print('D_loss: {:.4}'.format(D_loss))
                 print('Train_loss: {:.4}'.format(G_mse_loss))
                 print()
+            '''
         self._Gen_params = self.modelG.parameters()
 
         Z_mb = self._sample_Z(no, self.dim) 
@@ -339,7 +341,7 @@ class GainImputer(BaseEstimator, TransformerMixin):
 
         G_sample = self.modelG.forward(X_mb, New_X_mb, M_mb)
         mse_final = mse_loss((1-M_mb)*X_mb, (1-M_mb)*G_sample)/(1-M_mb).sum()
-        print('Final Train RMSE: ' + str(np.sqrt(mse_final.item())))
+        #print('Final Train RMSE: ' + str(np.sqrt(mse_final.item())))
 
         imputed_data = M_mb * X_mb + (1-M_mb) * G_sample
         imputed_data = imputed_data.cpu().detach().numpy()
@@ -393,13 +395,13 @@ class GainImputer(BaseEstimator, TransformerMixin):
     class Generator():
         def __init__(self, GainImputer):
             super(GainImputer.Generator, self).__init__()
-            self.G_W1 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.dim*2), requires_grad=True, device=GainImputer.device))    # Data + Hint as inputs
+            self.G_W1 = torch.nn.init.kaiming_normal_(torch.empty((GainImputer.int_dim, GainImputer.dim*2), requires_grad=True, device=GainImputer.device))    # Data + Hint as inputs
             self.G_b1 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
 
-            self.G_W2 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.G_W2 = torch.nn.init.kaiming_normal_(torch.empty((GainImputer.int_dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
             self.G_b2 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
 
-            self.G_W3 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.G_W3 = torch.nn.init.kaiming_normal_(torch.empty((GainImputer.dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
             self.G_b3 = torch.zeros((GainImputer.dim), requires_grad=True, device=GainImputer.device)   
 
         def forward(self, X: torch.float32, Z: torch.float32, M: torch.float32):
@@ -428,11 +430,11 @@ class GainImputer(BaseEstimator, TransformerMixin):
     class Discriminator():
         def __init__(self, GainImputer):
             super(GainImputer.Discriminator, self).__init__()
-            self.D_W1 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.dim*2), requires_grad=True, device=GainImputer.device))     # Data + Hint as inputs
+            self.D_W1 = torch.nn.init.kaiming_normal_(torch.empty((GainImputer.int_dim, GainImputer.dim*2), requires_grad=True, device=GainImputer.device))     # Data + Hint as inputs
             self.D_b1 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
-            self.D_W2 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.int_dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.D_W2 = torch.nn.init.kaiming_normal_(torch.empty((GainImputer.int_dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
             self.D_b2 = torch.zeros((GainImputer.int_dim),requires_grad=True, device=GainImputer.device)
-            self.D_W3 = torch.nn.init.xavier_normal_(torch.empty((GainImputer.dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
+            self.D_W3 = torch.nn.init.kaiming_normal_(torch.empty((GainImputer.dim, GainImputer.int_dim),requires_grad=True, device=GainImputer.device))
             self.D_b3 = torch.zeros((GainImputer.dim), requires_grad=True, device=GainImputer.device)       # Output is multi-variate
 
         
@@ -449,12 +451,11 @@ class GainImputer(BaseEstimator, TransformerMixin):
         def parameters(self):
             params = [self.D_W1, self.D_b1, self.D_W2, self.D_b2, self.D_W3, self.D_b3]
             return params
-        
 
 class VAEImputer(BaseEstimator, TransformerMixin):
 
     def __init__(self, iterations=1000, batch_size=128, split_size=5, code_size=5, encoder_hidden_sizes=[128, 64], decoder_hidden_sizes=[128, 64],
-                    temperature=None, p_miss = 0.2, learning_rate = 0.001, tolerance=0.001):
+                    temperature=None, p_miss = 0.2, learning_rate = 0.001, tolerance=0.001, random_state=None):
         
         self.batch_size = batch_size
         self.iterations = iterations
@@ -467,13 +468,131 @@ class VAEImputer(BaseEstimator, TransformerMixin):
         self.temperature = temperature
         self.learning_rate = learning_rate
         self.tolerance = tolerance
+        self.random_state=random_state
         torch.set_default_dtype(torch.float32)
+        self.device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else "mps"
+            if torch.backends.mps.is_available()
+            else "cpu"
+            )
+        torch.set_default_device(self.device)
+        torch.set_default_dtype(torch.float32)
+        torch.set_grad_enabled(True)
+        if self.random_state is not None:
+            torch.manual_seed(self.random_state)
+            np.random.seed(self.random_state)
+
+    class Encoder():
+        def __init__(self, VAEImputer, input_size):
+            super(VAEImputer.Encoder, self).__init__()
+            self.E_W1 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.encoder_hidden_sizes[0], input_size), requires_grad=True, device=VAEImputer.device))    # Data + Hint as inputs
+            self.E_b1 = torch.zeros((VAEImputer.encoder_hidden_sizes[0]),requires_grad=True, device=VAEImputer.device)
+
+            self.E_W2 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.encoder_hidden_sizes[1], VAEImputer.encoder_hidden_sizes[0],),requires_grad=True, device=VAEImputer.device))
+            self.E_b2 = torch.zeros((VAEImputer.encoder_hidden_sizes[1]),requires_grad=True, device=VAEImputer.device)
+
+            self.E_W3 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.code_size, VAEImputer.encoder_hidden_sizes[1]),requires_grad=True, device=VAEImputer.device))
+            self.E_b3 = torch.zeros((VAEImputer.code_size), requires_grad=True, device=VAEImputer.device)   
+        
+            self.E_W4 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.split_size, VAEImputer.code_size),requires_grad=True, device=VAEImputer.device))
+            self.E_b4 = torch.zeros((VAEImputer.split_size), requires_grad=True, device=VAEImputer.device)   
+
+            self.E_W5 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.split_size, VAEImputer.code_size),requires_grad=True, device=VAEImputer.device))
+            self.E_b5 = torch.zeros((VAEImputer.split_size), requires_grad=True, device=VAEImputer.device)  
+
+        def forward(self, x):
+            l1  = torch.nn.functional.linear(input=x, weight=self.E_W1, bias=self.E_b1)
+            out1 = torch.nn.functional.tanh(l1)
+            l2 = torch.nn.functional.linear(input=out1, weight=self.E_W2, bias=self.E_b2)
+            out2 = torch.nn.functional.tanh(l2)
+            l3 = torch.nn.functional.linear(input=out2, weight=self.E_W3, bias=self.E_b3)
+            out3 = torch.nn.functional.tanh(l3)
+            mean = torch.nn.functional.linear(input=out3, weight=self.E_W4, bias=self.E_b4)
+            log_var = torch.nn.functional.linear(input=out3, weight=self.E_W5, bias=self.E_b5)
+            return mean, log_var
+
+        def parameters(self):
+            params = [self.E_W1, self.E_b1, self.E_W2, self.E_b2, self.E_W3, self.E_b3, self.E_W4, self.E_b4, self.E_W5, self.E_b5]
+            return params
+        
+        def load_state(self, params):
+            self.E_W1 = params[0]
+            self.E_b1 = params[1]
+            self.E_W2 = params[2]
+            self.E_b2 = params[3]
+            self.E_W3 = params[4]
+            self.E_b3 = params[5]
+            self.E_W4 = params[6]
+            self.E_b4 = params[7]
+            self.E_W5 = params[8]
+            self.E_b5 = params[9]
+
+    class Decoder():
+        def __init__(self, VAEImputer, input_size):
+            super(VAEImputer.Decoder, self).__init__()
+            self.D_W1 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.decoder_hidden_sizes[0], VAEImputer.split_size), requires_grad=True, device=VAEImputer.device))    # Data + Hint as inputs
+            self.D_b1 = torch.zeros((VAEImputer.decoder_hidden_sizes[0]),requires_grad=True, device=VAEImputer.device)
+
+            self.D_W2 = torch.nn.init.xavier_normal_(torch.empty((VAEImputer.decoder_hidden_sizes[1], VAEImputer.decoder_hidden_sizes[0]),requires_grad=True, device=VAEImputer.device))
+            self.D_b2 = torch.zeros((VAEImputer.decoder_hidden_sizes[1]),requires_grad=True, device=VAEImputer.device)
+
+            self.D_W3 = torch.nn.init.xavier_normal_(torch.empty((input_size, VAEImputer.decoder_hidden_sizes[1]),requires_grad=True, device=VAEImputer.device))
+            self.D_b3 = torch.zeros((input_size), requires_grad=True, device=VAEImputer.device)   
+
+        def forward(self, x):
+            l1  = torch.nn.functional.linear(input=x, weight=self.D_W1, bias=self.D_b1)
+            out1 = torch.nn.functional.tanh(l1)
+            l2 = torch.nn.functional.linear(input=out1, weight=self.D_W2, bias=self.D_b2)
+            out2 = torch.nn.functional.tanh(l2)
+            l3 = torch.nn.functional.linear(input=out2, weight=self.D_W3, bias=self.D_b3)
+            x_hat = torch.nn.functional.sigmoid(l3)
+            return x_hat
+
+        def parameters(self):
+            params = [self.D_W1, self.D_b1, self.D_W2, self.D_b2, self.D_W3, self.D_b3]
+            return params
+        
+        def load_state(self, params):
+            self.D_W1 = params[0]
+            self.D_b1 = params[1]
+            self.D_W2 = params[2]
+            self.D_b2 = params[3]
+            self.D_W3 = params[4]
+            self.D_b3 = params[5]
+            
+    class VAE():
+        def __init__(self, VAEImputer, input_size):
+            super(VAEImputer.VAE, self).__init__()
+            self.encoder = VAEImputer.Encoder(VAEImputer, input_size)
+            self.decoder = VAEImputer.Decoder(VAEImputer, input_size)
+
+        def forward(self, x):
+            mu, log_var = self.encoder.forward(x)
+            code = self.reparameterize(mu, log_var)
+            reconstucted = self.decoder.forward(code)
+            return code, reconstucted, mu, log_var
+
+        def reparameterize(self, mu, log_var):
+            std = torch.exp(0.5 * log_var)
+            eps = torch.randn_like(std)
+            return eps.mul(std).add_(mu)
+            
+        def parameters(self):
+            params = self.encoder.parameters() + self.decoder.parameters()
+            return params
+        
+        def load_state(self, params):
+            self.encoder.load_state(params[0:10]) 
+            self.decoder.load_state(params[10:]) 
 
     def fit(self, X, y=None):
+        #print('working')
         self.variable_sizes = [1]*X.shape[1] #list of 1s the same lenght as the features of X
         
         self.encoder_hidden_sizes = [int(math.floor(X.shape[1]/2)), int(math.floor(X.shape[1]*3/10))]
-        self.decoder_hidden_sizes = [int(math.floor(X.shape[1]/2)), int(math.floor(X.shape[1]*3/10))]
+        self.decoder_hidden_sizes = [int(math.floor(X.shape[1]*3/10)), int(math.floor(X.shape[1]/2))]
         self.split_size =int(math.floor(X.shape[1]/5))
         self.code_size=int(math.floor(X.shape[1]/5))
         
@@ -481,6 +600,9 @@ class VAEImputer(BaseEstimator, TransformerMixin):
 
         features = torch.from_numpy(X.to_numpy()) #X features
         features = torch.nan_to_num(features)
+        features = features.to(dtype=torch.float32)
+        features = features.to(device=self.device)
+        
 
         num_samples = len(features)
         variable_masks = []
@@ -492,17 +614,8 @@ class VAEImputer(BaseEstimator, TransformerMixin):
         mask = torch.cat(variable_masks, dim=1)
 
         temperature = self.temperature
-        self.model = self.VAE(self,
-                        features.shape[1],
-                        self.split_size,
-                        self.code_size,
-                        encoder_hidden_sizes=self.encoder_hidden_sizes,
-                        decoder_hidden_sizes=self.decoder_hidden_sizes,
-                        variable_sizes=(None if temperature is None else self.variable_sizes),  # do not use multi-output without temperature
-                        temperature=temperature
-                        )
+        self.model = self.VAE(VAEImputer=self, input_size=features.shape[1])
         
-        self.model.train(mode=True)
         inverted_mask = 1 - mask
         observed = features * mask
         missing = torch.randn_like(features)
@@ -512,23 +625,29 @@ class VAEImputer(BaseEstimator, TransformerMixin):
             missing = torch.autograd.Variable(missing, requires_grad=True)
             self.optim = torch.optim.Adam(self.model.parameters(), weight_decay=0, lr=self.learning_rate)
 
-        self.model.train(mode=True)
         #pbar = tqdm(range(self.iterations))
         for iterations in range(self.iterations):
-            train_ds = TensorDataset(features.float(), mask.float(), noisy_features.float())
-            losses = []
-            for f, m, n in DataLoader(train_ds, batch_size=self.batch_size, shuffle=True):
+            train_ds = torch.utils.data.TensorDataset(features.float(), mask.float(), noisy_features.float())
+            losses = [np.inf]
+            for f, m, n in torch.utils.data.DataLoader(train_ds, 
+                                                       batch_size=self.batch_size,
+                                                         shuffle=True, 
+                                                         generator=torch.Generator(device=self.device)):
                 loss = self.train_batch(f, m, n)
-                losses.append(loss)
-                if loss < self.tolerance:
+                temp_loss = losses[-1]
+                
+                if temp_loss - loss < self.tolerance:
                     break
+                
+                losses.append(loss)
             #pbar.set_postfix({'loss': min(losses)})
             '''
             if iterations % 100 == 0 :
                 print(f'Epoch {iterations} loss: {loss:.4f}')
             '''
 
-        self._VAE_params = self.model.state_dict()
+        self._VAE_params = self.model.parameters()
+        #print(len(self._VAE_params))
         return self
     
     def train_batch(self, features, mask, noisy_features):
@@ -536,7 +655,7 @@ class VAEImputer(BaseEstimator, TransformerMixin):
         #print(features.shape)
         #print(noisy_features.shape)
         #noise = torch.autograd.Variable(torch.FloatTensor(len(noisy_features), self.p_miss).normal_())
-        _, reconstructed, mu, log_var = self.model(noisy_features, training=True)
+        _, reconstructed, mu, log_var = self.model.forward(noisy_features)
         #print(reconstructed.shape)
         #print(reconstructed)
         # reconstruction of the non-missing values
@@ -557,17 +676,15 @@ class VAEImputer(BaseEstimator, TransformerMixin):
 
         self.optim.step()
 
-        return observed_loss.detach().numpy()
+        return observed_loss.cpu().detach().numpy()
 
     def fit_transform(self, X, y=None):
         self.fit(X)
         return self.transform(X)
 
     def transform(self, X, y=None):
-        self.model.load_state_dict(self._VAE_params)
-        self.model.train(mode=False)
+        self.model.load_state(self._VAE_params)
         self.variable_sizes = [1]*X.shape[1] #list of 1s the same lenght as the features of X
-
         features = torch.from_numpy(X.to_numpy()) #X features
         features = torch.nan_to_num(features)
         mask = torch.from_numpy(1-np.isnan(X.to_numpy()))
@@ -576,10 +693,15 @@ class VAEImputer(BaseEstimator, TransformerMixin):
         observed = features * mask
         missing = torch.randn_like(features)
         noisy_features = observed + missing*inverted_mask
-        f = features.float()
-        m = mask.float()
+        
+        f = features.to(dtype=torch.float32)
+        f = f.to(device=self.device)
+        
+        m = mask.to(dtype=torch.float32)
+        m = m.to(device=self.device)
         #print(m)
-        n = noisy_features.float()
+        n = noisy_features.to(dtype=torch.float32)
+        n = n.to(device=self.device)
         #print(n)
         with torch.no_grad():
             _, reconstructed, _, _ = self.model.forward(n)
@@ -631,254 +753,4 @@ class VAEImputer(BaseEstimator, TransformerMixin):
                                             mask * original,
                                             variable_sizes,
                                             reduction="sum") / torch.sum(mask)
-
-    class Encoder(torch.nn.Module):
-
-        def __init__(self, VAEImputer, input_size, code_size, hidden_sizes=[], variable_sizes=None):
-            super(VAEImputer.Encoder, self).__init__()
-
-            layers = []
-
-            if variable_sizes is None:
-                previous_layer_size = input_size
-                #print(type(previous_layer_size))
-            else:
-                multi_input_layer = VAEImputer.MultiInput(VAEImputer, variable_sizes)
-                layers.append(multi_input_layer)
-                previous_layer_size = multi_input_layer.size
-                #print(type(previous_layer_size))
-
-            layer_sizes = list(hidden_sizes) + [code_size]
-            hidden_activation = torch.nn.Tanh()
-
-            for layer_size in layer_sizes:
-                #print(layer_size)
-                layers.append(torch.nn.Linear(previous_layer_size, layer_size))
-                layers.append(hidden_activation)
-                previous_layer_size = layer_size
-
-            self.hidden_layers = torch.nn.Sequential(*layers)
-
-        def forward(self, inputs):
-            #print(inputs)
-            return self.hidden_layers(inputs)
-    
-    class Decoder(torch.nn.Module):
-
-        def __init__(self, VAEImputer, code_size, output_size, hidden_sizes=[], variable_sizes=None, temperature=None):
-            super(VAEImputer.Decoder, self).__init__()
-
-            hidden_activation = torch.nn.Tanh()
-
-            previous_layer_size = code_size
-            hidden_layers = []
-
-            for layer_size in hidden_sizes:
-                hidden_layers.append(torch.nn.Linear(previous_layer_size, layer_size))
-                hidden_layers.append(hidden_activation)
-                previous_layer_size = layer_size
-
-            if len(hidden_layers) > 0:
-                self.hidden_layers = torch.nn.Sequential(*hidden_layers)
-            else:
-                self.hidden_layers = None
-
-            if variable_sizes is None:
-                self.output_layer = VAEImputer.SingleOutput(VAEImputer, previous_layer_size, output_size, activation=torch.nn.Sigmoid())
-            else:
-                self.output_layer = VAEImputer.MultiOutput(VAEImputer, previous_layer_size, variable_sizes, temperature=temperature)
-
-        def forward(self, code, training=False):
-            if self.hidden_layers is None:
-                hidden = code
-            else:
-                hidden = self.hidden_layers(code)
-
-            return self.output_layer(hidden, training=training)
-
-    class VAE(torch.nn.Module):
-
-        def __init__(self, VAEImputer, input_size, split_size, code_size, encoder_hidden_sizes=[], decoder_hidden_sizes=[],
-                    variable_sizes=None, temperature=None):
-
-            super(VAEImputer.VAE, self).__init__()
-
-            self.encoder = VAEImputer.Encoder(VAEImputer, input_size, split_size, hidden_sizes=encoder_hidden_sizes, variable_sizes=variable_sizes)
-            self.decoder = VAEImputer.Decoder(VAEImputer, code_size, input_size, hidden_sizes=decoder_hidden_sizes, variable_sizes=variable_sizes,
-                                temperature=temperature)
-
-            self.mu_layer = torch.nn.Linear(split_size, code_size)
-            self.log_var_layer = torch.nn.Linear(split_size, code_size)
-
-        def forward(self, inputs, training=False):
-            mu, log_var = self.encode(inputs)
-            #print(mu)
-            #print(log_var)
-            code = self.reparameterize(mu, log_var)
-            #print(code.shape)
-            reconstructed = self.decode(code, training=training)
-            return code, reconstructed, mu, log_var
-
-        def encode(self, inputs):
-            outputs = self.encoder(inputs)
-            #print(outputs.shape)
-            #print(outputs)
-            return self.mu_layer(outputs), self.log_var_layer(outputs)
-
-        def decode(self, code, training=False):
-            return self.decoder(code, training=training)
-        
-        def reparameterize(self, mu, log_var):
-            std = torch.exp(0.5 * log_var)
-            eps = torch.randn_like(std)
-            return eps.mul(std).add_(mu)
-        
-    '''
-    class OutputLayer(torch.nn.Module):
-        """
-        This is just a simple abstract class for single and multi output layers.
-        Both need to have the same interface.
-        """
-
-        def forward(self, hidden, training=None):
-            raise NotImplementedError
-    '''
-
-    class SingleOutput(torch.nn.Module):
-
-        def __init__(self, VAEImputer, previous_layer_size, output_size, activation=None):
-            super(VAEImputer.SingleOutput, self).__init__()
-            if activation is None:
-                self.model = torch.nn.Linear(previous_layer_size, output_size)
-            else:
-                self.model = torch.nn.Sequential(torch.nn.Linear(previous_layer_size, output_size), activation)
-
-        def forward(self, hidden, training=False):
-            return self.model(hidden)
-    
-    class MultiOutput(torch.nn.Module):
-        def __init__(self, VAEImputer, input_size, variable_sizes, temperature=None):
-            super(VAEImputer.MultiOutput, self).__init__()
-
-            self.output_layers = torch.nn.ModuleList()
-            self.output_activations = torch.nn.ModuleList()
-
-            numerical_size = 0
-            for i, variable_size in enumerate(variable_sizes):
-                # if it is a categorical variable
-                if variable_size > 1:
-                    # first create the accumulated numerical layer
-                    if numerical_size > 0:
-                        self.output_layers.append(torch.nn.Linear(input_size, numerical_size))
-                        self.output_activations.append(VAEImputer.NumericalActivation())
-                        numerical_size = 0
-                    # create the categorical layer
-                    self.output_layers.append(torch.nn.Linear(input_size, variable_size))
-                    self.output_activations.append(VAEImputer.CategoricalActivation(temperature))
-                # if not, accumulate numerical variables
-                else:
-                    numerical_size += 1
-
-            # create the remaining accumulated numerical layer
-            if numerical_size > 0:
-                self.output_layers.append(torch.nn.Linear(input_size, numerical_size))
-                self.output_activations.append(VAEImputer.NumericalActivation())
-
-        def forward(self, inputs, training=True, concat=True):
-            outputs = []
-            for output_layer, output_activation in zip(self.output_layers, self.output_activations):
-                logits = output_layer(inputs)
-                output = output_activation(logits, training=training)
-                outputs.append(output)
-
-            if concat:
-                return torch.cat(outputs, dim=1)
-            else:
-                return outputs
-
-
-    class CategoricalActivation(torch.nn.Module):
-
-        def __init__(self, VAEImputer, temperature):
-            super(VAEImputer.CategoricalActivation, self).__init__()
-
-            self.temperature = temperature
-
-        def forward(self, logits, training=True):
-            # gumbel-softmax (training and evaluation)
-            if self.temperature is not None:
-                return torch.nn.functional.gumbel_softmax(logits, hard=not training, tau=self.temperature)
-            # softmax training
-            elif training:
-                return torch.nn.functional.softmax(logits, dim=1)
-            # softmax evaluation
-            else:
-                return torch.distributions.OneHotCategorical(logits=logits).sample()
-
-
-    class NumericalActivation(torch.nn.Module):
-
-        def __init__(self, VAEImputer):
-            super(VAEImputer.NumericalActivation, self).__init__()
-
-        def forward(self, logits, training=True):
-            return torch.sigmoid(logits)
-        
-    class MultiInput(torch.nn.Module):
-
-        def __init__(self, VAEImputer, variable_sizes, min_embedding_size=2, max_embedding_size=50):
-            super(VAEImputer.MultiInput, self).__init__()
-
-            self.has_categorical = False
-            self.size = 0
-
-            embeddings = torch.nn.ParameterList()
-            for i, variable_size in enumerate(variable_sizes):
-                # if it is a numerical variable
-                if variable_size == 1:
-                    embeddings.append(None)
-                    self.size += 1
-                # if it is a categorical variable
-                else:
-                    # this is an arbitrary rule of thumb taken from several blog posts
-                    embedding_size = max(min_embedding_size, min(max_embedding_size, int(variable_size / 2)))
-
-                    # the embedding is implemented manually to be able to use one hot encoding
-                    # PyTorch embedding only accepts as input label encoding
-                    embedding = torch.nn.Parameter(data=torch.Tensor(variable_size, embedding_size).normal_(), requires_grad=True)
-
-                    embeddings.append(embedding)
-                    self.size += embedding_size
-                    self.has_categorical = True
-
-            if self.has_categorical:
-                self.variable_sizes = variable_sizes
-                self.embeddings = embeddings
-
-        def forward(self, inputs):
-            if self.has_categorical:
-                outputs = []
-                start = 0
-                for variable_size, embedding in zip(self.variable_sizes, self.embeddings):
-                    # extract the variable
-                    end = start + variable_size
-                    variable = inputs[:, start:end]
-
-                    # numerical variable
-                    if variable_size == 1:
-                        # leave the input as it is
-                        outputs.append(variable)
-                    # categorical variable
-                    else:
-                        output = torch.matmul(variable, embedding).squeeze(1)
-                        outputs.append(output)
-
-                    # move the variable limits
-                    start = end
-
-                # concatenate all the variable outputs
-                return torch.cat(outputs, dim=1)
-            else:
-                return inputs
-        
 
