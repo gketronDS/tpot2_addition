@@ -1488,4 +1488,77 @@ Best root_mean_squared_error score: -2.4573587682836537
 
 Generation:  21
 Best root_mean_squared_error score: -2.4573587682836537
-Generation:  84%|████████▍ | 21/25 [2:10:48<38:06, 571.59s/it]
+Generation:  84%|████████▍ | 21/25 [2:10:48<38:06, 571.59s/it]Generation:  22
+Best root_mean_squared_error score: -2.4573587682836537
+Generation:  88%|████████▊ | 22/25 [2:12:48<21:47, 435.94s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545c27bdc0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  23
+Best root_mean_squared_error score: -2.4573587682836537
+Generation:  92%|█████████▏| 23/25 [2:13:43<10:43, 321.61s/it]Generation:  24
+Best root_mean_squared_error score: -2.4573587682836537
+Generation:  96%|█████████▌| 24/25 [2:19:44<05:33, 333.49s/it]Generation:  25
+Best root_mean_squared_error score: -2.4573587682836537
+Generation: 100%|██████████| 25/25 [2:21:26<00:00, 263.91s/it]Generation: 100%|██████████| 25/25 [2:21:26<00:00, 339.45s/it]
+2024-09-21 16:18:06,352 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:39331' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-9d779fa107dd0a29a3a90b6bacd04ebf', 'DataFrame-21c2cb7a6c00b10c56a3da4620f0e6ce'} (stimulus_id='handle-worker-cleanup-1726960686.3525465')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=Ridge(),
+                                  imputation_order='descending',
+                                  initial_strategy='median',
+                                  n_nearest_features=37)),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=False,
+                                               l2_regularization=1.311587e-07,
+                                               learning_rate=0.1116937272807,
+                                               max_features=0.739092007733,
+                                               max_leaf_nodes=517,
+                                               min_samples_leaf=75,
+                                               tol=0.0001))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.9921619348297673, 'r2': 0.9921619348297673, 'rmse': 1.650052914923204}
+test score: {'explained_var': 0.8862977346896639, 'r2': 0.8820271633876612, 'rmse': 5.98098060988959}
+original test score: {'explained_var': 0.9806768296898815, 'r2': 0.9806748061430578, 'rmse': 2.4207130587383197}
+score end
+197
+lvl
+0.1
+type
+MAR
+num_run
+1
+reg_full
+finished
+all finished
+full run takes
+20.664065969718827
+hours
+DONE
