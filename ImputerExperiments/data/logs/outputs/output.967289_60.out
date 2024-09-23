@@ -637,3 +637,77 @@ Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released 4 days ago.
 WARNING AN INDIVIDUAL TIMED OUT: 
  <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554744e6290> 
 
+Generation:  6
+Best f1_score score: 0.7537217513219421
+Generation:  24%|██▍       | 6/25 [49:08<2:53:16, 547.18s/it]Generation:  7
+Best f1_score score: 0.7641319589093131
+Generation:  28%|██▊       | 7/25 [58:21<2:44:41, 548.97s/it]Generation:  8
+Best f1_score score: 0.7641319589093131
+Generation:  32%|███▏      | 8/25 [1:07:23<2:34:58, 546.97s/it]Generation:  9
+Best f1_score score: 0.7641319589093131
+Generation:  36%|███▌      | 9/25 [1:16:51<2:27:33, 553.32s/it]Generation:  10
+Best f1_score score: 0.7641319589093131
+Generation:  40%|████      | 10/25 [1:26:40<2:21:04, 564.33s/it]Generation:  11
+Best f1_score score: 0.775034682617708
+Generation:  44%|████▍     | 11/25 [1:36:01<2:11:28, 563.45s/it]Generation:  12
+Best f1_score score: 0.775034682617708
+Generation:  48%|████▊     | 12/25 [1:45:14<2:01:23, 560.28s/it]Generation:  13
+Best f1_score score: 0.775034682617708
+Generation:  52%|█████▏    | 13/25 [1:54:22<1:51:18, 556.51s/it]Generation:  14
+Best f1_score score: 0.775034682617708
+Generation:  56%|█████▌    | 14/25 [2:03:28<1:41:27, 553.40s/it]Generation:  15
+Best f1_score score: 0.775034682617708
+Generation:  60%|██████    | 15/25 [2:12:36<1:31:56, 551.64s/it]Generation:  16
+Best f1_score score: 0.775034682617708
+Generation:  64%|██████▍   | 16/25 [2:21:39<1:22:20, 548.97s/it]Generation:  17
+Best f1_score score: 0.775034682617708
+Generation:  68%|██████▊   | 17/25 [2:30:51<1:13:19, 549.90s/it]Generation:  18
+Best f1_score score: 0.775034682617708
+Generation:  72%|███████▏  | 18/25 [2:39:57<1:04:01, 548.79s/it]Generation:  19
+Best f1_score score: 0.775034682617708
+Generation:  76%|███████▌  | 19/25 [2:49:04<54:49, 548.17s/it]  Generation:  20
+Best f1_score score: 0.775034682617708
+Generation:  80%|████████  | 20/25 [2:58:06<45:32, 546.48s/it]Generation:  21
+Best f1_score score: 0.775034682617708
+Generation:  84%|████████▍ | 21/25 [3:07:24<36:39, 549.98s/it]Generation:  22
+Best f1_score score: 0.775034682617708
+Generation:  88%|████████▊ | 22/25 [3:16:33<27:28, 549.58s/it]Generation:  23
+Best f1_score score: 0.775034682617708
+Generation:  92%|█████████▏| 23/25 [3:25:34<18:13, 546.91s/it]Generation:  24
+Best f1_score score: 0.775034682617708
+Generation:  96%|█████████▌| 24/25 [3:34:48<09:09, 549.16s/it]Generation:  25
+Best f1_score score: 0.775034682617708
+Generation: 100%|██████████| 25/25 [3:43:47<00:00, 546.14s/it]Generation: 100%|██████████| 25/25 [3:43:47<00:00, 537.10s/it]
+2024-09-22 16:29:46,991 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:33411' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-6d3df8e60a4cce78b938d1e5bb8708c8', 'ndarray-9de236fd607cf54b4b454d01aefb051b'} (stimulus_id='handle-worker-cleanup-1727047786.9917264')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=RandomForestRegressor(),
+                                  imputation_order='roman',
+                                  initial_strategy='constant',
+                                  n_nearest_features=30)),
+                ('lgbmclassifier',
+                 LGBMClassifier(boosting_type='dart', class_weight='balanced',
+                                max_depth=10, n_estimators=77, n_jobs=1,
+                                num_leaves=188, verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9996911136321215, 'accuracy': 0.985153037916857, 'balanced_accuracy': 0.9966921119592875, 'logloss': 0.05136331747935699, 'f1': 0.9457748243946098}
+test score: {'auroc': 0.9574956282142486, 'accuracy': 0.9406392694063926, 'balanced_accuracy': 0.7145740031121959, 'logloss': 0.19219051250725067, 'f1': 0.7124555816551694}
+original test score: {'auroc': 0.9875093916085944, 'accuracy': 0.9643835616438357, 'balanced_accuracy': 0.863350145267081, 'logloss': 0.11949291062773386, 'f1': 0.8178861182811309}
+score end
+30
+lvl
+0.5
+type
+MNAR
+num_run
+3
+class_full
+finished
+all finished
+full run takes
+12.28295971420076
+hours
+DONE
