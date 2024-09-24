@@ -2647,3 +2647,36 @@ WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION
     raise InvalidParameterError(
 sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
 
+Generation:  25
+Best root_mean_squared_error score: -1.1165872896196496
+Generation: 100%|██████████| 25/25 [3:08:58<00:00, 531.05s/it]Generation: 100%|██████████| 25/25 [3:08:58<00:00, 453.52s/it]
+2024-09-23 18:37:44,787 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:35491' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-b4b3386272560f3e8fcb9646da8ce84a', 'DataFrame-6dc4b2072bc5167c39418ceaedc62078'} (stimulus_id='handle-worker-cleanup-1727141864.7874515')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('extratreesregressor',
+                 ExtraTreesRegressor(bootstrap=True,
+                                     max_features=0.6791901532848,
+                                     min_samples_leaf=19,
+                                     min_samples_split=3))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.9396728375284926, 'r2': 0.9396728254215924, 'rmse': 1.0790357081171582}
+test score: {'explained_var': 0.9341495661119259, 'r2': 0.9341456455923893, 'rmse': 1.1265791792652886}
+original test score: {'explained_var': 0.9474852238581228, 'r2': 0.9474851901931557, 'rmse': 1.0060287007859132}
+score end
+215
+lvl
+0.01
+type
+MCAR
+num_run
+3
+reg_simple
+finished
+all finished
+full run takes
+4.644748867286576
+hours
+DONE
