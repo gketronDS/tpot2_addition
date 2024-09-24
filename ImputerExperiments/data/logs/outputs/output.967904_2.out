@@ -2160,3 +2160,40 @@ MLPRegressor does not accept missing values encoded as NaN natively. For supervi
 ValueError: Input X contains NaN.
 MLPRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746f7be0> 
+
+Generation:  25
+Best root_mean_squared_error score: -1.8065886927762755
+Generation: 100%|██████████| 25/25 [2:58:27<00:00, 582.98s/it]Generation: 100%|██████████| 25/25 [2:58:27<00:00, 428.32s/it]
+2024-09-23 09:59:47,164 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:40559' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-7fbe6e3b5347f837e0f5c95cd8bb455f', 'DataFrame-6dc4b2072bc5167c39418ceaedc62078'} (stimulus_id='handle-worker-cleanup-1727110787.164098')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('mlpregressor',
+                 MLPRegressor(activation='tanh', alpha=4.3449129e-06,
+                              early_stopping=True,
+                              hidden_layer_sizes=[246, 246, 246],
+                              learning_rate_init=0.0001960124255,
+                              n_iter_no_change=32))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.8329186557560717, 'r2': 0.8329034841499557, 'rmse': 1.7958208985598987}
+test score: {'explained_var': 0.8338186212854053, 'r2': 0.833818484705685, 'rmse': 1.7896200208869042}
+original test score: {'explained_var': 0.9473841760037708, 'r2': 0.9473819528989341, 'rmse': 1.0070170761395614}
+score end
+215
+lvl
+0.1
+type
+MCAR
+num_run
+1
+reg_full
+finished
+all finished
+full run takes
+12.946365097694926
+hours
+DONE
