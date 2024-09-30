@@ -2178,4 +2178,465 @@ Best root_mean_squared_error score: -524.2303225057273
 
 Generation:  16
 Best root_mean_squared_error score: -524.2303225057273
-Generation:  64%|██████▍   | 16/25 [1:42:31<59:51, 399.08s/it]
+Generation:  64%|██████▍   | 16/25 [1:42:31<59:51, 399.08s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467047430> 
+
+Generation:  17
+Best root_mean_squared_error score: -524.1745413383056
+Generation:  68%|██████▊   | 17/25 [1:52:36<1:01:28, 461.00s/it]Generation:  18
+Best root_mean_squared_error score: -524.1745413383056
+Generation:  72%|███████▏  | 18/25 [1:55:17<43:15, 370.82s/it]  WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155452304f10> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155451f6d4b0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474706e60> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  19
+Best root_mean_squared_error score: -524.1745413383056
+Generation:  76%|███████▌  | 19/25 [2:01:29<37:05, 370.96s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554648b5fc0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  20
+Best root_mean_squared_error score: -524.1745413383056
+Generation:  80%|████████  | 20/25 [2:04:06<25:34, 306.92s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f002e0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  21
+Best root_mean_squared_error score: -524.1745413383056
+Generation:  84%|████████▍ | 21/25 [2:05:17<15:44, 236.01s/it]Generation:  22
+Best root_mean_squared_error score: -524.1745413383056
+Generation:  88%|████████▊ | 22/25 [2:07:58<10:40, 213.41s/it]Generation:  23
+Best root_mean_squared_error score: -522.8654498133012
+Generation:  92%|█████████▏| 23/25 [2:10:34<06:32, 196.18s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554653396f0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547470f820> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  24
+Best root_mean_squared_error score: -522.8654498133012
+Generation:  96%|█████████▌| 24/25 [2:13:21<03:07, 187.69s/it]Generation:  25
+Best root_mean_squared_error score: -522.8654498133012
+Generation: 100%|██████████| 25/25 [2:16:08<00:00, 181.45s/it]Generation: 100%|██████████| 25/25 [2:16:08<00:00, 326.75s/it]
+2024-09-26 10:41:29,657 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48440 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,658 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48446 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,659 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48448 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,660 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48460 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,660 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48454 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,661 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48442 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,659 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48444 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,661 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48450 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,661 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:48458 remote=tcp://127.0.0.1:46089>: Stream is closed
+2024-09-26 10:41:29,691 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:33809' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-fc3ed9c315c7547584bdda32ae725325', 'DataFrame-975509902533114b99c9aea461595f71'} (stimulus_id='handle-worker-cleanup-1727372489.6915348')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=7, n_estimators=57, n_jobs=1,
+                               num_leaves=11, verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.4875825192671721, 'r2': 0.487582519267172, 'rmse': 518.2697342260595}
+test score: {'explained_var': 0.4678207523083777, 'r2': 0.46761671606375654, 'rmse': 536.2929128163261}
+original test score: {'explained_var': 0.6023528673829415, 'r2': 0.6019991695640574, 'rmse': 463.6943898268531}
+score end
+1193
+lvl
+0.3
+type
+MNAR
+num_run
+1
+reg_full
+finished
+all finished
+full run takes
+10.298165635797712
+hours
+DONE
