@@ -12,15 +12,17 @@ library(ISLR)
 
 set.seed(1)
 
-reg <- read.csv("/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/reg_kw_test.csv")
+class <- read.csv("/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/c/class_kw_test.csv")
 
 myplot <- ggbetweenstats(
-    data = reg,
-    #x = rmse,
-    x = RMSEAcc,
-    #x = training_duration,
-    #x = r2,
-    #x = explained_var,
+    data = class,
+    #x = f1,
+    #x = RMSEAcc,
+    x = training_duration,
+    #x = logloss,
+    #x = balanced_accuracy,
+    #x = accuracy,
+    #x = auroc,
     y = Value,
     type = "nonparametric",
     effsize.type = "d",
@@ -29,4 +31,4 @@ myplot <- ggbetweenstats(
 )
 
 
-ggsave("/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/Saved_Analysis_myplot_RMSEAcc.png")
+ggsave("/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/c/Saved_Analysis_myplot.png")
