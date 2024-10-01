@@ -1,0 +1,1769 @@
+Run: 4
+/cm/local/apps/slurm/var/spool/job979725/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/r/1199/1199.pkl
+      still_alive        age pericardial  fractional       epss      lvdd  \
+0               0  68.781834           0    0.420223   7.891253  4.341502   
+1               0  52.628211           0    0.504427   8.411657  4.516941   
+2               0  73.488532           0    0.261619  10.076672  5.412520   
+3               0  58.066919           0    0.145231  21.214407  4.622888   
+4               1  71.820874           1    0.102454  12.720482  4.927015   
+...           ...        ...         ...         ...        ...       ...   
+17491           0  48.378455           0    0.394649   8.726805  4.195962   
+17492           0  65.527607           0    0.169667  23.761829  3.431509   
+17493           1  59.371616           0    0.164980   7.936033  4.412715   
+17494           0  67.194519           0    0.171226   6.879004  6.385176   
+17495           1  61.459622           0    0.355349  14.802409  6.577035   
+
+       wall_score  wall_index alive_at_1  
+0       13.304108    1.259987          0  
+1        5.661473    2.290705          0  
+2       13.510078    1.140729          1  
+3       13.897170    1.413488          0  
+4       23.555175    1.362433          0  
+...           ...         ...        ...  
+17491   30.533912    2.738272          0  
+17492   13.944630    1.000000          0  
+17493    7.296181    1.039600          1  
+17494   13.678571    1.678946          0  
+17495   18.154848    1.840494          0  
+
+[17496 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+      still_alive        age pericardial  fractional       epss      lvdd  \
+10592           0  57.361794           0    0.130922   7.739884  4.270774   
+9928            0  66.892415           0    0.363921   9.153202  4.391302   
+6636            0  56.740980           0    0.421734   8.048624  6.367699   
+7847            1  62.125732           1    0.145407   8.333330  5.237757   
+15077           0  67.914862           0    0.224678   6.340449  5.183747   
+...           ...        ...         ...         ...        ...       ...   
+208             0  63.353450           0    0.156294  13.311851  5.811049   
+16248           1  52.817851           0    0.377460  13.680926  4.953987   
+1015            0  60.095275           0    0.263309  10.097055  4.695134   
+14584           0  57.418569           0    0.097457  15.230078  4.741212   
+7699            1  62.248740           0    0.148484   6.057698  4.773139   
+
+       wall_score  wall_index alive_at_1  
+10592   11.204331    1.000000          0  
+9928    14.761644    1.390585          0  
+6636    11.202391    1.000000          0  
+7847    13.391691    1.048061          1  
+15077   12.139280    1.000000          0  
+...           ...         ...        ...  
+208     11.796399    1.000000          0  
+16248   13.473735    1.137087          1  
+1015    11.345808    1.086633          0  
+14584   11.590181    1.161502          0  
+7699    15.809336    1.121652          0  
+
+[13996 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+              0         1         2         3         4         5    6    7  \
+0      0.360288  0.234329  0.259327  0.375695  0.278083  0.028568  0.0  0.0   
+1      0.539161  0.560781  0.289449  0.397973  0.376913  0.184139  0.0  0.0   
+2      0.348636  0.641782  0.265907  0.763278  0.278030  0.028568  0.0  0.0   
+3      0.449699  0.254624  0.271975  0.554426  0.338853  0.047711  1.0  1.0   
+4      0.558351  0.365690  0.229502  0.544443  0.304058  0.028568  0.0  0.0   
+...         ...       ...       ...       ...       ...       ...  ...  ...   
+13991  0.472741  0.269878  0.378080  0.660390  0.294532  0.028568  0.0  0.0   
+13992  0.275006  0.579751  0.385946  0.501976  0.341132  0.083170  1.0  0.0   
+13993  0.411591  0.419815  0.309565  0.454131  0.282014  0.063074  0.0  0.0   
+13994  0.361353  0.187442  0.418963  0.462648  0.288803  0.092895  0.0  0.0   
+13995  0.452007  0.258935  0.223475  0.468549  0.406020  0.077022  1.0  0.0   
+
+         8  
+0      0.0  
+1      0.0  
+2      0.0  
+3      1.0  
+4      0.0  
+...    ...  
+13991  0.0  
+13992  1.0  
+13993  0.0  
+13994  0.0  
+13995  0.0  
+
+[13996 rows x 9 columns]
+<class 'numpy.ndarray'>
+             0         1         2         3         4         5    6    7  \
+0     0.515816  0.316226  0.540151  0.406315  0.510570  0.557708  1.0  0.0   
+1     0.523798  0.164915  0.263842  0.463195  0.354889  0.158755  0.0  0.0   
+2     0.508384  0.073311  0.237265  0.380564  0.222374  0.266086  0.0  1.0   
+3     0.629119  0.309682  0.306058  0.527220  0.358720  0.196054  0.0  0.0   
+4     0.253110  0.425233  0.362292  0.450024  0.314559  0.079862  0.0  0.0   
+...        ...       ...       ...       ...       ...       ...  ...  ...   
+3495  0.382874  0.332191  0.271414  0.720108  0.422634  0.027849  0.0  0.0   
+3496  0.115970  0.293828  0.339788  0.711336  0.650800  0.028568  1.0  1.0   
+3497  0.514958  0.428471  0.351371  0.744459  0.493712  0.348331  1.0  0.0   
+3498  0.448996  0.403291  0.704057  0.218032  0.294317  0.028568  0.0  0.0   
+3499  0.362962  0.560707  0.220568  0.407286  0.436923  0.456209  0.0  0.0   
+
+        8  
+0     1.0  
+1     0.0  
+2     1.0  
+3     0.0  
+4     0.0  
+...   ...  
+3495  0.0  
+3496  1.0  
+3497  0.0  
+3498  0.0  
+3499  0.0  
+
+[3500 rows x 9 columns]
+<class 'numpy.ndarray'>
+working on 
+../data/r/1199/reg_full_MCAR_0.5_1
+3.2253763675689697
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-09-30 15:11:48,195] A new study created in memory with name: no-name-c95b6e6f-b6b8-4327-8b03-4c936aeb6d18
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-09-30 15:11:48,813] Trial 10 finished with value: 0.30530342917157305 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 10 with value: 0.30530342917157305.
+running
+[I 2024-09-30 15:11:49,253] Trial 8 finished with value: 0.28824169865814614 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 8 with value: 0.28824169865814614.
+running
+[I 2024-09-30 15:11:49,407] Trial 11 finished with value: 0.28824169865814614 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 8 with value: 0.28824169865814614.
+running
+[I 2024-09-30 15:11:49,913] Trial 18 finished with value: 0.28824169865814614 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 8 with value: 0.28824169865814614.
+running
+[I 2024-09-30 15:12:01,260] Trial 3 finished with value: 0.22722738061041964 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 11772, 'weights': 'uniform'}. Best is trial 3 with value: 0.22722738061041964.
+running
+[I 2024-09-30 15:12:02,364] Trial 9 finished with value: 0.22698225877417427 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 3128, 'weights': 'uniform'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:02,558] Trial 16 finished with value: 0.22722738061041964 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 12049, 'weights': 'uniform'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:02,720] Trial 20 finished with value: 0.30530342917157305 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:03,051] Trial 22 finished with value: 0.30530342917157305 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:03,567] Trial 12 finished with value: 0.22865243796108098 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 8071, 'weights': 'uniform'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:04,943] Trial 14 finished with value: 0.22839313877070913 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 8777, 'weights': 'uniform'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:05,208] Trial 0 finished with value: 0.22870404569638217 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 7555, 'weights': 'uniform'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:05,581] Trial 2 finished with value: 0.22861299782656003 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 8243, 'weights': 'uniform'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:07,611] Trial 7 finished with value: 0.24162101429846405 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 13075, 'weights': 'distance'}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:08,868] Trial 15 finished with value: 0.3026320129478574 and parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.4973407638111336, 'alpha': 78, 'iterations': 1, 'learning_rate': 0.0005943498073818647, 'p_miss': 0.27524203622467863}. Best is trial 9 with value: 0.22698225877417427.
+running
+[I 2024-09-30 15:12:09,273] Trial 13 finished with value: 0.22127225817778462 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'arabic'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:09,934] Trial 4 finished with value: 0.22132264765175189 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:21,686] Trial 21 finished with value: 0.24185302764413957 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 9469, 'weights': 'distance'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:22,402] Trial 23 finished with value: 0.22305266528078604 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 2, 'imputation_order': 'random'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:27,470] Trial 26 finished with value: 0.22129615706107955 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:30,293] Trial 5 finished with value: 0.30010768166485435 and parameters: {'model_name': 'GAIN', 'batch_size': 36, 'hint_rate': 0.5281480578341416, 'alpha': 93, 'iterations': 44, 'learning_rate': 0.017613002940749474, 'p_miss': 0.13467679661105186}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:31,079] Trial 28 finished with value: 0.30140713892658244 and parameters: {'model_name': 'GAIN', 'batch_size': 132, 'hint_rate': 0.31363097892789343, 'alpha': 95, 'iterations': 44, 'learning_rate': 0.0016334483206118335, 'p_miss': 0.10381973323358021}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:32,824] Trial 31 finished with value: 0.22127225817778462 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'arabic'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:33,167] Trial 34 finished with value: 0.22129433573286245 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:33,817] Trial 32 finished with value: 0.22127225817778462 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'arabic'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:41,419] Trial 25 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.19856971374387478, 'alpha': 73, 'iterations': 67, 'learning_rate': 0.002042699653337705, 'p_miss': 0.2642210555873036}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:42,305] Trial 36 finished with value: 0.22129433573286245 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:44,119] Trial 38 finished with value: 0.2212943404392075 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 8, 'imputation_order': 'arabic'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:45,410] Trial 33 finished with value: 0.22132558599382346 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:12:55,669] Trial 37 finished with value: 0.22127225817778462 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'arabic'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:13:03,316] Trial 30 finished with value: 0.23359838730135235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'random'}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:13:10,594] Trial 27 finished with value: 0.22134029812698736 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'constant', 'n_nearest_features': 5, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:13:22,398] Trial 29 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.35501522268426405, 'alpha': 25, 'iterations': 756, 'learning_rate': 0.0011879864833946653, 'p_miss': 0.036867232459214874}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:13:26,441] Trial 24 finished with value: 0.2864295347448736 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending', 'sample_posterior': True}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:13:50,544] Trial 39 finished with value: 0.28248916450805295 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': True}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:17:41,730] Trial 1 finished with value: 0.23821846028651078 and parameters: {'model_name': 'VAE', 'batch_size': 356, 'iterations': 102, 'learning_rate': 0.00012645341647634858, 'p_miss': 0.19451939246966707}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:25:29,347] Trial 19 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.17519207123182323, 'alpha': 90, 'iterations': 3181, 'learning_rate': 0.03894555746115202, 'p_miss': 0.2549005359880301}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:25:37,662] Trial 52 finished with value: 0.22728425138278738 and parameters: {'model_name': 'VAE', 'batch_size': 16, 'iterations': 1, 'learning_rate': 0.09558152264700122, 'p_miss': 0.015521394143005296}. Best is trial 13 with value: 0.22127225817778462.
+running
+[I 2024-09-30 15:26:55,929] Trial 53 finished with value: 0.21074738152821829 and parameters: {'model_name': 'VAE', 'batch_size': 960, 'iterations': 4, 'learning_rate': 0.007632142188949456, 'p_miss': 0.19421798822244968}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 15:28:31,064] Trial 54 finished with value: 0.22139941482466838 and parameters: {'model_name': 'VAE', 'batch_size': 880, 'iterations': 6, 'learning_rate': 0.00889158392655038, 'p_miss': 0.19761658742161767}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 15:28:56,820] Trial 55 finished with value: 0.22405632112656443 and parameters: {'model_name': 'VAE', 'batch_size': 59, 'iterations': 6, 'learning_rate': 0.008618289118518113, 'p_miss': 0.08052777933302671}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 15:29:22,595] Trial 56 finished with value: 0.24164559058238408 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 6, 'learning_rate': 0.0002579176185236134, 'p_miss': 0.1969511287431648}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 15:34:55,642] Trial 17 finished with value: 0.23801041785463592 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 501, 'learning_rate': 0.0011655771949733481, 'p_miss': 0.2105970920923218}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:03:17,728] Trial 6 finished with value: 0.23077217203651176 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'median', 'n_nearest_features': 5, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:03:45,867] Trial 59 finished with value: 0.2213276513731989 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:04:13,358] Trial 60 finished with value: 0.22127225817778462 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:04:59,421] Trial 61 finished with value: 0.23492163557867346 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:05:33,531] Trial 62 finished with value: 0.22374618345469233 and parameters: {'model_name': 'VAE', 'batch_size': 169, 'iterations': 3, 'learning_rate': 0.005450691543796624, 'p_miss': 0.14974943234255567}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:16:16,108] Trial 35 finished with value: 0.2257484648829819 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:16:39,592] Trial 64 finished with value: 0.22132702469386492 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 3, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:22:21,578] Trial 46 finished with value: 0.21413278814330355 and parameters: {'model_name': 'VAE', 'batch_size': 257, 'iterations': 1216, 'learning_rate': 0.00010128434756242781, 'p_miss': 0.028722499566351867}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:24:11,373] Trial 57 finished with value: 0.2283358977370004 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 16:32:22,052] Trial 58 finished with value: 0.22919755255203747 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 17:07:35,424] Trial 63 finished with value: 0.22797187480045986 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'arabic'}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 22:18:27,160] Trial 67 finished with value: 0.23079884400821413 and parameters: {'model_name': 'VAE', 'batch_size': 876, 'iterations': 4227, 'learning_rate': 0.00011129385118346573, 'p_miss': 0.07240848919192079}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 22:45:25,979] Trial 41 finished with value: 0.23109845384031366 and parameters: {'model_name': 'VAE', 'batch_size': 499, 'iterations': 4944, 'learning_rate': 0.00011961346736394108, 'p_miss': 0.02397476906862553}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 23:11:08,143] Trial 71 finished with value: 0.21881650544158812 and parameters: {'model_name': 'VAE', 'batch_size': 164, 'iterations': 294, 'learning_rate': 0.0003908443733209988, 'p_miss': 0.12534922540088023}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-09-30 23:42:31,351] Trial 72 finished with value: 0.2119933731602254 and parameters: {'model_name': 'VAE', 'batch_size': 200, 'iterations': 434, 'learning_rate': 0.0002795025931959012, 'p_miss': 0.1108286944191975}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 00:18:12,562] Trial 73 finished with value: 0.2244452631937067 and parameters: {'model_name': 'VAE', 'batch_size': 181, 'iterations': 484, 'learning_rate': 0.00038500902025390024, 'p_miss': 0.1214738777777313}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 00:26:29,139] Trial 45 finished with value: 0.23091848878574955 and parameters: {'model_name': 'VAE', 'batch_size': 908, 'iterations': 6811, 'learning_rate': 0.0832370716610921, 'p_miss': 0.011687830250310532}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 00:35:14,938] Trial 74 finished with value: 0.21198291456890472 and parameters: {'model_name': 'VAE', 'batch_size': 310, 'iterations': 198, 'learning_rate': 0.00030317494894678874, 'p_miss': 0.17776620150392153}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 00:53:11,799] Trial 76 finished with value: 0.2182612944958659 and parameters: {'model_name': 'VAE', 'batch_size': 328, 'iterations': 249, 'learning_rate': 0.0002596384266975367, 'p_miss': 0.1721938487126837}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 01:11:39,643] Trial 77 finished with value: 0.2197419045817713 and parameters: {'model_name': 'VAE', 'batch_size': 298, 'iterations': 190, 'learning_rate': 0.0002230946786177448, 'p_miss': 0.1704570581037829}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 01:30:07,873] Trial 78 finished with value: 0.21322189867949537 and parameters: {'model_name': 'VAE', 'batch_size': 305, 'iterations': 197, 'learning_rate': 0.00026375266127120876, 'p_miss': 0.16917043284459865}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 01:45:33,905] Trial 79 finished with value: 0.21308003236857717 and parameters: {'model_name': 'VAE', 'batch_size': 93, 'iterations': 217, 'learning_rate': 0.00042755650155588325, 'p_miss': 0.16665995602091502}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 02:08:32,192] Trial 65 finished with value: 0.23077323978811387 and parameters: {'model_name': 'VAE', 'batch_size': 979, 'iterations': 6573, 'learning_rate': 0.04022110879483417, 'p_miss': 0.2400681827144366}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 02:10:38,418] Trial 75 finished with value: 0.23106047401206 and parameters: {'model_name': 'VAE', 'batch_size': 300, 'iterations': 1315, 'learning_rate': 0.00031593592039316185, 'p_miss': 0.1587618965142688}. Best is trial 53 with value: 0.21074738152821829.
+running
+[I 2024-10-01 02:21:27,416] Trial 82 finished with value: 0.20995820844052973 and parameters: {'model_name': 'VAE', 'batch_size': 77, 'iterations': 169, 'learning_rate': 0.0006602846665327665, 'p_miss': 0.17265691932492566}. Best is trial 82 with value: 0.20995820844052973.
+running
+[I 2024-10-01 02:30:01,359] Trial 83 finished with value: 0.21155478853480986 and parameters: {'model_name': 'VAE', 'batch_size': 87, 'iterations': 130, 'learning_rate': 0.0006028273952435637, 'p_miss': 0.22188651808875479}. Best is trial 82 with value: 0.20995820844052973.
+running
+[I 2024-10-01 02:30:21,382] Trial 51 finished with value: 0.23116841653542836 and parameters: {'model_name': 'VAE', 'batch_size': 725, 'iterations': 9101, 'learning_rate': 0.0774393975701521, 'p_miss': 0.011042159425200787}. Best is trial 82 with value: 0.20995820844052973.
+running
+[I 2024-10-01 02:32:22,297] Trial 69 finished with value: 0.2311295630572175 and parameters: {'model_name': 'VAE', 'batch_size': 907, 'iterations': 6739, 'learning_rate': 0.00010449058417633785, 'p_miss': 0.06335449614137695}. Best is trial 82 with value: 0.20995820844052973.
+running
+[I 2024-10-01 02:38:06,372] Trial 85 finished with value: 0.20902433237718793 and parameters: {'model_name': 'VAE', 'batch_size': 79, 'iterations': 128, 'learning_rate': 0.0006385277740079869, 'p_miss': 0.2234910373961191}. Best is trial 85 with value: 0.20902433237718793.
+running
+[I 2024-10-01 02:38:46,650] Trial 84 finished with value: 0.21132734374405535 and parameters: {'model_name': 'VAE', 'batch_size': 79, 'iterations': 134, 'learning_rate': 0.0005840780604767783, 'p_miss': 0.22455022885536896}. Best is trial 85 with value: 0.20902433237718793.
+running
+[I 2024-10-01 02:41:55,488] Trial 86 finished with value: 0.2123454545881139 and parameters: {'model_name': 'VAE', 'batch_size': 77, 'iterations': 136, 'learning_rate': 0.0006856552751118615, 'p_miss': 0.22326528034635604}. Best is trial 85 with value: 0.20902433237718793.
+running
+[I 2024-10-01 02:46:36,603] Trial 87 finished with value: 0.2099239185028825 and parameters: {'model_name': 'VAE', 'batch_size': 87, 'iterations': 124, 'learning_rate': 0.0005818696374841941, 'p_miss': 0.22061445894854304}. Best is trial 85 with value: 0.20902433237718793.
+running
+[I 2024-10-01 02:48:26,221] Trial 88 finished with value: 0.20871904277536468 and parameters: {'model_name': 'VAE', 'batch_size': 83, 'iterations': 111, 'learning_rate': 0.0006457161915901192, 'p_miss': 0.22824996363199188}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:49:16,081] Trial 89 finished with value: 0.21899227904806917 and parameters: {'model_name': 'VAE', 'batch_size': 68, 'iterations': 100, 'learning_rate': 0.0006948970709553584, 'p_miss': 0.22866442242954377}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:49:24,768] Trial 92 finished with value: 0.23924277571542873 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 355, 'weights': 'distance'}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:51:45,866] Trial 90 finished with value: 0.21820194294566048 and parameters: {'model_name': 'VAE', 'batch_size': 34, 'iterations': 90, 'learning_rate': 0.000641263522766948, 'p_miss': 0.2274788102331686}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:51:46,538] Trial 94 finished with value: 0.22722738061041964 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:52:46,257] Trial 91 finished with value: 0.2216310064159619 and parameters: {'model_name': 'VAE', 'batch_size': 47, 'iterations': 62, 'learning_rate': 0.0007209831880602908, 'p_miss': 0.22585747134387668}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:53:39,351] Trial 95 finished with value: 0.23170336030565625 and parameters: {'model_name': 'VAE', 'batch_size': 37, 'iterations': 31, 'learning_rate': 0.0009870503767023641, 'p_miss': 0.2978023402008045}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:53:54,454] Trial 93 finished with value: 0.2249672353266789 and parameters: {'model_name': 'VAE', 'batch_size': 35, 'iterations': 61, 'learning_rate': 0.0006382773513191885, 'p_miss': 0.29796493925345524}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:54:23,863] Trial 96 finished with value: 0.2349568931034764 and parameters: {'model_name': 'VAE', 'batch_size': 107, 'iterations': 25, 'learning_rate': 0.0008426991854202792, 'p_miss': 0.2069017948894264}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 02:55:30,052] Trial 97 finished with value: 0.2375271874791008 and parameters: {'model_name': 'VAE', 'batch_size': 107, 'iterations': 28, 'learning_rate': 0.0004984869030713922, 'p_miss': 0.20941256278548195}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:02:56,756] Trial 98 finished with value: 0.21070522058008884 and parameters: {'model_name': 'VAE', 'batch_size': 107, 'iterations': 135, 'learning_rate': 0.0004409192903040551, 'p_miss': 0.2093005911047783}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:06:01,484] Trial 49 finished with value: 0.2309874527204827 and parameters: {'model_name': 'VAE', 'batch_size': 965, 'iterations': 7635, 'learning_rate': 0.08062212949050425, 'p_miss': 0.01398090252738618}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:06:16,360] Trial 101 finished with value: 0.3101956891449441 and parameters: {'model_name': 'GAIN', 'batch_size': 53, 'hint_rate': 0.9880327408868534, 'alpha': 0, 'iterations': 114, 'learning_rate': 0.0014300592581821688, 'p_miss': 0.18790496507098398}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:09:45,625] Trial 102 finished with value: 0.314029733329551 and parameters: {'model_name': 'GAIN', 'batch_size': 56, 'hint_rate': 0.9799443573140033, 'alpha': 0, 'iterations': 126, 'learning_rate': 0.0015629648735320197, 'p_miss': 0.2494474917978224}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:17:42,850] Trial 103 finished with value: 0.23008833272843549 and parameters: {'model_name': 'VAE', 'batch_size': 502, 'iterations': 139, 'learning_rate': 0.002260425380685867, 'p_miss': 0.1852860861029468}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:17:44,883] Trial 100 finished with value: 0.2314741386676337 and parameters: {'model_name': 'VAE', 'batch_size': 65, 'iterations': 363, 'learning_rate': 0.0014860050826062874, 'p_miss': 0.18406616436668266}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:18:40,620] Trial 47 finished with value: 0.23113890471961357 and parameters: {'model_name': 'VAE', 'batch_size': 694, 'iterations': 9195, 'learning_rate': 0.0001153859307041984, 'p_miss': 0.02218500277421523}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:20:13,104] Trial 99 finished with value: 0.22417729384105983 and parameters: {'model_name': 'VAE', 'batch_size': 127, 'iterations': 414, 'learning_rate': 0.0004670899417750655, 'p_miss': 0.18674050164193481}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:20:40,795] Trial 104 finished with value: 0.22937949026811583 and parameters: {'model_name': 'VAE', 'batch_size': 121, 'iterations': 164, 'learning_rate': 0.00016855869150053294, 'p_miss': 0.18562655569131153}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:20:56,210] Trial 109 finished with value: 0.24129820710669173 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 4618, 'weights': 'distance'}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:24:44,554] Trial 110 finished with value: 0.23248924794910134 and parameters: {'model_name': 'VAE', 'batch_size': 210, 'iterations': 49, 'learning_rate': 0.000514342967629854, 'p_miss': 0.2190486001089894}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:24:46,076] Trial 111 finished with value: 0.30530342917157305 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:26:35,059] Trial 81 finished with value: 0.23018264763519625 and parameters: {'model_name': 'VAE', 'batch_size': 89, 'iterations': 1155, 'learning_rate': 0.0002521197515257422, 'p_miss': 0.16466545673830538}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:40:25,318] Trial 105 finished with value: 0.2185483959637596 and parameters: {'model_name': 'VAE', 'batch_size': 118, 'iterations': 340, 'learning_rate': 0.00016656957058640702, 'p_miss': 0.21526966610340248}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:42:00,697] Trial 40 finished with value: 0.23151177535719364 and parameters: {'model_name': 'VAE', 'batch_size': 693, 'iterations': 8687, 'learning_rate': 0.09968913043199, 'p_miss': 0.01812793983834604}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:42:02,759] Trial 50 finished with value: 0.23117022392747852 and parameters: {'model_name': 'VAE', 'batch_size': 958, 'iterations': 8798, 'learning_rate': 0.00011386419780285142, 'p_miss': 0.20401836301451537}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:47:22,180] Trial 115 finished with value: 0.2091636048344494 and parameters: {'model_name': 'VAE', 'batch_size': 453, 'iterations': 86, 'learning_rate': 0.001039459823052018, 'p_miss': 0.24053904246260474}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:47:52,427] Trial 106 finished with value: 0.21285310662439402 and parameters: {'model_name': 'VAE', 'batch_size': 136, 'iterations': 431, 'learning_rate': 0.00018078644406441016, 'p_miss': 0.21325586377735348}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:48:16,292] Trial 116 finished with value: 0.2092517429483553 and parameters: {'model_name': 'VAE', 'batch_size': 90, 'iterations': 88, 'learning_rate': 0.0009997158063520227, 'p_miss': 0.23835913659045924}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:52:57,700] Trial 118 finished with value: 0.21361623850970912 and parameters: {'model_name': 'VAE', 'batch_size': 84, 'iterations': 80, 'learning_rate': 0.0008791051951881249, 'p_miss': 0.2380450079643234}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:52:59,972] Trial 117 finished with value: 0.21617885249382102 and parameters: {'model_name': 'VAE', 'batch_size': 467, 'iterations': 82, 'learning_rate': 0.0008438179159825091, 'p_miss': 0.24076285027538552}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:55:09,748] Trial 121 finished with value: 0.2249158235400249 and parameters: {'model_name': 'VAE', 'batch_size': 22, 'iterations': 44, 'learning_rate': 0.0011540491428556853, 'p_miss': 0.26686073002139177}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:56:10,153] Trial 119 finished with value: 0.20942498599815673 and parameters: {'model_name': 'VAE', 'batch_size': 453, 'iterations': 82, 'learning_rate': 0.0009816612986893764, 'p_miss': 0.2393864535679904}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:57:00,944] Trial 43 finished with value: 0.23107685656825633 and parameters: {'model_name': 'VAE', 'batch_size': 652, 'iterations': 8915, 'learning_rate': 0.0764408545381307, 'p_miss': 0.017365885674765935}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:57:09,987] Trial 107 finished with value: 0.21232369163827597 and parameters: {'model_name': 'VAE', 'batch_size': 131, 'iterations': 582, 'learning_rate': 0.00015933680697007517, 'p_miss': 0.2152140739357476}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:58:21,160] Trial 125 finished with value: 0.22301999115836516 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 17, 'learning_rate': 0.0022316017177205806, 'p_miss': 0.2575255637349749}. Best is trial 88 with value: 0.20871904277536468.
+running
+[I 2024-10-01 03:58:38,820] Trial 120 finished with value: 0.207581733040101 and parameters: {'model_name': 'VAE', 'batch_size': 494, 'iterations': 93, 'learning_rate': 0.0010843636298931885, 'p_miss': 0.26068995602672435}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:01:38,636] Trial 80 finished with value: 0.23124411636028408 and parameters: {'model_name': 'VAE', 'batch_size': 366, 'iterations': 1678, 'learning_rate': 0.00022501309338766222, 'p_miss': 0.17226645221022668}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:03:37,135] Trial 124 finished with value: 0.23048406956020706 and parameters: {'model_name': 'VAE', 'batch_size': 75, 'iterations': 105, 'learning_rate': 0.0026642386744986563, 'p_miss': 0.2578203451007628}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:04:14,400] Trial 127 finished with value: 0.23392449554943476 and parameters: {'model_name': 'VAE', 'batch_size': 45, 'iterations': 100, 'learning_rate': 0.00428827499744213, 'p_miss': 0.23547323360326458}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:04:26,146] Trial 123 finished with value: 0.22916538468333086 and parameters: {'model_name': 'VAE', 'batch_size': 412, 'iterations': 107, 'learning_rate': 0.0022175563922730013, 'p_miss': 0.2517991809317934}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:04:26,761] Trial 131 finished with value: 0.22722738061041964 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:04:35,616] Trial 132 finished with value: 0.23939424227015427 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 245, 'weights': 'distance'}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:05:40,233] Trial 42 finished with value: 0.2313676389236068 and parameters: {'model_name': 'VAE', 'batch_size': 631, 'iterations': 9963, 'learning_rate': 0.09170504269180497, 'p_miss': 0.03050645561099033}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:06:26,478] Trial 126 finished with value: 0.21118929470869893 and parameters: {'model_name': 'VAE', 'batch_size': 414, 'iterations': 108, 'learning_rate': 0.0005575238181133293, 'p_miss': 0.23478248715128755}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:08:11,951] Trial 128 finished with value: 0.23001341375941492 and parameters: {'model_name': 'VAE', 'batch_size': 477, 'iterations': 68, 'learning_rate': 0.003619018225490077, 'p_miss': 0.23608751656917068}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:08:31,510] Trial 122 finished with value: 0.2314229250966393 and parameters: {'model_name': 'VAE', 'batch_size': 447, 'iterations': 159, 'learning_rate': 0.004759901031751766, 'p_miss': 0.24896932773289254}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:09:56,127] Trial 66 finished with value: 0.23108003943400252 and parameters: {'model_name': 'VAE', 'batch_size': 870, 'iterations': 8517, 'learning_rate': 0.00010586507916606124, 'p_miss': 0.06805683074475086}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:09:59,905] Trial 133 finished with value: 0.21045109401353795 and parameters: {'model_name': 'VAE', 'batch_size': 589, 'iterations': 64, 'learning_rate': 0.0010948328478356526, 'p_miss': 0.20018225768505135}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:10:44,936] Trial 129 finished with value: 0.21257571153088914 and parameters: {'model_name': 'VAE', 'batch_size': 455, 'iterations': 71, 'learning_rate': 0.0011099630785387604, 'p_miss': 0.2339616604678492}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:10:57,340] Trial 134 finished with value: 0.21921009922820894 and parameters: {'model_name': 'VAE', 'batch_size': 575, 'iterations': 60, 'learning_rate': 0.0010867345953691594, 'p_miss': 0.2472403935921699}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:10:58,224] Trial 140 finished with value: 0.24088776774258136 and parameters: {'model_name': 'VAE', 'batch_size': 650, 'iterations': 2, 'learning_rate': 0.0005304334734596908, 'p_miss': 0.19620328584062102}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:13:22,570] Trial 135 finished with value: 0.21212968524445913 and parameters: {'model_name': 'VAE', 'batch_size': 604, 'iterations': 65, 'learning_rate': 0.0012237490181433322, 'p_miss': 0.24553872624518125}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:13:52,493] Trial 113 finished with value: 0.212376017586798 and parameters: {'model_name': 'VAE', 'batch_size': 485, 'iterations': 695, 'learning_rate': 0.00016942322867510986, 'p_miss': 0.23880850871372827}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:17:55,922] Trial 130 finished with value: 0.22129616122946705 and parameters: {'model_name': 'VAE', 'batch_size': 528, 'iterations': 151, 'learning_rate': 0.0011238434688151065, 'p_miss': 0.24724679232017818}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:19:24,937] Trial 145 finished with value: 0.2966527490669529 and parameters: {'model_name': 'GAIN', 'batch_size': 719, 'hint_rate': 0.7413123189839936, 'alpha': 48, 'iterations': 43, 'learning_rate': 0.00035309193328377566, 'p_miss': 0.2013004330843659}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:21:17,885] Trial 143 finished with value: 0.3062271132634521 and parameters: {'model_name': 'GAIN', 'batch_size': 241, 'hint_rate': 0.7024806188489006, 'alpha': 50, 'iterations': 261, 'learning_rate': 0.0008066587776295663, 'p_miss': 0.27746253808418425}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:22:06,420] Trial 136 finished with value: 0.22465405535054375 and parameters: {'model_name': 'VAE', 'batch_size': 679, 'iterations': 157, 'learning_rate': 0.0011332406786139467, 'p_miss': 0.24600561236518353}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:22:31,229] Trial 144 finished with value: 0.29973607476201947 and parameters: {'model_name': 'GAIN', 'batch_size': 786, 'hint_rate': 0.7479679109865693, 'alpha': 50, 'iterations': 250, 'learning_rate': 0.00036730864199510394, 'p_miss': 0.1986165137136759}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:24:30,091] Trial 44 finished with value: 0.2309258108942247 and parameters: {'model_name': 'VAE', 'batch_size': 951, 'iterations': 8499, 'learning_rate': 0.00010107062924576046, 'p_miss': 0.020625278457550245}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:27:50,105] Trial 108 finished with value: 0.22219013374733812 and parameters: {'model_name': 'VAE', 'batch_size': 182, 'iterations': 880, 'learning_rate': 0.00019139962876559745, 'p_miss': 0.21491222841622118}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:28:05,785] Trial 138 finished with value: 0.22863540780580385 and parameters: {'model_name': 'VAE', 'batch_size': 577, 'iterations': 248, 'learning_rate': 0.0010620786460820621, 'p_miss': 0.19971485529518476}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:28:44,961] Trial 139 finished with value: 0.2301153620515101 and parameters: {'model_name': 'VAE', 'batch_size': 616, 'iterations': 242, 'learning_rate': 0.0011264318420397207, 'p_miss': 0.19834863361469446}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:29:13,157] Trial 149 finished with value: 0.21073129102088792 and parameters: {'model_name': 'VAE', 'batch_size': 94, 'iterations': 117, 'learning_rate': 0.0006008604852540334, 'p_miss': 0.22359079783010044}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:31:08,340] Trial 146 finished with value: 0.20916731777456832 and parameters: {'model_name': 'VAE', 'batch_size': 229, 'iterations': 193, 'learning_rate': 0.0005573578940736381, 'p_miss': 0.22091324152575487}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:31:56,796] Trial 142 finished with value: 0.22516234283656433 and parameters: {'model_name': 'VAE', 'batch_size': 741, 'iterations': 263, 'learning_rate': 0.0008314502387394583, 'p_miss': 0.20089444118197342}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:31:59,029] Trial 141 finished with value: 0.23091004722423403 and parameters: {'model_name': 'VAE', 'batch_size': 722, 'iterations': 280, 'learning_rate': 0.014659546444061058, 'p_miss': 0.1966831125298034}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:32:06,015] Trial 112 finished with value: 0.22448721861346926 and parameters: {'model_name': 'VAE', 'batch_size': 85, 'iterations': 946, 'learning_rate': 0.00017236374404145454, 'p_miss': 0.24177623152068695}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:32:19,045] Trial 155 finished with value: 0.22155504696701497 and parameters: {'model_name': 'VAE', 'batch_size': 149, 'iterations': 12, 'learning_rate': 0.007818305778163594, 'p_miss': 0.20732097011572898}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:33:01,257] Trial 114 finished with value: 0.23228282917679627 and parameters: {'model_name': 'VAE', 'batch_size': 154, 'iterations': 681, 'learning_rate': 0.000946771781539371, 'p_miss': 0.24006263366768116}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:33:17,795] Trial 151 finished with value: 0.22062437917938205 and parameters: {'model_name': 'VAE', 'batch_size': 87, 'iterations': 91, 'learning_rate': 0.0005884240786414342, 'p_miss': 0.2230737215742512}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:33:27,143] Trial 150 finished with value: 0.23298599399731357 and parameters: {'model_name': 'VAE', 'batch_size': 79, 'iterations': 124, 'learning_rate': 0.01852848649585265, 'p_miss': 0.22444906971187212}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:33:29,484] Trial 147 finished with value: 0.21295185235807956 and parameters: {'model_name': 'VAE', 'batch_size': 98, 'iterations': 191, 'learning_rate': 0.000538737450700227, 'p_miss': 0.22329149087802277}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:33:53,474] Trial 137 finished with value: 0.22975983206120806 and parameters: {'model_name': 'VAE', 'batch_size': 556, 'iterations': 244, 'learning_rate': 0.0011143831681231912, 'p_miss': 0.2003617258263043}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:34:08,273] Trial 164 finished with value: 0.2415080251493383 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 5277, 'weights': 'distance'}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:34:08,785] Trial 165 finished with value: 0.30530342917157305 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:35:30,992] Trial 152 finished with value: 0.21154787020252774 and parameters: {'model_name': 'VAE', 'batch_size': 88, 'iterations': 123, 'learning_rate': 0.0006469119205979736, 'p_miss': 0.22348309873254518}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:35:32,058] Trial 154 finished with value: 0.23160843971844042 and parameters: {'model_name': 'VAE', 'batch_size': 368, 'iterations': 90, 'learning_rate': 0.008403613773369815, 'p_miss': 0.22643299765799751}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:36:23,596] Trial 153 finished with value: 0.2133371251284923 and parameters: {'model_name': 'VAE', 'batch_size': 100, 'iterations': 127, 'learning_rate': 0.0005605560706736216, 'p_miss': 0.2221673614878406}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:37:18,979] Trial 148 finished with value: 0.21516606842365377 and parameters: {'model_name': 'VAE', 'batch_size': 84, 'iterations': 215, 'learning_rate': 0.000576904311680592, 'p_miss': 0.22076116814110325}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:38:25,083] Trial 163 finished with value: 0.21952648545264988 and parameters: {'model_name': 'VAE', 'batch_size': 351, 'iterations': 87, 'learning_rate': 0.000739318629893887, 'p_miss': 0.22911034682448148}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:39:10,376] Trial 167 finished with value: 0.22373729081015079 and parameters: {'model_name': 'VAE', 'batch_size': 360, 'iterations': 52, 'learning_rate': 0.0007217585356680663, 'p_miss': 0.2295099417912856}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:39:26,878] Trial 160 finished with value: 0.21937780324889095 and parameters: {'model_name': 'VAE', 'batch_size': 378, 'iterations': 86, 'learning_rate': 0.0005667597028963464, 'p_miss': 0.22987563317140733}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:40:02,361] Trial 156 finished with value: 0.22078255317127216 and parameters: {'model_name': 'VAE', 'batch_size': 372, 'iterations': 89, 'learning_rate': 0.0005488721625174812, 'p_miss': 0.22807094789711496}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:41:56,096] Trial 161 finished with value: 0.21921045572286174 and parameters: {'model_name': 'VAE', 'batch_size': 388, 'iterations': 123, 'learning_rate': 0.0004366915687310161, 'p_miss': 0.21969351978288865}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:42:14,053] Trial 166 finished with value: 0.22031801933989556 and parameters: {'model_name': 'VAE', 'batch_size': 363, 'iterations': 124, 'learning_rate': 0.00044772901471729846, 'p_miss': 0.22991797118961083}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:43:23,655] Trial 158 finished with value: 0.20780047817565822 and parameters: {'model_name': 'VAE', 'batch_size': 359, 'iterations': 184, 'learning_rate': 0.0006029127749230286, 'p_miss': 0.228925582118343}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:43:33,407] Trial 175 finished with value: 0.22335903403760987 and parameters: {'model_name': 'VAE', 'batch_size': 63, 'iterations': 35, 'learning_rate': 0.0013507755402949238, 'p_miss': 0.21104111591624253}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:44:04,021] Trial 157 finished with value: 0.20911803661650802 and parameters: {'model_name': 'VAE', 'batch_size': 273, 'iterations': 185, 'learning_rate': 0.0005726585533068538, 'p_miss': 0.22993745765792178}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:46:04,849] Trial 168 finished with value: 0.21602434897597025 and parameters: {'model_name': 'VAE', 'batch_size': 61, 'iterations': 179, 'learning_rate': 0.0007277389647923247, 'p_miss': 0.2280633546308781}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:46:30,284] Trial 159 finished with value: 0.2113533120064265 and parameters: {'model_name': 'VAE', 'batch_size': 367, 'iterations': 180, 'learning_rate': 0.0005496128440812194, 'p_miss': 0.22755883543316358}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:47:07,542] Trial 162 finished with value: 0.21138282150543652 and parameters: {'model_name': 'VAE', 'batch_size': 380, 'iterations': 169, 'learning_rate': 0.00043670997001837684, 'p_miss': 0.22969847251109587}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:47:20,239] Trial 172 finished with value: 0.21466075380684507 and parameters: {'model_name': 'VAE', 'batch_size': 48, 'iterations': 166, 'learning_rate': 0.0004395218672746321, 'p_miss': 0.20806877883945796}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:47:30,386] Trial 169 finished with value: 0.21745643102561685 and parameters: {'model_name': 'VAE', 'batch_size': 68, 'iterations': 186, 'learning_rate': 0.0007101969366758559, 'p_miss': 0.22928188406266584}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:47:47,923] Trial 171 finished with value: 0.21395283131048876 and parameters: {'model_name': 'VAE', 'batch_size': 70, 'iterations': 162, 'learning_rate': 0.0007073255475866275, 'p_miss': 0.23142622766917792}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:49:08,652] Trial 173 finished with value: 0.2278911329935573 and parameters: {'model_name': 'VAE', 'batch_size': 69, 'iterations': 170, 'learning_rate': 0.0013657445297390574, 'p_miss': 0.20980759895816434}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:49:28,172] Trial 170 finished with value: 0.21075176254017744 and parameters: {'model_name': 'VAE', 'batch_size': 59, 'iterations': 174, 'learning_rate': 0.00042749096219181856, 'p_miss': 0.22877214722942132}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:50:20,705] Trial 174 finished with value: 0.21339710612569057 and parameters: {'model_name': 'VAE', 'batch_size': 61, 'iterations': 181, 'learning_rate': 0.0004645418019133624, 'p_miss': 0.2089827491731863}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:51:58,042] Trial 183 finished with value: 0.21746786201594306 and parameters: {'model_name': 'VAE', 'batch_size': 255, 'iterations': 72, 'learning_rate': 0.000793020036112169, 'p_miss': 0.21426499883638678}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:52:29,257] Trial 176 finished with value: 0.21232877859700316 and parameters: {'model_name': 'VAE', 'batch_size': 68, 'iterations': 173, 'learning_rate': 0.0006394364442456178, 'p_miss': 0.21095845206331065}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:52:30,893] Trial 185 finished with value: 0.21468549773329215 and parameters: {'model_name': 'VAE', 'batch_size': 250, 'iterations': 70, 'learning_rate': 0.0019157667065527377, 'p_miss': 0.14148648545163636}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:53:59,593] Trial 187 finished with value: 0.21533971251466938 and parameters: {'model_name': 'VAE', 'batch_size': 110, 'iterations': 74, 'learning_rate': 0.0017807897232811909, 'p_miss': 0.154327416143766}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:54:23,097] Trial 178 finished with value: 0.21147369099322916 and parameters: {'model_name': 'VAE', 'batch_size': 272, 'iterations': 171, 'learning_rate': 0.0006645943385634615, 'p_miss': 0.15281101089824345}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:54:38,497] Trial 177 finished with value: 0.21666670580928957 and parameters: {'model_name': 'VAE', 'batch_size': 68, 'iterations': 173, 'learning_rate': 0.0006814894373486981, 'p_miss': 0.2095976385958709}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:55:15,468] Trial 180 finished with value: 0.2145546531215264 and parameters: {'model_name': 'VAE', 'batch_size': 246, 'iterations': 156, 'learning_rate': 0.0009177143732511672, 'p_miss': 0.21624863861475843}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:55:28,523] Trial 181 finished with value: 0.22905267891461203 and parameters: {'model_name': 'VAE', 'batch_size': 111, 'iterations': 152, 'learning_rate': 0.0018087332927687195, 'p_miss': 0.15064158866892896}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:56:16,063] Trial 188 finished with value: 0.21296282629401447 and parameters: {'model_name': 'VAE', 'batch_size': 273, 'iterations': 105, 'learning_rate': 0.000821649384890576, 'p_miss': 0.21522563290954627}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:56:30,292] Trial 179 finished with value: 0.2242460210511162 and parameters: {'model_name': 'VAE', 'batch_size': 281, 'iterations': 158, 'learning_rate': 0.0009152464826180639, 'p_miss': 0.2627386839852002}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:57:04,807] Trial 186 finished with value: 0.21307799028489116 and parameters: {'model_name': 'VAE', 'batch_size': 269, 'iterations': 105, 'learning_rate': 0.0009804110668519101, 'p_miss': 0.21624641041209028}. Best is trial 120 with value: 0.207581733040101.
+running
+[I 2024-10-01 04:57:12,315] Trial 199 finished with value: 0.24096374926001332 and parameters: {'model_name': 'VAE', 'batch_size': 217, 'iterations': 1, 'learning_rate': 0.0003466408752049895, 'p_miss': 0.23623251588890584}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 04:59:17,642] Trial 191 finished with value: 0.22821638036248665 and parameters: {'model_name': 'VAE', 'batch_size': 111, 'iterations': 106, 'learning_rate': 0.00032079960727059707, 'p_miss': 0.26835305405879667}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 04:59:54,245] Trial 182 finished with value: 0.22269449523200335 and parameters: {'model_name': 'VAE', 'batch_size': 258, 'iterations': 150, 'learning_rate': 0.0009255755871064739, 'p_miss': 0.20845897337251723}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:00:36,650] Trial 190 finished with value: 0.22596160021778725 and parameters: {'model_name': 'VAE', 'batch_size': 222, 'iterations': 106, 'learning_rate': 0.0003251492191061075, 'p_miss': 0.23574933310717458}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:01:42,609] Trial 193 finished with value: 0.21762576681987045 and parameters: {'model_name': 'VAE', 'batch_size': 116, 'iterations': 100, 'learning_rate': 0.0009313930186280022, 'p_miss': 0.19082984703709083}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:01:49,133] Trial 196 finished with value: 0.20983673286728774 and parameters: {'model_name': 'VAE', 'batch_size': 299, 'iterations': 110, 'learning_rate': 0.0009521263615311661, 'p_miss': 0.23772318247271568}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:02:19,556] Trial 194 finished with value: 0.21767481669278257 and parameters: {'model_name': 'VAE', 'batch_size': 209, 'iterations': 110, 'learning_rate': 0.0009527022102958511, 'p_miss': 0.2683952264155307}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:02:27,573] Trial 197 finished with value: 0.22089769440181062 and parameters: {'model_name': 'VAE', 'batch_size': 213, 'iterations': 109, 'learning_rate': 0.00034034790090419994, 'p_miss': 0.23688201855531363}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:03:32,874] Trial 48 finished with value: 0.23099381744027125 and parameters: {'model_name': 'VAE', 'batch_size': 921, 'iterations': 8801, 'learning_rate': 0.08522218587305216, 'p_miss': 0.2061921129673036}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:05:31,201] Trial 184 finished with value: 0.23071228508909186 and parameters: {'model_name': 'VAE', 'batch_size': 280, 'iterations': 321, 'learning_rate': 0.0009361483977623332, 'p_miss': 0.21478801411325146}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:06:35,904] Trial 195 finished with value: 0.21142432710748388 and parameters: {'model_name': 'VAE', 'batch_size': 40, 'iterations': 349, 'learning_rate': 0.0003580253972899711, 'p_miss': 0.2654224969152816}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:06:37,781] Trial 189 finished with value: 0.23092741771242803 and parameters: {'model_name': 'VAE', 'batch_size': 298, 'iterations': 328, 'learning_rate': 0.0009466621615959118, 'p_miss': 0.23644277532922264}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:07:10,398] Trial 192 finished with value: 0.23175444243960971 and parameters: {'model_name': 'VAE', 'batch_size': 138, 'iterations': 317, 'learning_rate': 0.00091651186619371, 'p_miss': 0.27160027828665245}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:07:12,925] Trial 198 finished with value: 0.2148608678921713 and parameters: {'model_name': 'VAE', 'batch_size': 212, 'iterations': 333, 'learning_rate': 0.000368986923995733, 'p_miss': 0.24210835583575538}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:14:01,567] Trial 68 finished with value: 0.23089747832529134 and parameters: {'model_name': 'VAE', 'batch_size': 916, 'iterations': 9407, 'learning_rate': 0.00040288082713355, 'p_miss': 0.0644666200095209}. Best is trial 120 with value: 0.207581733040101.
+[I 2024-10-01 05:16:15,908] Trial 70 finished with value: 0.23142873786910342 and parameters: {'model_name': 'VAE', 'batch_size': 282, 'iterations': 9694, 'learning_rate': 0.0004838751461483076, 'p_miss': 0.2276952846977675}. Best is trial 120 with value: 0.207581733040101.
+fit
+auto fit
+auto transform
+0    0
+1    0
+2    0
+3    0
+4    0
+5    0
+6    0
+7    0
+8    0
+dtype: int64
+0    0
+1    0
+2    0
+3    0
+4    0
+5    0
+6    0
+7    0
+8    0
+dtype: int64
+0.207581733040101
+{'model_name': 'VAE', 'batch_size': 494, 'iterations': 93, 'learning_rate': 0.0010843636298931885, 'p_miss': 0.26068995602672435}
+running experiment 2/3 - Does reconstruction give good automl predictions
+Start est fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746a4c10> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  1
+Best root_mean_squared_error score: -15.687652629015645
+Generation:   4%|▍         | 1/25 [00:40<16:08, 40.35s/it]Generation:  2
+Best root_mean_squared_error score: -15.687652629015645
+Generation:   8%|▊         | 2/25 [02:17<28:11, 73.55s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547472fdf0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554679c8dc0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  3
+Best root_mean_squared_error score: -15.687652629015645
+Generation:  12%|█▏        | 3/25 [04:35<37:53, 103.36s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746ecac0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  4
+Best root_mean_squared_error score: -15.687652629015645
+Generation:  16%|█▌        | 4/25 [04:43<22:57, 65.61s/it] WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467fa9810> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  5
+Best root_mean_squared_error score: -15.687652629015645
+Generation:  20%|██        | 5/25 [05:46<21:28, 64.44s/it]Generation:  6
+Best root_mean_squared_error score: -15.687652629015645
+Generation:  24%|██▍       | 6/25 [06:39<19:14, 60.77s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554657d5d50> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  7
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  28%|██▊       | 7/25 [07:28<17:00, 56.70s/it]Generation:  8
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  32%|███▏      | 8/25 [08:07<14:28, 51.11s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746ae470> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465a67640> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  9
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  36%|███▌      | 9/25 [11:26<26:01, 97.59s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f00af0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  10
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  40%|████      | 10/25 [11:43<18:10, 72.68s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465a0b670> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  11
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  44%|████▍     | 11/25 [12:02<13:03, 55.99s/it]Generation:  12
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  48%|████▊     | 12/25 [12:24<09:55, 45.81s/it]Generation:  13
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  52%|█████▏    | 13/25 [12:55<08:17, 41.44s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746fb6a0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  14
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  56%|█████▌    | 14/25 [13:11<06:09, 33.63s/it]Generation:  15
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  60%|██████    | 15/25 [13:32<04:58, 29.82s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547472ed70> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f83400> 
+
+Generation:  16
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  64%|██████▍   | 16/25 [23:41<30:38, 204.23s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465255060> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554654dc100> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  17
+Best root_mean_squared_error score: -15.687645633437558
+Generation:  68%|██████▊   | 17/25 [23:55<19:34, 146.83s/it]Generation:  18
+Best root_mean_squared_error score: -15.687641754379007
+Generation:  72%|███████▏  | 18/25 [24:11<12:33, 107.64s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15546576f880> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  19
+Best root_mean_squared_error score: -15.687641754379007
+Generation:  76%|███████▌  | 19/25 [24:58<08:57, 89.55s/it] WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f814e0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465485a80> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554656c0fa0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  20
+Best root_mean_squared_error score: -15.687641754379007
+Generation:  80%|████████  | 20/25 [27:28<08:57, 107.48s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746efdf0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  21
+Best root_mean_squared_error score: -15.687641754379007
+Generation:  84%|████████▍ | 21/25 [27:54<05:32, 83.01s/it] WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f00550> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  22
+Best root_mean_squared_error score: -15.687641754379007
+Generation:  88%|████████▊ | 22/25 [28:31<03:27, 69.16s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547470b430> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  23
+Best root_mean_squared_error score: -15.687641561430393
+Generation:  92%|█████████▏| 23/25 [28:54<01:50, 55.46s/it]Generation:  24
+Best root_mean_squared_error score: -15.687641561430393
+Generation:  96%|█████████▌| 24/25 [29:35<00:51, 51.23s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465a39960> 
+
+Generation:  25
+Best root_mean_squared_error score: -15.687641561430393
+Generation: 100%|██████████| 25/25 [39:46<00:00, 219.19s/it]Generation: 100%|██████████| 25/25 [39:50<00:00, 95.61s/it] 
+2024-10-01 05:56:14,841 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:44271' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-4a79def16f5128aa007c2a8ed45c37fb', 'ndarray-4cc64121857c03a3ad5d8518f83dea1e'} (stimulus_id='handle-worker-cleanup-1727787374.8414888')
+Fitted
+Pipeline(steps=[('linearsvr',
+                 LinearSVR(C=406.9043633473179, epsilon=0.2000565962787,
+                           loss='squared_epsilon_insensitive'))])
+score start
+train score: {'explained_var': 0.016384031109604624, 'r2': 0.016383760156698624, 'rmse': 15.673592691650894}
+original test score: {'explained_var': 0.06114906218050553, 'r2': 0.060776868736128975, 'rmse': 15.270704602255263}
+imputed test score: {'explained_var': 0.016016873448444047, 'r2': 0.015886136738521017, 'rmse': 15.631381447350597}
+score end
+check intended
+EXP2 Finished
+running experiment 3/3 - What is the best automl settings?
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x1553b5868b80>
+Start tpot fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474cd46a0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474cd50f0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+malloc(): invalid next size (unsorted)
+2024-10-01 06:00:21,493 - distributed.scheduler - WARNING - Removing worker 'tcp://127.0.0.1:42109' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {'eval_objective_list-c96c251a4d93b43bc4f1134309865761'} (stimulus_id='handle-worker-cleanup-1727787621.493395')
+2024-10-01 06:00:21,493 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:42109' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-4a79def16f5128aa007c2a8ed45c37fb', 'DataFrame-886fd8b9cc119701f0cffe019e510766'} (stimulus_id='handle-worker-cleanup-1727787621.493395')
+Cancelled future (likely memory related)
+Generation:  1
+Best root_mean_squared_error score: -13.33866918268034
+Generation:   4%|▍         | 1/25 [03:59<1:35:54, 239.78s/it]2024-10-01 06:00:21,535 - distributed.nanny - WARNING - Restarting worker
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  2
+Best root_mean_squared_error score: -13.33866918268034
+Generation:   8%|▊         | 2/25 [04:01<38:19, 99.99s/it]   Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  3
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  12%|█▏        | 3/25 [04:04<20:25, 55.72s/it]Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  4
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  16%|█▌        | 4/25 [04:07<12:06, 34.59s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  5
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  20%|██        | 5/25 [04:09<07:41, 23.07s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  6
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  24%|██▍       | 6/25 [04:12<05:03, 15.99s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  7
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  28%|██▊       | 7/25 [04:14<03:29, 11.65s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  8
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  32%|███▏      | 8/25 [04:16<02:27,  8.65s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  9
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  36%|███▌      | 9/25 [04:19<01:49,  6.82s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  10
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  40%|████      | 10/25 [04:21<01:20,  5.36s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  11
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  44%|████▍     | 11/25 [04:24<01:03,  4.56s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  12
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  48%|████▊     | 12/25 [04:26<00:49,  3.81s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  13
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  52%|█████▏    | 13/25 [04:28<00:39,  3.32s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  14
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  56%|█████▌    | 14/25 [04:31<00:34,  3.17s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  15
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  60%|██████    | 15/25 [04:33<00:28,  2.88s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  16
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  64%|██████▍   | 16/25 [04:36<00:26,  2.93s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  17
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  68%|██████▊   | 17/25 [04:39<00:21,  2.72s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  18
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  72%|███████▏  | 18/25 [04:42<00:19,  2.80s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  19
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  76%|███████▌  | 19/25 [04:44<00:15,  2.63s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  20
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  80%|████████  | 20/25 [04:46<00:12,  2.51s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  21
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  84%|████████▍ | 21/25 [04:49<00:10,  2.63s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  22
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  88%|████████▊ | 22/25 [04:51<00:07,  2.52s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  23
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  92%|█████████▏| 23/25 [04:54<00:04,  2.44s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  24
+Best root_mean_squared_error score: -13.33866918268034
+Generation:  96%|█████████▌| 24/25 [04:57<00:02,  2.62s/it]Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Cancelled future (likely memory related)
+Generation:  25
+Best root_mean_squared_error score: -13.33866918268034
+Generation: 100%|██████████| 25/25 [04:59<00:00,  2.57s/it]Generation: 100%|██████████| 25/25 [04:59<00:00, 11.98s/it]
+Fitted
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=69)),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=3, n_estimators=88, n_jobs=1,
+                               num_leaves=189, verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.3194264064460196, 'r2': 0.3194264064460197, 'rmse': 13.03746809183728}
+test score: {'explained_var': 0.2972095732875597, 'r2': 0.2971121477051155, 'rmse': 13.210452842555311}
+original test score: {'explained_var': 0.449356308067135, 'r2': 0.44583190734235234, 'rmse': 11.729930655028575}
+score end
+1199
+lvl
+0.5
+type
+MCAR
+num_run
+1
+reg_full
+finished
+all finished
+full run takes
+14.856142483022477
+hours
+DONE
