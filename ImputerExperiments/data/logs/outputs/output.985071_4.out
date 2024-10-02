@@ -1,0 +1,48 @@
+Run: 4
+/cm/local/apps/slurm/var/spool/job985071/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/r/1213/1213.pkl
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/openml/datasets/functions.py", line 595, in get_dataset
+    parquet_file = _get_dataset_parquet(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/openml/datasets/functions.py", line 1271, in _get_dataset_parquet
+    openml._api_calls._download_minio_file(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/openml/_api_calls.py", line 163, in _download_minio_file
+    client.fget_object(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/minio/api.py", line 1147, in fget_object
+    with open(tmp_file_path, "wb") as tmp_file:
+OSError: [Errno 116] Stale file handle
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/openml/utils.py", line 431, in _remove_cache_dir_for_id
+    shutil.rmtree(cache_dir)
+  File "/home/ketrong/miniconda3/lib/python3.10/shutil.py", line 721, in rmtree
+    onerror(os.open, path, sys.exc_info())
+  File "/home/ketrong/miniconda3/lib/python3.10/shutil.py", line 718, in rmtree
+    fd = os.open(path, os.O_RDONLY)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ketrong/.cache/openml/org/openml/www/datasets/1213'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main4.py", line 166, in <module>
+    main()
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main4.py", line 155, in main
+    utils.loop_through_tasks(reg_experiments, regression_id_list, 
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 143, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 85, in load_task
+    task = openml.datasets.get_dataset(task_id)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/openml/datasets/functions.py", line 615, in get_dataset
+    _remove_cache_dir_for_id(DATASETS_CACHE_DIR_NAME, did_cache_dir)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/openml/utils.py", line 433, in _remove_cache_dir_for_id
+    raise ValueError(
+ValueError: Cannot remove faulty datasets cache directory /home/ketrong/.cache/openml/org/openml/www/datasets/1213. Please do this manually!
+srun: error: esplhpc-cp006: task 0: Exited with exit code 1
