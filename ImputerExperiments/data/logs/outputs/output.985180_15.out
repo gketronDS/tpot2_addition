@@ -599,3 +599,1587 @@ Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday Septe
     raise InvalidParameterError(
 sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
 
+Generation:  1
+Best root_mean_squared_error score: -6.345846186620887
+Generation:   4%|▍         | 1/25 [01:58<47:27, 118.66s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2f880> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2b0d0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474cd59c0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d12ad0> 
+
+Generation:  2
+Best root_mean_squared_error score: -6.345846186620887
+Generation:   8%|▊         | 2/25 [12:03<2:35:09, 404.74s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d115a0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d11cc0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d4fd30> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  3
+Best root_mean_squared_error score: -6.345846186620887
+Generation:  12%|█▏        | 3/25 [13:50<1:38:30, 268.64s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f98940> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467ff30a0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d4ea10> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d6ece0> 
+
+Generation:  4
+Best root_mean_squared_error score: -6.322456319080759
+Generation:  16%|█▌        | 4/25 [23:57<2:20:44, 402.10s/it]Generation:  5
+Best root_mean_squared_error score: -6.322456319080759
+Generation:  20%|██        | 5/25 [24:44<1:31:25, 274.29s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2ef80> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2c0d0> 
+
+Generation:  6
+Best root_mean_squared_error score: -6.322456319080759
+Generation:  24%|██▍       | 6/25 [34:55<2:03:06, 388.79s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d0ed40> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d6c670> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d4ed10> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  7
+Best root_mean_squared_error score: -6.322456319080759
+Generation:  28%|██▊       | 7/25 [36:12<1:26:03, 286.87s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465dedcf0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547444f9d0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  8
+Best root_mean_squared_error score: -6.322456319080759
+Generation:  32%|███▏      | 8/25 [37:14<1:00:57, 215.17s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15546738ef80> 
+
+Generation:  9
+Best root_mean_squared_error score: -6.321638310550537
+Generation:  36%|███▌      | 9/25 [47:29<1:30:43, 340.19s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467c114b0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  10
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  40%|████      | 10/25 [50:50<1:14:17, 297.15s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2f700> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  11
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  44%|████▍     | 11/25 [51:20<50:16, 215.43s/it]  Generation:  12
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  48%|████▊     | 12/25 [52:07<35:33, 164.08s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554741d9510> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d71840> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547456d300> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  13
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  52%|█████▏    | 13/25 [52:53<25:41, 128.43s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554742bf730> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474cd6ce0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2c160> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  14
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  56%|█████▌    | 14/25 [56:24<28:06, 153.29s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554744f48b0> 
+
+Generation:  15
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  60%|██████    | 15/25 [1:06:42<48:54, 293.50s/it]Generation:  16
+Best root_mean_squared_error score: -6.321608253466969
+Generation:  64%|██████▍   | 16/25 [1:10:48<41:51, 279.03s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d0fd60> 
+
+Generation:  17
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  68%|██████▊   | 17/25 [1:21:14<51:07, 383.45s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554743d4be0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  18
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  72%|███████▏  | 18/25 [1:27:13<43:53, 376.22s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d6c880> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467b3bf40> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d2d840> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  19
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  76%|███████▌  | 19/25 [1:36:16<42:36, 426.16s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554741bfa60> 
+
+Generation:  20
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  80%|████████  | 20/25 [1:46:29<40:12, 482.45s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467813070> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467ff1300> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467810b20> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465cf70d0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547445e620> 
+
+Generation:  21
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  84%|████████▍ | 21/25 [1:56:45<34:49, 522.34s/it]Generation:  22
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  88%|████████▊ | 22/25 [1:58:04<19:27, 389.22s/it]Generation:  23
+Best root_mean_squared_error score: -6.321548485045213
+Generation:  92%|█████████▏| 23/25 [1:59:08<09:43, 291.77s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155464490460> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d6ddb0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  24
+Best root_mean_squared_error score: -6.3204272918107005
+Generation:  96%|█████████▌| 24/25 [2:00:03<03:40, 220.87s/it]Generation:  25
+Best root_mean_squared_error score: -6.3204272918107005
+Generation: 100%|██████████| 25/25 [2:02:26<00:00, 197.44s/it]Generation: 100%|██████████| 25/25 [2:02:32<00:00, 294.11s/it]
+2024-10-02 15:44:32,246 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:42683' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-01fd89f3cded97d3a07a63147189dcc4', 'DataFrame-a81a9af645db16d29ae3c32b01e06f79'} (stimulus_id='handle-worker-cleanup-1727909072.2460093')
+Fitted
+Pipeline(steps=[('lgbmregressor',
+                 LGBMRegressor(max_depth=6, n_estimators=56, n_jobs=1,
+                               num_leaves=160, verbose=-1))])
+score start
+train score: {'explained_var': 0.6459300827210545, 'r2': 0.6459300827210545, 'rmse': 6.185802000289847}
+original test score: {'explained_var': 0.8008990459992658, 'r2': 0.8008588872308803, 'rmse': 4.630906311985723}
+imputed test score: {'explained_var': 0.6282103787124833, 'r2': 0.6281661793170409, 'rmse': 6.3279053511168755}
+score end
+check intended
+EXP2 Finished
+running experiment 3/3 - What is the best automl settings?
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x155434f77d90>
+Start tpot fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]Generation:  1
+Best root_mean_squared_error score: -6.70597882393875
+Generation:   4%|▍         | 1/25 [07:59<3:11:44, 479.35s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746efe50> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  2
+Best root_mean_squared_error score: -6.553257097168043
+Generation:   8%|▊         | 2/25 [15:52<3:02:27, 475.99s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547472ad10> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746a5300> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547470ddb0> 
+
+Generation:  3
+Best root_mean_squared_error score: -6.459816497373001
+Generation:  12%|█▏        | 3/25 [25:56<3:15:50, 534.12s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746a4ac0> 
+
+Generation:  4
+Best root_mean_squared_error score: -6.357175221500672
+Generation:  16%|█▌        | 4/25 [35:59<3:16:25, 561.23s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746a4220> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  5
+Best root_mean_squared_error score: -6.357175221500672
+Generation:  20%|██        | 5/25 [41:05<2:36:26, 469.30s/it]Generation:  6
+Best root_mean_squared_error score: -6.357175221500672
+Generation:  24%|██▍       | 6/25 [49:24<2:31:48, 479.38s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746a7e80> 
+
+Generation:  7
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  28%|██▊       | 7/25 [59:29<2:36:06, 520.36s/it]Generation:  8
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  32%|███▏      | 8/25 [59:51<1:42:29, 361.75s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f01f90> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  9
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  36%|███▌      | 9/25 [1:01:20<1:13:46, 276.64s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467fe2d10> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  10
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  40%|████      | 10/25 [1:03:31<57:54, 231.61s/it] WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554666af8b0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467c4ecb0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155459ff72b0> 
+ The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  11
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  44%|████▍     | 11/25 [1:04:32<41:49, 179.26s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554643cff70> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  12
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  48%|████▊     | 12/25 [1:04:54<28:28, 131.43s/it]Generation:  13
+Best root_mean_squared_error score: -6.322367399814437
+Generation:  52%|█████▏    | 13/25 [1:08:43<32:13, 161.11s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554642b96f0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  14
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  56%|█████▌    | 14/25 [1:10:11<25:28, 138.92s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15546483e3e0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467b0b3a0> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  15
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  60%|██████    | 15/25 [1:11:23<19:47, 118.78s/it]Generation:  16
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  64%|██████▍   | 16/25 [1:16:46<27:01, 180.20s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554642b9330> 
+ The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of ExtraTreesRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  17
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  68%|██████▊   | 17/25 [1:16:57<17:14, 129.32s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554679d37f0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  18
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  72%|███████▏  | 18/25 [1:18:24<13:37, 116.83s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467dbb5e0> 
+
+Generation:  19
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  76%|███████▌  | 19/25 [1:28:29<26:20, 263.35s/it]Generation:  20
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  80%|████████  | 20/25 [1:29:06<16:17, 195.41s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554643185b0> 
+
+Generation:  21
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  84%|████████▍ | 21/25 [1:39:11<21:13, 318.32s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467171810> 
+
+Generation:  22
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  88%|████████▊ | 22/25 [1:49:14<20:11, 403.88s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547465c760> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f66f20> 
+
+Generation:  23
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  92%|█████████▏| 23/25 [1:59:19<15:28, 464.03s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554674d3130> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+Generation:  24
+Best root_mean_squared_error score: -6.3207802118598675
+Generation:  96%|█████████▌| 24/25 [1:59:37<05:30, 330.30s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155466f6d7e0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
+
+Generation:  25
+Best root_mean_squared_error score: -6.3207802118598675
+Generation: 100%|██████████| 25/25 [2:01:26<00:00, 263.92s/it]Generation: 100%|██████████| 25/25 [2:01:26<00:00, 291.46s/it]
+2024-10-02 17:46:09,722 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:38935' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-490f00becf703c2c80193dee4748f020', 'DataFrame-a81a9af645db16d29ae3c32b01e06f79'} (stimulus_id='handle-worker-cleanup-1727916369.7226255')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=6, n_estimators=62, n_jobs=1,
+                               num_leaves=234, verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.6474290409409609, 'r2': 0.6474290409409609, 'rmse': 6.172694288114869}
+test score: {'explained_var': 0.6283213653035289, 'r2': 0.6282769332441646, 'rmse': 6.326962870195648}
+original test score: {'explained_var': 0.8008519770849534, 'r2': 0.8008056504117784, 'rmse': 4.631525265660631}
+score end
+1213
+lvl
+0.3
+type
+MCAR
+num_run
+1
+reg_simple
+finished
+all finished
+full run takes
+4.086612635983361
+hours
+DONE
