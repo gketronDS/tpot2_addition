@@ -1730,3 +1730,62 @@ Best root_mean_squared_error score: -1.2698085276902646
     raise InvalidParameterError(
 sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
 
+Generation:  23
+Best root_mean_squared_error score: -1.2698085276902646
+Generation:  92%|█████████▏| 23/25 [35:10<02:26, 73.09s/it]Generation:  24
+Best root_mean_squared_error score: -1.2698085276902646
+Generation:  96%|█████████▌| 24/25 [35:18<00:53, 53.67s/it]Generation:  25
+Best root_mean_squared_error score: -1.2698085276902646
+Generation: 100%|██████████| 25/25 [36:13<00:00, 54.03s/it]Generation: 100%|██████████| 25/25 [36:13<00:00, 86.93s/it]
+2024-10-03 15:47:05,215 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:42569' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-f51a988de74a9566d95168eed7fab6e5', 'DataFrame-a4fd229d0d64e340bbc29ac5fc78ab11'} (stimulus_id='handle-worker-cleanup-1727995625.215034')
+2024-10-03 15:47:05,207 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/worker.py", line 1250, in heartbeat
+    response = await retry_operation(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 459, in retry_operation
+    return await retry(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/utils_comm.py", line 438, in retry
+    return await coro()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/core.py", line 1015, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:37842 remote=tcp://127.0.0.1:38357>: Stream is closed
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmregressor',
+                 LGBMRegressor(max_depth=8, n_estimators=73, n_jobs=1,
+                               num_leaves=242, verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.542148078445019, 'r2': 0.5421480784450191, 'rmse': 1.0772035421802777}
+test score: {'explained_var': 0.4220895516972393, 'r2': 0.422052224469474, 'rmse': 1.1557781708966792}
+original test score: {'explained_var': 0.5834841134460846, 'r2': 0.5834679084800929, 'rmse': 0.9811929588172531}
+score end
+42183
+lvl
+0.5
+type
+MNAR
+num_run
+2
+reg_simple
+finished
+all finished
+full run takes
+1.530525661110878
+hours
+DONE

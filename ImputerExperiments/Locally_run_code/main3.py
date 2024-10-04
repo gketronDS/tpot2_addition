@@ -138,12 +138,12 @@ def main():
             ]
     #try with 67 / 69 benchmark sets
     '''
-    ran_reg = [189, 197, 198, 215, 216, 218, 1193, 1199, 1200, 1213, 42183]
+    ran_reg = [189, 197, 198, 215, 216, 218, 1193, 1199, 1200, 1213, 42183, 42545]
     regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 1200, 1213, 42183, 
                           42545, 42225, 42712, 287, 42688, *23515, ]
     '''
     #classification_id_list = [30]
-    regression_id_list = [42183]
+    regression_id_list = [42545]
 
     
     print('starting loops')
