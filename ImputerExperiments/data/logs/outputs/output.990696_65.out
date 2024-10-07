@@ -1,0 +1,125 @@
+Run: 65
+/cm/local/apps/slurm/var/spool/job990696/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/r/42712/42712.pkl
+       season  year  month  hour  holiday  weekday  workingday weather   temp  \
+0      spring     0      1     0    False        6       False   clear   9.84   
+1      spring     0      1     1    False        6       False   clear   9.02   
+2      spring     0      1     2    False        6       False   clear   9.02   
+3      spring     0      1     3    False        6       False   clear   9.84   
+4      spring     0      1     4    False        6       False   clear   9.84   
+...       ...   ...    ...   ...      ...      ...         ...     ...    ...   
+17374  spring     1     12    19    False        1        True   misty  10.66   
+17375  spring     1     12    20    False        1        True   misty  10.66   
+17376  spring     1     12    21    False        1        True   clear  10.66   
+17377  spring     1     12    22    False        1        True   clear  10.66   
+17378  spring     1     12    23    False        1        True   clear  10.66   
+
+       feel_temp  humidity  windspeed  
+0         14.395      0.81     0.0000  
+1         13.635      0.80     0.0000  
+2         13.635      0.80     0.0000  
+3         14.395      0.75     0.0000  
+4         14.395      0.75     0.0000  
+...          ...       ...        ...  
+17374     12.880      0.60    11.0014  
+17375     12.880      0.60    11.0014  
+17376     12.880      0.60    11.0014  
+17377     13.635      0.56     8.9981  
+17378     13.635      0.65     8.9981  
+
+[17379 rows x 12 columns]
+<class 'pandas.core.frame.DataFrame'>
+       season  year  month  hour  holiday  weekday  workingday weather   temp  \
+15163  winter     1      9     0    False        6       False   clear  22.14   
+16573  winter     1     11     7    False        3        True   misty  10.66   
+3611   summer     0      6     9    False        6       False   clear  25.42   
+8795   spring     1      1     7    False        6       False   clear   9.02   
+137    spring     0      1    23    False        4        True   misty   8.20   
+...       ...   ...    ...   ...      ...      ...         ...     ...    ...   
+1032   spring     0      2    17    False        2        True   clear  13.12   
+12839    fall     1      6     4    False        0       False   misty  27.06   
+3879   summer     0      6    13    False        3        True   clear  30.34   
+4471     fall     0      7     5    False        0       False   clear  27.06   
+13582    fall     1      7     3    False        3        True   clear  27.06   
+
+       feel_temp  humidity  windspeed  
+15163     25.760      0.60    15.0013  
+16573     12.880      0.56    12.9980  
+3611      31.060      0.43     8.9981  
+8795      11.365      0.87    12.9980  
+137        9.850      0.59    12.9980  
+...          ...       ...        ...  
+1032      15.150      0.22    15.0013  
+12839     31.060      0.65     0.0000  
+3879      32.575      0.28    19.0012  
+4471      31.060      0.74     0.0000  
+13582     31.060      0.65    15.0013  
+
+[13903 rows x 12 columns]
+<class 'pandas.core.frame.DataFrame'>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/arrays/categorical.py", line 591, in astype
+    new_cats = new_cats.astype(dtype=dtype, copy=copy)
+ValueError: could not convert string to float: 'fall'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main.py", line 166, in <module>
+    main()
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main.py", line 155, in main
+    utils.loop_through_tasks(reg_experiments, regression_id_list, 
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 143, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 109, in load_task
+    preprocessing_pipeline.fit(X_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 469, in fit
+    Xt = self._fit(X, y, routed_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 406, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/joblib/memory.py", line 312, in __call__
+    return self.func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 1310, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 313, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1098, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/builtin_modules/imputer.py", line 114, in fit
+    self.imputer.fit(X[self.columns_], y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/impute/_base.py", line 421, in fit
+    X = self._validate_input(X, in_fit=True)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/impute/_base.py", line 350, in _validate_input
+    raise ve
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/impute/_base.py", line 332, in _validate_input
+    X = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 633, in _validate_data
+    out = check_array(X, input_name="X", **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 929, in check_array
+    array = array.astype(new_dtype)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/internals/managers.py", line 430, in astype
+    return self.apply(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/internals/managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/internals/blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/dtypes/astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/dtypes/astype.py", line 179, in astype_array
+    values = values.astype(dtype, copy=copy)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/pandas/core/arrays/categorical.py", line 602, in astype
+    raise ValueError(msg)
+ValueError: Cannot cast object dtype to float64
+srun: error: esplhpc-cp020: task 0: Exited with exit code 1
