@@ -1916,3 +1916,37 @@ ARDRegression does not accept missing values encoded as NaN natively. For superv
 ValueError: Input X contains NaN.
 ARDRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
 
+Generation:  24
+Best root_mean_squared_error score: -5990.3308629809635
+Generation:  96%|█████████▌| 24/25 [1:49:52<04:04, 244.17s/it]Generation:  25
+Best root_mean_squared_error score: -5990.3308629809635
+Generation: 100%|██████████| 25/25 [1:50:16<00:00, 177.85s/it]Generation: 100%|██████████| 25/25 [1:50:16<00:00, 264.64s/it]
+2024-10-08 10:38:16,878 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:33639' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-ae82f81c790d3e9535942dc3a31f6014', 'DataFrame-0a9734492d000a0833da136c2868ea5b'} (stimulus_id='handle-worker-cleanup-1728409096.8782625')
+Fitted
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=16, weights='distance')),
+                ('ardregression',
+                 ARDRegression(alpha_1=9.99438e-08, alpha_2=2.242e-10,
+                               lambda_1=9.878178e-07, lambda_2=0.0004440185392,
+                               threshold_lambda=63457))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.9984025509566973, 'r2': 0.9984025509566973, 'rmse': 731.0328795428829}
+test score: {'explained_var': 0.9785761033017535, 'r2': 0.9785710765321035, 'rmse': 662.1470873215616}
+original test score: {'explained_var': 0.9987023744088842, 'r2': 0.9986050322490768, 'rmse': 168.94151324198126}
+score end
+42688
+lvl
+0.1
+type
+MCAR
+num_run
+3
+reg_full
+finished
+all finished
+full run takes
+13.277733183701834
+hours
+DONE
