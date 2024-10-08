@@ -1676,3 +1676,148 @@ WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION
     raise InvalidParameterError(
 sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of DecisionTreeRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554544b8970> 
+
+Generation:  20
+Best root_mean_squared_error score: -131.80336172864799
+Generation:  80%|████████  | 20/25 [3:17:19<48:56, 587.28s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1553b0c10af0> 
+ The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mae' instead.
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155374ced0f0> 
+
+Generation:  21
+Best root_mean_squared_error score: -131.80336172864799
+Generation:  84%|████████▍ | 21/25 [3:27:25<39:31, 592.86s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15538b867dc0> 
+ Input X contains NaN.
+ARDRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/linear_model/_bayes.py", line 624, in fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ARDRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554741a7e50> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554091d7700> 
+
+Generation:  22
+Best root_mean_squared_error score: -126.5036711476256
+Generation:  88%|████████▊ | 22/25 [3:37:29<29:48, 596.12s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155452a7e9b0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15544ff5e800> 
+
+Generation:  23
+Best root_mean_squared_error score: -104.28918152402032
+Generation:  92%|█████████▏| 23/25 [3:47:35<19:58, 599.35s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547423bfa0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155410519660> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155447082f50> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155452897be0> 
+
+Generation:  24
+Best root_mean_squared_error score: -84.50817176686346
+Generation:  96%|█████████▌| 24/25 [3:57:40<10:01, 601.05s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155452a3d5a0> 
+
+Generation:  25
+Best root_mean_squared_error score: -84.50817176686346
+Generation: 100%|██████████| 25/25 [4:07:44<00:00, 601.87s/it]Generation: 100%|██████████| 25/25 [4:07:44<00:00, 594.59s/it]
+2024-10-08 12:27:01,456 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:41267' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-3d512f17ba2bf4b82493059d534358b6', 'DataFrame-0a9734492d000a0833da136c2868ea5b'} (stimulus_id='handle-worker-cleanup-1728415621.4565656')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  imputation_order='roman',
+                                  initial_strategy='median',
+                                  n_nearest_features=4)),
+                ('ardregression',
+                 ARDRegression(alpha_1=2.195e-10, alpha_2=4.507e-09,
+                               lambda_1=6.045e-10, lambda_2=3.1945e-09,
+                               threshold_lambda=97776))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.9997835509509616, 'r2': 0.9997835509509616, 'rmse': 269.0922839620915}
+test score: {'explained_var': 0.9972635793869241, 'r2': 0.9972621728366199, 'rmse': 236.67768360064255}
+original test score: {'explained_var': 0.9991373604794618, 'r2': 0.9991372846445296, 'rmse': 132.85810698858648}
+score end
+42688
+lvl
+0.01
+type
+MNAR
+num_run
+2
+reg_full
+finished
+all finished
+full run takes
+19.132146430081793
+hours
+DONE
