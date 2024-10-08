@@ -84,7 +84,11 @@ def load_task(base_save_folder, task_id, r_or_c):
         #kwargs = {'force_refresh_cache': True}
         task = openml.datasets.get_dataset(task_id)
         X, y, _, _  = task.get_data(dataset_format="dataframe")
-        if y is None: 
+        if task_id == 23515:
+            y = X.iloc[:, 5].copy()
+            X = X.drop('y1', axis=1)
+            print('23515')
+        elif y is None: 
             y = X.iloc[:, -1:]
             X = X.iloc[:, :-1]
         X = pd.DataFrame(X)
