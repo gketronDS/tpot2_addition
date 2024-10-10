@@ -1,0 +1,51 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job995696/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+216 5 passed: reg_full_MAR_0.01_1/
+216 29 failed: reg_full_MAR_0.01_2/
+None
+[Errno 2] No such file or directory: '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/r/216/reg_full_MAR_0.01_2/tpot_space_scores.pkl'
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/viewreg.py", line 270, in <module>
+    with open(imputepath + 'tpot_space_scores.pkl', 'rb') as file:
+FileNotFoundError: [Errno 2] No such file or directory: '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/r/216/reg_full_MAR_0.01_2/tpot_space_scores.pkl'
+
+216 53 passed: reg_full_MAR_0.01_3/
+216 6 passed: reg_full_MAR_0.1_1/
+216 30 passed: reg_full_MAR_0.1_2/
+216 54 passed: reg_full_MAR_0.1_3/
+216 7 passed: reg_full_MAR_0.3_1/
+216 31 passed: reg_full_MAR_0.3_2/
+216 55 passed: reg_full_MAR_0.3_3/
+216 8 passed: reg_full_MAR_0.5_1/
+216 32 passed: reg_full_MAR_0.5_2/
+216 56 passed: reg_full_MAR_0.5_3/
+216 1 passed: reg_full_MCAR_0.01_1/
+216 25 passed: reg_full_MCAR_0.01_2/
+216 49 passed: reg_full_MCAR_0.01_3/
+216 2 passed: reg_full_MCAR_0.1_1/
+216 26 passed: reg_full_MCAR_0.1_2/
+216 50 passed: reg_full_MCAR_0.1_3/
+216 3 passed: reg_full_MCAR_0.3_1/
+216 27 passed: reg_full_MCAR_0.3_2/
+216 51 passed: reg_full_MCAR_0.3_3/
+216 4 passed: reg_full_MCAR_0.5_1/
+216 28 passed: reg_full_MCAR_0.5_2/
+216 52 passed: reg_full_MCAR_0.5_3/
+216 9 failed: reg_full_MNAR_0.01_1/
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/viewreg.py", line 265, in <module>
+    with open(normalpath + 'all_scores.pkl', 'rb') as file:
+FileNotFoundError: [Errno 2] No such file or directory: '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/r/216/reg_full_MNAR_0.01_1/all_scores.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/viewreg.py", line 290, in <module>
+    locallist = locallist.append(num_run)
+AttributeError: 'NoneType' object has no attribute 'append'
+srun: error: esplhpc-cp013: task 0: Exited with exit code 1

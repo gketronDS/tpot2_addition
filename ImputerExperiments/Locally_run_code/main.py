@@ -143,7 +143,7 @@ def main():
                           42545, 42225, 42712, 287, 42688, *23515, ]
     '''
     #classification_id_list = [30]
-    regression_id_list = [23515]
+    regression_id_list = [42225]
 
     
     print('starting loops')

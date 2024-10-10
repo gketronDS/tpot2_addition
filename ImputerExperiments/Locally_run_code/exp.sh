@@ -11,7 +11,8 @@
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
-#SBATCH --array=1-72
+#SBATCH --array=2,3,10,26,31,34,50,51,55,57,58
+
 
 RUN=${SLURM_ARRAY_TASK_ID:-1}
 

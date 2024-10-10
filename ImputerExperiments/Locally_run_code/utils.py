@@ -102,14 +102,24 @@ def load_task(base_save_folder, task_id, r_or_c):
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         print(X_train)
         print(type(X_train))
-        preprocessing_pipeline = sklearn.pipeline.make_pipeline(
-            tpot2.builtin_modules.ColumnSimpleImputer(
-                "categorical", strategy='most_frequent'), 
-            tpot2.builtin_modules.ColumnSimpleImputer(
-                "numeric", strategy='mean'), 
-            tpot2.builtin_modules.column_one_hot_encoder.ColumnOrdinalEncoder(columns="categorical", min_frequency=0.001, handle_unknown="use_encoded_value"),
-            sklearn.preprocessing.MinMaxScaler()
-            )
+        if task_id == 42712:
+            preprocessing_pipeline = sklearn.pipeline.make_pipeline(
+                tpot2.builtin_modules.ColumnSimpleImputer(
+                    "categorical", strategy='most_frequent'), 
+                tpot2.builtin_modules.ColumnSimpleImputer(
+                    "numeric", strategy='mean'), 
+                tpot2.builtin_modules.column_one_hot_encoder.ColumnOneHotEncoder(columns="categorical", min_frequency=0.001),
+                sklearn.preprocessing.MinMaxScaler()
+                )
+        else:
+            preprocessing_pipeline = sklearn.pipeline.make_pipeline(
+                tpot2.builtin_modules.ColumnSimpleImputer(
+                    "categorical", strategy='most_frequent'), 
+                tpot2.builtin_modules.ColumnSimpleImputer(
+                    "numeric", strategy='mean'), 
+                tpot2.builtin_modules.column_one_hot_encoder.ColumnOrdinalEncoder(columns="categorical", min_frequency=0.001, handle_unknown="use_encoded_value"),
+                sklearn.preprocessing.MinMaxScaler()
+                )
         preprocessing_pipeline.fit(X_train)
         X_train = preprocessing_pipeline.transform(X_train)
         X_test = preprocessing_pipeline.transform(X_test)

@@ -6,7 +6,7 @@ import traceback
 dflist=[]
 redolist={}
 #'189', '197', '198', '215', '216', '218', '1193', '1199', '1200', '1213', '42183', '42225', '42712',  '287', '42688'
-for taskid in ['189', '197', '198', '215', '216', '218', '1193', '1199', '1200', '1213', '42183', '42545', '42225', '42712', '287', '42688', '23515']:
+for taskid in ['216', '1200', '1213', '42225']:
     fileoutput = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/r/'
     csvout = pd.DataFrame(columns=['DatasetID','Exp_Name','Condition', 'Level', 'Triplicate','Exp1ImputeRMSEAcc','Exp2ImputeModel','Exp2train_explained_var','Exp2train_r2', 
                                             'Exp2train_rmse', 'Exp2ori_explained_var', 'Exp2ori_r2', 'Exp2ori_rmse', 'Exp2impute_explained_var', 'Exp2impute_r2', 
@@ -283,14 +283,17 @@ for taskid in ['189', '197', '198', '215', '216', '218', '1193', '1199', '1200',
                                             'Exp3impute_explained_var': tpot_space['test_score']['explained_var'], 'Exp3impute_r2': tpot_space['test_score']['r2'], 'Exp3impute_rmse': tpot_space['test_score']['rmse'],  
                                             'Exp3ImputeModel': str(tpot_space['fit_model'][0]).split('(')[0], 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3RegressorModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
                         
-                        print(taskid+' '+num_run+' passed: '+exp+item+lvl+iter)
+                        print(taskid+' '+str(num_run)+' passed: '+exp+item+lvl+iter)
 
                     except Exception as e:
-                        print(taskid+' '+num_run+' failed: '+exp+item+lvl+iter)
+                        print(taskid+' '+str(num_run)+' failed: '+exp+item+lvl+iter)
+                        locallist.append(num_run)
+                        #print(locallist)
                         trace =  traceback.format_exc()
                         print(e)
                         print(trace) 
-                        locallist.append(num_run)
+    locallist.sort()
+    #print(locallist)
     dflist.append(csvout)
     redolist[taskid] = locallist
     print(taskid + 'complete')

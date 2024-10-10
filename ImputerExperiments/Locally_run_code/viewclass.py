@@ -287,10 +287,10 @@ for taskid in ['6', '30']:
                                             'Exp3impute_logloss': tpot_space['test_score']['logloss'], 'Exp3impute_f1': tpot_space['test_score']['f1'],
                                             'Exp3ImputeModel': str(tpot_space['fit_model'][0]).split('(')[0], 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3ClassifierModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
                         
-                        print(taskid+' '+num_run+' passed: '+exp+item+lvl+iter)
+                        print(taskid+' '+str(num_run)+' passed: '+exp+item+lvl+iter)
 
                     except Exception as e:
-                        print(taskid+' '+num_run+' failed: '+exp+item+lvl+iter)
+                        print(taskid+' '+str(num_run)+' failed: '+exp+item+lvl+iter)
                         trace =  traceback.format_exc()
                         print(e)
                         print(trace) 
