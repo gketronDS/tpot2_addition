@@ -27,7 +27,7 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 main4.py \
+srun -u python3.10 main2.py \
 --n_jobs 16 \
 --savepath ../data \
 --num_runs ${RUN} \
