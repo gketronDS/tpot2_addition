@@ -11,7 +11,7 @@
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
-#SBATCH --array=5-6,9,25-26,30,33,55
+#SBATCH --array=5,6,9,25,26,33,55
 
 RUN=${SLURM_ARRAY_TASK_ID:-1}
 
@@ -27,7 +27,7 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 main3.py \
+srun -u python3.10 main2.py \
 --n_jobs 16 \
 --savepath ../data \
 --num_runs ${RUN} \

@@ -1872,3 +1872,51 @@ WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION
     raise InvalidParameterError(
 sklearn.utils._param_validation.InvalidParameterError: The 'criterion' parameter of RandomForestRegressor must be a str among {'friedman_mse', 'poisson', 'absolute_error', 'squared_error'}. Got 'mse' instead.
 
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15537fd10460> 
+
+Generation:  24
+Best root_mean_squared_error score: -0.1287483817823947
+Generation:  96%|█████████▌| 24/25 [3:07:04<09:08, 548.41s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155454276e30> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474711c60> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554671a36d0> 
+
+Generation:  25
+Best root_mean_squared_error score: -0.1287483817823947
+Generation: 100%|██████████| 25/25 [3:17:12<00:00, 566.38s/it]Generation: 100%|██████████| 25/25 [3:17:12<00:00, 473.30s/it]
+2024-10-11 14:13:57,998 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:44785' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-f9c2ca7e724c2c2051484acb1e8b6c61', 'DataFrame-e9a7a85de1e82d4cee69306965238114'} (stimulus_id='handle-worker-cleanup-1728681237.9980001')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  imputation_order='arabic',
+                                  initial_strategy='median',
+                                  n_nearest_features=61)),
+                ('linearsvr',
+                 LinearSVR(C=1.0712460767783, epsilon=0.0405481957299))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'explained_var': 0.9455711392898273, 'r2': 0.9455675563934507, 'rmse': 0.16551461023199077}
+test score: {'explained_var': 0.9953598583469593, 'r2': 0.9953476301776458, 'rmse': 0.047101326599925886}
+original test score: {'explained_var': 0.9977987726675788, 'r2': 0.9977928489515254, 'rmse': 0.03244233106863204}
+score end
+42225
+lvl
+0.1
+type
+MNAR
+num_run
+2
+reg_full
+finished
+all finished
+full run takes
+27.2704114165571
+hours
+DONE
