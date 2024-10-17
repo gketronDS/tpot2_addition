@@ -1,0 +1,895 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job1001162/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/137/137.pkl
+      top-left-square top-middle-square top-right-square middle-left-square  \
+0                   o                 b                o                  x   
+1                   o                 o                o                  b   
+2                   x                 b                o                  x   
+3                   b                 b                b                  b   
+4                   o                 x                b                  x   
+...               ...               ...              ...                ...   
+39361               o                 b                o                  o   
+39362               o                 x                x                  x   
+39363               x                 x                x                  b   
+39364               o                 b                x                  o   
+39365               o                 x                o                  x   
+
+      middle-middle-square middle-right-square bottom-left-square  \
+0                        b                   x                  x   
+1                        x                   o                  o   
+2                        b                   o                  x   
+3                        x                   x                  b   
+4                        x                   o                  o   
+...                    ...                 ...                ...   
+39361                    b                   o                  x   
+39362                    x                   o                  x   
+39363                    x                   b                  o   
+39364                    x                   x                  o   
+39365                    b                   o                  b   
+
+      bottom-middle-square bottom-right-square  
+0                        x                   x  
+1                        x                   o  
+2                        o                   b  
+3                        x                   o  
+4                        x                   b  
+...                    ...                 ...  
+39361                    x                   x  
+39362                    o                   o  
+39363                    b                   x  
+39364                    x                   x  
+39365                    x                   o  
+
+[39366 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+      top-left-square top-middle-square top-right-square middle-left-square  \
+1970                x                 x                o                  o   
+15128               x                 x                x                  b   
+7624                o                 o                x                  b   
+3234                x                 o                x                  b   
+35408               x                 b                b                  x   
+...               ...               ...              ...                ...   
+8228                o                 o                x                  o   
+36011               o                 o                o                  x   
+115                 o                 o                b                  o   
+3609                x                 b                o                  o   
+2951                o                 x                o                  x   
+
+      middle-middle-square middle-right-square bottom-left-square  \
+1970                     o                   o                  x   
+15128                    o                   b                  o   
+7624                     b                   o                  x   
+3234                     x                   b                  x   
+35408                    b                   x                  b   
+...                    ...                 ...                ...   
+8228                     x                   o                  x   
+36011                    b                   x                  x   
+115                      o                   b                  b   
+3609                     x                   x                  b   
+2951                     x                   x                  b   
+
+      bottom-middle-square bottom-right-square  
+1970                     x                   x  
+15128                    b                   b  
+7624                     b                   x  
+3234                     b                   x  
+35408                    b                   x  
+...                    ...                 ...  
+8228                     b                   x  
+36011                    x                   o  
+115                      b                   x  
+3609                     b                   x  
+2951                     o                   o  
+
+[31492 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+         0    1    2    3    4    5    6    7    8
+0      1.0  1.0  0.5  0.5  0.5  0.5  1.0  1.0  1.0
+1      1.0  1.0  1.0  0.0  0.5  0.0  0.5  0.0  0.0
+2      0.5  0.5  1.0  0.0  0.0  0.5  1.0  0.0  1.0
+3      1.0  0.5  1.0  0.0  1.0  0.0  1.0  0.0  1.0
+4      1.0  0.0  0.0  1.0  0.0  1.0  0.0  0.0  1.0
+...    ...  ...  ...  ...  ...  ...  ...  ...  ...
+31487  0.5  0.5  1.0  0.5  1.0  0.5  1.0  0.0  1.0
+31488  0.5  0.5  0.5  1.0  0.0  1.0  1.0  1.0  0.5
+31489  0.5  0.5  0.0  0.5  0.5  0.0  0.0  0.0  1.0
+31490  1.0  0.0  0.5  0.5  1.0  1.0  0.0  0.0  1.0
+31491  0.5  1.0  0.5  1.0  1.0  1.0  0.0  0.5  0.5
+
+[31492 rows x 9 columns]
+<class 'numpy.ndarray'>
+        0    1    2    3    4    5    6    7    8
+0     1.0  0.5  1.0  0.5  1.0  0.0  1.0  0.0  1.0
+1     0.5  0.0  0.0  0.0  1.0  0.5  1.0  1.0  1.0
+2     0.5  0.5  0.5  1.0  0.5  0.0  1.0  1.0  1.0
+3     0.5  0.5  0.5  0.0  1.0  1.0  0.5  1.0  1.0
+4     0.0  0.5  1.0  0.0  0.5  1.0  0.5  0.5  0.0
+...   ...  ...  ...  ...  ...  ...  ...  ...  ...
+7869  0.0  0.5  0.5  1.0  1.0  1.0  0.0  0.0  0.0
+7870  1.0  0.5  0.0  1.0  0.5  0.0  1.0  1.0  1.0
+7871  1.0  1.0  1.0  0.5  0.5  0.0  1.0  0.5  1.0
+7872  0.5  0.5  0.0  0.0  1.0  1.0  1.0  1.0  1.0
+7873  1.0  1.0  1.0  1.0  0.5  0.0  0.0  0.5  0.5
+
+[7874 rows x 9 columns]
+<class 'numpy.ndarray'>
+working on 
+../data/c/137/class_full_MCAR_0.01_1
+4.914401054382324
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-10-14 12:33:20,709] A new study created in memory with name: no-name-3a79b87f-29b1-4d8e-8a0d-5998ac33ba30
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-10-14 12:33:21,186] Trial 1 finished with value: 0.7126391340495978 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 1 with value: 0.7126391340495978.
+[I 2024-10-14 12:33:21,213] Trial 0 finished with value: 0.7126391340495978 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 1 with value: 0.7126391340495978.
+running
+running
+[I 2024-10-14 12:33:21,575] Trial 4 finished with value: 0.3886788917476713 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:21,684] Trial 9 finished with value: 0.3886788917476713 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 4 with value: 0.3886788917476713.
+[I 2024-10-14 12:33:21,965] Trial 2 finished with value: 0.7126391340495978 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 4 with value: 0.3886788917476713.
+running
+running
+[I 2024-10-14 12:33:22,836] Trial 3 finished with value: 0.5573194754078568 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:22,994] Trial 14 finished with value: 0.3886788917476713 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:45,976] Trial 11 finished with value: 0.4070732983338857 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 1, 'learning_rate': 0.0009790822379502253, 'p_miss': 0.17510415554512065}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:52,457] Trial 23 finished with value: 0.4083104258557587 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 1, 'learning_rate': 0.07816166268809646, 'p_miss': 0.19884058156195097}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:54,045] Trial 24 finished with value: 0.5573194754078568 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:54,425] Trial 5 finished with value: 0.6892183803099046 and parameters: {'model_name': 'GAIN', 'batch_size': 44, 'hint_rate': 0.7620585755080773, 'alpha': 90, 'iterations': 8, 'learning_rate': 0.010186271925104512, 'p_miss': 0.26208379844760293}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:57,834] Trial 6 finished with value: 0.40239287803744583 and parameters: {'model_name': 'VAE', 'batch_size': 125, 'iterations': 4, 'learning_rate': 0.0009793541666425324, 'p_miss': 0.12309668913836756}. Best is trial 4 with value: 0.3886788917476713.
+running
+[I 2024-10-14 12:33:59,716] Trial 13 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:03,821] Trial 22 finished with value: 0.3886788917476713 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 29987, 'weights': 'uniform'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:09,952] Trial 19 finished with value: 0.3874987379873864 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 20955, 'weights': 'uniform'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:10,443] Trial 12 finished with value: 0.3874325242068125 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 20764, 'weights': 'uniform'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:11,109] Trial 15 finished with value: 0.3866226524036196 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 9687, 'weights': 'distance'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:13,826] Trial 8 finished with value: 0.4094114125130588 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 15, 'learning_rate': 0.00015775182740605218, 'p_miss': 0.20975134307061577}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:38,931] Trial 26 finished with value: 0.3886788917476713 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 25739, 'weights': 'uniform'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:42,741] Trial 10 finished with value: 0.6961620709410457 and parameters: {'model_name': 'GAIN', 'batch_size': 25, 'hint_rate': 0.7010289886130572, 'alpha': 80, 'iterations': 67, 'learning_rate': 0.00018369299354768128, 'p_miss': 0.2361871667705265}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:48,191] Trial 28 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:50,158] Trial 29 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:53,907] Trial 31 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:55,693] Trial 30 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:56,033] Trial 32 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:34:58,752] Trial 33 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:13,027] Trial 16 finished with value: 0.41835396175263845 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 3, 'imputation_order': 'ascending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:22,225] Trial 34 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:28,397] Trial 35 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:30,928] Trial 36 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:34,408] Trial 18 finished with value: 0.5360753259740024 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': True}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:34,677] Trial 37 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:39,010] Trial 40 finished with value: 0.37973920285702967 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:40,975] Trial 39 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:35:41,542] Trial 38 finished with value: 0.37964791300851836 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'descending'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:36:15,035] Trial 7 finished with value: 0.41361219040372665 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'arabic'}. Best is trial 13 with value: 0.37964791300851836.
+running
+[I 2024-10-14 12:36:27,867] Trial 42 finished with value: 0.379601846198904 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 12:36:42,360] Trial 41 finished with value: 0.5412021890891502 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 3, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 12:37:50,005] Trial 45 finished with value: 0.5360386925028465 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': True}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 12:37:51,562] Trial 44 finished with value: 0.5360386925028463 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': True}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 12:53:56,247] Trial 17 finished with value: 0.38586023804781633 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 2, 'imputation_order': 'descending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:01:33,416] Trial 27 finished with value: 0.388903388485821 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 4, 'imputation_order': 'arabic'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:07:36,666] Trial 57 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.12377487671700893, 'alpha': 0, 'iterations': 2122, 'learning_rate': 0.09372615370881034, 'p_miss': 0.012828796577721402}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:13:11,263] Trial 25 finished with value: 0.39053282550917234 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:18:06,704] Trial 20 finished with value: 0.40000903053108317 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:21:50,633] Trial 21 finished with value: 0.4110862956142533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:22:30,332] Trial 49 finished with value: 0.4121882784385872 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'arabic'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:22:38,117] Trial 43 finished with value: 0.41139286249066415 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:22:56,183] Trial 46 finished with value: 0.4113647567816299 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:23:11,340] Trial 47 finished with value: 0.4123369542362022 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:23:15,991] Trial 48 finished with value: 0.41188879394224653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'arabic'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 13:23:35,433] Trial 50 finished with value: 0.41227975229971037 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:16:48,431] Trial 53 finished with value: 0.7129471664293169 and parameters: {'model_name': 'GAIN', 'batch_size': 675, 'hint_rate': 0.01327395390763969, 'alpha': 2, 'iterations': 4890, 'learning_rate': 0.0859467759866851, 'p_miss': 0.01969626576782524}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:26:38,768] Trial 51 finished with value: 0.7141030546067041 and parameters: {'model_name': 'GAIN', 'batch_size': 880, 'hint_rate': 0.015756117119932356, 'alpha': 13, 'iterations': 5122, 'learning_rate': 0.04322101906881816, 'p_miss': 0.018668451403716008}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:39:02,100] Trial 68 finished with value: 0.39076381407505306 and parameters: {'model_name': 'VAE', 'batch_size': 709, 'iterations': 511, 'learning_rate': 0.007189034631426819, 'p_miss': 0.09301524116252505}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:39:03,019] Trial 70 finished with value: 0.4021186992628315 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:39:57,463] Trial 69 finished with value: 0.48943166096019297 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 409, 'learning_rate': 0.008572532100128857, 'p_miss': 0.10689241565770244}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:40:08,766] Trial 72 finished with value: 0.37960624615901206 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:40:09,696] Trial 73 finished with value: 0.4021186992628315 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:40:21,073] Trial 74 finished with value: 0.37960624615901206 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:40:36,847] Trial 75 finished with value: 0.3872787070934313 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 27, 'weights': 'distance'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:40:46,003] Trial 76 finished with value: 0.37960624615901206 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:41:46,978] Trial 77 finished with value: 0.413178429380827 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:41:58,442] Trial 78 finished with value: 0.37960624615901206 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:42:09,832] Trial 79 finished with value: 0.37960624970712314 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:09,898] Trial 80 finished with value: 0.41446952626058103 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:22,045] Trial 81 finished with value: 0.37960624970712314 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:30,446] Trial 71 finished with value: 0.43567587321886003 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 229, 'learning_rate': 0.0009515570857576932, 'p_miss': 0.2958204352956863}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:33,001] Trial 82 finished with value: 0.37960624970712314 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:42,532] Trial 83 finished with value: 0.37960624970712314 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:55,831] Trial 84 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:43:58,253] Trial 85 finished with value: 0.7079264338682233 and parameters: {'model_name': 'GAIN', 'batch_size': 148, 'hint_rate': 0.9877802559858065, 'alpha': 46, 'iterations': 40, 'learning_rate': 0.020582694103203056, 'p_miss': 0.058966304516948204}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:44:22,690] Trial 86 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:44:26,112] Trial 87 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:44:49,447] Trial 88 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:44:53,243] Trial 89 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:45:16,691] Trial 90 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:45:24,831] Trial 91 finished with value: 0.3866212733740984 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 9303, 'weights': 'distance'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:45:49,006] Trial 92 finished with value: 0.3866212302345827 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 9275, 'weights': 'distance'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:46:11,133] Trial 93 finished with value: 0.37972136032931864 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 5, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:46:11,783] Trial 95 finished with value: 0.4021186992628315 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:46:20,992] Trial 94 finished with value: 0.3852328279213287 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 1, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:46:47,321] Trial 96 finished with value: 0.3852328265695044 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 1, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:46:49,081] Trial 97 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:47:12,834] Trial 98 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:47:14,162] Trial 99 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:47:38,697] Trial 101 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:47:39,402] Trial 100 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:48:02,419] Trial 102 finished with value: 0.37960186212960884 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 42 with value: 0.379601846198904.
+running
+[I 2024-10-14 14:48:27,007] Trial 103 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:48:50,824] Trial 104 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:49:17,013] Trial 105 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:49:42,273] Trial 106 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:50:09,783] Trial 107 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:50:33,363] Trial 108 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:50:43,271] Trial 55 finished with value: 0.7128430343050732 and parameters: {'model_name': 'GAIN', 'batch_size': 867, 'hint_rate': 0.02529726109300756, 'alpha': 3, 'iterations': 6798, 'learning_rate': 0.057256979616450744, 'p_miss': 0.012858583077994395}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:51:02,048] Trial 109 finished with value: 0.37972237795992136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:51:26,409] Trial 110 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:51:35,210] Trial 111 finished with value: 0.37972237795992136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:51:50,298] Trial 112 finished with value: 0.37976013739869413 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'roman', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:52:15,812] Trial 114 finished with value: 0.37976013739869413 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'roman', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 14:53:05,281] Trial 116 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:09:53,552] Trial 56 finished with value: 0.713002916503059 and parameters: {'model_name': 'GAIN', 'batch_size': 723, 'hint_rate': 0.04772695448458136, 'alpha': 1, 'iterations': 7184, 'learning_rate': 0.0953596179087962, 'p_miss': 0.013627907695606012}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:14:05,247] Trial 52 finished with value: 0.7124976132803823 and parameters: {'model_name': 'GAIN', 'batch_size': 999, 'hint_rate': 0.04829380600806271, 'alpha': 7, 'iterations': 7630, 'learning_rate': 0.0912690964225632, 'p_miss': 0.02023087561378653}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:21:20,159] Trial 61 finished with value: 0.7132411220563982 and parameters: {'model_name': 'GAIN', 'batch_size': 622, 'hint_rate': 0.039484882568501634, 'alpha': 21, 'iterations': 6485, 'learning_rate': 0.011746651006717913, 'p_miss': 0.08231578403382767}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:25:34,558] Trial 67 finished with value: 0.7153720045771026 and parameters: {'model_name': 'GAIN', 'batch_size': 944, 'hint_rate': 0.07654530850802416, 'alpha': 16, 'iterations': 6120, 'learning_rate': 0.0076414267851864295, 'p_miss': 0.08258168392904731}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:28:10,147] Trial 62 finished with value: 0.7145633660371045 and parameters: {'model_name': 'GAIN', 'batch_size': 950, 'hint_rate': 0.035221812992561274, 'alpha': 18, 'iterations': 6481, 'learning_rate': 0.010057447884631848, 'p_miss': 0.09910321960182172}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:31:10,676] Trial 60 finished with value: 0.7136158097522701 and parameters: {'model_name': 'GAIN', 'batch_size': 845, 'hint_rate': 0.04568827583953455, 'alpha': 23, 'iterations': 6644, 'learning_rate': 0.009384375200162942, 'p_miss': 0.08865171689142698}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:32:01,708] Trial 123 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:34:33,318] Trial 113 finished with value: 0.4222346900213404 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 1298, 'learning_rate': 0.00275233733622996, 'p_miss': 0.14526728884899798}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:34:51,498] Trial 54 finished with value: 0.7129415907868631 and parameters: {'model_name': 'GAIN', 'batch_size': 785, 'hint_rate': 0.02500824999065382, 'alpha': 3, 'iterations': 8891, 'learning_rate': 0.04716299975923721, 'p_miss': 0.013717808832372974}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:35:27,630] Trial 125 finished with value: 0.3798108649320415 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'random', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:35:30,991] Trial 115 finished with value: 0.41439922691388204 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 1377, 'learning_rate': 0.002532291778705749, 'p_miss': 0.14938669177799674}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:35:47,203] Trial 126 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:36:26,228] Trial 127 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:36:29,762] Trial 128 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:36:45,237] Trial 129 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:37:26,522] Trial 130 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:37:28,868] Trial 131 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:37:44,261] Trial 132 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:37:45,150] Trial 135 finished with value: 0.5573194754078568 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:38:18,130] Trial 133 finished with value: 0.3797756868603559 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:38:25,763] Trial 134 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:38:40,840] Trial 63 finished with value: 0.7106424635895457 and parameters: {'model_name': 'GAIN', 'batch_size': 732, 'hint_rate': 0.06269227809881495, 'alpha': 19, 'iterations': 7598, 'learning_rate': 0.011107899123252354, 'p_miss': 0.08858816876716352}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:38:41,031] Trial 136 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:39:14,289] Trial 137 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:39:20,825] Trial 138 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:39:36,020] Trial 140 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:39:38,023] Trial 139 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:40:31,073] Trial 141 finished with value: 0.5418017444230157 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': True}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:40:32,744] Trial 120 finished with value: 0.4228069878787645 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 1016, 'learning_rate': 0.002769518607647075, 'p_miss': 0.14667458147310955}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:40:51,755] Trial 122 finished with value: 0.4206589819074555 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 873, 'learning_rate': 0.002395393941492083, 'p_miss': 0.13669581107021328}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:40:54,728] Trial 143 finished with value: 0.5418017444230157 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': True}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:41:06,456] Trial 142 finished with value: 0.41214189702991 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:41:21,555] Trial 144 finished with value: 0.41214189702991 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:41:41,537] Trial 145 finished with value: 0.3797756868603559 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:05,883] Trial 119 finished with value: 0.42027364190860955 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 1312, 'learning_rate': 0.0029678419618591133, 'p_miss': 0.1567854018897004}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:11,491] Trial 146 finished with value: 0.41214189702991 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:22,249] Trial 149 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:31,503] Trial 147 finished with value: 0.41214189702991 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:33,395] Trial 148 finished with value: 0.41214189702991 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 5, 'imputation_order': 'ascending'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:45,374] Trial 150 finished with value: 0.37965420093286806 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:42:47,349] Trial 151 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:04,251] Trial 155 finished with value: 0.38020836916498435 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 3380, 'weights': 'uniform'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:06,212] Trial 152 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:11,555] Trial 153 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:26,797] Trial 154 finished with value: 0.37965420093286806 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:28,584] Trial 156 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:39,246] Trial 157 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:40,794] Trial 158 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:56,716] Trial 160 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:43:58,543] Trial 159 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:12,717] Trial 161 finished with value: 0.3796368635963307 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:17,110] Trial 162 finished with value: 0.3796566881676748 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:19,887] Trial 163 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:21,044] Trial 170 finished with value: 0.4021186992628315 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:29,873] Trial 58 finished with value: 0.7097694028674761 and parameters: {'model_name': 'GAIN', 'batch_size': 954, 'hint_rate': 0.017587221228861638, 'alpha': 20, 'iterations': 9267, 'learning_rate': 0.007259385067433927, 'p_miss': 0.07788336250031866}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:31,528] Trial 164 finished with value: 0.3796566881676748 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:43,011] Trial 121 finished with value: 0.41995325397117433 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 1321, 'learning_rate': 0.002687254961181543, 'p_miss': 0.15443014945107514}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:45,888] Trial 165 finished with value: 0.3796424995847262 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:49,608] Trial 166 finished with value: 0.3796566881676748 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:50,629] Trial 66 finished with value: 0.7120623783210367 and parameters: {'model_name': 'GAIN', 'batch_size': 700, 'hint_rate': 0.011396219155303033, 'alpha': 20, 'iterations': 8257, 'learning_rate': 0.007888645134257752, 'p_miss': 0.09432302860204392}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:44:54,414] Trial 167 finished with value: 0.3796566881676748 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:05,330] Trial 168 finished with value: 0.37958266624171977 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:07,958] Trial 169 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:11,728] Trial 171 finished with value: 0.37958266624171977 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:19,804] Trial 172 finished with value: 0.37972237795992136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:22,201] Trial 173 finished with value: 0.37958266624171977 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:31,494] Trial 59 finished with value: 0.7110596761091278 and parameters: {'model_name': 'GAIN', 'batch_size': 998, 'hint_rate': 0.03202233404415883, 'alpha': 12, 'iterations': 8410, 'learning_rate': 0.008896944373273947, 'p_miss': 0.0874665089963417}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:32,620] Trial 174 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:33,111] Trial 175 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:35,459] Trial 176 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:38,587] Trial 177 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:41,225] Trial 178 finished with value: 0.37972237795992136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:53,762] Trial 179 finished with value: 0.37972237795992136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:54,953] Trial 180 finished with value: 0.37972237795992136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:45:58,911] Trial 181 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:06,478] Trial 182 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:10,475] Trial 183 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:22,991] Trial 184 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:25,052] Trial 186 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:26,172] Trial 185 finished with value: 0.3797527919390896 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:29,633] Trial 187 finished with value: 0.3797527919390896 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:32,706] Trial 188 finished with value: 0.37957050434350653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}. Best is trial 103 with value: 0.37957050434350653.
+running
+[I 2024-10-14 15:46:58,094] Trial 189 finished with value: 0.5403524638874696 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:07,867] Trial 194 finished with value: 0.38663838584245386 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 15903, 'weights': 'distance'}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:19,444] Trial 195 finished with value: 0.38664074031823986 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 16629, 'weights': 'distance'}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:20,104] Trial 190 finished with value: 0.5403524638874696 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:21,929] Trial 191 finished with value: 0.5403524638874696 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:22,375] Trial 197 finished with value: 0.38663944258767396 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 16242, 'weights': 'distance'}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:22,593] Trial 196 finished with value: 0.38663849175128506 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 15929, 'weights': 'distance'}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:25,298] Trial 192 finished with value: 0.5403524638874696 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:47:26,862] Trial 199 finished with value: 0.38664199169704283 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 17079, 'weights': 'distance'}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:48:57,388] Trial 64 finished with value: 0.7134630799838595 and parameters: {'model_name': 'GAIN', 'batch_size': 896, 'hint_rate': 0.010073490690192088, 'alpha': 19, 'iterations': 8540, 'learning_rate': 0.010061366540235355, 'p_miss': 0.09605526384380174}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:49:04,903] Trial 124 finished with value: 0.4500036852818489 and parameters: {'model_name': 'VAE', 'batch_size': 2, 'iterations': 1498, 'learning_rate': 0.003055185825846295, 'p_miss': 0.14468380774189432}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:50:01,715] Trial 117 finished with value: 0.39105877943180367 and parameters: {'model_name': 'VAE', 'batch_size': 169, 'iterations': 1722, 'learning_rate': 0.002469045289321039, 'p_miss': 0.1550462052984644}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:50:27,109] Trial 118 finished with value: 0.3907647201462431 and parameters: {'model_name': 'VAE', 'batch_size': 208, 'iterations': 1417, 'learning_rate': 0.002276607048191184, 'p_miss': 0.14725263102578645}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 15:50:29,556] Trial 65 finished with value: 0.7136752762827181 and parameters: {'model_name': 'GAIN', 'batch_size': 945, 'hint_rate': 0.02159138123950516, 'alpha': 21, 'iterations': 9272, 'learning_rate': 0.006776458612562786, 'p_miss': 0.08593921029992657}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 16:02:54,852] Trial 193 finished with value: 0.3932353725679219 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 103 with value: 0.37957050434350653.
+[I 2024-10-14 16:03:04,489] Trial 198 finished with value: 0.39131708358387357 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending'}. Best is trial 103 with value: 0.37957050434350653.
+fit
+auto fit
+auto transform
+0    0
+1    0
+2    0
+3    0
+4    0
+5    0
+6    0
+7    0
+8    0
+dtype: int64
+0    0
+1    0
+2    0
+3    0
+4    0
+5    0
+6    0
+7    0
+8    0
+dtype: int64
+0.37957050434350653
+{'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'ascending', 'sample_posterior': False}
+running experiment 2/3 - Does reconstruction give good automl predictions
+Start est fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]Generation:  1
+Best f1_score score: 0.7724856719064862
+Generation:   4%|▍         | 1/25 [02:52<1:09:06, 172.76s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746fb2e0> 
+
+Generation:  2
+Best f1_score score: 0.7724856719064862
+Generation:   8%|▊         | 2/25 [12:56<2:43:26, 426.35s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467065870> 
+
+Generation:  3
+Best f1_score score: 0.7783687473353001
+Generation:  12%|█▏        | 3/25 [23:01<3:06:08, 507.68s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746f8250> 
+
+Generation:  4
+Best f1_score score: 0.7783687473353001
+Generation:  16%|█▌        | 4/25 [33:05<3:11:05, 545.96s/it]Generation:  5
+Best f1_score score: 0.7783687473353001
+Generation:  20%|██        | 5/25 [34:46<2:08:29, 385.46s/it]Generation:  6
+Best f1_score score: 0.7783687473353001
+Generation:  24%|██▍       | 6/25 [35:08<1:22:56, 261.93s/it]Generation:  7
+Best f1_score score: 0.7788653753729771
+Generation:  28%|██▊       | 7/25 [36:49<1:02:44, 209.16s/it]Generation:  8
+Best f1_score score: 0.7792224259656821
+Generation:  32%|███▏      | 8/25 [37:06<41:58, 148.15s/it]  Generation:  9
+Best f1_score score: 0.7793121720024111
+Generation:  36%|███▌      | 9/25 [37:29<29:03, 108.95s/it]Generation:  10
+Best f1_score score: 0.7793121720024111
+Generation:  40%|████      | 10/25 [39:37<28:43, 114.89s/it]Generation:  11
+Best f1_score score: 0.7806570322612139
+Generation:  44%|████▍     | 11/25 [39:53<19:41, 84.43s/it] Generation:  12
+Best f1_score score: 0.7806570322612139
+Generation:  48%|████▊     | 12/25 [47:34<43:06, 198.97s/it]Generation:  13
+Best f1_score score: 0.7806570322612139
+Generation:  52%|█████▏    | 13/25 [52:39<46:16, 231.36s/it]Generation:  14
+Best f1_score score: 0.7806570322612139
+Generation:  56%|█████▌    | 14/25 [52:54<30:25, 165.98s/it]Generation:  15
+Best f1_score score: 0.7806570322612139
+Generation:  60%|██████    | 15/25 [53:49<22:05, 132.58s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554647bc190> 
+
+Generation:  16
+Best f1_score score: 0.7806570322612139
+Generation:  64%|██████▍   | 16/25 [1:03:59<41:25, 276.18s/it]Generation:  17
+Best f1_score score: 0.7806570322612139
+Generation:  68%|██████▊   | 17/25 [1:04:35<27:10, 203.81s/it]Generation:  18
+Best f1_score score: 0.7806570322612139
+Generation:  72%|███████▏  | 18/25 [1:05:36<18:47, 161.05s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155464d5aa10> 
+
+Generation:  19
+Best f1_score score: 0.7806570322612139
+Generation:  76%|███████▌  | 19/25 [1:15:47<29:37, 296.17s/it]Generation:  20
+Best f1_score score: 0.7806570322612139
+Generation:  80%|████████  | 20/25 [1:16:09<17:49, 213.97s/it]Generation:  21
+Best f1_score score: 0.7806570322612139
+Generation:  84%|████████▍ | 21/25 [1:20:18<14:57, 224.29s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474656b90> 
+
+Generation:  22
+Best f1_score score: 0.7806570322612139
+Generation:  88%|████████▊ | 22/25 [1:30:31<17:02, 340.85s/it]Generation:  23
+Best f1_score score: 0.7806570322612139
+Generation:  92%|█████████▏| 23/25 [1:30:50<08:08, 244.39s/it]Generation:  24
+Best f1_score score: 0.7806570322612139
+Generation:  96%|█████████▌| 24/25 [1:31:05<02:55, 175.69s/it]Generation:  25
+Best f1_score score: 0.7806570322612139
+Generation: 100%|██████████| 25/25 [1:31:29<00:00, 130.16s/it]Generation: 100%|██████████| 25/25 [1:31:32<00:00, 219.71s/it]
+2024-10-14 17:34:48,521 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:35001' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-53d697fd49d3e13ce179ef1b16c4d251', 'ndarray-4aca3a346d1d64949b0e9099bce59919'} (stimulus_id='handle-worker-cleanup-1728952488.5213187')
+Fitted
+Pipeline(steps=[('lgbmclassifier',
+                 LGBMClassifier(max_depth=7, n_estimators=89, n_jobs=1,
+                                num_leaves=219, verbose=-1))])
+score start
+train score: {'auroc': 0.9025270736839786, 'accuracy': 0.8297345357551124, 'balanced_accuracy': 0.8015447771342183, 'logloss': 0.37663403582297794, 'f1': 0.8078775525185375}
+original test score: {'auroc': 0.8790721841650526, 'accuracy': 0.8148336296672594, 'balanced_accuracy': 0.7845895402058582, 'logloss': 0.4106381808869377, 'f1': 0.7908173026569973}
+imputed test score: {'auroc': 0.8732394837339674, 'accuracy': 0.8100076200152401, 'balanced_accuracy': 0.7781516236638325, 'logloss': 0.41906403888581595, 'f1': 0.7848187432593186}
+score end
+check intended
+EXP2 Finished
+running experiment 3/3 - What is the best automl settings?
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x1554350145b0>
+Start tpot fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f37af0> 
+ Input X contains NaN.
+BernoulliNB does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 732, in fit
+    X, y = self._check_X_y(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 1184, in _check_X_y
+    X, y = super()._check_X_y(X, y, reset=reset)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 578, in _check_X_y
+    return self._validate_data(X, y, accept_sparse="csr", reset=reset)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+BernoulliNB does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746a4eb0> 
+
+Generation:  1
+Best f1_score score: 0.7765858239743257
+Generation:   4%|▍         | 1/25 [10:02<4:01:06, 602.77s/it]Generation:  2
+Best f1_score score: 0.7765858239743257
+Generation:   8%|▊         | 2/25 [11:32<1:55:25, 301.12s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474718df0> 
+ Input X contains NaN.
+ExtraTreesClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/ensemble/_forest.py", line 377, in fit
+    estimator._compute_missing_values_in_feature_mask(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/tree/_classes.py", line 214, in _compute_missing_values_in_feature_mask
+    assert_all_finite(X, **common_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 213, in assert_all_finite
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+ExtraTreesClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  3
+Best f1_score score: 0.7765858239743257
+Generation:  12%|█▏        | 3/25 [15:36<1:40:46, 274.83s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547473b4c0> 
+
+Generation:  4
+Best f1_score score: 0.7765858239743257
+Generation:  16%|█▌        | 4/25 [25:39<2:21:35, 404.56s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1553d9b4c340> 
+
+Generation:  5
+Best f1_score score: 0.7765858239743257
+Generation:  20%|██        | 5/25 [35:43<2:38:47, 476.37s/it]corrupted size vs. prev_size
+2024-10-14 18:13:56,862 - distributed.nanny - WARNING - Restarting worker
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+corrupted size vs. prev_size
+2024-10-14 18:17:05,391 - distributed.scheduler - ERROR - Task eval_objective_list-a8b17c28c0aa8abd4189528da0ba6351 marked as failed because 2 workers died while trying to run it
+Exception in future
+Attempted to run task 'eval_objective_list-a8b17c28c0aa8abd4189528da0ba6351' on 2 different workers, but all those workers died while running it. The last worker that attempt to run the task was tcp://127.0.0.1:36349. Inspecting worker logs is often a good next step to diagnose what went wrong. For more information see https://distributed.dask.org/en/stable/killed.html.
+2024-10-14 18:17:05,397 - distributed.nanny - WARNING - Restarting worker
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f096f0> 
+
+Generation:  6
+Best f1_score score: 0.7765858239743257
+Generation:  24%|██▍       | 6/25 [45:48<2:44:40, 520.03s/it]2024-10-14 18:24:02,004 - distributed.nanny - WARNING - Restarting worker
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474cd53c0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15525cbc32b0> 
+
+Generation:  7
+Best f1_score score: 0.7783978269340492
+Generation:  28%|██▊       | 7/25 [59:03<3:03:01, 610.10s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155453f6b820> 
+
+Generation:  8
+Best f1_score score: 0.7784584650149371
+Generation:  32%|███▏      | 8/25 [1:09:07<2:52:19, 608.20s/it]Generation:  9
+Best f1_score score: 0.7784584650149371
+Generation:  36%|███▌      | 9/25 [1:10:27<1:58:08, 443.02s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467d1d900> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467df9210> 
+
+Generation:  10
+Best f1_score score: 0.7784584650149371
+Generation:  40%|████      | 10/25 [1:20:34<2:03:24, 493.61s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554741c70a0> 
+
+Generation:  11
+Best f1_score score: 0.7788538499110036
+Generation:  44%|████▍     | 11/25 [1:30:40<2:03:13, 528.13s/it]Generation:  12
+Best f1_score score: 0.7812701865402374
+Generation:  48%|████▊     | 12/25 [1:32:12<1:25:38, 395.26s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467a22890> 
+
+Generation:  13
+Best f1_score score: 0.7812701865402374
+Generation:  52%|█████▏    | 13/25 [1:42:15<1:31:38, 458.21s/it]Generation:  14
+Best f1_score score: 0.7812701865402374
+Generation:  56%|█████▌    | 14/25 [1:42:53<1:00:44, 331.30s/it]Generation:  15
+Best f1_score score: 0.7812701865402374
+Generation:  60%|██████    | 15/25 [1:45:03<45:06, 270.67s/it]  WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467148310> 
+
+Generation:  16
+Best f1_score score: 0.7812701865402374
+Generation:  64%|██████▍   | 16/25 [1:55:10<55:46, 371.82s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15548648b100> 
+
+Generation:  17
+Best f1_score score: 0.7812701865402374
+Generation:  68%|██████▊   | 17/25 [2:05:16<58:58, 442.31s/it]Generation:  18
+Best f1_score score: 0.7812701865402374
+Generation:  72%|███████▏  | 18/25 [2:06:14<38:07, 326.75s/it]Generation:  19
+Best f1_score score: 0.7812701865402374
+Generation:  76%|███████▌  | 19/25 [2:06:44<23:46, 237.70s/it]Generation:  20
+Best f1_score score: 0.7812701865402374
+Generation:  80%|████████  | 20/25 [2:07:14<14:36, 175.40s/it]Generation:  21
+Best f1_score score: 0.7812701865402374
+Generation:  84%|████████▍ | 21/25 [2:07:40<08:42, 130.55s/it]Generation:  22
+Best f1_score score: 0.7812701865402374
+Generation:  88%|████████▊ | 22/25 [2:08:11<05:01, 100.58s/it]Generation:  23
+Best f1_score score: 0.7814947560203225
+Generation:  92%|█████████▏| 23/25 [2:10:58<04:00, 120.41s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155421a1e320> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15547457b850> 
+
+Generation:  24
+Best f1_score score: 0.7814947560203225
+Generation:  96%|█████████▌| 24/25 [2:21:04<04:26, 266.22s/it]Generation:  25
+Best f1_score score: 0.7833171520228207
+Generation: 100%|██████████| 25/25 [2:21:41<00:00, 197.41s/it]Generation: 100%|██████████| 25/25 [2:21:41<00:00, 340.05s/it]
+2024-10-14 19:56:43,697 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:41593' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-a5b74a2697ac537ba3019064db7d3314', 'ndarray-53d697fd49d3e13ce179ef1b16c4d251'} (stimulus_id='handle-worker-cleanup-1728961003.6972039')
+Fitted
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=22)),
+                ('xgbclassifier',
+                 XGBClassifier(base_score=None, booster=None, callbacks=None,
+                               colsample_bylevel=None, colsample_bynode=None,
+                               colsample_bytree=None, device=None,
+                               early_stopping_rounds=None,
+                               enable_categorical=False, eval_metric=None,
+                               feature_types=None, gamma=0.0003602888469,
+                               grow_policy=None, importance_type=None,
+                               interaction_constraints=None,
+                               learning_rate=0.2289345532195, max_bin=None,
+                               max_cat_threshold=None, max_cat_to_onehot=None,
+                               max_delta_step=None, max_depth=5,
+                               max_leaves=None, min_child_weight=6, missing=nan,
+                               monotone_constraints=None, multi_strategy=None,
+                               n_estimators=100, n_jobs=1, nthread=1,
+                               num_parallel_tree=None, ...))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.8907289714790938, 'accuracy': 0.8212244379524959, 'balanced_accuracy': 0.7907428672217629, 'logloss': 0.3936424816576645, 'f1': 0.7976253210561434}
+test score: {'auroc': 0.8747869181649742, 'accuracy': 0.8111506223012446, 'balanced_accuracy': 0.7788555561557777, 'logloss': 0.4168009981003109, 'f1': 0.7858385971312167}
+original test score: {'auroc': 0.8791609363835913, 'accuracy': 0.8148336296672594, 'balanced_accuracy': 0.7833041632477133, 'logloss': 0.41056153164379167, 'f1': 0.7902019185729298}
+score end
+137
+lvl
+0.01
+type
+MCAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+7.399976686967744
+hours
+DONE
