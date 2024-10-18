@@ -1,0 +1,496 @@
+Run: 3
+/cm/local/apps/slurm/var/spool/job1007166/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/184/184.pkl
+      white_king_col white_king_row white_rook_col white_rook_row  \
+0                  a              1              b              3   
+1                  a              1              c              1   
+2                  a              1              c              1   
+3                  a              1              c              1   
+4                  a              1              c              2   
+...              ...            ...            ...            ...   
+28051              b              1              g              7   
+28052              b              1              g              7   
+28053              b              1              g              7   
+28054              b              1              g              7   
+28055              b              1              g              7   
+
+      black_king_col black_king_row  
+0                  c              2  
+1                  c              2  
+2                  d              1  
+3                  d              2  
+4                  c              1  
+...              ...            ...  
+28051              e              5  
+28052              e              6  
+28053              e              7  
+28054              f              5  
+28055              g              5  
+
+[28056 rows x 6 columns]
+<class 'pandas.core.frame.DataFrame'>
+      white_king_col white_king_row white_rook_col white_rook_row  \
+24992              d              1              g              5   
+16837              a              1              d              6   
+24820              d              1              f              3   
+18937              c              2              f              5   
+2430               d              3              c              8   
+...              ...            ...            ...            ...   
+2356               d              3              b              1   
+16675              d              3              h              7   
+11361              c              2              h              1   
+7875               d              3              h              4   
+4757               d              2              a              4   
+
+      black_king_col black_king_row  
+24992              g              2  
+16837              h              7  
+24820              d              7  
+18937              d              6  
+2430               b              8  
+...              ...            ...  
+2356               a              2  
+16675              f              4  
+11361              b              7  
+7875               a              8  
+4757               f              2  
+
+[22444 rows x 6 columns]
+<class 'pandas.core.frame.DataFrame'>
+              0         1         2         3         4         5
+0      1.000000  0.000000  0.857143  0.571429  0.857143  0.142857
+1      0.000000  0.000000  0.428571  0.714286  1.000000  0.857143
+2      1.000000  0.000000  0.714286  0.285714  0.428571  0.857143
+3      0.666667  0.333333  0.714286  0.571429  0.428571  0.714286
+4      1.000000  0.666667  0.285714  1.000000  0.142857  1.000000
+...         ...       ...       ...       ...       ...       ...
+22439  1.000000  0.666667  0.142857  0.000000  0.000000  0.142857
+22440  1.000000  0.666667  1.000000  0.857143  0.714286  0.428571
+22441  0.666667  0.333333  1.000000  0.000000  0.142857  0.857143
+22442  1.000000  0.666667  1.000000  0.428571  0.000000  1.000000
+22443  1.000000  0.333333  0.000000  0.428571  0.714286  0.142857
+
+[22444 rows x 6 columns]
+<class 'numpy.ndarray'>
+             0         1         2         3         4         5
+0     1.000000  1.000000  1.000000  0.857143  1.000000  1.000000
+1     1.000000  0.333333  1.000000  0.857143  0.857143  0.428571
+2     0.666667  0.333333  0.571429  0.571429  0.857143  0.571429
+3     0.333333  0.000000  0.000000  0.000000  1.000000  0.714286
+4     0.666667  0.000000  0.000000  0.571429  0.571429  0.142857
+...        ...       ...       ...       ...       ...       ...
+5607  0.666667  0.333333  0.571429  0.428571  1.000000  0.285714
+5608  1.000000  0.000000  0.714286  0.571429  0.714286  1.000000
+5609  0.666667  0.000000  0.285714  0.857143  0.857143  0.285714
+5610  0.666667  0.666667  0.428571  0.142857  0.714286  0.285714
+5611  1.000000  0.666667  0.142857  0.285714  0.000000  0.142857
+
+[5612 rows x 6 columns]
+<class 'numpy.ndarray'>
+working on 
+../data/c/184/class_full_MCAR_0.3_1
+4.3907716274261475
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-10-17 14:42:27,149] A new study created in memory with name: no-name-25d2519f-c768-4238-845b-5a8f181e4bfc
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-10-17 14:42:27,405] Trial 15 finished with value: 0.5193149890546304 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 15 with value: 0.5193149890546304.
+running
+[I 2024-10-17 14:42:27,747] Trial 6 finished with value: 0.3160658206437847 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 6 with value: 0.3160658206437847.
+running
+[I 2024-10-17 14:42:27,980] Trial 13 finished with value: 0.5193149890546304 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 6 with value: 0.3160658206437847.
+[I 2024-10-17 14:42:28,149] Trial 0 finished with value: 0.5193149890546304 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 6 with value: 0.3160658206437847.
+running
+running
+[I 2024-10-17 14:42:35,726] Trial 16 finished with value: 0.29887507005589586 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1953, 'weights': 'uniform'}. Best is trial 16 with value: 0.29887507005589586.
+running
+[I 2024-10-17 14:42:36,625] Trial 14 finished with value: 0.29930446605872113 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 2885, 'weights': 'uniform'}. Best is trial 16 with value: 0.29887507005589586.
+running
+[I 2024-10-17 14:42:38,007] Trial 21 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:38,198] Trial 22 finished with value: 0.30043146125546893 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:38,685] Trial 18 finished with value: 0.3295998786586146 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 3852, 'weights': 'distance'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:38,874] Trial 24 finished with value: 0.5193149890546304 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:40,291] Trial 25 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:40,850] Trial 10 finished with value: 0.32968440759277684 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 18850, 'weights': 'distance'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:40,977] Trial 7 finished with value: 0.32968440759277684 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 18256, 'weights': 'distance'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:41,687] Trial 4 finished with value: 0.3296657156595484 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 11838, 'weights': 'distance'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:42,106] Trial 26 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:42,509] Trial 1 finished with value: 0.32967177436820466 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 13267, 'weights': 'distance'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:42,842] Trial 27 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:46,391] Trial 28 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:46,873] Trial 29 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:47,104] Trial 11 finished with value: 0.324919539178535 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 4, 'imputation_order': 'ascending'}. Best is trial 21 with value: 0.29704834346215725.
+[I 2024-10-17 14:42:47,213] Trial 30 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+running
+[I 2024-10-17 14:42:47,380] Trial 31 finished with value: 0.29704834346215725 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending'}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:51,693] Trial 17 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.8075142780787186, 'alpha': 53, 'iterations': 6, 'learning_rate': 0.04946165938126972, 'p_miss': 0.056312572699721716}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:52,144] Trial 9 finished with value: 0.5222426962631893 and parameters: {'model_name': 'GAIN', 'batch_size': 6, 'hint_rate': 0.7057742388095847, 'alpha': 54, 'iterations': 1, 'learning_rate': 0.003103010802112493, 'p_miss': 0.2957632585803588}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:52,299] Trial 32 finished with value: 0.5186361195096904 and parameters: {'model_name': 'GAIN', 'batch_size': 248, 'hint_rate': 0.37000769596425825, 'alpha': 83, 'iterations': 1, 'learning_rate': 0.023843544175658687, 'p_miss': 0.02550298283387961}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:52,609] Trial 5 finished with value: 0.5214397292565385 and parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.4620798047696204, 'alpha': 51, 'iterations': 2, 'learning_rate': 0.04215503727282247, 'p_miss': 0.2703993700348873}. Best is trial 21 with value: 0.29704834346215725.
+running
+[I 2024-10-17 14:42:53,129] Trial 35 finished with value: 0.29362731085034594 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 2, 'learning_rate': 0.000782531641132458, 'p_miss': 0.2686368633796991}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:42:53,391] Trial 36 finished with value: 0.2939852575023631 and parameters: {'model_name': 'VAE', 'batch_size': 82, 'iterations': 1, 'learning_rate': 0.0054058847694866945, 'p_miss': 0.05799506127822944}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:42:53,692] Trial 34 finished with value: 0.5184640440982534 and parameters: {'model_name': 'GAIN', 'batch_size': 36, 'hint_rate': 0.8178831518640257, 'alpha': 2, 'iterations': 6, 'learning_rate': 0.018935793568340638, 'p_miss': 0.203065954222111}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:42:55,701] Trial 8 finished with value: 0.316739437919899 and parameters: {'model_name': 'VAE', 'batch_size': 37, 'iterations': 5, 'learning_rate': 0.07093698611913521, 'p_miss': 0.08298950623559564}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:42:56,120] Trial 23 finished with value: 0.294393896055012 and parameters: {'model_name': 'VAE', 'batch_size': 214, 'iterations': 2, 'learning_rate': 0.004546607676362244, 'p_miss': 0.07984413597740725}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:43:14,349] Trial 37 finished with value: 0.5176254713481769 and parameters: {'model_name': 'GAIN', 'batch_size': 141, 'hint_rate': 0.9888397187916036, 'alpha': 39, 'iterations': 112, 'learning_rate': 0.0007099391304728434, 'p_miss': 0.26757136403578974}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:44:11,010] Trial 2 finished with value: 0.3391274313499806 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 238, 'learning_rate': 0.008784232462391463, 'p_miss': 0.2674375686194652}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:44:32,454] Trial 19 finished with value: 0.30018752603908283 and parameters: {'model_name': 'VAE', 'batch_size': 28, 'iterations': 201, 'learning_rate': 0.0012374233392043988, 'p_miss': 0.12662120817203323}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:44:33,286] Trial 33 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 5, 'hint_rate': 0.6779074544475259, 'alpha': 79, 'iterations': 2924, 'learning_rate': 0.0016117229680891443, 'p_miss': 0.023306466960832023}. Best is trial 35 with value: 0.29362731085034594.
+running
+[I 2024-10-17 14:44:47,381] Trial 20 finished with value: 0.2936155520142228 and parameters: {'model_name': 'VAE', 'batch_size': 41, 'iterations': 192, 'learning_rate': 0.00011736549529456626, 'p_miss': 0.24819432656616375}. Best is trial 20 with value: 0.2936155520142228.
+running
+[I 2024-10-17 14:44:51,155] Trial 12 finished with value: 0.29019585221149347 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 281, 'learning_rate': 0.00019574598461641741, 'p_miss': 0.2312165042587681}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:45:21,464] Trial 50 finished with value: 0.29606413878194043 and parameters: {'model_name': 'VAE', 'batch_size': 553, 'iterations': 14, 'learning_rate': 0.0001547180371751984, 'p_miss': 0.11621360703525901}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:46:13,973] Trial 51 finished with value: 0.29490968982689236 and parameters: {'model_name': 'VAE', 'batch_size': 798, 'iterations': 19, 'learning_rate': 0.00020505337214422073, 'p_miss': 0.20645645867946535}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:49:21,647] Trial 43 finished with value: 0.29639893400921646 and parameters: {'model_name': 'VAE', 'batch_size': 73, 'iterations': 552, 'learning_rate': 0.00019188658033533754, 'p_miss': 0.16979664359563104}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:50:10,311] Trial 52 finished with value: 0.2929419919255024 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 925, 'learning_rate': 0.00011805436156068332, 'p_miss': 0.1982689716613114}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:51:00,930] Trial 3 finished with value: 0.307494489772246 and parameters: {'model_name': 'VAE', 'batch_size': 272, 'iterations': 315, 'learning_rate': 0.07833894970407863, 'p_miss': 0.18670854754204852}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:52:48,908] Trial 53 finished with value: 0.3068213326485059 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 1238, 'learning_rate': 0.00011026799449453506, 'p_miss': 0.20885180559692543}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:53:09,101] Trial 55 finished with value: 0.3386894162192392 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 643, 'learning_rate': 0.0005351162024105572, 'p_miss': 0.22902208195212323}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:53:15,123] Trial 58 finished with value: 0.2940539516056993 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 53, 'learning_rate': 0.0004098542259534614, 'p_miss': 0.2307526297657734}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:53:31,776] Trial 59 finished with value: 0.29452367134271307 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 53, 'learning_rate': 0.0003401476256014228, 'p_miss': 0.23858167000233266}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:54:27,611] Trial 54 finished with value: 0.35695730541082293 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 1414, 'learning_rate': 0.0004117799758210401, 'p_miss': 0.21416575270880545}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:57:00,820] Trial 56 finished with value: 0.2952981977557111 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 925, 'learning_rate': 0.0001020987993547513, 'p_miss': 0.22863625449461805}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:57:53,679] Trial 46 finished with value: 0.299260633539553 and parameters: {'model_name': 'VAE', 'batch_size': 443, 'iterations': 333, 'learning_rate': 0.000272828232500259, 'p_miss': 0.115596192116992}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:58:07,782] Trial 42 finished with value: 0.3028714737378128 and parameters: {'model_name': 'VAE', 'batch_size': 49, 'iterations': 1480, 'learning_rate': 0.00015733386021049345, 'p_miss': 0.17777722171026378}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:58:31,305] Trial 63 finished with value: 0.290893750133426 and parameters: {'model_name': 'VAE', 'batch_size': 65, 'iterations': 126, 'learning_rate': 0.0002493548325840658, 'p_miss': 0.24865744563641676}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:58:39,011] Trial 65 finished with value: 0.32459559536450644 and parameters: {'model_name': 'VAE', 'batch_size': 2, 'iterations': 88, 'learning_rate': 0.003974403001512612, 'p_miss': 0.25142144048398996}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:59:59,224] Trial 66 finished with value: 0.2994230265285272 and parameters: {'model_name': 'VAE', 'batch_size': 84, 'iterations': 106, 'learning_rate': 0.0009001168222740509, 'p_miss': 0.25264959222062094}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 14:59:59,891] Trial 67 finished with value: 0.29272860298495645 and parameters: {'model_name': 'VAE', 'batch_size': 81, 'iterations': 132, 'learning_rate': 0.0009426969361269627, 'p_miss': 0.28150890294833614}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 15:00:36,487] Trial 57 finished with value: 0.2993250747934962 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 1324, 'learning_rate': 0.00010294602142436872, 'p_miss': 0.22636933206316567}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 15:01:12,349] Trial 69 finished with value: 0.29154173832889285 and parameters: {'model_name': 'VAE', 'batch_size': 13, 'iterations': 159, 'learning_rate': 0.0002420984300640255, 'p_miss': 0.29378706473960353}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 15:01:49,733] Trial 70 finished with value: 0.29044958369891644 and parameters: {'model_name': 'VAE', 'batch_size': 16, 'iterations': 187, 'learning_rate': 0.0002672581656190616, 'p_miss': 0.28503836095466084}. Best is trial 12 with value: 0.29019585221149347.
+running
+[I 2024-10-17 15:02:13,450] Trial 68 finished with value: 0.2900664722322627 and parameters: {'model_name': 'VAE', 'batch_size': 89, 'iterations': 166, 'learning_rate': 0.0002624213709250211, 'p_miss': 0.28806308919900736}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:02:15,760] Trial 71 finished with value: 0.2908810052357429 and parameters: {'model_name': 'VAE', 'batch_size': 14, 'iterations': 155, 'learning_rate': 0.0002584119898627456, 'p_miss': 0.2979310607243041}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:02:21,496] Trial 74 finished with value: 0.30005818386047145 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 8093, 'weights': 'uniform'}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:04:08,125] Trial 72 finished with value: 0.293457099589494 and parameters: {'model_name': 'VAE', 'batch_size': 15, 'iterations': 313, 'learning_rate': 0.0002738032862244574, 'p_miss': 0.29930997128670356}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:04:37,501] Trial 60 finished with value: 0.3284475188329544 and parameters: {'model_name': 'VAE', 'batch_size': 2, 'iterations': 1849, 'learning_rate': 0.0002915234249359207, 'p_miss': 0.23639270479788546}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:04:45,488] Trial 73 finished with value: 0.29622578565406726 and parameters: {'model_name': 'VAE', 'batch_size': 15, 'iterations': 345, 'learning_rate': 0.00025255836762100054, 'p_miss': 0.29692946308603685}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:04:56,694] Trial 75 finished with value: 0.29210165360255147 and parameters: {'model_name': 'VAE', 'batch_size': 17, 'iterations': 334, 'learning_rate': 0.00029334221663868706, 'p_miss': 0.29965694968042295}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:04:56,883] Trial 79 finished with value: 0.30043146125546893 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:05:42,847] Trial 76 finished with value: 0.29182831154011823 and parameters: {'model_name': 'VAE', 'batch_size': 14, 'iterations': 165, 'learning_rate': 0.00024652187924902627, 'p_miss': 0.2846998346646761}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:05:51,402] Trial 78 finished with value: 0.2906624524088429 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 180, 'learning_rate': 0.00045156594226819356, 'p_miss': 0.2803939246816556}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:05:59,121] Trial 77 finished with value: 0.29532048802428534 and parameters: {'model_name': 'VAE', 'batch_size': 17, 'iterations': 174, 'learning_rate': 0.0005375151728881463, 'p_miss': 0.28557203139201753}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:06:09,424] Trial 82 finished with value: 0.2919966806647163 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 35, 'learning_rate': 0.0005443182724926994, 'p_miss': 0.2809922617440253}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:06:13,237] Trial 81 finished with value: 0.2904711701943701 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 68, 'learning_rate': 0.0005366312378277427, 'p_miss': 0.2752983259451483}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:06:14,915] Trial 84 finished with value: 0.30043146125546893 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 21606, 'weights': 'uniform'}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:06:18,477] Trial 85 finished with value: 0.30043146125546893 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 21976, 'weights': 'uniform'}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:06:18,734] Trial 80 finished with value: 0.2953276650630646 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 197, 'learning_rate': 0.000521896700658622, 'p_miss': 0.28513597540657454}. Best is trial 68 with value: 0.2900664722322627.
+running
+[I 2024-10-17 15:06:30,487] Trial 83 finished with value: 0.2898472191812217 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 62, 'learning_rate': 0.00017438541481096386, 'p_miss': 0.27678811545505094}. Best is trial 83 with value: 0.2898472191812217.
+running
+[I 2024-10-17 15:06:44,387] Trial 86 finished with value: 0.29200632485865374 and parameters: {'model_name': 'VAE', 'batch_size': 26, 'iterations': 66, 'learning_rate': 0.0001786488317440476, 'p_miss': 0.25953567545052464}. Best is trial 83 with value: 0.2898472191812217.
+running
+[I 2024-10-17 15:06:44,589] Trial 90 finished with value: 0.3160658206437847 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 83 with value: 0.2898472191812217.
+running
+[I 2024-10-17 15:06:56,389] Trial 88 finished with value: 0.29508590091765213 and parameters: {'model_name': 'VAE', 'batch_size': 25, 'iterations': 74, 'learning_rate': 0.0001729212850390056, 'p_miss': 0.2645276005283929}. Best is trial 83 with value: 0.2898472191812217.
+running
+[I 2024-10-17 15:07:00,099] Trial 87 finished with value: 0.2928792760728549 and parameters: {'model_name': 'VAE', 'batch_size': 24, 'iterations': 77, 'learning_rate': 0.00018379977352883336, 'p_miss': 0.2579766096980231}. Best is trial 83 with value: 0.2898472191812217.
+running
+[I 2024-10-17 15:07:00,379] Trial 91 finished with value: 0.288249621207964 and parameters: {'model_name': 'VAE', 'batch_size': 5, 'iterations': 32, 'learning_rate': 0.001520806003383093, 'p_miss': 0.2714975866655364}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:07:11,607] Trial 92 finished with value: 0.2963072119326505 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 33, 'learning_rate': 0.0003810560090225294, 'p_miss': 0.2763754373352307}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:07:14,408] Trial 93 finished with value: 0.29167925201727085 and parameters: {'model_name': 'VAE', 'batch_size': 5, 'iterations': 35, 'learning_rate': 0.00037518033188502404, 'p_miss': 0.27376498614450523}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:07:14,608] Trial 94 finished with value: 0.29231922560467316 and parameters: {'model_name': 'VAE', 'batch_size': 6, 'iterations': 32, 'learning_rate': 0.0016415631994670923, 'p_miss': 0.2731593388026149}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:07:25,008] Trial 95 finished with value: 0.2940802233059908 and parameters: {'model_name': 'VAE', 'batch_size': 5, 'iterations': 31, 'learning_rate': 0.0014704300850078766, 'p_miss': 0.26961116212807706}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:08:51,879] Trial 96 finished with value: 0.29099433966042276 and parameters: {'model_name': 'VAE', 'batch_size': 6, 'iterations': 265, 'learning_rate': 0.00013867724974193725, 'p_miss': 0.2657818763966183}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:09:17,164] Trial 98 finished with value: 0.3076191680157697 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 262, 'learning_rate': 0.002168222391729823, 'p_miss': 0.24531053159764113}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:09:21,096] Trial 100 finished with value: 0.5141576919840285 and parameters: {'model_name': 'GAIN', 'batch_size': 134, 'hint_rate': 0.019007049010832167, 'alpha': 8, 'iterations': 19, 'learning_rate': 0.00021246300483408504, 'p_miss': 0.2879029501822962}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:09:45,454] Trial 99 finished with value: 0.2907275042343505 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 120, 'learning_rate': 0.00021366773225933893, 'p_miss': 0.2496812793614564}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:10:01,775] Trial 102 finished with value: 0.3245057188654427 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 49, 'learning_rate': 0.008690659921754301, 'p_miss': 0.1468665873634769}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:10:02,009] Trial 103 finished with value: 0.5193149890546304 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:10:31,570] Trial 44 finished with value: 0.3042837068126082 and parameters: {'model_name': 'VAE', 'batch_size': 92, 'iterations': 1873, 'learning_rate': 0.00016258876717225503, 'p_miss': 0.1271918092034477}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:11:48,558] Trial 97 finished with value: 0.3054677607392628 and parameters: {'model_name': 'VAE', 'batch_size': 132, 'iterations': 247, 'learning_rate': 0.0018131427374728293, 'p_miss': 0.24674951840131598}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:12:46,594] Trial 45 finished with value: 0.3066235895091241 and parameters: {'model_name': 'VAE', 'batch_size': 418, 'iterations': 642, 'learning_rate': 0.00029616259078716375, 'p_miss': 0.13683907105923607}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:12:56,375] Trial 104 finished with value: 0.3149903766689385 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 490, 'learning_rate': 0.000724740422042695, 'p_miss': 0.29059094654702927}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:12:56,545] Trial 106 finished with value: 0.2937704669451199 and parameters: {'model_name': 'VAE', 'batch_size': 45, 'iterations': 110, 'learning_rate': 0.0006586765145825388, 'p_miss': 0.26117192681226525}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:13:38,859] Trial 105 finished with value: 0.31628690335452336 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 481, 'learning_rate': 0.0007117176780224601, 'p_miss': 0.25980241644726826}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:13:49,815] Trial 107 finished with value: 0.29050796115826916 and parameters: {'model_name': 'VAE', 'batch_size': 48, 'iterations': 99, 'learning_rate': 0.00014240662130496188, 'p_miss': 0.2759274837112836}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:13:55,805] Trial 108 finished with value: 0.2891144660517587 and parameters: {'model_name': 'VAE', 'batch_size': 52, 'iterations': 105, 'learning_rate': 0.00014258588389738582, 'p_miss': 0.2581449617749903}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:14:29,938] Trial 111 finished with value: 0.29254537455816043 and parameters: {'model_name': 'VAE', 'batch_size': 20, 'iterations': 92, 'learning_rate': 0.00012274956495100843, 'p_miss': 0.2759213123637951}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:14:32,158] Trial 110 finished with value: 0.2925514993980774 and parameters: {'model_name': 'VAE', 'batch_size': 33, 'iterations': 120, 'learning_rate': 0.00021752642394963305, 'p_miss': 0.27550603640328525}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:14:43,028] Trial 114 finished with value: 0.518549171024493 and parameters: {'model_name': 'GAIN', 'batch_size': 54, 'hint_rate': 0.030736578055488684, 'alpha': 95, 'iterations': 57, 'learning_rate': 0.00014582473404080648, 'p_miss': 0.2201146469804602}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:14:56,089] Trial 113 finished with value: 0.29050986102526843 and parameters: {'model_name': 'VAE', 'batch_size': 37, 'iterations': 46, 'learning_rate': 0.0001445998132426239, 'p_miss': 0.2182116692629682}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:14:58,252] Trial 112 finished with value: 0.2918477976988615 and parameters: {'model_name': 'VAE', 'batch_size': 55, 'iterations': 95, 'learning_rate': 0.0001340138814432061, 'p_miss': 0.27504999223508325}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:14:59,831] Trial 115 finished with value: 0.29822187970954606 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 1, 'imputation_order': 'roman', 'sample_posterior': False}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:07,322] Trial 117 finished with value: 0.290200401989147 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 21, 'learning_rate': 0.00015778493110247922, 'p_miss': 0.19301439527084888}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:09,850] Trial 118 finished with value: 0.2936120186881678 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 21, 'learning_rate': 0.00016827818747433, 'p_miss': 0.24255332913040994}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:15,060] Trial 116 finished with value: 0.2944751624289226 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 43, 'learning_rate': 0.00012855858378291299, 'p_miss': 0.2445189311293307}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:15,757] Trial 120 finished with value: 0.2928882364307599 and parameters: {'model_name': 'VAE', 'batch_size': 2, 'iterations': 11, 'learning_rate': 0.00012940567467666938, 'p_miss': 0.19171546526368508}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:16,218] Trial 119 finished with value: 0.2939819657678865 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 18, 'learning_rate': 0.0001580178251589345, 'p_miss': 0.17734134850789973}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:21,881] Trial 123 finished with value: 0.296048016993787 and parameters: {'model_name': 'VAE', 'batch_size': 32, 'iterations': 9, 'learning_rate': 0.0003469697442530206, 'p_miss': 0.21259414835737767}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:26,317] Trial 121 finished with value: 0.29171428265810523 and parameters: {'model_name': 'VAE', 'batch_size': 35, 'iterations': 22, 'learning_rate': 0.0003322004806815217, 'p_miss': 0.1939081708305294}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:32,608] Trial 125 finished with value: 0.3296337243342589 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 6819, 'weights': 'distance'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:43,294] Trial 124 finished with value: 0.29505102781548775 and parameters: {'model_name': 'VAE', 'batch_size': 98, 'iterations': 23, 'learning_rate': 0.00010395654533904068, 'p_miss': 0.21941876210701633}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:15:59,361] Trial 126 finished with value: 0.29114902851356356 and parameters: {'model_name': 'VAE', 'batch_size': 10, 'iterations': 63, 'learning_rate': 0.00021951353800432784, 'p_miss': 0.23378063475248057}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:16:20,605] Trial 127 finished with value: 0.2919380439777948 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 63, 'learning_rate': 0.00020430900300457287, 'p_miss': 0.23420131069555866}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:17:03,655] Trial 128 finished with value: 0.2933622786589236 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 152, 'learning_rate': 0.00019285336615557466, 'p_miss': 0.2542105505867778}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:17:40,861] Trial 129 finished with value: 0.2916061348015425 and parameters: {'model_name': 'VAE', 'batch_size': 7, 'iterations': 201, 'learning_rate': 0.00047231624626332627, 'p_miss': 0.2543838010105406}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:18:23,328] Trial 130 finished with value: 0.3154034680700833 and parameters: {'model_name': 'VAE', 'batch_size': 7, 'iterations': 219, 'learning_rate': 0.0011940661189193123, 'p_miss': 0.29028904209682876}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:18:51,719] Trial 132 finished with value: 0.2940355976020893 and parameters: {'model_name': 'VAE', 'batch_size': 62, 'iterations': 44, 'learning_rate': 0.0002985551477380249, 'p_miss': 0.2656175392181849}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:18:51,942] Trial 133 finished with value: 0.3160658206437847 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:19:39,003] Trial 134 finished with value: 0.30273656547127603 and parameters: {'model_name': 'VAE', 'batch_size': 41, 'iterations': 81, 'learning_rate': 0.0027720103042561364, 'p_miss': 0.28074335398061145}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:21:37,920] Trial 135 finished with value: 0.29894815573716693 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 1, 'imputation_order': 'arabic'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:22:42,146] Trial 136 finished with value: 0.2926413363412374 and parameters: {'model_name': 'VAE', 'batch_size': 20, 'iterations': 142, 'learning_rate': 0.000152256249627487, 'p_miss': 0.2931165335792559}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:23:49,970] Trial 137 finished with value: 0.2912631237785493 and parameters: {'model_name': 'VAE', 'batch_size': 13, 'iterations': 122, 'learning_rate': 0.0002453108965398785, 'p_miss': 0.2820643940307826}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:25:12,627] Trial 138 finished with value: 0.28918169664255167 and parameters: {'model_name': 'VAE', 'batch_size': 19, 'iterations': 171, 'learning_rate': 0.00018319072043487561, 'p_miss': 0.2933598889589125}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:28:14,409] Trial 139 finished with value: 0.2928649425773334 and parameters: {'model_name': 'VAE', 'batch_size': 29, 'iterations': 362, 'learning_rate': 0.00017983255942813443, 'p_miss': 0.2665173800415247}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:29:31,821] Trial 140 finished with value: 0.2931745154481055 and parameters: {'model_name': 'VAE', 'batch_size': 103, 'iterations': 91, 'learning_rate': 0.00015149662330155099, 'p_miss': 0.20326790872607858}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:29:45,892] Trial 141 finished with value: 0.2955134802475612 and parameters: {'model_name': 'VAE', 'batch_size': 19, 'iterations': 27, 'learning_rate': 0.00011930516822018004, 'p_miss': 0.27064851218937924}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:31:08,259] Trial 61 finished with value: 0.3416032905206823 and parameters: {'model_name': 'VAE', 'batch_size': 2, 'iterations': 6108, 'learning_rate': 0.00010842675841569156, 'p_miss': 0.24661481442275873}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:32:32,536] Trial 143 finished with value: 0.31769619136147825 and parameters: {'model_name': 'VAE', 'batch_size': 12, 'iterations': 172, 'learning_rate': 0.033906047867725136, 'p_miss': 0.28087246604294075}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:33:00,198] Trial 144 finished with value: 0.29277582727479357 and parameters: {'model_name': 'VAE', 'batch_size': 70, 'iterations': 41, 'learning_rate': 0.00030298245755877617, 'p_miss': 0.28891641205122837}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:33:03,356] Trial 145 finished with value: 0.5181321475869393 and parameters: {'model_name': 'GAIN', 'batch_size': 41, 'hint_rate': 0.2904081080969775, 'alpha': 23, 'iterations': 15, 'learning_rate': 0.0004500976248835099, 'p_miss': 0.22031234596030402}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:34:19,107] Trial 142 finished with value: 0.2943327775125468 and parameters: {'model_name': 'VAE', 'batch_size': 183, 'iterations': 195, 'learning_rate': 0.0002943356697528492, 'p_miss': 0.2882349940598671}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:34:26,494] Trial 146 finished with value: 0.28882765153234347 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 223, 'learning_rate': 0.00023522684578197378, 'p_miss': 0.2999335161480575}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:36:10,541] Trial 147 finished with value: 0.2922281710749157 and parameters: {'model_name': 'VAE', 'batch_size': 16, 'iterations': 273, 'learning_rate': 0.00023071109123531006, 'p_miss': 0.2790940372419785}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:36:20,040] Trial 148 finished with value: 0.29540148001611266 and parameters: {'model_name': 'VAE', 'batch_size': 7, 'iterations': 267, 'learning_rate': 0.00022783297735293526, 'p_miss': 0.2941114138245086}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:37:04,190] Trial 150 finished with value: 0.2937776762920142 and parameters: {'model_name': 'VAE', 'batch_size': 23, 'iterations': 73, 'learning_rate': 0.00018026246207099373, 'p_miss': 0.16630540275827485}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:37:05,697] Trial 151 finished with value: 0.30012089369413886 and parameters: {'model_name': 'VAE', 'batch_size': 5, 'iterations': 3, 'learning_rate': 0.00019848667655442544, 'p_miss': 0.29892413538432994}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:38:05,716] Trial 152 finished with value: 0.2930927280422554 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 144, 'learning_rate': 0.00014371163776287534, 'p_miss': 0.2717603666903879}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:38:11,706] Trial 153 finished with value: 0.30055166324519345 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 15671, 'weights': 'uniform'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:38:52,313] Trial 154 finished with value: 0.3475662736848795 and parameters: {'model_name': 'VAE', 'batch_size': 3, 'iterations': 105, 'learning_rate': 0.083730323595237, 'p_miss': 0.2614148514645512}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:38:52,946] Trial 149 finished with value: 0.29248962868206885 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 395, 'learning_rate': 0.0001878083758402946, 'p_miss': 0.2947487290907782}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:40:02,510] Trial 156 finished with value: 0.2907577989451205 and parameters: {'model_name': 'VAE', 'batch_size': 13, 'iterations': 140, 'learning_rate': 0.0002626304392826443, 'p_miss': 0.2837296343942803}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:40:48,559] Trial 157 finished with value: 0.2925359732164285 and parameters: {'model_name': 'VAE', 'batch_size': 6, 'iterations': 115, 'learning_rate': 0.00016604057171538492, 'p_miss': 0.2847853277210737}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:41:46,698] Trial 155 finished with value: 0.29559755726632103 and parameters: {'model_name': 'VAE', 'batch_size': 6, 'iterations': 414, 'learning_rate': 0.0001699663428487891, 'p_miss': 0.28703995753255357}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:42:16,803] Trial 158 finished with value: 0.29506065615303034 and parameters: {'model_name': 'VAE', 'batch_size': 10, 'iterations': 211, 'learning_rate': 0.0006129493195385711, 'p_miss': 0.27017087308854937}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:42:39,644] Trial 160 finished with value: 0.292596640917335 and parameters: {'model_name': 'VAE', 'batch_size': 12, 'iterations': 53, 'learning_rate': 0.00034054440698764164, 'p_miss': 0.27780785845072137}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:43:10,071] Trial 159 finished with value: 0.2912345371810711 and parameters: {'model_name': 'VAE', 'batch_size': 12, 'iterations': 210, 'learning_rate': 0.0002595236918768013, 'p_miss': 0.032120736769948005}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:43:38,873] Trial 161 finished with value: 0.2918520421476901 and parameters: {'model_name': 'VAE', 'batch_size': 18, 'iterations': 132, 'learning_rate': 0.0002677181250078389, 'p_miss': 0.24079749633526676}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:43:39,036] Trial 163 finished with value: 0.30043146125546893 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:43:46,490] Trial 162 finished with value: 0.29361766180493 and parameters: {'model_name': 'VAE', 'batch_size': 17, 'iterations': 81, 'learning_rate': 0.00011912387018868327, 'p_miss': 0.25914796158734243}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:44:24,395] Trial 164 finished with value: 0.29340865421461915 and parameters: {'model_name': 'VAE', 'batch_size': 53, 'iterations': 81, 'learning_rate': 0.00011647005269212788, 'p_miss': 0.2539696435672101}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:45:57,181] Trial 166 finished with value: 0.2905307600353177 and parameters: {'model_name': 'VAE', 'batch_size': 13, 'iterations': 168, 'learning_rate': 0.0004037326955943081, 'p_miss': 0.2998210852340615}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:47:14,079] Trial 167 finished with value: 0.2969632642503274 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 171, 'learning_rate': 0.0003729774385020312, 'p_miss': 0.29205449670315764}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:48:03,235] Trial 168 finished with value: 0.2922612481947316 and parameters: {'model_name': 'VAE', 'batch_size': 14, 'iterations': 102, 'learning_rate': 0.00041112829355530504, 'p_miss': 0.2830517820870329}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:48:42,848] Trial 165 finished with value: 0.30269812842581684 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 3, 'imputation_order': 'random'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:49:54,000] Trial 62 finished with value: 0.3060694254481461 and parameters: {'model_name': 'VAE', 'batch_size': 67, 'iterations': 5380, 'learning_rate': 0.00010229065238318175, 'p_miss': 0.24998320173220834}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:50:00,854] Trial 169 finished with value: 0.3214060236754232 and parameters: {'model_name': 'VAE', 'batch_size': 10, 'iterations': 297, 'learning_rate': 0.006089189194394198, 'p_miss': 0.2984209119843391}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:50:58,668] Trial 172 finished with value: 0.2892583252770177 and parameters: {'model_name': 'VAE', 'batch_size': 21, 'iterations': 142, 'learning_rate': 0.0004614624411289698, 'p_miss': 0.2671590511549036}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:51:28,040] Trial 170 finished with value: 0.2935729781371942 and parameters: {'model_name': 'VAE', 'batch_size': 21, 'iterations': 289, 'learning_rate': 0.00021179956357847426, 'p_miss': 0.2975592183667102}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:52:08,406] Trial 174 finished with value: 0.5119554948132647 and parameters: {'model_name': 'GAIN', 'batch_size': 26, 'hint_rate': 0.22557614193880665, 'alpha': 68, 'iterations': 224, 'learning_rate': 0.0005137445876760698, 'p_miss': 0.26754609813248487}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:52:21,502] Trial 175 finished with value: 0.29132711009453616 and parameters: {'model_name': 'VAE', 'batch_size': 29, 'iterations': 26, 'learning_rate': 0.0009128426787000043, 'p_miss': 0.2727687889763466}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:52:57,087] Trial 171 finished with value: 0.2904448076624671 and parameters: {'model_name': 'VAE', 'batch_size': 29, 'iterations': 293, 'learning_rate': 0.0002192824172185656, 'p_miss': 0.29945531879118964}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:53:21,132] Trial 173 finished with value: 0.30201360932156185 and parameters: {'model_name': 'VAE', 'batch_size': 24, 'iterations': 244, 'learning_rate': 0.00045955945948561623, 'p_miss': 0.2251782605364409}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:53:30,372] Trial 176 finished with value: 0.2923160433724797 and parameters: {'model_name': 'VAE', 'batch_size': 14, 'iterations': 149, 'learning_rate': 0.0004261987364363429, 'p_miss': 0.27814283626217884}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:54:01,586] Trial 131 finished with value: 0.3055554241681589 and parameters: {'model_name': 'VAE', 'batch_size': 20, 'iterations': 4712, 'learning_rate': 0.0003112204144715498, 'p_miss': 0.266965625457533}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:54:31,427] Trial 177 finished with value: 0.292305576192597 and parameters: {'model_name': 'VAE', 'batch_size': 45, 'iterations': 182, 'learning_rate': 0.00045063391032103007, 'p_miss': 0.2912934329032404}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:54:35,636] Trial 180 finished with value: 0.2887291437722921 and parameters: {'model_name': 'VAE', 'batch_size': 46, 'iterations': 66, 'learning_rate': 0.0006084079437832597, 'p_miss': 0.2911804987323836}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:54:56,986] Trial 182 finished with value: 0.2939424437810162 and parameters: {'model_name': 'VAE', 'batch_size': 35, 'iterations': 39, 'learning_rate': 0.0006166976719465999, 'p_miss': 0.29160165611445366}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:55:06,169] Trial 178 finished with value: 0.2981131142949602 and parameters: {'model_name': 'VAE', 'batch_size': 48, 'iterations': 181, 'learning_rate': 0.0006034581146385062, 'p_miss': 0.09719687013302195}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:55:18,079] Trial 179 finished with value: 0.2919335801328905 and parameters: {'model_name': 'VAE', 'batch_size': 44, 'iterations': 188, 'learning_rate': 0.0005863148061142186, 'p_miss': 0.28999950338296293}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:55:24,386] Trial 185 finished with value: 0.30006545976872817 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 8172, 'weights': 'uniform'}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:55:46,230] Trial 183 finished with value: 0.2940739574870703 and parameters: {'model_name': 'VAE', 'batch_size': 49, 'iterations': 68, 'learning_rate': 0.0001416186085013671, 'p_miss': 0.28329770625161754}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:55:58,195] Trial 186 finished with value: 0.2929515734481368 and parameters: {'model_name': 'VAE', 'batch_size': 36, 'iterations': 66, 'learning_rate': 0.00014956108646155145, 'p_miss': 0.2850637463610124}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:56:29,914] Trial 187 finished with value: 0.29596227875120523 and parameters: {'model_name': 'VAE', 'batch_size': 61, 'iterations': 60, 'learning_rate': 0.0007684618744766399, 'p_miss': 0.2878937080508239}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:56:45,733] Trial 188 finished with value: 0.2957549486979972 and parameters: {'model_name': 'VAE', 'batch_size': 16, 'iterations': 101, 'learning_rate': 0.00020313809353919395, 'p_miss': 0.2991852425397819}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:57:34,976] Trial 189 finished with value: 0.2901377970340732 and parameters: {'model_name': 'VAE', 'batch_size': 31, 'iterations': 102, 'learning_rate': 0.0002027404329852294, 'p_miss': 0.29926000229181376}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:57:49,453] Trial 190 finished with value: 0.2911612807016476 and parameters: {'model_name': 'VAE', 'batch_size': 31, 'iterations': 125, 'learning_rate': 0.00036421458408746174, 'p_miss': 0.2757522148190489}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:58:01,866] Trial 191 finished with value: 0.2927071825893526 and parameters: {'model_name': 'VAE', 'batch_size': 29, 'iterations': 48, 'learning_rate': 0.00022778566896423106, 'p_miss': 0.27564127104535724}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:58:12,069] Trial 192 finished with value: 0.2927767402048773 and parameters: {'model_name': 'VAE', 'batch_size': 25, 'iterations': 48, 'learning_rate': 0.0002329087438622627, 'p_miss': 0.2947822289432997}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:58:40,242] Trial 89 finished with value: 0.32720226876011527 and parameters: {'model_name': 'VAE', 'batch_size': 6, 'iterations': 8775, 'learning_rate': 0.00016630818074739217, 'p_miss': 0.2626326074441822}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:58:46,406] Trial 193 finished with value: 0.29506033957619104 and parameters: {'model_name': 'VAE', 'batch_size': 41, 'iterations': 90, 'learning_rate': 0.00017121134393750844, 'p_miss': 0.29479821521187155}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:59:12,419] Trial 184 finished with value: 0.29140432935444294 and parameters: {'model_name': 'VAE', 'batch_size': 57, 'iterations': 332, 'learning_rate': 0.0001358773455461742, 'p_miss': 0.28444122744004047}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 15:59:50,563] Trial 195 finished with value: 0.2935191691298966 and parameters: {'model_name': 'VAE', 'batch_size': 39, 'iterations': 97, 'learning_rate': 0.000132799248722618, 'p_miss': 0.29508642016299136}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 16:00:03,201] Trial 197 finished with value: 0.305234003577382 and parameters: {'model_name': 'VAE', 'batch_size': 7, 'iterations': 122, 'learning_rate': 0.0011202538899013825, 'p_miss': 0.29931580535275104}. Best is trial 91 with value: 0.288249621207964.
+running
+[I 2024-10-17 16:00:18,694] Trial 181 finished with value: 0.2946276109292159 and parameters: {'model_name': 'VAE', 'batch_size': 37, 'iterations': 626, 'learning_rate': 0.0001445604912229679, 'p_miss': 0.2899292267744694}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:00:39,502] Trial 198 finished with value: 0.291010843586177 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 119, 'learning_rate': 0.0002042631144836243, 'p_miss': 0.29897118539321504}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:01:36,136] Trial 199 finished with value: 0.2922748327458228 and parameters: {'model_name': 'VAE', 'batch_size': 74, 'iterations': 155, 'learning_rate': 0.00019289079362497615, 'p_miss': 0.2632288643458436}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:02:28,016] Trial 196 finished with value: 0.3204982148924282 and parameters: {'model_name': 'VAE', 'batch_size': 7, 'iterations': 679, 'learning_rate': 0.0011354815455089742, 'p_miss': 0.2807990779587031}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:02:33,435] Trial 109 finished with value: 0.30437624250391726 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 7655, 'learning_rate': 0.00014677923831874344, 'p_miss': 0.28026394817699185}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:07:05,422] Trial 122 finished with value: 0.322896461432983 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 9641, 'learning_rate': 0.0003238176766838173, 'p_miss': 0.21890666953899227}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:07:17,848] Trial 194 finished with value: 0.29964248076721595 and parameters: {'model_name': 'VAE', 'batch_size': 116, 'iterations': 695, 'learning_rate': 0.0001805991940779873, 'p_miss': 0.18222762491585867}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:22:16,849] Trial 101 finished with value: 0.30640033909104947 and parameters: {'model_name': 'VAE', 'batch_size': 48, 'iterations': 9000, 'learning_rate': 0.0006547049969959799, 'p_miss': 0.2589002507619531}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:26:14,630] Trial 64 finished with value: 0.30436253029812904 and parameters: {'model_name': 'VAE', 'batch_size': 75, 'iterations': 8349, 'learning_rate': 0.005565439852279022, 'p_miss': 0.24869098087248015}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 16:30:58,046] Trial 48 finished with value: 0.30730657185124494 and parameters: {'model_name': 'VAE', 'batch_size': 595, 'iterations': 2711, 'learning_rate': 0.0015563048241545323, 'p_miss': 0.11888725173561318}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 17:12:03,736] Trial 49 finished with value: 0.30861256808045334 and parameters: {'model_name': 'VAE', 'batch_size': 796, 'iterations': 4159, 'learning_rate': 0.00015643939646076154, 'p_miss': 0.11861688620989261}. Best is trial 91 with value: 0.288249621207964.
+[I 2024-10-17 17:23:17,352] Trial 47 finished with value: 0.3082685797904215 and parameters: {'model_name': 'VAE', 'batch_size': 719, 'iterations': 4824, 'learning_rate': 0.002785163154367435, 'p_miss': 0.12462636125699807}. Best is trial 91 with value: 0.288249621207964.
