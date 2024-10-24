@@ -1,0 +1,69 @@
+Run: 72
+/cm/local/apps/slurm/var/spool/job1011515/slurm_script: line 26: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/375/375.pkl
+     speaker  utterance  frame  coefficient1  coefficient2  coefficient3  \
+0          1          1      1      1.860936     -0.207383      0.261557   
+1          1          1      2      1.891651     -0.193249      0.235363   
+2          1          1      3      1.939205     -0.239664      0.258561   
+3          1          1      4      1.717517     -0.218572      0.217119   
+4          1          1      5      1.741191     -0.279891      0.196583   
+...      ...        ...    ...           ...           ...           ...   
+9956       9         29      7      1.216506     -0.424432     -0.034349   
+9957       9         29      8      1.214579     -0.399925     -0.127891   
+9958       9         29      9      1.170031     -0.306025     -0.145534   
+9959       9         29     10      1.118108     -0.258605     -0.103982   
+9960       9         29     11      1.177449     -0.404080      0.052026   
+
+      coefficient4  coefficient5  coefficient6  coefficient7  coefficient8  \
+0        -0.214562     -0.171253     -0.118167     -0.277557      0.025668   
+1        -0.249118     -0.112890     -0.112238     -0.311997     -0.027122   
+2        -0.291458     -0.041053     -0.102034     -0.383300      0.019013   
+3        -0.228186     -0.018608     -0.137624     -0.403318     -0.009643   
+4        -0.236377     -0.032012     -0.090612     -0.363134     -0.012571   
+...            ...           ...           ...           ...           ...   
+9956     -0.294238      0.166270     -0.397758      0.091827      0.023178   
+9957     -0.239583      0.221423     -0.374714      0.046216      0.051754   
+9958     -0.195854      0.276371     -0.346794      0.042325      0.031668   
+9959     -0.231256      0.344866     -0.223807     -0.014415     -0.046215   
+9960     -0.284812      0.429840     -0.203484     -0.072393     -0.080955   
+
+      coefficient9  coefficient10  coefficient11  
+0         0.126701      -0.306756      -0.213076  
+1         0.171457      -0.289431      -0.247722  
+2         0.169510      -0.314894      -0.227908  
+3         0.164607      -0.323267      -0.210105  
+4         0.124298      -0.351171      -0.216545  
+...            ...            ...            ...  
+9956     -0.191598      -0.111245      -0.011547  
+9957     -0.197824      -0.099159      -0.018177  
+9958     -0.181205      -0.077962      -0.024079  
+9959     -0.219385       0.013357      -0.010018  
+9960     -0.244424      -0.001849      -0.016634  
+
+[9961 rows x 14 columns]
+<class 'pandas.core.frame.DataFrame'>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main5.py", line 170, in <module>
+    main()
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main5.py", line 156, in main
+    utils.loop_through_tasks(class_experiments, classification_id_list, 
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 157, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 100, in load_task
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 2801, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 1843, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 2247, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+srun: error: esplhpc-cp012: task 0: Exited with exit code 1

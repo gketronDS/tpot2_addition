@@ -656,6 +656,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             os.remove(f"{checkpoint_folder}/population.pkl")
             
             exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
+            
             tpot_space = exp['automl']
             print(exp['params']['search_space'])
             print('Start tpot fit')
