@@ -706,4 +706,54 @@ Best f1_score score: 0.9313183416785871
 Best f1_score score: 0.9313183416785871
 Generation:  92%|█████████▏| 23/25 [1:35:37<08:41, 260.81s/it]Generation:  24
 Best f1_score score: 0.9313183416785871
-Generation:  96%|█████████▌| 24/25 [1:39:53<04:19, 259.55s/it]
+Generation:  96%|█████████▌| 24/25 [1:39:53<04:19, 259.55s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155457621b10> 
+
+Generation:  25
+Best f1_score score: 0.9313183416785871
+Generation: 100%|██████████| 25/25 [1:50:01<00:00, 363.96s/it]Generation: 100%|██████████| 25/25 [1:50:01<00:00, 264.05s/it]
+2024-10-29 16:21:59,290 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:33093' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-582d7d183af8cedc419ecc82f5b1ea53', 'DataFrame-c731faa07da9f375c379e58b47862c62'} (stimulus_id='handle-worker-cleanup-1730244119.290324')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=KNeighborsRegressor(),
+                                  imputation_order='roman',
+                                  initial_strategy='most_frequent',
+                                  n_nearest_features=78)),
+                ('xgbclassifier',
+                 XGBClassifier(base_score=None, booster=None, callbacks=None,
+                               colsample_bylevel=None, colsample_bynode=None,
+                               colsample_bytree=None, device=None,
+                               early_stopping_rounds=None,
+                               en...
+                               feature_types=None, gamma=0.0002986942365,
+                               grow_policy=None, importance_type=None,
+                               interaction_constraints=None,
+                               learning_rate=0.1156656685442, max_bin=None,
+                               max_cat_threshold=None, max_cat_to_onehot=None,
+                               max_delta_step=None, max_depth=6,
+                               max_leaves=None, min_child_weight=15,
+                               missing=nan, monotone_constraints=None,
+                               multi_strategy=None, n_estimators=100, n_jobs=1,
+                               nthread=1, num_parallel_tree=None, ...))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9820439271056646, 'accuracy': 0.9379274066280905, 'balanced_accuracy': 0.9373063261224289, 'logloss': 0.17022433595273523, 'f1': 0.9376432234461198}
+test score: {'auroc': 0.9719903718754503, 'accuracy': 0.9340813464235624, 'balanced_accuracy': 0.9332211763451435, 'logloss': 0.20418050634602, 'f1': 0.9337423482703532}
+original test score: {'auroc': 0.9810932541915711, 'accuracy': 0.9474053295932678, 'balanced_accuracy': 0.946552653559306, 'logloss': 0.16728978074485196, 'f1': 0.9471294949198341}
+score end
+803
+lvl
+0.1
+type
+MNAR
+num_run
+2
+class_full
+finished
+all finished
+full run takes
+6.311710813111729
+hours
+DONE
