@@ -585,4 +585,78 @@ Best f1_score score: 0.8979431634836782
 
 Generation:  10
 Best f1_score score: 0.8979431634836782
-Generation:  40%|████      | 10/25 [1:11:26<1:59:41, 478.77s/it]
+Generation:  40%|████      | 10/25 [1:11:26<1:59:41, 478.77s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554679dc430> 
+
+Generation:  11
+Best f1_score score: 0.8979431634836782
+Generation:  44%|████▍     | 11/25 [1:21:32<2:00:46, 517.58s/it]Generation:  12
+Best f1_score score: 0.8979431634836782
+Generation:  48%|████▊     | 12/25 [1:27:34<1:41:53, 470.26s/it]Generation:  13
+Best f1_score score: 0.8979431634836782
+Generation:  52%|█████▏    | 13/25 [1:33:06<1:25:42, 428.53s/it]Generation:  14
+Best f1_score score: 0.8979431634836782
+Generation:  56%|█████▌    | 14/25 [1:38:43<1:13:28, 400.77s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554669140a0> 
+
+Generation:  15
+Best f1_score score: 0.8979431634836782
+Generation:  60%|██████    | 15/25 [1:48:49<1:17:06, 462.69s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554677ba140> 
+
+Generation:  16
+Best f1_score score: 0.9001307210872594
+Generation:  64%|██████▍   | 16/25 [1:58:53<1:15:45, 505.05s/it]Generation:  17
+Best f1_score score: 0.9001307210872594
+Generation:  68%|██████▊   | 17/25 [2:05:05<1:02:00, 465.07s/it]Generation:  18
+Best f1_score score: 0.9001307210872594
+Generation:  72%|███████▏  | 18/25 [2:10:51<50:04, 429.26s/it]  WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f2b6a0> 
+
+Generation:  19
+Best f1_score score: 0.9001307210872594
+Generation:  76%|███████▌  | 19/25 [2:20:57<48:14, 482.43s/it]Generation:  20
+Best f1_score score: 0.9001307210872594
+Generation:  80%|████████  | 20/25 [2:26:17<36:07, 433.56s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155464aae500> 
+
+Generation:  21
+Best f1_score score: 0.9001307210872594
+Generation:  84%|████████▍ | 21/25 [2:36:20<32:18, 484.64s/it]Generation:  22
+Best f1_score score: 0.9001307210872594
+Generation:  88%|████████▊ | 22/25 [2:38:21<18:46, 375.39s/it]Generation:  23
+Best f1_score score: 0.9001307210872594
+Generation:  92%|█████████▏| 23/25 [2:44:01<12:09, 364.65s/it]Generation:  24
+Best f1_score score: 0.9001307210872594
+Generation:  96%|█████████▌| 24/25 [2:50:02<06:03, 363.79s/it]Generation:  25
+Best f1_score score: 0.9001307210872594
+Generation: 100%|██████████| 25/25 [2:57:34<00:00, 390.25s/it]Generation: 100%|██████████| 25/25 [2:57:34<00:00, 426.19s/it]
+2024-11-01 11:37:50,345 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:45001' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-16205b9c29c2cbd81f55a3a14ad321d1', 'DataFrame-707cd6588f383527cdd2850568f79270'} (stimulus_id='handle-worker-cleanup-1730486270.345145')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer()),
+                ('lgbmclassifier',
+                 LGBMClassifier(boosting_type='dart', max_depth=10,
+                                n_estimators=72, n_jobs=1, num_leaves=147,
+                                verbose=-1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9800002675044419, 'accuracy': 0.9146072238915803, 'balanced_accuracy': 0.9204460520162778, 'logloss': 0.17962025216463073, 'f1': 0.9127061131264103}
+test score: {'auroc': 0.9797005916553352, 'accuracy': 0.9113318616629875, 'balanced_accuracy': 0.9156458091705326, 'logloss': 0.17015351802884465, 'f1': 0.909166368977161}
+original test score: {'auroc': 0.999639338955767, 'accuracy': 0.9953397105714986, 'balanced_accuracy': 0.995208516637338, 'logloss': 0.03277982245813802, 'f1': 0.995159812780861}
+score end
+881
+lvl
+0.3
+type
+MNAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+25.901686565942235
+hours
+DONE

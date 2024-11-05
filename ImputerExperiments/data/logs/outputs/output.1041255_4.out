@@ -1,0 +1,216 @@
+Run: 4
+/cm/local/apps/slurm/var/spool/job1041255/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/1120/1120.pkl
+Could not download file from http://openml1.win.tue.nl/dataset1120/dataset_1120.pq: Bucket does not exist or is private.
+Failed to download parquet, fallback on ARFF.
+       fLength:   fWidth:  fSize:  fConc:  fConc1:    fAsym:  fM3Long:  \
+0       28.7967   16.0021  2.6449  0.3918   0.1982   27.7004   22.0110   
+1       31.6036   11.7235  2.5185  0.5303   0.3773   26.2722   23.8238   
+2      162.0520  136.0310  4.0612  0.0374   0.0187  116.7410  -64.8580   
+3       23.8172    9.5728  2.3385  0.6147   0.3922   27.2107   -6.4633   
+4       75.1362   30.9205  3.1611  0.3168   0.1832   -5.5277   28.5525   
+...         ...       ...     ...     ...      ...       ...       ...   
+19015   21.3846   10.9170  2.6161  0.5857   0.3934   15.2618   11.5245   
+19016   28.9452    6.7020  2.2672  0.5351   0.2784   37.0816   13.1853   
+19017   75.4455   47.5305  3.4483  0.1417   0.0549   -9.3561   41.0562   
+19018  120.5135   76.9018  3.9939  0.0944   0.0683    5.8043  -93.5224   
+19019  187.1814   53.0014  3.2093  0.2876   0.1539 -167.3125 -168.4558   
+
+       fM3Trans:  fAlpha:    fDist:  
+0        -8.2027  40.0920   81.8828  
+1        -9.9574   6.3609  205.2610  
+2       -45.2160  76.9600  256.7880  
+3        -7.1513  10.4490  116.7370  
+4        21.8393   4.6480  356.4620  
+...          ...      ...       ...  
+19015     2.8766   2.4229  106.8258  
+19016    -2.9632  86.7975  247.4560  
+19017    -9.4662  30.2987  256.5166  
+19018   -63.8389  84.6874  408.3166  
+19019    31.4755  52.7310  272.3174  
+
+[19020 rows x 10 columns]
+<class 'pandas.core.frame.DataFrame'>
+       fLength:  fWidth:  fSize:  fConc:  fConc1:    fAsym:  fM3Long:  \
+6387    18.1188  10.6617  2.2529  0.5642   0.2821   24.0994    8.3638   
+9157    35.0590   9.7044  2.5635  0.4153   0.2227   41.8213   29.3147   
+7287    92.9499  23.5875  2.7470  0.3527   0.2104  110.0380  -31.8100   
+9672    28.7277  21.6578  2.7076  0.3608   0.2480   20.4182   22.1614   
+10000   29.7516  14.4386  2.7756  0.3839   0.1920   -6.6857    8.7238   
+...         ...      ...     ...     ...      ...       ...       ...   
+18140   66.2396  33.1212  3.3402  0.1613   0.0889  -73.1423   26.4824   
+12012   24.3830  14.6041  2.5119  0.4492   0.2508  -14.6978  -10.6287   
+17741   23.8914  11.4470  2.5347  0.5606   0.2964    9.8080   21.9157   
+15622   73.4850  19.0865  2.6763  0.4639   0.3292  -84.1525  -56.3888   
+18758  135.6762  17.1893  2.9811  0.5872   0.4371  -82.8081  -85.6674   
+
+       fM3Trans:  fAlpha:    fDist:  
+6387     -4.6812  83.0585  212.2100  
+9157     -6.6261   4.0050  237.8580  
+7287     22.4300  12.2550  224.6610  
+9672     14.7272  83.6227   61.5537  
+10000     6.5997   2.3698  209.7780  
+...          ...      ...       ...  
+18140   -24.6410  11.7065  253.6320  
+12012    12.2798  22.4899   95.3382  
+17741    -5.3552  47.8615  121.4090  
+15622    14.6496   1.1157  288.4742  
+18758     6.4401  18.4167  260.5950  
+
+[15216 rows x 10 columns]
+<class 'pandas.core.frame.DataFrame'>
+              0         1         2         3         4         5         6  \
+0      0.033370  0.046754  0.092135  0.629253  0.417543  0.466546  0.596638   
+1      0.085180  0.042556  0.183974  0.459237  0.329530  0.483699  0.633387   
+2      0.262233  0.103436  0.238232  0.387760  0.311305  0.549727  0.526170   
+3      0.065816  0.094974  0.226582  0.397008  0.367017  0.462983  0.620840   
+4      0.068947  0.063317  0.246688  0.423384  0.284042  0.436749  0.597269   
+...         ...       ...       ...       ...       ...       ...       ...   
+15211  0.180542  0.145244  0.413631  0.169217  0.131279  0.372425  0.628419   
+15212  0.052528  0.064042  0.168717  0.497945  0.371166  0.428994  0.563324   
+15213  0.051025  0.050198  0.175458  0.625143  0.438732  0.452714  0.620409   
+15214  0.202701  0.083699  0.217327  0.514729  0.487331  0.361769  0.483057   
+15215  0.392907  0.075379  0.307451  0.655515  0.647207  0.363070  0.431700   
+
+              7         8         9  
+0      0.534309  0.922872  0.426738  
+1      0.529144  0.044500  0.478628  
+2      0.606300  0.136167  0.451928  
+3      0.585846  0.929141  0.121938  
+4      0.564264  0.026331  0.421818  
+...         ...       ...       ...  
+15211  0.481307  0.130072  0.510541  
+15212  0.579347  0.249888  0.190289  
+15213  0.532519  0.531794  0.243034  
+15214  0.585640  0.012397  0.581032  
+15215  0.563840  0.204630  0.524628  
+
+[15216 rows x 10 columns]
+<class 'numpy.ndarray'>
+             0         1         2         3         4         5         6  \
+0     0.679710  0.180004  0.523507  0.068623  0.063269  0.227020  0.448893   
+1     0.048945  0.067001  0.217031  0.532427  0.392206  0.443092  0.552512   
+2     0.031440  0.047511  0.157156  0.654031  0.471033  0.464389  0.599884   
+3     0.088118  0.076018  0.255736  0.322220  0.222996  0.419721  0.535821   
+4     0.033627  0.069597  0.151183  0.569080  0.435916  0.461576  0.614117   
+...        ...       ...       ...       ...       ...       ...       ...   
+3799  0.080922  0.059087  0.119929  0.513702  0.413987  0.490091  0.605618   
+3800  0.064467  0.029705  0.075281  0.654145  0.438435  0.436301  0.551232   
+3801  0.359465  0.211096  0.453164  0.282599  0.202845  0.361489  0.388787   
+3802  0.080073  0.111717  0.319308  0.280772  0.199289  0.428474  0.612113   
+3803  0.070065  0.062694  0.199172  0.434003  0.292636  0.481594  0.608978   
+
+             7         8         9  
+0     0.571932  0.186767  0.244130  
+1     0.531090  0.182294  0.274607  
+2     0.555177  0.060741  0.306000  
+3     0.512160  0.071100  0.327634  
+4     0.560832  0.028841  0.096537  
+...        ...       ...       ...  
+3799  0.532013  0.652472  0.454776  
+3800  0.550146  0.405697  0.551987  
+3801  0.448765  0.083756  0.796228  
+3802  0.478827  0.433067  0.376036  
+3803  0.573422  0.162089  0.140630  
+
+[3804 rows x 10 columns]
+<class 'numpy.ndarray'>
+working on 
+../data/c/1120/class_full_MCAR_0.5_1
+1.4898498058319092
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-11-05 12:18:51,681] A new study created in memory with name: no-name-0bf9b268-e6f1-4564-8704-d8d4860dfeda
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-11-05 12:18:52,080] Trial 1 finished with value: 0.2936591261047285 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 1 with value: 0.2936591261047285.
+[I 2024-11-05 12:18:52,142] Trial 2 finished with value: 0.17632958095644385 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 2 with value: 0.17632958095644385.
+running
+running
+[I 2024-11-05 12:18:52,583] Trial 6 finished with value: 0.2936591261047285 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:18:52,881] Trial 8 finished with value: 0.28111651908483287 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:18:53,106] Trial 0 finished with value: 0.17632958095644385 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:18:53,403] Trial 17 finished with value: 0.17632958095644385 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:18:53,865] Trial 11 finished with value: 0.2936591261047285 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:18:54,943] Trial 22 finished with value: 0.2936591261047285 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:18:55,295] Trial 23 finished with value: 0.17632958095644385 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 2 with value: 0.17632958095644385.
+running
+[I 2024-11-05 12:19:04,126] Trial 3 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:06,057] Trial 12 finished with value: 0.17382718170946423 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 915, 'weights': 'uniform'}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:07,560] Trial 9 finished with value: 0.17632958095644385 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 11709, 'weights': 'uniform'}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:09,332] Trial 7 finished with value: 0.175964566035839 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 10057, 'weights': 'uniform'}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:12,795] Trial 19 finished with value: 0.19619815534492496 and parameters: {'model_name': 'VAE', 'batch_size': 2, 'iterations': 1, 'learning_rate': 0.00013497798163209686, 'p_miss': 0.29988823464692904}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:13,236] Trial 21 finished with value: 0.18121451441837452 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 4801, 'weights': 'distance'}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:14,876] Trial 14 finished with value: 0.18223748743852777 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 13774, 'weights': 'distance'}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:15,343] Trial 15 finished with value: 0.2879140653195182 and parameters: {'model_name': 'GAIN', 'batch_size': 239, 'hint_rate': 0.9620710225585107, 'alpha': 17, 'iterations': 1, 'learning_rate': 0.005506248604901555, 'p_miss': 0.0561687408108206}. Best is trial 3 with value: 0.17173887156067533.
+running
+[I 2024-11-05 12:19:16,414] Trial 24 finished with value: 0.16792542239646724 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 3, 'learning_rate': 0.04034715457415261, 'p_miss': 0.1382160642290286}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:16,855] Trial 25 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:16,986] Trial 10 finished with value: 0.2856939739074374 and parameters: {'model_name': 'GAIN', 'batch_size': 67, 'hint_rate': 0.40394562235044607, 'alpha': 31, 'iterations': 3, 'learning_rate': 0.0019787038988954594, 'p_miss': 0.0860292930870977}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:18,957] Trial 26 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:21,511] Trial 27 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:22,959] Trial 28 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:28,203] Trial 29 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:28,437] Trial 30 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:29,351] Trial 32 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:30,389] Trial 31 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:32,148] Trial 33 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:33,196] Trial 36 finished with value: 0.17173887156067533 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:43,106] Trial 34 finished with value: 0.1717704678593831 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:46,007] Trial 37 finished with value: 0.1717496383500085 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:19:52,000] Trial 4 finished with value: 0.18506026583797233 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 1, 'imputation_order': 'random'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:20:03,038] Trial 18 finished with value: 0.1815462261770865 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 10, 'imputation_order': 'descending'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:20:06,861] Trial 5 finished with value: 0.17728994709184237 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'roman'}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:20:50,356] Trial 20 finished with value: 0.27886837284587684 and parameters: {'model_name': 'GAIN', 'batch_size': 11, 'hint_rate': 0.1708882150236787, 'alpha': 46, 'iterations': 108, 'learning_rate': 0.0018078438265754146, 'p_miss': 0.20116574157031544}. Best is trial 24 with value: 0.16792542239646724.
+running
+[I 2024-11-05 12:23:04,885] Trial 16 finished with value: 0.29098504075516757 and parameters: {'model_name': 'GAIN', 'batch_size': 48, 'hint_rate': 0.20228813871383447, 'alpha': 0, 'iterations': 195, 'learning_rate': 0.09783147148787572, 'p_miss': 0.1254033736729019}. Best is trial 24 with value: 0.16792542239646724.
+running
