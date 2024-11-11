@@ -728,4 +728,42 @@ WARNING AN INDIVIDUAL TIMED OUT:
 
 Generation:  24
 Best f1_score score: 0.8806985743671975
-Generation:  96%|█████████▌| 24/25 [2:34:29<08:06, 486.55s/it]
+Generation:  96%|█████████▌| 24/25 [2:34:29<08:06, 486.55s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f08cd0> 
+
+WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467e37e80> 
+
+Generation:  25
+Best f1_score score: 0.8806985743671975
+Generation: 100%|██████████| 25/25 [2:44:35<00:00, 522.29s/it]Generation: 100%|██████████| 25/25 [2:44:35<00:00, 395.01s/it]
+2024-11-05 12:28:37,609 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:35233' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-c3745fbc00250b45723508a57453c1bd', 'DataFrame-d2cffe2c7253ce794939a6cafc60ce8a'} (stimulus_id='handle-worker-cleanup-1730838517.6093862')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('mlpclassifier',
+                 MLPClassifier(activation='logistic', alpha=0.0001109733502,
+                               hidden_layer_sizes=[233, 233],
+                               learning_rate_init=0.0037186909227,
+                               n_iter_no_change=32))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9531443772213619, 'accuracy': 0.8838535598209358, 'balanced_accuracy': 0.883850497718851, 'logloss': 0.27681365463489893, 'f1': 0.8838522861711025}
+test score: {'auroc': 0.9520648967551624, 'accuracy': 0.8836154034829532, 'balanced_accuracy': 0.8836221459852118, 'logloss': 0.2826636524214955, 'f1': 0.8836152616949001}
+original test score: {'auroc': 0.9838647904853901, 'accuracy': 0.9304635761589404, 'balanced_accuracy': 0.9304824589901195, 'logloss': 0.17910107192736482, 'f1': 0.9304606382317719}
+score end
+901
+lvl
+0.1
+type
+MNAR
+num_run
+3
+class_simple
+finished
+all finished
+full run takes
+5.19442559507158
+hours
+DONE

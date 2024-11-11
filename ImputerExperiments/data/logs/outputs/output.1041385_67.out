@@ -1,0 +1,56 @@
+Run: 67
+/cm/local/apps/slurm/var/spool/job1041385/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/1220/1220.pkl
+      click  impression       ad_id  advertiser_id  depth  position  \
+0         0         1.0   8343295.0        11700.0      3         3   
+1         1         1.0  20017077.0        23798.0      1         1   
+2         0         1.0  21348354.0        36654.0      1         1   
+3         0         1.0  20366086.0        33280.0      3         3   
+4         0         1.0   6803526.0        10790.0      2         1   
+...     ...         ...         ...            ...    ...       ...   
+39943     0         1.0  21898643.0        37867.0      2         1   
+39944     0         1.0  20575578.0         8873.0      2         1   
+39945     0         5.0  21183848.0        18716.0      2         1   
+39946     0         1.0  21222438.0        35880.0      3         3   
+39947     0         1.0  20180245.0        27961.0      1         1   
+
+       keyword_id  title_id  description_id  
+0         21264.0   27892.0          1559.0  
+1         35498.0       4.0         36476.0  
+2         19975.0   36105.0         33292.0  
+3          5942.0    4057.0          4390.0  
+4         60593.0   25242.0          1679.0  
+...           ...       ...             ...  
+39943      1091.0    1657.0          1914.0  
+39944      8338.0    7866.0          9210.0  
+39945      9594.0    8881.0         13277.0  
+39946     13078.0  943122.0          1436.0  
+39947     39732.0   88617.0         88724.0  
+
+[39948 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main6.py", line 170, in <module>
+    main()
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main6.py", line 156, in main
+    utils.loop_through_tasks(class_experiments, classification_id_list, 
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 157, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 100, in load_task
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 2801, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 1843, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 2247, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+srun: error: esplhpc-cp012: task 0: Exited with exit code 1
