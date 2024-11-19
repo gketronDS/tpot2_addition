@@ -1,0 +1,436 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job1062438/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/40685/40685.pkl
+       A1    A2   A3   A4    A5    A6    A7     A8     A9
+0      50  21.0   77  0.0  28.0   0.0  27.0   48.0   22.0
+1      55   0.0   92  0.0   0.0  26.0  36.0   92.0   56.0
+2      53   0.0   82  0.0  52.0  -5.0  29.0   30.0    2.0
+3      37   0.0   76  0.0  28.0  18.0  40.0   48.0    8.0
+4      37   0.0   79  0.0  34.0 -26.0  43.0   46.0    2.0
+...    ..   ...  ...  ...   ...   ...   ...    ...    ...
+57995  80   0.0   84  0.0 -36.0 -29.0   4.0  120.0  116.0
+57996  55   0.0   81  0.0 -20.0  25.0  26.0  102.0   76.0
+57997  55   0.0   77  0.0  12.0 -22.0  22.0   65.0   42.0
+57998  37   0.0  103  0.0  18.0 -16.0  66.0   85.0   20.0
+57999  56   2.0   98  0.0  52.0   1.0  42.0   46.0    4.0
+
+[58000 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+       A1   A2  A3   A4    A5    A6    A7     A8     A9
+9007   53 -1.0  83  0.0  54.0   0.0  30.0   29.0    0.0
+52875  46  0.0  83 -2.0  46.0   9.0  37.0   36.0    0.0
+4753   80  0.0  84  1.0 -42.0   0.0   5.0  128.0  124.0
+52682  51 -4.0  80  0.0  50.0  -9.0  29.0   31.0    2.0
+52521  51  1.0  87  0.0  52.0   5.0  36.0   35.0    0.0
+...    ..  ...  ..  ...   ...   ...   ...    ...    ...
+11238  47 -3.0  83 -1.0  46.0  -2.0  36.0   37.0    0.0
+39229  37  0.0  76  8.0  30.0   0.0  39.0   45.0    6.0
+11929  44  5.0  88  0.0  44.0  26.0  44.0   44.0    0.0
+15507  51  0.0  81  0.0  52.0   3.0  30.0   30.0    0.0
+25892  51  0.0  79  0.0  50.0  -6.0  27.0   30.0    2.0
+
+[46400 rows x 9 columns]
+<class 'pandas.core.frame.DataFrame'>
+              0         1         2         3         4         5         6  \
+0      0.262626  0.476647  0.516667  0.595645  0.387821  0.638117  0.513158   
+1      0.191919  0.476750  0.516667  0.595343  0.375000  0.638331  0.559211   
+2      0.535354  0.476750  0.525000  0.595796  0.233974  0.638117  0.348684   
+3      0.242424  0.476338  0.491667  0.595645  0.381410  0.637902  0.506579   
+4      0.242424  0.476853  0.550000  0.595645  0.384615  0.638236  0.552632   
+...         ...       ...       ...       ...       ...       ...       ...   
+46395  0.202020  0.476441  0.516667  0.595494  0.375000  0.638069  0.552632   
+46396  0.101010  0.476750  0.458333  0.596855  0.349359  0.638117  0.572368   
+46397  0.171717  0.477266  0.558333  0.595645  0.371795  0.638737  0.605263   
+46398  0.242424  0.476750  0.500000  0.595645  0.384615  0.638188  0.513158   
+46399  0.242424  0.476750  0.483333  0.595645  0.381410  0.637973  0.493421   
+
+              7         8  
+0      0.613162  0.572347  
+1      0.624398  0.572347  
+2      0.772071  0.771704  
+3      0.616372  0.575563  
+4      0.622793  0.572347  
+...         ...       ...  
+46395  0.626003  0.572347  
+46396  0.638844  0.581994  
+46397  0.637239  0.572347  
+46398  0.614767  0.572347  
+46399  0.614767  0.575563  
+
+[46400 rows x 9 columns]
+<class 'numpy.ndarray'>
+              0         1         2         3         4         5         6  \
+0      0.515152  0.476235  0.508333  0.595645  0.227564  0.638117  0.342105   
+1      0.292929  0.476750  0.466667  0.595645  0.314103  0.637639  0.460526   
+2      0.212121  0.476235  0.558333  0.595645  0.375000  0.638117  0.578947   
+3      0.222222  0.477059  0.508333  0.595645  0.375000  0.637878  0.532895   
+4      0.222222  0.477059  0.608333  0.595645  0.381410  0.638761  0.611842   
+...         ...       ...       ...       ...       ...       ...       ...   
+11595  0.101010  0.476647  0.458333  0.595645  0.358974  0.638045  0.572368   
+11596  0.191919  0.476956  0.541667  0.595645  0.375000  0.638140  0.578947   
+11597  0.121212  0.476750  0.466667  0.596855  0.362179  0.638117  0.565789   
+11598  0.797980  0.476235  0.725000  0.595947  0.416667  0.638117  0.328947   
+11599  0.141414  0.476750  0.733333  0.596099  0.362179  0.637973  0.763158   
+
+              7         8  
+0      0.772071  0.771704  
+1      0.678973  0.649518  
+2      0.634029  0.575563  
+3      0.622793  0.575563  
+4      0.638844  0.572347  
+...         ...       ...  
+11595  0.629213  0.572347  
+11596  0.629213  0.572347  
+11597  0.627608  0.572347  
+11598  0.622793  0.627010  
+11599  0.678973  0.575563  
+
+[11600 rows x 9 columns]
+<class 'numpy.ndarray'>
+working on 
+../data/c/40685/class_full_MCAR_0.01_1
+4.061149597167969
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-11-18 20:30:58,523] A new study created in memory with name: no-name-7ecf9948-5bb1-47ec-bc8b-16347265ad2f
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-11-18 20:31:01,855] Trial 6 finished with value: 0.0751283256039135 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 6 with value: 0.0751283256039135.
+running
+[I 2024-11-18 20:31:02,089] Trial 10 finished with value: 0.0613855207593227 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 10 with value: 0.0613855207593227.
+running
+[I 2024-11-18 20:31:02,321] Trial 5 finished with value: 0.0613855207593227 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 10 with value: 0.0613855207593227.
+running
+[I 2024-11-18 20:31:21,546] Trial 12 finished with value: 0.34298584928064935 and parameters: {'model_name': 'GAIN', 'batch_size': 188, 'hint_rate': 0.6524028334847475, 'alpha': 11, 'iterations': 1, 'learning_rate': 0.0037041706574345756, 'p_miss': 0.12858181016226217}. Best is trial 10 with value: 0.0613855207593227.
+running
+[I 2024-11-18 20:31:30,403] Trial 2 finished with value: 0.1427067651172132 and parameters: {'model_name': 'VAE', 'batch_size': 76, 'iterations': 5, 'learning_rate': 0.0028091310580312143, 'p_miss': 0.10181175105738813}. Best is trial 10 with value: 0.0613855207593227.
+running
+[I 2024-11-18 20:31:37,416] Trial 4 finished with value: 0.05307406766485497 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 1, 'imputation_order': 'ascending'}. Best is trial 4 with value: 0.05307406766485497.
+running
+[I 2024-11-18 20:31:37,820] Trial 7 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.9755074386321799, 'alpha': 63, 'iterations': 119, 'learning_rate': 0.007889530076636106, 'p_miss': 0.06914519975516882}. Best is trial 4 with value: 0.05307406766485497.
+running
+[I 2024-11-18 20:31:44,624] Trial 18 finished with value: 0.04693059191235612 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 2, 'imputation_order': 'arabic'}. Best is trial 18 with value: 0.04693059191235612.
+running
+[I 2024-11-18 20:32:04,278] Trial 13 finished with value: 0.3387605393032046 and parameters: {'model_name': 'GAIN', 'batch_size': 58, 'hint_rate': 0.8373807229561419, 'alpha': 26, 'iterations': 37, 'learning_rate': 0.0005172738489102876, 'p_miss': 0.13681976946754604}. Best is trial 18 with value: 0.04693059191235612.
+running
+[I 2024-11-18 20:32:12,535] Trial 24 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.6305216867926988, 'alpha': 83, 'iterations': 55, 'learning_rate': 0.0030835202630185815, 'p_miss': 0.14925976768172763}. Best is trial 18 with value: 0.04693059191235612.
+running
+[I 2024-11-18 20:32:17,107] Trial 3 finished with value: 0.038900653443635136 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 3 with value: 0.038900653443635136.
+running
+[I 2024-11-18 20:32:18,816] Trial 9 finished with value: 0.05957000415564041 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 39214, 'weights': 'uniform'}. Best is trial 3 with value: 0.038900653443635136.
+running
+[I 2024-11-18 20:32:19,001] Trial 8 finished with value: 0.05957000415564041 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 40989, 'weights': 'uniform'}. Best is trial 3 with value: 0.038900653443635136.
+running
+[I 2024-11-18 20:32:19,936] Trial 1 finished with value: 0.03890146275141819 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 3 with value: 0.038900653443635136.
+running
+[I 2024-11-18 20:32:42,866] Trial 14 finished with value: 0.039998933408707575 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 14835, 'weights': 'distance'}. Best is trial 3 with value: 0.038900653443635136.
+running
+[I 2024-11-18 20:32:53,617] Trial 20 finished with value: 0.05957000415564041 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 41466, 'weights': 'uniform'}. Best is trial 3 with value: 0.038900653443635136.
+running
+[I 2024-11-18 20:32:58,318] Trial 19 finished with value: 0.03805175875136925 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 9753, 'weights': 'distance'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:03,696] Trial 15 finished with value: 0.04394884858996412 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 29561, 'weights': 'distance'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:04,518] Trial 0 finished with value: 0.04436219827641271 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 31821, 'weights': 'distance'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:25,364] Trial 25 finished with value: 0.05957000415564041 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 36823, 'weights': 'uniform'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:31,851] Trial 27 finished with value: 0.03889919511769173 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'arabic'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:32,147] Trial 26 finished with value: 0.03890006334563399 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'arabic'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:36,082] Trial 29 finished with value: 0.03889799982725658 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:37,108] Trial 28 finished with value: 0.03889919511769173 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'arabic'}. Best is trial 19 with value: 0.03805175875136925.
+running
+[I 2024-11-18 20:33:48,360] Trial 23 finished with value: 0.02760373916235932 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 3, 'imputation_order': 'descending'}. Best is trial 23 with value: 0.02760373916235932.
+running
+[I 2024-11-18 20:33:54,523] Trial 17 finished with value: 0.023035462373076698 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 20:34:04,028] Trial 31 finished with value: 0.03889799982725658 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 20:35:08,805] Trial 30 finished with value: 0.02317311992517737 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 20:35:27,780] Trial 37 finished with value: 0.038913558172202004 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 20:43:33,523] Trial 16 finished with value: 0.3624165911200201 and parameters: {'model_name': 'GAIN', 'batch_size': 69, 'hint_rate': 0.06571906640308016, 'alpha': 56, 'iterations': 495, 'learning_rate': 0.0029063761669751186, 'p_miss': 0.16588234496565565}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 21:00:58,008] Trial 11 finished with value: 0.37403988737928845 and parameters: {'model_name': 'GAIN', 'batch_size': 110, 'hint_rate': 0.26482138452699777, 'alpha': 69, 'iterations': 1025, 'learning_rate': 0.016537658326163194, 'p_miss': 0.2978919348418519}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:04:48,623] Trial 21 finished with value: 0.0274649435323333 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:07:15,742] Trial 22 finished with value: 0.08311355981000605 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 1859, 'learning_rate': 0.005361032912246275, 'p_miss': 0.044580635399217174}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:08:52,890] Trial 48 finished with value: 0.023996558701202493 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 5, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:10:27,496] Trial 49 finished with value: 0.023996558701202493 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 5, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:12:04,361] Trial 50 finished with value: 0.023996558701202493 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 5, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:33:14,811] Trial 36 finished with value: 0.028891520461597743 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'descending'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:33:53,406] Trial 52 finished with value: 0.07407008338426511 and parameters: {'model_name': 'VAE', 'batch_size': 11, 'iterations': 6, 'learning_rate': 0.05944082930812027, 'p_miss': 0.23689174743616076}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:35:36,901] Trial 53 finished with value: 0.023538089047241407 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:37:22,752] Trial 54 finished with value: 0.023538089047241407 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:37:24,100] Trial 55 finished with value: 0.05957000415564041 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:39:07,810] Trial 56 finished with value: 0.023538089047241407 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:41:00,398] Trial 57 finished with value: 0.02358361008699798 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-18 22:42:45,715] Trial 58 finished with value: 0.023538089047241407 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:52:27,748] Trial 44 finished with value: 0.07407053522753967 and parameters: {'model_name': 'VAE', 'batch_size': 10, 'iterations': 7267, 'learning_rate': 0.09899804694906071, 'p_miss': 0.29184250205836587}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:53:41,579] Trial 35 finished with value: 0.06793360159398365 and parameters: {'model_name': 'VAE', 'batch_size': 990, 'iterations': 4990, 'learning_rate': 0.07303708715988876, 'p_miss': 0.28594176130447335}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:54:08,507] Trial 60 finished with value: 0.02382127446970305 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:54:09,624] Trial 62 finished with value: 0.530343324706678 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:55:30,363] Trial 61 finished with value: 0.02382127446970305 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:56:04,750] Trial 63 finished with value: 0.02358361008699798 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:57:22,859] Trial 64 finished with value: 0.02358361008699798 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:57:37,532] Trial 65 finished with value: 0.02496173858443208 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 4, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:58:57,582] Trial 66 finished with value: 0.02496173858443208 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 4, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 04:59:19,180] Trial 67 finished with value: 0.023538089047241407 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:00:35,161] Trial 68 finished with value: 0.023538089047241407 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'median', 'n_nearest_features': 6, 'imputation_order': 'roman'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:01:25,453] Trial 69 finished with value: 0.07663256399976653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:01:26,883] Trial 71 finished with value: 0.0751283256039135 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:02:47,663] Trial 70 finished with value: 0.07663256399976653 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 7, 'imputation_order': 'roman', 'sample_posterior': True}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:03:29,919] Trial 72 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:03:44,059] Trial 74 finished with value: 0.3530669617278172 and parameters: {'model_name': 'GAIN', 'batch_size': 874, 'hint_rate': 0.3259585272587773, 'alpha': 32, 'iterations': 1, 'learning_rate': 0.0001007021005600834, 'p_miss': 0.015503720890633926}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:04:48,689] Trial 73 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:05:45,327] Trial 75 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:06:47,024] Trial 76 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:07:48,169] Trial 77 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:08:47,544] Trial 78 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:09:47,145] Trial 79 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:10:25,247] Trial 81 finished with value: 0.034960705543169206 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 54, 'weights': 'distance'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 05:33:15,055] Trial 59 finished with value: 0.06708843356430824 and parameters: {'model_name': 'VAE', 'batch_size': 643, 'iterations': 3388, 'learning_rate': 0.00011140482320110004, 'p_miss': 0.012338622957487083}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 06:58:42,174] Trial 80 finished with value: 0.028694424329271356 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:00:22,614] Trial 82 finished with value: 0.02888571685277832 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:00:35,403] Trial 84 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 1, 'hint_rate': 0.09656933067695639, 'alpha': 98, 'iterations': 290, 'learning_rate': 0.0005861133616268022, 'p_miss': 0.20172606186471434}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:02:16,599] Trial 86 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:03:54,643] Trial 87 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:05:35,366] Trial 88 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:06:45,589] Trial 34 finished with value: 0.0672484196569612 and parameters: {'model_name': 'VAE', 'batch_size': 917, 'iterations': 7072, 'learning_rate': 0.08598510402954675, 'p_miss': 0.28649750540416274}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:07:18,792] Trial 89 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:08:33,286] Trial 90 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:08:34,443] Trial 85 finished with value: 0.32715329795085063 and parameters: {'model_name': 'GAIN', 'batch_size': 16, 'hint_rate': 0.038731816182629664, 'alpha': 96, 'iterations': 224, 'learning_rate': 0.0008418897263791561, 'p_miss': 0.19509949680612648}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:09:10,455] Trial 91 finished with value: 0.023260996584528768 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:10:29,228] Trial 93 finished with value: 0.023260996584528768 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:10:31,109] Trial 92 finished with value: 0.023260996584528768 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:11:07,008] Trial 94 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:11:23,219] Trial 95 finished with value: 0.053722494336769 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 20610, 'weights': 'uniform'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:12:25,093] Trial 96 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:13:01,324] Trial 97 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:13:02,624] Trial 100 finished with value: 0.05957000415564041 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:13:22,181] Trial 98 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:14:17,190] Trial 99 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:14:46,957] Trial 101 finished with value: 0.023166323391840573 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:14:49,832] Trial 102 finished with value: 0.0495106724646039 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 1, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:15:21,221] Trial 104 finished with value: 0.050364024173483526 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 1, 'imputation_order': 'descending'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:15:45,331] Trial 105 finished with value: 0.03889924385986739 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'descending'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:16:13,798] Trial 103 finished with value: 0.023166323391840573 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:17:21,966] Trial 106 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:17:41,615] Trial 107 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:18:14,090] Trial 108 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:19:14,955] Trial 109 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:19:31,686] Trial 110 finished with value: 0.02306834793409431 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:19:48,257] Trial 112 finished with value: 0.09070657053828013 and parameters: {'model_name': 'VAE', 'batch_size': 4, 'iterations': 13, 'learning_rate': 0.02671011898749629, 'p_miss': 0.23401371348853203}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:20:11,145] Trial 111 finished with value: 0.06810055243331141 and parameters: {'model_name': 'VAE', 'batch_size': 266, 'iterations': 15, 'learning_rate': 0.024651327644245533, 'p_miss': 0.24654034338652442}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:21:11,086] Trial 113 finished with value: 0.03891295551372126 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:21:35,553] Trial 114 finished with value: 0.03891387391986423 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:22:02,767] Trial 115 finished with value: 0.03891387391986423 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:22:45,572] Trial 83 finished with value: 0.028934571827424517 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:23:11,971] Trial 116 finished with value: 0.023166323391840573 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:23:13,161] Trial 120 finished with value: 0.530343324706678 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:23:32,256] Trial 117 finished with value: 0.023166323391840573 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 17 with value: 0.023035462373076698.
+running
+[I 2024-11-19 07:23:54,465] Trial 121 finished with value: 0.01618672213880169 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 329, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:24:00,986] Trial 118 finished with value: 0.023166323391840573 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:24:15,165] Trial 122 finished with value: 0.028876040505147516 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1831, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:24:35,430] Trial 119 finished with value: 0.023166323391840573 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 7, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:24:37,683] Trial 123 finished with value: 0.02723691103253099 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1484, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:24:48,234] Trial 124 finished with value: 0.041683247258392286 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 6916, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:25:04,927] Trial 125 finished with value: 0.04515367039876472 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 9514, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:25:25,868] Trial 126 finished with value: 0.04590539991938733 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 10205, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:25:28,264] Trial 127 finished with value: 0.04820659968597638 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 12579, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:25:41,717] Trial 131 finished with value: 0.3474550560128458 and parameters: {'model_name': 'GAIN', 'batch_size': 32, 'hint_rate': 0.4787267750660865, 'alpha': 3, 'iterations': 2, 'learning_rate': 0.0002576921435935085, 'p_miss': 0.09094566656553084}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:25:44,170] Trial 128 finished with value: 0.05356054263681468 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 20293, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:26:00,040] Trial 129 finished with value: 0.05361438719610269 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 20396, 'weights': 'uniform'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:27:29,729] Trial 130 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:27:46,258] Trial 132 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:27:50,040] Trial 133 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:28:10,624] Trial 134 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:29:38,168] Trial 135 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:29:53,575] Trial 136 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:29:55,183] Trial 137 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:30:17,525] Trial 138 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:31:23,554] Trial 140 finished with value: 0.03132718029018601 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 2, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:31:40,807] Trial 139 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:31:54,224] Trial 141 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:32:22,925] Trial 142 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:33:28,089] Trial 143 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:33:44,748] Trial 144 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:33:57,027] Trial 145 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:34:29,295] Trial 146 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:35:34,448] Trial 147 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:35:47,623] Trial 148 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:35:58,957] Trial 149 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:36:32,013] Trial 150 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:37:29,481] Trial 151 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:37:31,530] Trial 155 finished with value: 0.0613855207593227 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:37:48,549] Trial 153 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:38:18,068] Trial 154 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:40:13,828] Trial 46 finished with value: 0.0796247384072386 and parameters: {'model_name': 'VAE', 'batch_size': 6, 'iterations': 7985, 'learning_rate': 0.07975253335697795, 'p_miss': 0.29990943303181544}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 07:41:44,457] Trial 159 finished with value: 0.022972559942145775 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:18:13,717] Trial 152 finished with value: 0.028125309589027675 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:18:55,307] Trial 39 finished with value: 0.06713224217936681 and parameters: {'model_name': 'VAE', 'batch_size': 957, 'iterations': 8363, 'learning_rate': 0.00013356140952951106, 'p_miss': 0.29752087740290756}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:19:49,229] Trial 161 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:20:36,399] Trial 162 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:21:31,751] Trial 163 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:21:32,340] Trial 156 finished with value: 0.028965678259258925 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:21:50,440] Trial 157 finished with value: 0.028662643810458344 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:22:23,399] Trial 164 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:22:38,777] Trial 158 finished with value: 0.029206478146798182 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:23:29,910] Trial 166 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:23:50,430] Trial 167 finished with value: 0.022881750749683235 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:24:20,912] Trial 168 finished with value: 0.02283154783126654 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:24:36,867] Trial 169 finished with value: 0.02283154783126654 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'descending'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:25:16,654] Trial 170 finished with value: 0.02348840081919835 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'ascending'}. Best is trial 121 with value: 0.01618672213880169.
+running
+[I 2024-11-19 09:25:43,673] Trial 160 finished with value: 0.028426249535235225 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'most_frequent', 'n_nearest_features': 9, 'imputation_order': 'random'}. Best is trial 121 with value: 0.01618672213880169.
+running
