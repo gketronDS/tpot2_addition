@@ -1,0 +1,56 @@
+Run: 61
+/cm/local/apps/slurm/var/spool/job1069855/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/41146/41146.pkl
+     class   V1     V2   V3      V4     V5      V6      V7  V8      V9    V10  \
+0        1  234  120.0  254  3260.0   70.0  1604.0  3397.0   8  2377.0    0.0   
+1        0  228   -9.0  251   876.0  164.0  3971.0  2991.0   7  2042.0   95.0   
+2        0  229    0.0  226  2765.0   39.0  3583.0  2766.0  10   842.0    0.0   
+3        0  248   45.0  221  4865.0   16.0  1031.0  2390.0  23  1104.0  371.0   
+4        0  229   16.0  226   918.0  299.0  3488.0  2131.0   6   911.0   30.0   
+...    ...  ...    ...  ...     ...    ...     ...     ...  ..     ...    ...   
+5119     1  180  169.0  187   218.0  236.0  1642.0  3356.0   2   904.0  309.0   
+5120     1  241    1.0  248  2058.0  104.0   891.0  3262.0  10  3590.0   60.0   
+5121     1  224   16.0  240   911.0  164.0  4909.0  3235.0   3  1943.0  124.0   
+5122     0  221    4.0  230  1300.0  179.0  2832.0  3347.0  12   890.0  485.0   
+5123     0  235   48.0  207  5571.0  303.0  5261.0  3184.0   5  4914.0  277.0   
+
+      V11  V12  V13     V14     V15    V16  V17    V18    V19  
+0     223  171  229  4406.0  3594.0    0.0  225  316.0   60.0  
+1     199  223  227  2107.0  3980.0    2.0  242   66.0   76.0  
+2     201  187  221  4478.0  2297.0    0.0  218  113.0  175.0  
+3     254  225  193   937.0  1187.0  234.0  186   23.0   99.0  
+4     232  226  203  4568.0  1465.0    1.0  238   21.0  234.0  
+...   ...  ...  ...     ...     ...    ...  ...    ...    ...  
+5119  253  228  216  1116.0  2041.0   27.0  240  172.0  106.0  
+5120  219  192  237   541.0  3637.0   -2.0  228   59.0  288.0  
+5121  205  180  223   511.0   162.0   10.0  240  163.0  153.0  
+5122  228  193  225  3795.0  4345.0   18.0  247    8.0  317.0  
+5123  168  250  206  1465.0  2519.0   20.0  237  313.0  205.0  
+
+[5124 rows x 20 columns]
+<class 'pandas.core.frame.DataFrame'>
+Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main10.py", line 170, in <module>
+    main()
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/main10.py", line 156, in main
+    utils.loop_through_tasks(class_experiments, classification_id_list, 
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 157, in loop_through_tasks
+    X_train, y_train, X_test, y_test = load_task(base_save_folder=save_folder, task_id=taskid, r_or_c= r_or_c)
+  File "/common/ketrong/tpotexp/tpot2/ImputerExperiments/Locally_run_code/utils.py", line 100, in load_task
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 2801, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 1843, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/model_selection/_split.py", line 2247, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+srun: error: esplhpc-cp010: task 0: Exited with exit code 1

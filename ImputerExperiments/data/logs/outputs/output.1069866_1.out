@@ -1,0 +1,1613 @@
+Run: 1
+/cm/local/apps/slurm/var/spool/job1069866/slurm_script: line 27: 
+pip install -e tpot2
+pip install -r tpot2/ImputerExperiments/requirements_.txt
+: No such file or directory
+RunStart
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+starting loops
+../data/c/42192/42192.pkl
+     sex  age  juv_fel_count  juv_misd_count  juv_other_count  priors_count  \
+0      1   34              0               0                0             0   
+1      1   24              0               0                1             4   
+2      1   41              0               0                0            14   
+3      0   39              0               0                0             0   
+4      1   27              0               0                0             0   
+...   ..  ...            ...             ...              ...           ...   
+5273   1   30              0               0                0             0   
+5274   1   20              0               0                0             0   
+5275   1   23              0               0                0             0   
+5276   1   23              0               0                0             0   
+5277   0   33              0               0                0             3   
+
+     two_year_recid age_cat_25-45 age_cat_Greaterthan45 age_cat_Lessthan25  \
+0                 1             1                     0                  0   
+1                 1             0                     0                  1   
+2                 1             1                     0                  0   
+3                 0             1                     0                  0   
+4                 0             1                     0                  0   
+...             ...           ...                   ...                ...   
+5273              1             1                     0                  0   
+5274              0             0                     0                  1   
+5275              0             0                     0                  1   
+5276              0             0                     0                  1   
+5277              0             1                     0                  0   
+
+     race_African-American race_Caucasian  c_charge_degree_F  
+0                        1              0                  1  
+1                        1              0                  1  
+2                        0              1                  1  
+3                        0              1                  0  
+4                        0              1                  1  
+...                    ...            ...                ...  
+5273                     1              0                  0  
+5274                     1              0                  1  
+5275                     1              0                  1  
+5276                     1              0                  1  
+5277                     1              0                  0  
+
+[5278 rows x 13 columns]
+<class 'pandas.core.frame.DataFrame'>
+     sex  age  juv_fel_count  juv_misd_count  juv_other_count  priors_count  \
+3365   1   45              1               0                0            12   
+3030   0   26              0               0                0             2   
+1667   1   26              0               3                0             8   
+1025   1   32              0               0                0             2   
+1363   0   31              0               0                0             0   
+...   ..  ...            ...             ...              ...           ...   
+2266   1   40              1               0                0            15   
+3787   1   39              0               0                0            17   
+902    1   53              0               0                0             4   
+3990   1   53              0               0                0             3   
+2457   1   36              1               0                0            26   
+
+     two_year_recid age_cat_25-45 age_cat_Greaterthan45 age_cat_Lessthan25  \
+3365              1             0                     1                  0   
+3030              0             1                     0                  0   
+1667              1             1                     0                  0   
+1025              1             1                     0                  0   
+1363              0             1                     0                  0   
+...             ...           ...                   ...                ...   
+2266              0             1                     0                  0   
+3787              1             1                     0                  0   
+902               0             0                     1                  0   
+3990              1             0                     1                  0   
+2457              1             1                     0                  0   
+
+     race_African-American race_Caucasian  c_charge_degree_F  
+3365                     1              0                  0  
+3030                     0              1                  0  
+1667                     0              1                  1  
+1025                     1              0                  1  
+1363                     0              1                  0  
+...                    ...            ...                ...  
+2266                     1              0                  1  
+3787                     0              1                  1  
+902                      0              1                  1  
+3990                     1              0                  1  
+2457                     1              0                  1  
+
+[4222 rows x 13 columns]
+<class 'pandas.core.frame.DataFrame'>
+            0    1         2    3         4    5    6    7    8    9    10  \
+0     0.435484  0.1  0.000000  0.0  0.315789  0.0  1.0  1.0  0.0  1.0  0.0   
+1     0.129032  0.0  0.000000  0.0  0.052632  0.0  0.0  0.0  1.0  0.0  0.0   
+2     0.129032  0.0  0.230769  0.0  0.210526  1.0  1.0  1.0  1.0  0.0  0.0   
+3     0.225806  0.0  0.000000  0.0  0.052632  1.0  1.0  1.0  1.0  0.0  0.0   
+4     0.209677  0.0  0.000000  0.0  0.000000  0.0  0.0  0.0  1.0  0.0  0.0   
+...        ...  ...       ...  ...       ...  ...  ...  ...  ...  ...  ...   
+4217  0.354839  0.1  0.000000  0.0  0.394737  1.0  1.0  0.0  1.0  0.0  0.0   
+4218  0.338710  0.0  0.000000  0.0  0.447368  1.0  1.0  1.0  1.0  0.0  0.0   
+4219  0.564516  0.0  0.000000  0.0  0.105263  1.0  1.0  0.0  0.0  1.0  0.0   
+4220  0.564516  0.0  0.000000  0.0  0.078947  1.0  1.0  1.0  0.0  1.0  0.0   
+4221  0.290323  0.1  0.000000  0.0  0.684211  1.0  1.0  1.0  1.0  0.0  0.0   
+
+       11   12  
+0     1.0  0.0  
+1     0.0  1.0  
+2     0.0  1.0  
+3     1.0  0.0  
+4     0.0  1.0  
+...   ...  ...  
+4217  1.0  0.0  
+4218  0.0  1.0  
+4219  0.0  1.0  
+4220  1.0  0.0  
+4221  1.0  0.0  
+
+[4222 rows x 13 columns]
+<class 'numpy.ndarray'>
+            0    1    2         3         4    5    6    7    8    9    10  \
+0     0.419355  0.0  0.0  0.000000  0.210526  0.0  1.0  1.0  1.0  0.0  0.0   
+1     0.193548  0.0  0.0  0.000000  0.000000  0.0  1.0  1.0  1.0  0.0  0.0   
+2     0.048387  0.0  0.0  0.000000  0.000000  1.0  1.0  1.0  0.0  0.0  1.0   
+3     0.064516  0.0  0.0  0.142857  0.000000  1.0  1.0  0.0  0.0  0.0  1.0   
+4     0.064516  0.0  0.0  0.000000  0.000000  1.0  0.0  0.0  0.0  0.0  1.0   
+...        ...  ...  ...       ...       ...  ...  ...  ...  ...  ...  ...   
+1051  0.580645  0.0  0.0  0.000000  0.289474  1.0  1.0  0.0  0.0  1.0  0.0   
+1052  0.419355  0.0  0.0  0.000000  0.000000  0.0  1.0  0.0  1.0  0.0  0.0   
+1053  0.338710  0.0  0.0  0.000000  0.078947  1.0  0.0  0.0  1.0  0.0  0.0   
+1054  0.177419  0.0  0.0  0.000000  0.236842  1.0  0.0  1.0  1.0  0.0  0.0   
+1055  0.370968  0.0  0.0  0.000000  0.000000  0.0  0.0  0.0  1.0  0.0  0.0   
+
+       11   12  
+0     1.0  0.0  
+1     1.0  0.0  
+2     0.0  1.0  
+3     1.0  0.0  
+4     1.0  0.0  
+...   ...  ...  
+1051  1.0  0.0  
+1052  0.0  1.0  
+1053  0.0  1.0  
+1054  1.0  0.0  
+1055  0.0  1.0  
+
+[1056 rows x 13 columns]
+<class 'numpy.ndarray'>
+working on 
+../data/c/42192/class_full_MCAR_0.01_1
+1.5315167903900146
+running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple
+[I 2024-11-24 23:33:11,657] A new study created in memory with name: no-name-266d2087-a9f4-4885-a5ce-05c53222bab1
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+running
+[I 2024-11-24 23:33:11,845] Trial 5 finished with value: 0.5698156754469546 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 5 with value: 0.5698156754469546.
+running
+[I 2024-11-24 23:33:12,143] Trial 7 finished with value: 0.4646087590784411 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 7 with value: 0.4646087590784411.
+running
+[I 2024-11-24 23:33:12,287] Trial 9 finished with value: 0.37037435849722267 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 9 with value: 0.37037435849722267.
+[I 2024-11-24 23:33:12,391] Trial 10 finished with value: 0.37037435849722267 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 9 with value: 0.37037435849722267.
+running
+running
+[I 2024-11-24 23:33:12,562] Trial 11 finished with value: 0.4646087590784411 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 9 with value: 0.37037435849722267.
+running
+[I 2024-11-24 23:33:12,736] Trial 4 finished with value: 0.4666155343335473 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 9 with value: 0.37037435849722267.
+running
+[I 2024-11-24 23:33:12,943] Trial 15 finished with value: 0.4646087590784411 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 9 with value: 0.37037435849722267.
+running
+[I 2024-11-24 23:33:13,095] Trial 18 finished with value: 0.37037435849722267 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'mean'}. Best is trial 9 with value: 0.37037435849722267.
+running
+[I 2024-11-24 23:33:14,971] Trial 3 finished with value: 0.29758925025570765 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 786, 'weights': 'uniform'}. Best is trial 3 with value: 0.29758925025570765.
+[I 2024-11-24 23:33:15,137] Trial 16 finished with value: 0.37037435849722267 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 3658, 'weights': 'uniform'}. Best is trial 3 with value: 0.29758925025570765.
+running
+running
+[I 2024-11-24 23:33:15,349] Trial 14 finished with value: 0.28433013718767547 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 278, 'weights': 'distance'}. Best is trial 14 with value: 0.28433013718767547.
+running
+[I 2024-11-24 23:33:15,680] Trial 0 finished with value: 0.34345568836953055 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 2241, 'weights': 'uniform'}. Best is trial 14 with value: 0.28433013718767547.
+[I 2024-11-24 23:33:15,853] Trial 20 finished with value: 0.28967455060868397 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 5, 'weights': 'distance'}. Best is trial 14 with value: 0.28433013718767547.
+running
+running
+[I 2024-11-24 23:33:16,110] Trial 21 finished with value: 0.3006056331418205 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 3624, 'weights': 'distance'}. Best is trial 14 with value: 0.28433013718767547.
+running
+[I 2024-11-24 23:33:16,358] Trial 8 finished with value: 0.2947130540285208 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1894, 'weights': 'distance'}. Best is trial 14 with value: 0.28433013718767547.
+running
+[I 2024-11-24 23:33:16,513] Trial 19 finished with value: 0.3440005885847159 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 2264, 'weights': 'uniform'}. Best is trial 14 with value: 0.28433013718767547.
+running
+[I 2024-11-24 23:33:17,219] Trial 26 finished with value: 0.2820430902175981 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 20, 'weights': 'distance'}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:21,974] Trial 23 finished with value: 0.4813370394768315 and parameters: {'model_name': 'VAE', 'batch_size': 5, 'iterations': 1, 'learning_rate': 0.0045965224672779754, 'p_miss': 0.20867033858363096}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:22,366] Trial 31 finished with value: 0.5869823808542557 and parameters: {'model_name': 'GAIN', 'batch_size': 5, 'hint_rate': 0.573915667464572, 'alpha': 72, 'iterations': 1, 'learning_rate': 0.0029469856421324406, 'p_miss': 0.17894711869840815}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:23,412] Trial 25 finished with value: 0.5837356867535778 and parameters: {'model_name': 'GAIN', 'batch_size': 121, 'hint_rate': 0.1725189830337705, 'alpha': 2, 'iterations': 3, 'learning_rate': 0.00013574834130366915, 'p_miss': 0.12418063517577968}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:23,807] Trial 24 finished with value: 0.39667526393161845 and parameters: {'model_name': 'VAE', 'batch_size': 28, 'iterations': 2, 'learning_rate': 0.07447737419866762, 'p_miss': 0.025675506066526105}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:24,090] Trial 6 finished with value: 0.5893952801621805 and parameters: {'model_name': 'GAIN', 'batch_size': 658, 'hint_rate': 0.6728843298060421, 'alpha': 24, 'iterations': 3, 'learning_rate': 0.00030666218791369895, 'p_miss': 0.17615895754256614}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:24,380] Trial 12 finished with value: 0.5996996431542081 and parameters: {'model_name': 'GAIN', 'batch_size': 17, 'hint_rate': 0.2423002989601912, 'alpha': 45, 'iterations': 4, 'learning_rate': 0.0002581513736255071, 'p_miss': 0.28093175129192743}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:25,501] Trial 28 finished with value: 0.5718112909629487 and parameters: {'model_name': 'GAIN', 'batch_size': 18, 'hint_rate': 0.5304143079135764, 'alpha': 53, 'iterations': 6, 'learning_rate': 0.008160691005649576, 'p_miss': 0.1497755702559909}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:32,065] Trial 17 finished with value: 0.5952251426916072 and parameters: {'model_name': 'GAIN', 'batch_size': 15, 'hint_rate': 0.871624061653164, 'alpha': 4, 'iterations': 26, 'learning_rate': 0.0006278669451972277, 'p_miss': 0.1961006980936421}. Best is trial 26 with value: 0.2820430902175981.
+running
+[I 2024-11-24 23:33:41,752] Trial 34 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 34 with value: 0.236363690356649.
+running
+[I 2024-11-24 23:33:53,362] Trial 36 finished with value: 0.35063580422044016 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 1, 'imputation_order': 'random'}. Best is trial 34 with value: 0.236363690356649.
+running
+[I 2024-11-24 23:33:58,518] Trial 35 finished with value: 0.25211962445390756 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'constant', 'n_nearest_features': 5, 'imputation_order': 'random'}. Best is trial 34 with value: 0.236363690356649.
+running
+[I 2024-11-24 23:34:01,752] Trial 37 finished with value: 0.2570136838549596 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 6, 'imputation_order': 'ascending'}. Best is trial 34 with value: 0.236363690356649.
+running
+[I 2024-11-24 23:34:03,178] Trial 41 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 34 with value: 0.236363690356649.
+running
+[I 2024-11-24 23:34:14,408] Trial 30 finished with value: 0.580310128564731 and parameters: {'model_name': 'GAIN', 'batch_size': 261, 'hint_rate': 0.4216309791048718, 'alpha': 26, 'iterations': 106, 'learning_rate': 0.007104667511841505, 'p_miss': 0.10728120390297055}. Best is trial 34 with value: 0.236363690356649.
+running
+[I 2024-11-24 23:34:16,881] Trial 42 finished with value: 0.23220348677068886 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 11, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:17,197] Trial 38 finished with value: 0.23862474028573494 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 5, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:20,744] Trial 43 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:22,918] Trial 45 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:23,334] Trial 44 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:24,276] Trial 40 finished with value: 0.2626005052105647 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 3, 'imputation_order': 'arabic', 'sample_posterior': False}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:24,947] Trial 22 finished with value: 0.5630193893281857 and parameters: {'model_name': 'GAIN', 'batch_size': 16, 'hint_rate': 0.8323668206825655, 'alpha': 92, 'iterations': 158, 'learning_rate': 0.0025393169657382426, 'p_miss': 0.08328805150557575}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:34,535] Trial 46 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 42 with value: 0.23220348677068886.
+running
+[I 2024-11-24 23:34:35,309] Trial 48 finished with value: 0.23199340629919923 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 48 with value: 0.23199340629919923.
+running
+[I 2024-11-24 23:34:36,111] Trial 47 finished with value: 0.236363690356649 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 7, 'imputation_order': 'roman'}. Best is trial 48 with value: 0.23199340629919923.
+running
+[I 2024-11-24 23:34:42,193] Trial 49 finished with value: 0.23199340629919912 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 12, 'imputation_order': 'roman'}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:43,518] Trial 50 finished with value: 0.23199340629919923 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:44,929] Trial 51 finished with value: 0.23199340629919912 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 12, 'imputation_order': 'roman'}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:46,640] Trial 52 finished with value: 0.23199340629919912 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 12, 'imputation_order': 'roman'}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:49,427] Trial 53 finished with value: 0.23220348677068886 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 11, 'imputation_order': 'roman'}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:54,188] Trial 33 finished with value: 0.32849805268289245 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 8, 'imputation_order': 'arabic', 'sample_posterior': True}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:59,588] Trial 56 finished with value: 0.23199340629919923 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 49 with value: 0.23199340629919912.
+running
+[I 2024-11-24 23:34:59,837] Trial 55 finished with value: 0.23090578306951412 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:35:00,228] Trial 54 finished with value: 0.23220348677068886 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'constant', 'n_nearest_features': 11, 'imputation_order': 'roman'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:35:06,635] Trial 57 finished with value: 0.23090578306951412 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:43:57,487] Trial 29 finished with value: 0.37232413207327697 and parameters: {'model_name': 'VAE', 'batch_size': 285, 'iterations': 207, 'learning_rate': 0.003381642011724545, 'p_miss': 0.20319718244626706}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:52:54,749] Trial 32 finished with value: 0.5658380638967532 and parameters: {'model_name': 'GAIN', 'batch_size': 3, 'hint_rate': 0.42722106340236904, 'alpha': 69, 'iterations': 825, 'learning_rate': 0.00012787297619848678, 'p_miss': 0.2011264034099302}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:57:02,565] Trial 27 finished with value: 0.25316742179344337 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'constant', 'n_nearest_features': 9, 'imputation_order': 'roman'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:58:27,996] Trial 13 finished with value: 0.25732416818724163 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'median', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:58:41,301] Trial 39 finished with value: 0.25276728462145226 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'median', 'n_nearest_features': 13, 'imputation_order': 'arabic'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:58:52,600] Trial 70 finished with value: 0.23094137138701942 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'ascending'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:58:53,529] Trial 72 finished with value: 0.4666155343335473 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 55 with value: 0.23090578306951412.
+running
+[I 2024-11-24 23:59:09,936] Trial 71 finished with value: 0.23036545895422672 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-24 23:59:47,214] Trial 61 finished with value: 0.2521519485600559 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-24 23:59:50,883] Trial 59 finished with value: 0.25395865068404466 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:00:09,632] Trial 58 finished with value: 0.253994709211277 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:00:13,545] Trial 64 finished with value: 0.2523969498377909 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 11, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:00:21,616] Trial 60 finished with value: 0.2528580943493982 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'roman'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:00:33,545] Trial 77 finished with value: 0.23094137138701942 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:07:28,529] Trial 67 finished with value: 0.25394993630856966 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:07:28,898] Trial 81 finished with value: 0.5698156754469546 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:07:47,953] Trial 82 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:13:29,997] Trial 68 finished with value: 0.2518852943579719 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:16:28,664] Trial 69 finished with value: 0.25163472154349453 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'RFR', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 00:30:29,967] Trial 2 finished with value: 0.6022167841849495 and parameters: {'model_name': 'GAIN', 'batch_size': 175, 'hint_rate': 0.17119994221968698, 'alpha': 87, 'iterations': 2245, 'learning_rate': 0.0006648309684501009, 'p_miss': 0.13487284821533183}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:01:36,752] Trial 1 finished with value: 0.6305962763829674 and parameters: {'model_name': 'GAIN', 'batch_size': 735, 'hint_rate': 0.3365225781509013, 'alpha': 47, 'iterations': 7307, 'learning_rate': 0.0006693969081433076, 'p_miss': 0.22722688080047831}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:02:58,972] Trial 87 finished with value: 0.46008334731850953 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 25, 'learning_rate': 0.0706300448420193, 'p_miss': 0.29493843268989756}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:20:47,311] Trial 74 finished with value: 0.45358032481753663 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 4286, 'learning_rate': 0.07758595777514707, 'p_miss': 0.2709000525802835}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:21:05,631] Trial 89 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:21:22,709] Trial 90 finished with value: 0.23200541204899486 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:21:27,038] Trial 91 finished with value: 0.3252558101209108 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1520, 'weights': 'uniform'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:21:44,903] Trial 92 finished with value: 0.23129532909082098 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 11, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:22:01,789] Trial 93 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:22:20,674] Trial 94 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:22:23,654] Trial 88 finished with value: 0.3735583591295847 and parameters: {'model_name': 'VAE', 'batch_size': 61, 'iterations': 538, 'learning_rate': 0.02043149440179527, 'p_miss': 0.051514826617952716}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:22:41,758] Trial 95 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:22:44,053] Trial 96 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:23:02,426] Trial 98 finished with value: 0.23200541204899486 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:23:03,934] Trial 97 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:23:27,357] Trial 99 finished with value: 0.2569664711872119 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:23:33,723] Trial 100 finished with value: 0.2559237536743232 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'mean', 'n_nearest_features': 11, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:24:32,209] Trial 101 finished with value: 0.34250748263761543 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 11, 'imputation_order': 'ascending', 'sample_posterior': True}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:24:42,182] Trial 102 finished with value: 0.3288709537718323 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'most_frequent', 'n_nearest_features': 12, 'imputation_order': 'ascending', 'sample_posterior': True}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:24:46,654] Trial 104 finished with value: 0.3650808220367652 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 3040, 'weights': 'uniform'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:24:47,673] Trial 105 finished with value: 0.4666155343335473 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'most_frequent'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:24:55,186] Trial 103 finished with value: 0.23228139300333153 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'most_frequent', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:07,765] Trial 106 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:15,192] Trial 107 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:26,559] Trial 108 finished with value: 0.23145166804839215 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 10, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:34,642] Trial 109 finished with value: 0.23200541204899486 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:45,730] Trial 110 finished with value: 0.23200541204899486 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 9, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:47,598] Trial 112 finished with value: inf and parameters: {'model_name': 'GAIN', 'batch_size': 2, 'hint_rate': 0.0243356120532639, 'alpha': 30, 'iterations': 18, 'learning_rate': 0.025037418150659303, 'p_miss': 0.01156234806350434}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:25:53,948] Trial 111 finished with value: 0.23129532909082098 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 11, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:26:06,893] Trial 113 finished with value: 0.2317715315314855 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 11, 'imputation_order': 'arabic'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:26:14,009] Trial 114 finished with value: 0.2317715315314855 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'median', 'n_nearest_features': 11, 'imputation_order': 'arabic'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:26:29,283] Trial 115 finished with value: 0.23094137138701942 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:26:34,491] Trial 116 finished with value: 0.23094137138701942 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:26:47,813] Trial 117 finished with value: 0.23094137138701942 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:26:51,499] Trial 118 finished with value: 0.23094137138701942 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'ascending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:09,343] Trial 119 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:13,257] Trial 120 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:23,077] Trial 75 finished with value: 0.4597325273746632 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 4324, 'learning_rate': 0.07664116386012236, 'p_miss': 0.2928344038342828}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:31,541] Trial 121 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:35,227] Trial 122 finished with value: 0.23105817925512961 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:42,866] Trial 123 finished with value: 0.23105817925512961 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:51,209] Trial 124 finished with value: 0.23105817925512961 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:27:52,957] Trial 125 finished with value: 0.23105817925512961 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:01,804] Trial 126 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:11,643] Trial 127 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:14,189] Trial 128 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:16,821] Trial 131 finished with value: 0.3006056331418205 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 4144, 'weights': 'distance'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:21,741] Trial 129 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:31,230] Trial 130 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:28:32,604] Trial 132 finished with value: 0.26275124405757516 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 3, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:42:57,620] Trial 133 finished with value: 0.5880580145317342 and parameters: {'model_name': 'GAIN', 'batch_size': 50, 'hint_rate': 0.7068165003986373, 'alpha': 99, 'iterations': 648, 'learning_rate': 0.0015680402716141456, 'p_miss': 0.2504397523355977}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:43:15,587] Trial 136 finished with value: 0.23099423217327386 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:43:34,792] Trial 137 finished with value: 0.23105817925512961 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'random'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:43:35,029] Trial 138 finished with value: 0.5698156754469546 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'constant'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:43:51,290] Trial 139 finished with value: 0.23036545895422672 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 12, 'imputation_order': 'descending'}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:43:57,008] Trial 135 finished with value: 0.5925572093037537 and parameters: {'model_name': 'GAIN', 'batch_size': 56, 'hint_rate': 0.9518545464338253, 'alpha': 74, 'iterations': 768, 'learning_rate': 0.001512914411044532, 'p_miss': 0.25615203478997345}. Best is trial 71 with value: 0.23036545895422672.
+running
+[I 2024-11-25 03:44:05,770] Trial 140 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:44:16,262] Trial 141 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:44:24,467] Trial 142 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:44:43,985] Trial 143 finished with value: 0.26751586660431276 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:44:49,734] Trial 144 finished with value: 0.26751586660431276 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'KNN', 'initial_strategy': 'most_frequent', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:45:11,858] Trial 146 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:45:30,246] Trial 134 finished with value: 0.6202469397514749 and parameters: {'model_name': 'GAIN', 'batch_size': 50, 'hint_rate': 0.7136109242129471, 'alpha': 98, 'iterations': 978, 'learning_rate': 0.0013734837473143378, 'p_miss': 0.2477053234203845}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:45:35,285] Trial 147 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:45:53,260] Trial 148 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:45:57,740] Trial 149 finished with value: 0.23036545895422664 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Ridge', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending'}. Best is trial 140 with value: 0.23036545895422664.
+running
+[I 2024-11-25 03:46:01,901] Trial 145 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:46:31,624] Trial 151 finished with value: 0.3775707975018962 and parameters: {'model_name': 'VAE', 'batch_size': 9, 'iterations': 53, 'learning_rate': 0.026515420271005237, 'p_miss': 0.07806166961456479}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:46:43,715] Trial 152 finished with value: 0.37661958283675273 and parameters: {'model_name': 'VAE', 'batch_size': 8, 'iterations': 65, 'learning_rate': 0.027602393877025563, 'p_miss': 0.06596006342739055}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:46:47,421] Trial 150 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:47:26,349] Trial 153 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:47:39,554] Trial 154 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:47:47,049] Trial 155 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:48:31,949] Trial 156 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:48:40,155] Trial 157 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:48:43,736] Trial 158 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:49:02,391] Trial 159 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:49:12,232] Trial 160 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:49:19,475] Trial 161 finished with value: 0.23153474505805222 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:49:58,008] Trial 162 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:50:02,629] Trial 165 finished with value: 0.291096653340779 and parameters: {'model_name': 'KNNImputer', 'n_neighbors': 1175, 'weights': 'distance'}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:50:07,066] Trial 163 finished with value: 0.23153474505805222 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'median', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:50:09,683] Trial 164 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:50:50,126] Trial 166 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:50:55,985] Trial 167 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:51:05,408] Trial 168 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:51:46,678] Trial 169 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:51:51,068] Trial 170 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:51:51,732] Trial 173 finished with value: 0.4646087590784411 and parameters: {'model_name': 'SimpleImputer', 'strategy': 'median'}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:52:04,687] Trial 171 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:52:05,591] Trial 66 finished with value: 0.4710742706652149 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 6128, 'learning_rate': 0.049549489312567856, 'p_miss': 0.2878441282209544}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:52:40,774] Trial 172 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:52:47,744] Trial 174 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:52:55,433] Trial 176 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:52:57,699] Trial 175 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:53:31,259] Trial 177 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:53:39,963] Trial 178 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:53:47,341] Trial 179 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:53:50,794] Trial 180 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:54:22,426] Trial 181 finished with value: 0.23499912009792795 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 6, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:54:33,362] Trial 182 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:54:40,288] Trial 184 finished with value: 0.2313855787255104 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 8, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:54:42,181] Trial 183 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:55:17,489] Trial 185 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:55:27,994] Trial 186 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:55:35,276] Trial 187 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:55:36,514] Trial 188 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:56:12,072] Trial 189 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:56:19,990] Trial 190 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:56:30,056] Trial 191 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:56:32,635] Trial 192 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:56:47,350] Trial 193 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:56:56,181] Trial 194 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:57:06,247] Trial 195 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+running
+[I 2024-11-25 03:57:12,438] Trial 196 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 03:57:40,863] Trial 197 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 03:57:48,016] Trial 198 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 03:57:56,890] Trial 199 finished with value: 0.23034764861900198 and parameters: {'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 04:34:54,927] Trial 80 finished with value: 0.4528354408974902 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 6442, 'learning_rate': 0.09943317647987916, 'p_miss': 0.28975843279918134}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 04:44:08,831] Trial 86 finished with value: 0.4803410013509106 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 7186, 'learning_rate': 0.09948283845230955, 'p_miss': 0.29586030870619084}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 04:48:49,352] Trial 76 finished with value: 0.4628771413727485 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 7631, 'learning_rate': 0.06627455119801902, 'p_miss': 0.26464235190618973}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:00:47,887] Trial 85 finished with value: 0.43035845357413904 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 7402, 'learning_rate': 0.08477590757779464, 'p_miss': 0.2671073250630753}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:00:48,138] Trial 78 finished with value: 0.4531323535524948 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 7037, 'learning_rate': 0.09625445086697387, 'p_miss': 0.2966797599643356}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:11:18,383] Trial 73 finished with value: 0.44647035914017763 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 8508, 'learning_rate': 0.05322323373300407, 'p_miss': 0.2598942020589146}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:11:45,023] Trial 79 finished with value: 0.3746293541113446 and parameters: {'model_name': 'VAE', 'batch_size': 58, 'iterations': 8665, 'learning_rate': 0.06722186880193291, 'p_miss': 0.2554672424394749}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:14:12,890] Trial 65 finished with value: 0.4592671913383716 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 9430, 'learning_rate': 0.0808005707937621, 'p_miss': 0.2946055209610368}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:14:17,802] Trial 63 finished with value: 0.4567344951707374 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 9833, 'learning_rate': 0.08892347538701324, 'p_miss': 0.24753070530752025}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:14:20,195] Trial 84 finished with value: 0.43148791335797443 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 9303, 'learning_rate': 0.06233158913216039, 'p_miss': 0.29453523901034306}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:14:26,634] Trial 62 finished with value: 0.4525623701556583 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 8832, 'learning_rate': 0.07443157542005659, 'p_miss': 0.2729073665595017}. Best is trial 145 with value: 0.23034764861900198.
+[I 2024-11-25 05:15:50,113] Trial 83 finished with value: 0.4537644565735281 and parameters: {'model_name': 'VAE', 'batch_size': 1, 'iterations': 9721, 'learning_rate': 0.09637127198088805, 'p_miss': 0.2934883579715269}. Best is trial 145 with value: 0.23034764861900198.
+fit
+auto fit
+auto transform
+0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+6     0
+7     0
+8     0
+9     0
+10    0
+11    0
+12    0
+dtype: int64
+0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+6     0
+7     0
+8     0
+9     0
+10    0
+11    0
+12    0
+dtype: int64
+0.23034764861900198
+{'model_name': 'IterativeImputer', 'estimator': 'Bayesian', 'initial_strategy': 'mean', 'n_nearest_features': 13, 'imputation_order': 'descending', 'sample_posterior': False}
+running experiment 2/3 - Does reconstruction give good automl predictions
+Start est fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554746f8070> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  1
+Best f1_score score: 0.9971244545147485
+Generation:   4%|▍         | 1/25 [01:31<36:45, 91.91s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474711930> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f04550> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  2
+Best f1_score score: 0.9971244545147485
+Generation:   8%|▊         | 2/25 [01:36<15:34, 40.63s/it]Generation:  3
+Best f1_score score: 0.9971244545147485
+Generation:  12%|█▏        | 3/25 [01:46<09:45, 26.61s/it]Generation:  4
+Best f1_score score: 0.9971254564019763
+Generation:  16%|█▌        | 4/25 [01:53<06:32, 18.69s/it]Generation:  5
+Best f1_score score: 0.9971254564019763
+Generation:  20%|██        | 5/25 [02:05<05:29, 16.49s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f09a20> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  6
+Best f1_score score: 0.9971254564019763
+Generation:  24%|██▍       | 6/25 [02:20<05:01, 15.84s/it]Generation:  7
+Best f1_score score: 0.9971286221947226
+Generation:  28%|██▊       | 7/25 [02:30<04:13, 14.09s/it]Generation:  8
+Best f1_score score: 0.9971286221947226
+Generation:  32%|███▏      | 8/25 [02:40<03:36, 12.71s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467ac9630> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  9
+Best f1_score score: 0.9971286221947226
+Generation:  36%|███▌      | 9/25 [02:50<03:08, 11.80s/it]Generation:  10
+Best f1_score score: 0.9973889778493368
+Generation:  40%|████      | 10/25 [02:58<02:38, 10.57s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465a1cfa0> 
+ The 'min_samples_split' parameter of DecisionTreeClassifier must be an int in the range [2, inf) or a float in the range (0.0, 1.0]. Got 1 instead. 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 666, in _validate_params
+    validate_parameter_constraints(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 95, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'min_samples_split' parameter of DecisionTreeClassifier must be an int in the range [2, inf) or a float in the range (0.0, 1.0]. Got 1 instead.
+
+Generation:  11
+Best f1_score score: 0.9973889778493368
+Generation:  44%|████▍     | 11/25 [03:05<02:14,  9.63s/it]Generation:  12
+Best f1_score score: 0.9973889778493368
+Generation:  48%|████▊     | 12/25 [03:24<02:39, 12.30s/it]Generation:  13
+Best f1_score score: 0.9973889778493368
+Generation:  52%|█████▏    | 13/25 [03:35<02:23, 11.98s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155464e047c0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554658c5d80> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  14
+Best f1_score score: 0.9973889778493368
+Generation:  56%|█████▌    | 14/25 [03:59<02:53, 15.78s/it]Generation:  15
+Best f1_score score: 0.9973889778493368
+Generation:  60%|██████    | 15/25 [05:40<06:54, 41.41s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465355e10> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465791240> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  16
+Best f1_score score: 0.9973889778493368
+Generation:  64%|██████▍   | 16/25 [05:55<05:01, 33.45s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f25cf0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  17
+Best f1_score score: 0.9973889778493368
+Generation:  68%|██████▊   | 17/25 [06:08<03:38, 27.32s/it]Generation:  18
+Best f1_score score: 0.9973889778493368
+Generation:  72%|███████▏  | 18/25 [07:13<04:30, 38.65s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554653c4d30> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  19
+Best f1_score score: 0.9973889778493368
+Generation:  76%|███████▌  | 19/25 [07:26<03:05, 30.86s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554655c24d0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  20
+Best f1_score score: 0.9973889778493368
+Generation:  80%|████████  | 20/25 [07:37<02:04, 24.87s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554650da0b0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  21
+Best f1_score score: 0.9973889778493368
+Generation:  84%|████████▍ | 21/25 [07:49<01:23, 20.93s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467f575b0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  22
+Best f1_score score: 0.9973889778493368
+Generation:  88%|████████▊ | 22/25 [08:08<01:01, 20.50s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155467bfe620> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474747ac0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  23
+Best f1_score score: 0.9973889778493368
+Generation:  92%|█████████▏| 23/25 [08:44<00:50, 25.17s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155464e5e830> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  24
+Best f1_score score: 0.9973889778493368
+Generation:  96%|█████████▌| 24/25 [11:47<01:12, 72.50s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155465198bb0> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+Generation:  25
+Best f1_score score: 0.9973889778493368
+Generation: 100%|██████████| 25/25 [12:59<00:00, 72.47s/it]Generation: 100%|██████████| 25/25 [13:03<00:00, 31.35s/it]
+2024-11-25 05:29:04,023 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:35161' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-283b616534032416ef046e2532009d27', 'ndarray-103607508d7163cdd4faa49b098bf1e4'} (stimulus_id='handle-worker-cleanup-1732541344.0236115')
+Fitted
+Pipeline(steps=[('lineardiscriminantanalysis',
+                 LinearDiscriminantAnalysis(shrinkage=0.9237880390998,
+                                            solver='lsqr'))])
+score start
+train score: {'auroc': 0.9997782688656858, 'accuracy': 0.9973945997157745, 'balanced_accuracy': 0.9967338534250909, 'logloss': 0.020743312122026188, 'f1': 0.9971276984262705}
+original test score: {'auroc': 1.0, 'accuracy': 1.0, 'balanced_accuracy': 1.0, 'logloss': 0.013250778730677943, 'f1': 1.0}
+imputed test score: {'auroc': 0.9999960503033367, 'accuracy': 0.9981060606060606, 'balanced_accuracy': 0.9979145601617796, 'logloss': 0.016252531708557123, 'f1': 0.9979145601617796}
+score end
+check intended
+EXP2 Finished
+running experiment 3/3 - What is the best automl settings?
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x1554350145e0>
+Start tpot fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]Generation:  1
+Best f1_score score: 0.9971286205908372
+Generation:   4%|▍         | 1/25 [04:55<1:58:15, 295.66s/it]Generation:  2
+Best f1_score score: 0.9971286205908372
+Generation:   8%|▊         | 2/25 [07:55<1:27:18, 227.78s/it]Generation:  3
+Best f1_score score: 0.997386640674598
+Generation:  12%|█▏        | 3/25 [08:30<51:05, 139.35s/it]  Generation:  4
+Best f1_score score: 0.997386640674598
+Generation:  16%|█▌        | 4/25 [11:52<57:30, 164.33s/it]Generation:  5
+Best f1_score score: 0.997386640674598
+Generation:  20%|██        | 5/25 [20:30<1:37:18, 291.92s/it]Generation:  6
+Best f1_score score: 0.997386640674598
+Generation:  24%|██▍       | 6/25 [23:16<1:18:50, 248.95s/it]Generation:  7
+Best f1_score score: 0.9973877303676316
+Generation:  28%|██▊       | 7/25 [26:00<1:06:19, 221.08s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545fe3d8a0> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  8
+Best f1_score score: 0.9973877303676316
+Generation:  32%|███▏      | 8/25 [26:40<46:21, 163.64s/it]  Generation:  9
+Best f1_score score: 0.9973877303676316
+Generation:  36%|███▌      | 9/25 [26:56<31:17, 117.37s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474cd1570> 
+ Input X contains NaN.
+SVC does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/svm/_base.py", line 190, in fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+SVC does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  10
+Best f1_score score: 0.9973877303676316
+Generation:  40%|████      | 10/25 [29:40<32:56, 131.79s/it]Generation:  11
+Best f1_score score: 0.9973877303676316
+Generation:  44%|████▍     | 11/25 [32:23<33:00, 141.45s/it]Generation:  12
+Best f1_score score: 0.9973877303676316
+Generation:  48%|████▊     | 12/25 [32:31<21:49, 100.72s/it]Generation:  13
+Best f1_score score: 0.9973877303676316
+Generation:  52%|█████▏    | 13/25 [32:39<14:33, 72.78s/it] Generation:  14
+Best f1_score score: 0.9973877303676316
+Generation:  56%|█████▌    | 14/25 [35:23<18:23, 100.33s/it]Generation:  15
+Best f1_score score: 0.9973877303676316
+Generation:  60%|██████    | 15/25 [36:25<14:46, 88.69s/it] Generation:  16
+Best f1_score score: 0.9973883948942651
+Generation:  64%|██████▍   | 16/25 [37:01<10:55, 72.86s/it]Generation:  17
+Best f1_score score: 0.9973883948942651
+Generation:  68%|██████▊   | 17/25 [37:09<07:07, 53.47s/it]Generation:  18
+Best f1_score score: 0.9973883948942651
+Generation:  72%|███████▏  | 18/25 [37:31<05:06, 43.72s/it]Generation:  19
+Best f1_score score: 0.9973883948942651
+Generation:  76%|███████▌  | 19/25 [38:38<05:04, 50.79s/it]Generation:  20
+Best f1_score score: 0.9973883948942651
+Generation:  80%|████████  | 20/25 [39:42<04:34, 54.96s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554750439a0> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  21
+Best f1_score score: 0.9973883948942651
+Generation:  84%|████████▍ | 21/25 [39:52<02:45, 41.44s/it]Generation:  22
+Best f1_score score: 0.9976499878829062
+Generation:  88%|████████▊ | 22/25 [40:46<02:15, 45.18s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x1554568edae0> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  23
+Best f1_score score: 0.9976499878829062
+Generation:  92%|█████████▏| 23/25 [41:45<01:38, 49.11s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155456a5df30> 
+ Input X contains NaN.
+MultinomialNB does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 732, in fit
+    X, y = self._check_X_y(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 578, in _check_X_y
+    return self._validate_data(X, y, accept_sparse="csr", reset=reset)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+MultinomialNB does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155455528670> 
+ Negative values in data passed to MultinomialNB (input X) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 759, in fit
+    self._count(X, Y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/naive_bayes.py", line 881, in _count
+    check_non_negative(X, "MultinomialNB (input X)")
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1689, in check_non_negative
+    raise ValueError("Negative values in data passed to %s" % whom)
+ValueError: Negative values in data passed to MultinomialNB (input X)
+
+WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x155474d70d60> 
+ Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 28, in cross_val_score_objective
+    this_fold_pipeline.fit(X_train,y_train)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 238, in fit
+    return self._fit(X, y)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_base.py", line 475, in _fit
+    X, y = self._validate_data(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+KNeighborsClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+
+Generation:  24
+Best f1_score score: 0.9976499878829062
+Generation:  96%|█████████▌| 24/25 [41:54<00:37, 37.12s/it]Generation:  25
+Best f1_score score: 0.9976499878829062
+Generation: 100%|██████████| 25/25 [42:03<00:00, 28.90s/it]Generation: 100%|██████████| 25/25 [42:03<00:00, 100.96s/it]
+2024-11-25 06:11:15,857 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:42369' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-103607508d7163cdd4faa49b098bf1e4', 'DataFrame-92353676d3126d50e606744850c323ce'} (stimulus_id='handle-worker-cleanup-1732543875.8577647')
+Fitted
+Pipeline(steps=[('knnimputer', KNNImputer(n_neighbors=25)),
+                ('xgbclassifier',
+                 XGBClassifier(base_score=None, booster=None, callbacks=None,
+                               colsample_bylevel=None, colsample_bynode=None,
+                               colsample_bytree=None, device=None,
+                               early_stopping_rounds=None,
+                               enable_categorical=False, eval_metric=None,
+                               feature_types=None, gamma=1.8388640625678,
+                               grow_policy=None, importance_type=None,
+                               interaction_constraints=None,
+                               learning_rate=0.391016513111, max_bin=None,
+                               max_cat_threshold=None, max_cat_to_onehot=None,
+                               max_delta_step=None, max_depth=11,
+                               max_leaves=None, min_child_weight=15,
+                               missing=nan, monotone_constraints=None,
+                               multi_strategy=None, n_estimators=100, n_jobs=1,
+                               nthread=1, num_parallel_tree=None, ...))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9999719437193483, 'accuracy': 0.9969208905731881, 'balanced_accuracy': 0.996687381347888, 'logloss': 0.014157372891293964, 'f1': 0.9966086934869008}
+test score: {'auroc': 0.9999980251516684, 'accuracy': 0.9962121212121212, 'balanced_accuracy': 0.997093023255814, 'logloss': 0.012430190038515778, 'f1': 0.9958395713497754}
+original test score: {'auroc': 1.0, 'accuracy': 1.0, 'balanced_accuracy': 1.0, 'logloss': 0.008724598004158432, 'f1': 1.0}
+score end
+42192
+lvl
+0.01
+type
+MCAR
+num_run
+1
+class_full
+finished
+all finished
+full run takes
+6.638223917682965
+hours
+DONE

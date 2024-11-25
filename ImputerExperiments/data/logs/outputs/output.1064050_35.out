@@ -1301,4 +1301,62 @@ Best f1_score score: 0.848531570079793
 Best f1_score score: 0.848531570079793
 Generation:  56%|█████▌    | 14/25 [2:09:13<1:41:26, 553.31s/it]Generation:  15
 Best f1_score score: 0.848531570079793
-Generation:  60%|██████    | 15/25 [2:18:27<1:32:15, 553.51s/it]
+Generation:  60%|██████    | 15/25 [2:18:27<1:32:15, 553.51s/it]Generation:  16
+Best f1_score score: 0.848531570079793
+Generation:  64%|██████▍   | 16/25 [2:27:54<1:23:37, 557.53s/it]Generation:  17
+Best f1_score score: 0.848531570079793
+Generation:  68%|██████▊   | 17/25 [2:37:13<1:14:25, 558.23s/it]Generation:  18
+Best f1_score score: 0.848531570079793
+Generation:  72%|███████▏  | 18/25 [2:46:29<1:05:01, 557.31s/it]Generation:  19
+Best f1_score score: 0.848531570079793
+Generation:  76%|███████▌  | 19/25 [2:55:40<55:33, 555.65s/it]  Generation:  20
+Best f1_score score: 0.848531570079793
+Generation:  80%|████████  | 20/25 [3:05:00<46:24, 556.90s/it]Generation:  21
+Best f1_score score: 0.848531570079793
+Generation:  84%|████████▍ | 21/25 [3:14:08<36:56, 554.05s/it]WARNING AN INDIVIDUAL TIMED OUT: 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15543ece8400> 
+
+Generation:  22
+Best f1_score score: 0.848531570079793
+Generation:  88%|████████▊ | 22/25 [3:24:15<28:29, 569.93s/it]Generation:  23
+Best f1_score score: 0.848531570079793
+Generation:  92%|█████████▏| 23/25 [3:33:26<18:48, 564.37s/it]Generation:  24
+Best f1_score score: 0.848531570079793
+Generation:  96%|█████████▌| 24/25 [3:42:33<09:19, 559.31s/it]Generation:  25
+Best f1_score score: 0.848531570079793
+Generation: 100%|██████████| 25/25 [3:51:40<00:00, 555.61s/it]Generation: 100%|██████████| 25/25 [3:51:40<00:00, 556.04s/it]
+2024-11-19 11:01:44,932 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:40915' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-c72343f160ce64393f670c9d26ba1997', 'ndarray-b630d46ad1cbbfbb33677ff1ca771924'} (stimulus_id='handle-worker-cleanup-1732042904.9325373')
+Fitted
+Pipeline(steps=[('iterativeimputer',
+                 IterativeImputer(estimator=RandomForestRegressor(),
+                                  imputation_order='descending',
+                                  n_nearest_features=95)),
+                ('randomforestclassifier',
+                 RandomForestClassifier(bootstrap=False,
+                                        class_weight='balanced',
+                                        criterion='entropy',
+                                        max_features=0.3514274659547,
+                                        min_samples_leaf=3, min_samples_split=8,
+                                        n_estimators=128))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9999369968218224, 'accuracy': 0.9850845210473981, 'balanced_accuracy': 0.9946236559139785, 'logloss': 0.045218839322076654, 'f1': 0.9350024267798475}
+test score: {'auroc': 0.9584909345420655, 'accuracy': 0.9668874172185431, 'balanced_accuracy': 0.8792791434172825, 'logloss': 0.15631417444058643, 'f1': 0.8674984875983061}
+original test score: {'auroc': 0.9993678589876128, 'accuracy': 0.9973509933774835, 'balanced_accuracy': 0.9990448901623686, 'logloss': 0.04643913938750812, 'f1': 0.9828550932568149}
+score end
+40497
+lvl
+0.3
+type
+MNAR
+num_run
+2
+class_full
+finished
+all finished
+full run takes
+6.183844114012189
+hours
+DONE
