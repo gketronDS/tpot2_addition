@@ -5,7 +5,12 @@ import traceback
 
 dflist=[]
 redolist={}
-for taskid in ['6', '30']:
+for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', '375', '725',
+                              '728', '737', '803', '847', '871', '881', '901', '923', '1046', 
+                              '1120', '1220', '1558', '1526', '1507', '1489', '1496', '1481',
+                              '1471', '4552', '1459', '4135', '40498', '40497', '40677', 
+                              '40685', '23395', '40983', '41027', '23517', '40701', '40922',
+                              '41671', '41146', '42192', '823', '42477', '42493', '42636']:
     fileoutput = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'
     csvout = pd.DataFrame(columns=['DatasetID','Exp_Name','Condition', 'Level', 'Triplicate','Exp1ImputeRMSEAcc','Exp2ImputeModel','Exp2train_auroc','Exp2train_accuracy', 
                                             'Exp2train_balanced_accuracy', 'Exp2train_logloss','Exp2train_f1', 'Exp2ori_auroc','Exp2ori_accuracy', 

@@ -4,32 +4,31 @@ import sklearn
 import matplotlib.pyplot as plt
 import scipy
 import re
-import seaborn as sns
-sns.set_theme()
+
 pd.set_option('display.max_columns', None)
 
-path = '/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/reg.csv'
+path = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/class.csv'
 
-reg_data = pd.read_csv(path)
+class_data = pd.read_csv(path)
 
-reg_data.head(5)
+class_data.head(5)
 
-reg_data = reg_data.dropna(how='any')
+class_data = class_data.dropna(how='any')
 
-reg_data.head(5)
+class_data.head(5)
 
-reg_data = reg_data.replace('_', '', regex=True)
-reg_data = reg_data.replace('/', '', regex=True)
-reg_data.head(5)
-reg_data.drop(columns=reg_data.columns[0], axis=1, inplace=True)
+class_data = class_data.replace('_', '', regex=True)
+class_data = class_data.replace('/', '', regex=True)
+class_data.head(5)
+class_data.drop(columns=class_data.columns[0], axis=1, inplace=True)
 convert_dict = {'DatasetID': int}
-reg_data = reg_data.astype(convert_dict)
+class_data = class_data.astype(convert_dict)
 convert_dict = {'DatasetID': str}
-reg_data = reg_data.astype(convert_dict)
-reg_data.head(5)
+class_data = class_data.astype(convert_dict)
+class_data.head(5)
 
-reg_data = reg_data.sort_values(by=['DatasetID', 'Condition', 'Level', 'Triplicate'], ascending=True)
-reg_data.head(-1)
+class_data = class_data.sort_values(by=['DatasetID', 'Condition', 'Level', 'Triplicate'], ascending=True)
+class_data.head(-1)
 
 #print(class_data[(class_data.Exp_Name == 'classfull') & (class_data.Level == '0.01')]['Exp2ImputeModel'].value_counts())
 
@@ -40,12 +39,12 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
         temp = df.copy()
         dataset_list = 'All Datasets'
     if complex:
-        name = 'regfull'
+        name = 'classfull'
         temp = temp[temp.Exp_Name == name]
         subtitle = 'Complex'
         
     else:
-        name = 'regsimple'
+        name = 'classsimple'
         temp = temp[temp.Exp_Name == name]
         subtitle = 'Simple'
         
@@ -65,15 +64,15 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
            title = 'Imputer Models'
            subtitle = 'Impute First'
         case 2:
-            pipe = 'Exp2RegressorModel'
-            title = 'Regressor Models'
+            pipe = 'Exp2ClassifierModel'
+            title = 'Classifier Models'
             subtitle = 'Impute First'
         case 3:
             pipe = 'Exp3ImputeModel'
             title = subtitle+' TPOT2 Imputer Models'
         case 4: 
-            pipe = 'Exp3RegressorModel'
-            title = subtitle+' TPOT2 Regressor Models'
+            pipe = 'Exp3ClassifierModel'
+            title = subtitle+' TPOT2 Classifier Models'
 
     for model in temp[pipe].unique():
         new_list1 = []
@@ -142,8 +141,8 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
     a[1][1].set_xlabel(xlabel)
     a[1][1].set_ylabel(ylabel)
     a[1][1].set_xticks(np.arange(0, 0.6, 0.1))  
-    a[1][1].set_yticks(np.arange(0, 1.1, 0.2))  
-    fig.suptitle('Regression '+subtitle+' Model Space: '+ str(dataset_list)+' Selection Frequency of ' + title)
+    a[1][1].set_yticks(np.arange(0, 1.1, 0.2)) 
+    fig.suptitle('Classification '+subtitle+' Model Space: '+ str(dataset_list)+' Selection Frequency of ' + title)
     lgd=fig.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05))
     fig.tight_layout()
     #fig.savefig(savepath + name+'_'+ str(dataset_list)+'_'+pipe+'.png', bbox_extra_artists=(lgd,), bbox_inches='tight')
@@ -160,15 +159,15 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
 
 for i in range(1,5):
     complexed = True
-    all_table, mar_table, mcar_models, mnar_models = display_model_proportions(reg_data, exp=i, complex=complexed, savepath='/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/Saved_Analysis/')
+    all_table, mar_table, mcar_models, mnar_models = display_model_proportions(class_data, exp=i, complex=complexed, savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
     all_table= all_table.map('{:.1%}'.format)
     print(all_table)
     if complexed:
-        name = 'regfull'
+        name = 'classfull'
         #temp = temp[temp.Exp_Name == name]
         subtitle = 'Complex'
     else:
-        name = 'regsimple'
+        name = 'classsimple'
         #temp = temp[temp.Exp_Name == name]
         subtitle = 'Simple'
 
@@ -178,16 +177,16 @@ for i in range(1,5):
                 title = 'Imputer_Models'
                 subtitle = 'Impute_First'
             case 2:
-                pipe = 'Exp2RegressorModel'
-                title = 'Regressor_Models'
+                pipe = 'Exp2ClassifierModel'
+                title = 'Classifier_Models'
                 subtitle = 'Impute_First'
             case 3:
                 pipe = 'Exp3ImputeModel'
                 title = subtitle+'_TPOT2_Imputer_Models'
             case 4: 
-                pipe = 'Exp3RegressorModel'
-                title = subtitle+'_TPOT2_Regressor_Models'
-    out = all_table.to_csv('/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/Saved_Analysis/'+name+pipe+title+subtitle+str(i)+'.csv')
+                pipe = 'Exp3ClassifierModel'
+                title = subtitle+'_TPOT2_Classifier_Models'
+    out = all_table.to_csv('/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/'+name+pipe+title+subtitle+str(i)+'.csv')
 
 def display_scores_over_options(df, test, score_type, savepath,
                                 dataset_list=None):
@@ -199,28 +198,39 @@ def display_scores_over_options(df, test, score_type, savepath,
     
     #select temp datasets for impute first, complex, and simple to compare across model settings
     
-    name = 'reg'
+    name = 'class'
     fulltemp = temp[temp.Exp_Name == name+'full']
     simpletemp = temp[temp.Exp_Name != name+'full']
-    name = 'Regression'
+    name = 'Classification'
+    
     match test:
         case 'Train':
             match score_type:
-                case 'rmse':
-                    imputer = 'Exp2train_rmse'
-                    complexer = 'Exp3train_rmse'
-                    simpler = 'Exp3train_rmse'
-                    ylabel = 'RMSE Score'
-                case 'explained_var':
-                    imputer = 'Exp2train_explained_var'
-                    complexer = 'Exp3train_explained_var'
-                    simpler = 'Exp3train_explained_var'
-                    ylabel = 'Explained Variance (%)'
-                case 'r2':
-                    imputer = 'Exp2train_r2'
-                    complexer = 'Exp3train_r2'
-                    simpler = 'Exp3train_r2'
-                    ylabel = r'$R_2$'
+                case 'f1':
+                    imputer = 'Exp2train_f1'
+                    complexer = 'Exp3train_f1'
+                    simpler = 'Exp3train_f1'
+                    ylabel = 'Macro f1 Score (%) '
+                case 'auroc':
+                    imputer = 'Exp2train_auroc'
+                    complexer = 'Exp3train_auroc'
+                    simpler = 'Exp3train_auroc'
+                    ylabel = 'AUROC (%) '
+                case 'accuracy':
+                    imputer = 'Exp2train_accuracy'
+                    complexer = 'Exp3train_accuracy'
+                    simpler = 'Exp3train_accuracy'
+                    ylabel = 'Accuracy (%) '
+                case 'balanced_accuracy':
+                    imputer = 'Exp2train_balanced_accuracy'
+                    complexer = 'Exp3train_balanced_accuracy'
+                    simpler = 'Exp3train_balanced_accuracy'
+                    ylabel = 'Balanced Accuracy (%)'
+                case 'logloss':
+                    imputer = 'Exp2train_logloss'
+                    complexer = 'Exp3train_logloss'
+                    simpler = 'Exp3train_logloss'
+                    ylabel = 'Log Loss (%)'
                 case 'training_duration':
                     imputer = 'Exp2duration'
                     complexer = 'Exp3duration'
@@ -233,21 +243,31 @@ def display_scores_over_options(df, test, score_type, savepath,
                     ylabel = 'Imputation Accuracy (RMSE)'
         case 'Test':
             match score_type:
-                case 'rmse':
-                    imputer = 'Exp2impute_rmse'
-                    complexer = 'Exp3impute_rmse'
-                    simpler = 'Exp3impute_rmse'
-                    ylabel = 'RMSE Score'
-                case 'explained_var':
-                    imputer = 'Exp2impute_explained_var'
-                    complexer = 'Exp3impute_explained_var'
-                    simpler = 'Exp3impute_explained_var'
-                    ylabel = 'Explained Variance (%)'
-                case 'r2':
-                    imputer = 'Exp2impute_r2'
-                    complexer = 'Exp3impute_r2'
-                    simpler = 'Exp3impute_r2'
-                    ylabel = r'$R_2$'
+                case 'f1':
+                    imputer = 'Exp2impute_f1'
+                    complexer = 'Exp3impute_f1'
+                    simpler = 'Exp3impute_f1'
+                    ylabel = 'Macro f1 Score (%) '
+                case 'auroc':
+                    imputer = 'Exp2impute_auroc'
+                    complexer = 'Exp3impute_auroc'
+                    simpler = 'Exp3impute_auroc'
+                    ylabel = 'AUROC (%) '
+                case 'accuracy':
+                    imputer = 'Exp2impute_accuracy'
+                    complexer = 'Exp3impute_accuracy'
+                    simpler = 'Exp3impute_accuracy'
+                    ylabel = 'Accuracy (%) '
+                case 'balanced_accuracy':
+                    imputer = 'Exp2impute_balanced_accuracy'
+                    complexer = 'Exp3impute_balanced_accuracy'
+                    simpler = 'Exp3impute_balanced_accuracy'
+                    ylabel = 'Balanced Accuracy (%)'
+                case 'logloss':
+                    imputer = 'Exp2impute_logloss'
+                    complexer = 'Exp3impute_logloss'
+                    simpler = 'Exp3impute_logloss'
+                    ylabel = 'Log Loss (%)'
                 case 'training_duration':
                     imputer = 'Exp2inference_duration'
                     complexer = 'Exp3inference_duration'
@@ -258,6 +278,7 @@ def display_scores_over_options(df, test, score_type, savepath,
                     complexer = 'Exp3ImputeRMSEAcc'
                     simpler = 'Exp3ImputeRMSEAcc'
                     ylabel = 'Imputation Accurcy (RMSE)'
+
 
     xvals = [0.01, 0.1, 0.3, 0.5]
     xlabel = 'Percent Missing'
@@ -365,8 +386,7 @@ def display_scores_over_options(df, test, score_type, savepath,
         except:
             save = i
 
-    yaxes = np.arange(0, max(maxed)+0.5, 1)
-    yaxes = np.arange(0, 8+0.5, 1)
+    yaxes = np.arange(0, max(maxed), 0.2)
     a[0][0].set_title('All Conditions')
     a[0][0].set_xlabel(xlabel)
     a[0][0].set_ylabel(ylabel)
@@ -395,9 +415,172 @@ def display_scores_over_options(df, test, score_type, savepath,
     plt.show()
     return
 
-display_scores_over_options(reg_data, test='Train', score_type='rmse', savepath='/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/Saved_Analysis')
+display_scores_over_options(class_data, test='Test', score_type='f1', savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
 
-def display_wilcoxon_results(df, savepath, dataset_list=None):
+def rainplot_annotate_brackets(num1, num2, data, size, center, height, yerr=None, dh=.05, barh=.05, fs=None, maxasterix=3):
+    """ 
+    Annotate barplot with p-values.
+
+    :param num1: number of left bar to put bracket over
+    :param num2: number of right bar to put bracket over
+    :param data: string to write or number for generating asterixes
+    :param center: centers of all bars (like plt.bar() input)
+    :param height: heights of all bars (like plt.bar() input)
+    :param yerr: yerrs of all bars (like plt.bar() input)
+    :param dh: height offset over bar / bar + yerr in axes coordinates (0 to 1)
+    :param barh: bar height in axes coordinates (0 to 1)
+    :param fs: font size
+    :param maxasterix: maximum number of asterixes to write (for very small p-values)
+    """
+
+    if type(data.pvalue) is str:
+        text = data.pvalue
+    else:
+        # * is p < 0.05
+        # ** is p < 0.005
+        # *** is p < 0.0005
+        # etc.
+        text = ''
+        p = .05
+
+        while data.pvalue < p:
+            text += '*'
+            p /= 10.
+
+            if maxasterix and len(text) == maxasterix:
+                break
+
+        if len(text) == 0:
+            text = 'n. s.'
+        
+        if data.pvalue < 0.0001:
+            text = text + '\n p=' + re.sub("[$@.&?].*[$@e&?]", "", str(data.pvalue))[:1] + 'e' + re.sub("[$@.&?].*[$@e&?]", "", str(data.pvalue))[1:]+'\n Effect=' + str(round(np.abs(data.zstatistic/np.sqrt(size)),2))
+
+    lx, ly = center[num1], height[num1]
+    rx, ry = center[num2], height[num2]
+
+    if yerr:
+        ly += yerr[num1]
+        ry += yerr[num2]
+
+    ax_y0, ax_y1 = plt.gca().get_xlim()
+    dh *= (ax_y1 - ax_y0)
+    barh *= (ax_y1 - ax_y0)
+
+    y = max(ly, ry) + dh
+
+    bary = [lx, lx, rx, rx]
+    barx = [y, y+barh, y+barh, y]
+    mid = (y+barh, (lx+rx)*0.97/2)
+
+    plt.plot(barx, bary, c='black')
+
+    kwargs = dict(ha='center', va='bottom', backgroundcolor='white', alpha=1.0)
+    if fs is not None:
+        kwargs['fontsize'] = fs
+    
+    
+
+    plt.text(*mid, text, **kwargs)
+
+import scipy.stats
+
+def wilcoxon_rainplot(data_x, scorer='Values', title='RaincloudPlot'):
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+
+    # Create a list of colors for the boxplots based on the number of features you have
+    boxplots_colors = ['yellowgreen', 'olivedrab', 'purple']
+
+    # Boxplot data
+    bp = ax.boxplot(data_x, patch_artist = True, vert = False)
+
+    # Change to the desired color and add transparency
+    for patch, color in zip(bp['boxes'], boxplots_colors):
+        patch.set_facecolor(color)
+        patch.set_alpha(0.4)
+    
+    for line in bp['medians']:
+        # get position data for median line
+        x, y = line.get_xydata()[0] # top of median line
+        # overlay median value
+        plt.text(x, y, '%.3f' % x, horizontalalignment='center') # draw above, centered
+
+    # Create a list of colors for the violin plots based on the number of features you have
+    violin_colors = ['thistle', 'orchid', 'red']
+
+    # Violinplot data
+    vp = ax.violinplot(data_x, points=500, 
+                showmeans=False, showextrema=False, showmedians=False, vert=False)
+
+    for idx, b in enumerate(vp['bodies']):
+        # Get the center of the plot
+        m = np.mean(b.get_paths()[0].vertices[:, 0])
+        # Modify it so we only see the upper half of the violin plot
+        b.get_paths()[0].vertices[:, 1] = np.clip(b.get_paths()[0].vertices[:, 1], idx+1, idx+2)
+        # Change to the desired color
+        b.set_color(violin_colors[idx])
+
+
+
+    heights = [max(i) for i in data_x]
+    x1x2 = scipy.stats.wilcoxon(x1, x2, method='approx')
+    x2x3 = scipy.stats.wilcoxon(x2, x3, method='approx')
+    x1x3 =scipy.stats.wilcoxon(x1, x3, method='approx')
+    print(x1x3)
+    bars = np.arange(1,4,1)
+    rainplot_annotate_brackets(0, 1, x1x2, x1.shape[0], bars, heights)
+    rainplot_annotate_brackets(1, 2, x2x3, x2.shape[0], bars, heights)
+    rainplot_annotate_brackets(0, 2, x1x3, x1.shape[0], bars, heights, dh=.2)
+
+
+    # Create a list of colors for the scatter plots based on the number of features you have
+    scatter_colors = ['tomato', 'darksalmon', 'teal']
+
+
+    # Scatterplot data
+    for idx, features in enumerate(data_x):
+    
+        bins = np.arange(min(features), max(features), step=(max(features)-min(features))/11)
+        hist, edges = np.histogram(features, bins=bins)
+        #print(len(hist))
+        scalehist = -0.3*(hist-hist.min())/(hist.max()-hist.min())
+        #print(len(scalehist))
+        #print(edges)
+        #y = np.full(len(bins), idx + .8)
+        #idxs=np.arange(1, hist.max()+1)
+
+
+        y = np.arange(idx+0.8, scalehist.min()+idx+0.8, step=scalehist.min()/10)
+        x = np.arange(min(features)+(max(features)-min(features))/20,max(features)+(max(features)-min(features))/20, step=(max(features)-min(features))/10)
+        X,Y = np.meshgrid(x,y)
+        #print(scalehist)
+        Y[Y<scalehist+idx+0.8] = np.nan
+        
+        plt.scatter(X,Y, s=1, c=scatter_colors[idx])
+        
+        
+
+        
+        '''
+        # Add jitter effect so the features do not overlap on the y-axis
+        y = np.full(len(features), idx + .8)
+        idxs = np.arange(len(y))
+        out = y.astype(float)
+        out.flat[idxs] += np.random.uniform(low=-.05, high=.05, size=len(idxs))
+        y = out
+        plt.scatter(features, y, s=.3, c=scatter_colors[idx])
+        '''
+
+
+
+    plt.yticks(np.arange(1,4,1), ['Impute First', 'Complex', 'Simple'])  # Set text labels.
+    plt.xlabel(scorer)
+    plt.ylabel('Experiments')
+    plt.title(title)
+    plt.show()
+
+def display_wilcoxon_results(df, score_type, savepath, dataset_list=None):
     if dataset_list is not None:
         temp = df.loc[df['DatasetID'].isin(dataset_list)].copy()
     else:
@@ -406,7 +589,7 @@ def display_wilcoxon_results(df, savepath, dataset_list=None):
     
     #select temp datasets for impute first, complex, and simple to compare across model settings
     
-    name = 'reg'
+    name = 'class'
     fulltemp = temp[temp.Exp_Name == name+'full']
     simpletemp = temp[temp.Exp_Name != name+'full']
 
@@ -419,25 +602,35 @@ def display_wilcoxon_results(df, savepath, dataset_list=None):
     fulltemp.drop(columns=['ID'])
     simpletemp.drop(columns=['ID'])
 
-    name = 'Regression'
+    name = 'Classification'
     full_frame = pd.DataFrame()
-    for score_type in ['rmse', 'explained_var', 'r2', 'training_duration', 'RMSEAcc']:
+    for score_type in ['f1', 'auroc', 'accuracy', 'balanced_accuracy', 'logloss', 'training_duration', 'RMSEAcc']:
         match score_type:
-            case 'rmse':
-                imputer = 'Exp2impute_rmse'
-                complexer = 'Exp3impute_rmse'
-                simpler = 'Exp3impute_rmse'
-                ylabel = 'RMSE Score'
-            case 'explained_var':
-                imputer = 'Exp2impute_explained_var'
-                complexer = 'Exp3impute_explained_var'
-                simpler = 'Exp3impute_explained_var'
-                ylabel = 'Explained Variance (%)'
-            case 'r2':
-                imputer = 'Exp2impute_r2'
-                complexer = 'Exp3impute_r2'
-                simpler = 'Exp3impute_r2'
-                ylabel = r'$R_2$'
+            case 'f1':
+                imputer = 'Exp2impute_f1'
+                complexer = 'Exp3impute_f1'
+                simpler = 'Exp3impute_f1'
+                ylabel = 'Weighted f1 Score (%) '
+            case 'auroc':
+                imputer = 'Exp2impute_auroc'
+                complexer = 'Exp3impute_auroc'
+                simpler = 'Exp3impute_auroc'
+                ylabel = 'AUROC (%) '
+            case 'accuracy':
+                imputer = 'Exp2impute_accuracy'
+                complexer = 'Exp3impute_accuracy'
+                simpler = 'Exp3impute_accuracy'
+                ylabel = 'Accuracy (%) '
+            case 'balanced_accuracy':
+                imputer = 'Exp2impute_balanced_accuracy'
+                complexer = 'Exp3impute_balanced_accuracy'
+                simpler = 'Exp3impute_balanced_accuracy'
+                ylabel = 'Balanced Accuracy (%)'
+            case 'logloss':
+                imputer = 'Exp2impute_logloss'
+                complexer = 'Exp3impute_logloss'
+                simpler = 'Exp3impute_logloss'
+                ylabel = 'Log Loss'
             case 'training_duration':
                 imputer = 'Exp2duration'
                 complexer = 'Exp3duration'
@@ -448,9 +641,7 @@ def display_wilcoxon_results(df, savepath, dataset_list=None):
                 complexer = 'Exp3ImputeRMSEAcc'
                 simpler = 'Exp3ImputeRMSEAcc'
                 ylabel = 'Imputation Accurcy (RMSE)'
-        
-
-    
+            
         all_models = []
         
 
@@ -472,12 +663,9 @@ def display_wilcoxon_results(df, savepath, dataset_list=None):
         all2 = all_out[2].to_frame(name=score_type)
         all2['Model'] = 'Simple'
         correct_format = pd.concat([all0, all1, all2])
-        full_frame = full_frame.concat(correct_format, axis=1)
+        full_frame = pd.concat([full_frame,correct_format], axis=1)
 
-    full_frame.to_csv('/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/reg_kw_test.csv')
-
-all_out=display_wilcoxon_results(reg_data, score_type='explained_var',savepath='/Users/gabrielketron/tpot2_addimputers/tpot2/ImputerExperiments/data/r/Saved_Analysis')
-   
+    full_frame.to_csv('/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/class_kw_test.csv')
 
 
-    
+display_wilcoxon_results(class_data, score_type='training_duration',savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')

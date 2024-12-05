@@ -93,6 +93,7 @@ def load_task(base_save_folder, task_id, r_or_c):
             X = X.iloc[:, :-1]
         X = pd.DataFrame(X)
         y = pd.DataFrame(y)
+        print(y)
         pd.set_option('display.max_columns', None)
         print(X)
         print(type(X))
@@ -133,6 +134,11 @@ def load_task(base_save_folder, task_id, r_or_c):
             le = sklearn.preprocessing.LabelEncoder()
             y_train = le.fit_transform(y_train)
             y_test = le.transform(y_test)
+            
+        print("//////")
+        print(y_train)
+        print("//////")
+        print(y_test)
 
         d = {"X_train": X_train, "y_train": y_train, "X_test": X_test, "y_test": y_test}
         if not os.path.exists(f"{base_save_folder}"):

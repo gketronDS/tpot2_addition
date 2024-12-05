@@ -570,4 +570,186 @@ Best f1_score score: 0.3430969353119585
 Best f1_score score: 0.34468606875661834
 Generation:  32%|███▏      | 8/25 [24:17<34:11, 120.69s/it]Generation:  9
 Best f1_score score: 0.34468606875661834
-Generation:  36%|███▌      | 9/25 [24:38<23:55, 89.72s/it] 
+Generation:  36%|███▌      | 9/25 [24:38<23:55, 89.72s/it] Generation:  10
+Best f1_score score: 0.3455493480493468
+Generation:  40%|████      | 10/25 [27:12<27:22, 109.51s/it]Generation:  11
+Best f1_score score: 0.3455493480493468
+Generation:  44%|████▍     | 11/25 [27:33<19:14, 82.44s/it] Generation:  12
+Best f1_score score: 0.3483669545703297
+Generation:  48%|████▊     | 12/25 [27:49<13:29, 62.24s/it]Generation:  13
+Best f1_score score: 0.3483669545703297
+Generation:  52%|█████▏    | 13/25 [31:21<21:29, 107.49s/it]Generation:  14
+Best f1_score score: 0.3483669545703297
+Generation:  56%|█████▌    | 14/25 [34:15<23:23, 127.61s/it]Generation:  15
+Best f1_score score: 0.3483669545703297
+Generation:  60%|██████    | 15/25 [34:44<16:19, 97.93s/it] Generation:  16
+Best f1_score score: 0.3483669545703297
+Generation:  64%|██████▍   | 16/25 [36:01<13:43, 91.46s/it]Generation:  17
+Best f1_score score: 0.3495763271804327
+Generation:  68%|██████▊   | 17/25 [37:49<12:53, 96.65s/it]WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION 
+ <tpot2.search_spaces.pipelines.sequential.SequentialPipelineIndividual object at 0x15545dbaebc0> 
+ Argument 'metric' has incorrect type (expected str, got numpy.str_) 
+ Traceback (most recent call last):
+  File "/common/ketrong/tpotexp/tpot2/tpot2/utils/eval_utils.py", line 53, in objective_nan_wrapper
+    value = func_timeout.func_timeout(timeout, objective_function, args=[individual], kwargs=objective_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/dafunc.py", line 108, in func_timeout
+    raise_exception(exception)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/func_timeout/py3_raise.py", line 7, in raise_exception
+    raise exception[0] from None
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator.py", line 623, in objective_function
+    return objective_function_generator(
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/estimator_utils.py", line 55, in objective_function_generator
+    cv_obj_scores = cross_val_score_objective(sklearn.base.clone(pipeline),x,y,scorers=scorers, cv=cv , fold=step)
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in cross_val_score_objective
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/tpot2/tpot2/tpot_estimator/cross_val_utils.py", line 31, in <listcomp>
+    this_fold_scores = [sklearn.metrics.get_scorer(scorer)(this_fold_pipeline, X_test, y_test) for scorer in scorers]
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 279, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 371, in _score
+    y_pred = method_caller(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_scorer.py", line 89, in _cached_call
+    result, _ = _get_response_values(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/utils/_response.py", line 211, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/pipeline.py", line 601, in predict
+    return self.steps[-1][1].predict(Xt, **params)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 259, in predict
+    probabilities = self.predict_proba(X)
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/neighbors/_classification.py", line 343, in predict_proba
+    probabilities = ArgKminClassMode.compute(
+  File "/common/ketrong/tpotexp/env/lib/python3.10/site-packages/sklearn/metrics/_pairwise_distances_reduction/_dispatcher.py", line 584, in compute
+    return ArgKminClassMode64.compute(
+TypeError: Argument 'metric' has incorrect type (expected str, got numpy.str_)
+
+Generation:  18
+Best f1_score score: 0.3495763271804327
+Generation:  72%|███████▏  | 18/25 [40:56<14:25, 123.62s/it]Generation:  19
+Best f1_score score: 0.3495763271804327
+Generation:  76%|███████▌  | 19/25 [41:36<09:51, 98.60s/it] Generation:  20
+Best f1_score score: 0.3495763271804327
+Generation:  80%|████████  | 20/25 [43:21<08:22, 100.49s/it]Generation:  21
+Best f1_score score: 0.3495763271804327
+Generation:  84%|████████▍ | 21/25 [45:11<06:53, 103.29s/it]Generation:  22
+Best f1_score score: 0.3495763271804327
+Generation:  88%|████████▊ | 22/25 [46:44<05:00, 100.33s/it]Generation:  23
+Best f1_score score: 0.3515473178404652
+Generation:  92%|█████████▏| 23/25 [47:12<02:36, 78.46s/it] Generation:  24
+Best f1_score score: 0.3515473178404652
+Generation:  96%|█████████▌| 24/25 [51:34<02:13, 133.69s/it]Generation:  25
+Best f1_score score: 0.3515473178404652
+Generation: 100%|██████████| 25/25 [52:14<00:00, 105.67s/it]Generation: 100%|██████████| 25/25 [52:18<00:00, 125.56s/it]
+2024-11-25 15:58:40,837 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:37349' caused the cluster to lose scattered data, which can't be recovered: {'ndarray-0bf36a9d81f9384d645087480e99b80a', 'ndarray-02a4112a95fe9a3ea008468d4844c812'} (stimulus_id='handle-worker-cleanup-1732579120.8371298')
+Fitted
+Pipeline(steps=[('extratreesclassifier',
+                 ExtraTreesClassifier(class_weight='balanced',
+                                      criterion='entropy',
+                                      max_features=0.577791039504,
+                                      min_samples_leaf=2, min_samples_split=10,
+                                      n_jobs=1))])
+score start
+train score: {'auroc': 0.9983854859784265, 'accuracy': 0.959, 'balanced_accuracy': 0.9839738751994744, 'logloss': 0.6277324730769951, 'f1': 0.9481808886027532}
+original test score: {'auroc': 0.7411330477634469, 'accuracy': 0.48775, 'balanced_accuracy': 0.39647654807871685, 'logloss': 1.201175562946125, 'f1': 0.3738494699491527}
+imputed test score: {'auroc': 0.6802798612189752, 'accuracy': 0.476, 'balanced_accuracy': 0.3195125928261416, 'logloss': 1.2461460551089334, 'f1': 0.31442928898842154}
+score end
+check intended
+EXP2 Finished
+running experiment 3/3 - What is the best automl settings?
+<tpot2.search_spaces.pipelines.sequential.SequentialPipeline object at 0x15543504f9d0>
+Start tpot fit
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+Version 0.1.7a0 of tpot2 is outdated. Version 0.1.8a0 was released Tuesday September 17, 2024.
+  0%|          | 0/25 [00:00<?, ?it/s]Generation:   0%|          | 0/25 [00:00<?, ?it/s]Generation:  1
+Best f1_score score: 0.34449600216886206
+Generation:   4%|▍         | 1/25 [03:10<1:16:09, 190.41s/it]Generation:  2
+Best f1_score score: 0.34449600216886206
+Generation:   8%|▊         | 2/25 [06:23<1:13:34, 191.92s/it]Generation:  3
+Best f1_score score: 0.34449600216886206
+Generation:  12%|█▏        | 3/25 [08:29<59:16, 161.67s/it]  Generation:  4
+Best f1_score score: 0.34449600216886206
+Generation:  16%|█▌        | 4/25 [10:41<52:36, 150.30s/it]Generation:  5
+Best f1_score score: 0.35038749033961425
+Generation:  20%|██        | 5/25 [13:20<51:08, 153.42s/it]Generation:  6
+Best f1_score score: 0.35038749033961425
+Generation:  24%|██▍       | 6/25 [16:26<52:02, 164.36s/it]Generation:  7
+Best f1_score score: 0.3539074304382249
+Generation:  28%|██▊       | 7/25 [18:16<43:56, 146.48s/it]Generation:  8
+Best f1_score score: 0.3539074304382249
+Generation:  32%|███▏      | 8/25 [21:30<45:47, 161.65s/it]Generation:  9
+Best f1_score score: 0.3539074304382249
+Generation:  36%|███▌      | 9/25 [23:17<38:31, 144.48s/it]Generation:  10
+Best f1_score score: 0.3539074304382249
+Generation:  40%|████      | 10/25 [25:20<34:29, 137.96s/it]Generation:  11
+Best f1_score score: 0.3539074304382249
+Generation:  44%|████▍     | 11/25 [28:20<35:12, 150.87s/it]Generation:  12
+Best f1_score score: 0.3539074304382249
+Generation:  48%|████▊     | 12/25 [30:35<31:37, 145.95s/it]Generation:  13
+Best f1_score score: 0.3539074304382249
+Generation:  52%|█████▏    | 13/25 [32:39<27:52, 139.35s/it]Generation:  14
+Best f1_score score: 0.3539074304382249
+Generation:  56%|█████▌    | 14/25 [34:12<22:58, 125.29s/it]Generation:  15
+Best f1_score score: 0.3539074304382249
+Generation:  60%|██████    | 15/25 [36:33<21:40, 130.00s/it]Generation:  16
+Best f1_score score: 0.3539074304382249
+Generation:  64%|██████▍   | 16/25 [37:39<16:37, 110.87s/it]Generation:  17
+Best f1_score score: 0.3539074304382249
+Generation:  68%|██████▊   | 17/25 [39:06<13:48, 103.58s/it]Generation:  18
+Best f1_score score: 0.3539074304382249
+Generation:  72%|███████▏  | 18/25 [40:47<12:01, 103.06s/it]Generation:  19
+Best f1_score score: 0.3539074304382249
+Generation:  76%|███████▌  | 19/25 [44:12<13:20, 133.40s/it]Generation:  20
+Best f1_score score: 0.3539074304382249
+Generation:  80%|████████  | 20/25 [47:25<12:37, 151.51s/it]Generation:  21
+Best f1_score score: 0.3539074304382249
+Generation:  84%|████████▍ | 21/25 [48:18<08:07, 121.94s/it]Generation:  22
+Best f1_score score: 0.3539074304382249
+Generation:  88%|████████▊ | 22/25 [50:57<06:38, 132.84s/it]Generation:  23
+Best f1_score score: 0.3539074304382249
+Generation:  92%|█████████▏| 23/25 [51:50<03:38, 109.05s/it]Generation:  24
+Best f1_score score: 0.3539074304382249
+Generation:  96%|█████████▌| 24/25 [54:20<02:01, 121.43s/it]Generation:  25
+Best f1_score score: 0.3539074304382249
+Generation: 100%|██████████| 25/25 [57:49<00:00, 147.63s/it]Generation: 100%|██████████| 25/25 [57:49<00:00, 138.79s/it]
+2024-11-25 16:56:43,602 - distributed.scheduler - ERROR - Removing worker 'tcp://127.0.0.1:33929' caused the cluster to lose scattered data, which can't be recovered: {'DataFrame-b90775e8df6934484def39cf35a3d61a', 'ndarray-02a4112a95fe9a3ea008468d4844c812'} (stimulus_id='handle-worker-cleanup-1732582603.6024573')
+Fitted
+Pipeline(steps=[('simpleimputer', SimpleImputer(strategy='median')),
+                ('extratreesclassifier',
+                 ExtraTreesClassifier(bootstrap=True, class_weight='balanced',
+                                      max_features=0.2746171906093,
+                                      min_samples_split=10, n_jobs=1))])
+transform worked
+try transform
+transform worked
+score start
+train score: {'auroc': 0.9841420350853243, 'accuracy': 0.9049375, 'balanced_accuracy': 0.9509164576245916, 'logloss': 0.7768012462413413, 'f1': 0.8939991466023031}
+test score: {'auroc': 0.6948495432123374, 'accuracy': 0.48875, 'balanced_accuracy': 0.3318247395489634, 'logloss': 1.2224056950970843, 'f1': 0.32974444357128907}
+original test score: {'auroc': 0.7445126067248673, 'accuracy': 0.50175, 'balanced_accuracy': 0.41238347562835953, 'logloss': 1.1883407921608853, 'f1': 0.38984631899081823}
+score end
+41671
+lvl
+0.5
+type
+MNAR
+num_run
+1
+class_simple
+finished
+all finished
+full run takes
+1.8550696349143982
+hours
+DONE

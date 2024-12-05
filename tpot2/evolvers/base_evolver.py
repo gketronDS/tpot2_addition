@@ -30,8 +30,7 @@ def ind_crossover(ind1, ind2, rng):
 
 class BaseEvolver():
     def __init__(   self,
-                    individual_generator ,
-
+                    individual_generator,
                     objective_functions,
                     objective_function_weights,
                     objective_names = None,
@@ -361,12 +360,18 @@ class BaseEvolver():
         init_names = self.objective_names
         if self.budget_range is not None:
             init_names = init_names + ["Budget"]
+        #print('base evolver start')
         if self.population is None:
+            #print('no self pop')
             self.population = tpot2.Population(column_names=init_names)
             initial_population = [next(self.individual_generator) for _ in range(self.cur_population_size)]
+            #print('Init')
+            #print(initial_population)
+            #print('Init Done')
             self.population.add_to_population(initial_population, self.rng)
+            #print('Pop added')
             self.population.update_column(self.population.population, column_names="Generation", data=self.generation)
-
+        #print(self.population)
 
     def optimize(self, generations=None):
 
@@ -387,10 +392,11 @@ class BaseEvolver():
                     memory_limit=self.memory_limit)
             self._client = Client(self._cluster)
 
-
+        #print('initialized')
 
         if generations is None:
             generations = self.generations
+        
 
         start_time = time.time()
 
@@ -400,6 +406,7 @@ class BaseEvolver():
 
         self.scheduled_timeout_time = time.time() + self.max_time_seconds
 
+        #self.generation)
 
         try:
             #for gen in tnrange(generations,desc="Generation", disable=self.verbose<1):
@@ -414,6 +421,7 @@ class BaseEvolver():
             while not done:
                 # Generation 0 is the initial population
                 if self.generation == 0:
+                    #print('first generation')
                     if self.population_file is not None:
                         pickle.dump(self.population, open(self.population_file, "wb"))
                     self.evaluate_population()
@@ -502,11 +510,13 @@ class BaseEvolver():
 
     def step(self,):
         if self.population_size_list is not None:
+            #print('population_size_list is not None')
             if self.generation < len(self.population_size_list):
                 self.cur_population_size = self.population_size_list[self.generation]
             else:
                 self.cur_population_size = self.population_size
-
+        #print("pop size:")
+        #print(self.cur_population_size)
         if self.budget_list is not None:
             if len(self.budget_list) <= self.generation:
                 self.budget = self.budget_range[-1]
@@ -514,15 +524,23 @@ class BaseEvolver():
                 self.budget = self.budget_list[self.generation]
         else:
             self.budget = None
-
+        #print('budget:')
+        #print(self.budget)
         if self.survival_selector is not None:
-            n_survivors = max(1,int(self.cur_population_size*self.survival_percentage)) #always keep at least one individual
-            self.population.survival_select(    selector=self.survival_selector,
-                                                weights=self.objective_function_weights,
-                                                columns_names=self.objective_names,
-                                                n_survivors=n_survivors,
-                                                inplace=True,
-                                                rng=self.rng,)
+            n_survivors = max(1,int(self.cur_population_size*self.survival_percentage))
+            #print("Individuals Start")
+            #print(self.population.evaluated_individuals)
+            #print('# survivors')
+            #print(n_survivors)
+            #print('Column names')
+            #print(self.objective_names)
+            #print("Individual End") #always keep at least one individual
+            self.population.survival_select(selector=self.survival_selector,
+                                            weights=self.objective_function_weights,
+                                            columns_names=self.objective_names,
+                                            n_survivors=n_survivors,
+                                            inplace=True,
+                                            rng=self.rng,)
 
         self.generate_offspring()
         self.evaluate_population()

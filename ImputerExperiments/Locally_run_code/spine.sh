@@ -11,7 +11,8 @@
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
-#SBATCH --array=1-2
+#SBATCH --array=1-15
+
 
 RUN=${SLURM_ARRAY_TASK_ID:-1}
 
@@ -27,7 +28,7 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 main2.py \
+srun -u python3.10 spine.py \
 --n_jobs 16 \
 --savepath ../data \
 --num_runs ${RUN} \

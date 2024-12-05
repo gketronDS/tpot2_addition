@@ -93,8 +93,23 @@ class Population():
 
     def survival_select(self, selector, weights, columns_names, n_survivors, rng=None, inplace=True):
         rng = np.random.default_rng(rng)
+        #print('selector')
+        #print(selector)
+        #print('survival select RNG')
+        #print(rng)
+        #print('weights')
+        #print(weights)
+        #print('column names')
+        #print(columns_names)
+        #print('TEST POPulation')
+        #print(self.population)
         weighted_scores = self.get_column(self.population, column_names=columns_names) * weights
+        #print('score')
+        #print(weighted_scores)
         new_population_index = np.ravel(selector(weighted_scores, k=n_survivors, rng=rng)) #TODO make it clear that we are concatenating scores...
+        #print('TEST POP')
+        #print(new_population_index)
+        #print('END POP')
         new_population = np.array(self.population)[new_population_index]
         if inplace:
             self.set_population(new_population, rng=rng)
@@ -156,21 +171,34 @@ class Population():
 
         new_individuals = []
         #TODO check for proper inputs
+        #print('current index')
+        #print(self.evaluated_individuals.index)
         for individual in individuals:
+            #print('adding individual')
+            #print(individual)
             key = individual.unique_id()
-
+            #print('new key')
+            #print(key)
+            #print('current index')
+            #print(self.evaluated_individuals.index)
             if key not in self.evaluated_individuals.index: #If its new, we always add it
                 self.evaluated_individuals.loc[key] = np.nan
                 self.evaluated_individuals.loc[key,"Individual"] = copy.deepcopy(individual)
                 self.population.append(individual)
+                #print('New individual added')
+                #print(self.population)
                 new_individuals.append(individual)
 
             else:#If its old
                 if keep_repeats: #If we want to keep repeats, we add it
                     self.population.append(individual)
+                    #print('New individual added')
+                    #print(self.population)
                     new_individuals.append(individual)
                 elif mutate_until_unique: #If its old and we don't want repeats, we can optionally mutate it until it is unique
+                    #print('attempting mutation')
                     for _ in range(20):
+                        #print(_)
                         individual = copy.deepcopy(individual)
                         individual.mutate(rng=rng)
                         key = individual.unique_id()
@@ -178,9 +206,11 @@ class Population():
                             self.evaluated_individuals.loc[key] = np.nan
                             self.evaluated_individuals.loc[key,"Individual"] = copy.deepcopy(individual)
                             self.population.append(individual)
+                            #print('New individual added')
+                            #print(self.population)
                             new_individuals.append(individual)
                             break
-
+        #print(new_individuals)
         return new_individuals
 
 
@@ -210,7 +240,9 @@ class Population():
         If the data is a list, it must be the same length as the evaluated_individuals.
         If the data is a single value, it will be applied to all individuals in the evaluated_individuals.
         '''
+        #print('get column 1')
         if isinstance(individual, collections.abc.Iterable):
+
             if self.use_unique_id:
                 key = [ind.unique_id() for ind in individual]
             else:
@@ -225,6 +257,7 @@ class Population():
             slice = self.evaluated_individuals.loc[key,column_names]
         else:
             slice = self.evaluated_individuals.loc[key]
+        #slice)
         if to_numpy:
             slice.reset_index(drop=True, inplace=True)
             return slice.to_numpy()

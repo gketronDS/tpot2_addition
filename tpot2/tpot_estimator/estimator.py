@@ -517,6 +517,7 @@ class TPOTEstimator(BaseEstimator):
             y = self.label_encoder_.fit_transform(y)
 
         self.evaluated_individuals = None
+        #print('evaluated individuals set to none')
         #determine validation strategy
         if self.validation_strategy == 'auto':
             nrows = X.shape[0]
@@ -582,6 +583,7 @@ class TPOTEstimator(BaseEstimator):
             
         else:
             self._preprocessing_pipeline = None
+            #print('no preprocessing')
 
         #_, y = sklearn.utils.check_X_y(X, y, y_numeric=True)
 
@@ -697,6 +699,7 @@ class TPOTEstimator(BaseEstimator):
 
         #If warm start and we have an evolver instance, use the existing one
         if not(self.warm_start and self._evolver_instance is not None):
+            #print('self.warmstart and evolver instance')
             self._evolver_instance = self._evolver(   individual_generator=ind_generator(self.rng),
                                             objective_functions= [objective_function],
                                             objective_function_weights = self.objective_function_weights,
