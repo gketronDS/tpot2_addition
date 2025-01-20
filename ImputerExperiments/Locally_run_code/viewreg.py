@@ -272,16 +272,31 @@ for taskid in ['189', '197', '198', '215', '216', '218', '1193', '1199', '1200',
                             #print(tpot_space)
                         with open(imputepath + 'tpot_space_fitted_pipeline.pkl', 'rb') as file:
                             tpot_space_pipeline = pickle.load(file)
-                            #print(tpot_space_pipeline)
                         
-                        csvout.loc['/'+taskid+'_'+exp+item+lvl+iter] = pd.Series({'DatasetID':taskid,'Exp_Name': exp,'Condition': item, 'Level': lvl, 'Triplicate': iter,'Exp1ImputeRMSEAcc': est['impute_rmse'] ,'Exp2ImputeModel': str(est['impute_space']['model_name']),'Exp2train_explained_var': est['train_score']['train_explained_var'],'Exp2train_r2': est['train_score']['train_r2'], 
+                        Exp2ImputeModel = str(est['impute_space']['model_name'])
+                        if (Exp2ImputeModel == 'IterativeImputer'):
+                            if str(est['impute_space']['estimator']) == 'RFR':
+                                Exp2ImputeModel = 'RandomForestImputer'
+
+                        #print(tpot_space["fit_model"][0])
+
+                        Exp3ImputeModel = str(tpot_space['fit_model'][0]).split('(')[0]
+                        if (Exp3ImputeModel == 'IterativeImputer'):
+                            placeholder = str(tpot_space['fit_model'][0]).split('(')[1].split(',')[0]
+                            if placeholder == 'estimator=RandomForestRegressor()':
+                                Exp3ImputeModel = 'RandomForestImputer'
+                        
+
+                        #print(tpot_space_pipeline)
+                        
+                        csvout.loc['/'+taskid+'_'+exp+item+lvl+iter] = pd.Series({'DatasetID':taskid,'Exp_Name': exp,'Condition': item, 'Level': lvl, 'Triplicate': iter,'Exp1ImputeRMSEAcc': est['impute_rmse'] ,'Exp2ImputeModel': Exp2ImputeModel, 'Exp2train_explained_var': est['train_score']['train_explained_var'],'Exp2train_r2': est['train_score']['train_r2'], 
                                             'Exp2train_rmse': est['train_score']['train_rmse'], 'Exp2ori_explained_var': est['ori_test_score']['explained_var'], 'Exp2ori_r2': est['ori_test_score']['r2'], 
                                             'Exp2ori_rmse': est['ori_test_score']['rmse'], 'Exp2impute_explained_var': est['imputed_test_score']['explained_var'], 'Exp2impute_r2': est['imputed_test_score']['r2'], 
                                             'Exp2impute_rmse': est['imputed_test_score']['rmse'], 'Exp2RegressorModel': str(est['fit_model'][0]).split('(')[0], 'Exp2duration': est['duration'],'Exp2inference_duration': est['inference_time'] ,
                                             'Exp3train_explained_var': tpot_space['train_score']['train_explained_var'], 'Exp3train_r2': tpot_space['train_score']['train_r2'], 'Exp3train_rmse': tpot_space['train_score']['train_rmse'], 
                                             'Exp3ori_explained_var': tpot_space['ori_test_score']['explained_var'], 'Exp3ori_r2': tpot_space['ori_test_score']['r2'], 'Exp3ori_rmse': tpot_space['ori_test_score']['rmse'],
                                             'Exp3impute_explained_var': tpot_space['test_score']['explained_var'], 'Exp3impute_r2': tpot_space['test_score']['r2'], 'Exp3impute_rmse': tpot_space['test_score']['rmse'],  
-                                            'Exp3ImputeModel': str(tpot_space['fit_model'][0]).split('(')[0], 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3RegressorModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
+                                            'Exp3ImputeModel': Exp3ImputeModel, 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3RegressorModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
                         
                         print(taskid+' '+str(num_run)+' passed: '+exp+item+lvl+iter)
 

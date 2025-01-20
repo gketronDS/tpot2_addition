@@ -15,6 +15,8 @@ from sklearn.impute import IterativeImputer
 from sklearn.impute import KNNImputer
 from sklearn.impute import SimpleImputer
 from tpot2.builtin_modules.imputer import GainImputer, VAEImputer
+import timeout_decorator
+from timeout_decorator.timeout_decorator import TimeoutError
 
 
 class AutoImputer():
@@ -65,7 +67,7 @@ class AutoImputer():
       splitting = ShuffleSplit(n_splits=1, random_state=self.random_state)
     else:
       splitting = KFold(n_splits=self.internal_folds, 
-                        random_state=self.random_state, shuffle=True)
+                        random_state=self.random_state, shuffle=True)   
     def obj(trial):
       print('running')
       my_params = trial_suggestion(trial, self.model_names, 
@@ -171,6 +173,7 @@ def MyModel(**params):
             )
     return this_model
 
+@timeout_decorator.timeout(180, timeout_exception=optuna.TrialPruned, use_signals=False)
 def score(trial: optuna.trial.Trial, splitting, my_model, X: pd.DataFrame, missing_set: pd.DataFrame, masked_set:pd.DataFrame):
     avg_cv_rmse = []
     for i, (train_index, test_index) in enumerate(splitting.split(X)):

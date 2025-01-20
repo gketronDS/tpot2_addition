@@ -26,22 +26,47 @@ from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
 
 import tpot2.tpot_estimator
 
+def roc_auc_score_multiclass(actual_class, pred_class, average="macro"):
+    unique_classes = set(actual_class)
+    roc_auc_list = []
+    for per_class in unique_classes:
+        other_class = [x for x in unique_classes if x != per_class]
+
+        new_actual_class = [0 if x in other_class else 1 for x in actual_class]
+        new_pred_class = [0 if x in other_class else 1 for x in pred_class]
+
+        roc_auc = sklearn.metrics.roc_auc_score(new_actual_class, new_pred_class, average=average)
+        roc_auc_list.append(roc_auc)
+    return sum(roc_auc_list)/len(roc_auc_list)
+
+def logloss_multiclass(actual_class, pred_class):
+    unique_classes = set(actual_class)
+    roc_auc_list = []
+    for per_class in unique_classes:
+        other_class = [x for x in unique_classes if x != per_class]
+
+        new_actual_class = [0 if x in other_class else 1 for x in actual_class]
+        new_pred_class = [0 if x in other_class else 1 for x in pred_class]
+
+        roc_auc = sklearn.metrics.log_loss(new_actual_class, new_pred_class)
+        roc_auc_list.append(roc_auc)
+    return sum(roc_auc_list)/len(roc_auc_list)
 
 def score(est, X, y, r_or_c):
     if r_or_c == 'c':
         try:
             this_auroc_score = sklearn.metrics.get_scorer("roc_auc_ovr")(est, X, y)
         except:
-            y_preds = est.predict(X)
-            y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-            this_explained_score = sklearn.metrics.explained_variance_score(y, y_preds_onehot)
-        
+            y_preds=est.predict(X)
+            print(y)
+            print(y_preds)
+            this_auroc_score = roc_auc_score_multiclass(y, y_preds)
+            print(this_auroc_score)
         try:
             this_logloss = sklearn.metrics.get_scorer("neg_log_loss")(est, X, y)*-1
         except:
             y_preds = est.predict(X)
-            y_preds_onehot = sklearn.preprocessing.label_binarize(y_preds, classes=est.fitted_pipeline_.classes_)
-            this_logloss = log_loss(y, y_preds_onehot)
+            this_logloss = logloss_multiclass(y, y_preds)
 
         this_accuracy_score = sklearn.metrics.get_scorer("accuracy")(est, X, y)
         this_balanced_accuracy_score = sklearn.metrics.get_scorer("balanced_accuracy")(est, X, y)
@@ -88,6 +113,9 @@ def load_task(base_save_folder, task_id, r_or_c):
             y = X.iloc[:, 5].copy()
             X = X.drop('y1', axis=1)
             print('23515')
+        elif (task_id == 183) or (task_id == 375) or (task_id == 1220) or (task_id == 41146):
+            y = X.iloc[:, 0]
+            X = X.iloc[:, 1:]
         elif y is None: 
             y = X.iloc[:, -1:]
             X = X.iloc[:, :-1]
@@ -98,18 +126,24 @@ def load_task(base_save_folder, task_id, r_or_c):
         print(X)
         print(type(X))
         if r_or_c =='c':
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
+            try:
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
+            except:
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         else: 
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         print(X_train)
         print(type(X_train))
         if task_id == 42712:
+            season_encoder = sklearn.preprocessing.OrdinalEncoder(dtype=np.float64)
+            X_train[["season", "holiday", "workingday", "weather"]]=season_encoder.fit_transform(X_train[["season", "holiday", "workingday", "weather"]])
+            X_test[["season", "holiday", "workingday", "weather"]]=season_encoder.transform(X_test[["season", "holiday", "workingday", "weather"]])
             preprocessing_pipeline = sklearn.pipeline.make_pipeline(
                 tpot2.builtin_modules.ColumnSimpleImputer(
                     "categorical", strategy='most_frequent'), 
                 tpot2.builtin_modules.ColumnSimpleImputer(
                     "numeric", strategy='mean'), 
-                tpot2.builtin_modules.column_one_hot_encoder.ColumnOneHotEncoder(columns="categorical", min_frequency=0.001),
+                tpot2.builtin_modules.column_one_hot_encoder.ColumnOrdinalEncoder(columns="categorical", min_frequency=0.001, handle_unknown="use_encoded_value"),
                 sklearn.preprocessing.MinMaxScaler()
                 )
         else:
@@ -131,9 +165,16 @@ def load_task(base_save_folder, task_id, r_or_c):
         print(type(X_test))
 
         if r_or_c =='c':
-            le = sklearn.preprocessing.LabelEncoder()
-            y_train = le.fit_transform(y_train)
-            y_test = le.transform(y_test)
+            if (task_id == 4552) or (task_id == 26) or (task_id == 183):
+                oe = sklearn.preprocessing.OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=-1)
+                y_train = oe.fit_transform(y_train)
+                y_test = oe.transform(y_test)
+                y_train = np.hstack(y_train)
+                y_test = np.hstack(y_test)
+            else:
+                le = sklearn.preprocessing.LabelEncoder()
+                y_train = le.fit_transform(y_train)
+                y_test = le.transform(y_test)
             
         print("//////")
         print(y_train)
@@ -549,12 +590,14 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
         try:
             print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
             #Simple Impute 
-            
+            missingnessmodels = ['MAR', 'MNAR', 'MCAR']
+            random.seed(num_runs)
+            ourmodel = random.choice(missingnessmodels)
             all_scores = {}
             
             if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
                 SimpleImputeSpace = autoimpute.AutoImputer(
-                    missing_type=type_1, 
+                    missing_type=ourmodel, 
                     model_names=['SimpleImputer'], 
                     n_jobs=n_jobs, show_progress=False, random_state=num_iter)
                 impute_train = SimpleImputeSpace.fit_transform(X_train_M)
@@ -573,7 +616,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                 all_scores['impute_space'] = simple_space
             else:
                 #Auto Impute 
-                AutoImputeSpace = autoimpute.AutoImputer(missing_type=type_1, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'VAE'], n_jobs=n_jobs, show_progress=False, random_state=num_iter)
+                AutoImputeSpace = autoimpute.AutoImputer(missing_type=ourmodel, model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'VAE'], n_jobs=n_jobs, show_progress=False, random_state=num_iter)
                 impute_train = AutoImputeSpace.fit_transform(X_train_M)
                 print('auto fit')
                 impute_test = AutoImputeSpace.transform(X_test_M)
@@ -593,6 +636,10 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
             #this section trains off of original train data, and then tests on the original, the simpleimputed,
             #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
             # not the role of various imputers in the tpot optimization space. 
+            try: 
+                os.remove(f"{checkpoint_folder}/population.pkl")
+            except:
+                print('no checkpoint to remove')
 
             exp['params']['periodic_checkpoint_folder'] = checkpoint_folder
             if r_or_c == 'c':
@@ -657,7 +704,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
 
             print('EXP2 Finished')
             
-
+            '''
             print("running experiment 3/3 - What is the best automl settings?")
             os.remove(f"{checkpoint_folder}/population.pkl")
             
@@ -722,7 +769,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                 pickle.dump(tpot_space_scores, f)
             
             #return
-            
+            '''
         except Exception as e:
             trace =  traceback.format_exc() 
             pipeline_failure_dict = {"taskid": taskid, "exp_name": exp['exp_name'], "run": num_iter, "error": str(e), "trace": trace, "level": level, "type": type_1}

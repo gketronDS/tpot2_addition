@@ -281,8 +281,20 @@ for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', 
                         with open(imputepath + 'tpot_space_fitted_pipeline.pkl', 'rb') as file:
                             tpot_space_pipeline = pickle.load(file)
                             #print(tpot_space_pipeline)
-                        
-                        csvout.loc['/'+taskid+'_'+exp+item+lvl+iter] = pd.Series({'DatasetID':taskid,'Exp_Name': exp,'Condition': item, 'Level': lvl, 'Triplicate': iter,'Exp1ImputeRMSEAcc': est['impute_rmse'] ,'Exp2ImputeModel': str(est['impute_space']['model_name']),'Exp2train_auroc': est['train_score']['train_auroc'],'Exp2train_accuracy': est['train_score']['train_accuracy'], 
+                        Exp2ImputeModel = str(est['impute_space']['model_name'])
+                        if (Exp2ImputeModel == 'IterativeImputer'):
+                            if str(est['impute_space']['estimator']) == 'RFR':
+                                Exp2ImputeModel = 'RandomForestImputer'
+
+                        #print(tpot_space["fit_model"][0])
+
+                        Exp3ImputeModel = str(tpot_space['fit_model'][0]).split('(')[0]
+                        if (Exp3ImputeModel == 'IterativeImputer'):
+                            placeholder = str(tpot_space['fit_model'][0]).split('(')[1].split(',')
+                            if placeholder == 'estimator=RandomForestRegressor()':
+                                Exp3ImputeModel = 'RandomForestImputer'
+                                
+                        csvout.loc['/'+taskid+'_'+exp+item+lvl+iter] = pd.Series({'DatasetID':taskid,'Exp_Name': exp,'Condition': item, 'Level': lvl, 'Triplicate': iter,'Exp1ImputeRMSEAcc': est['impute_rmse'] ,'Exp2ImputeModel': Exp2ImputeModel,'Exp2train_auroc': est['train_score']['train_auroc'],'Exp2train_accuracy': est['train_score']['train_accuracy'], 
                                             'Exp2train_balanced_accuracy': est['train_score']['train_balanced_accuracy'], 'Exp2train_logloss': est['train_score']['train_logloss'],'Exp2train_f1': est['train_score']['train_f1'], 'Exp2ori_auroc': est['ori_test_score']['auroc'],'Exp2ori_accuracy': est['ori_test_score']['accuracy'], 
                                             'Exp2ori_balanced_accuracy': est['ori_test_score']['balanced_accuracy'], 'Exp2ori_logloss': est['ori_test_score']['logloss'],'Exp2ori_f1': est['ori_test_score']['f1'], 'Exp2impute_auroc': est['imputed_test_score']['auroc'],'Exp2impute_accuracy': est['imputed_test_score']['accuracy'], 
                                             'Exp2impute_balanced_accuracy': est['imputed_test_score']['balanced_accuracy'], 'Exp2impute_logloss': est['imputed_test_score']['logloss'],'Exp2impute_f1': est['imputed_test_score']['f1'], 'Exp2ClassifierModel': str(est['fit_model'][0]).split('(')[0], 'Exp2duration': est['duration'],'Exp2inference_duration': est['inference_time'],
@@ -290,7 +302,7 @@ for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', 
                                             'Exp3train_logloss': tpot_space['train_score']['train_logloss'], 'Exp3train_f1': tpot_space['train_score']['train_f1'], 'Exp3ori_auroc': tpot_space['ori_test_score']['auroc'], 'Exp3ori_accuracy': tpot_space['ori_test_score']['accuracy'], 'Exp3ori_balanced_accuracy': tpot_space['ori_test_score']['balanced_accuracy'], 
                                             'Exp3ori_logloss': tpot_space['ori_test_score']['logloss'], 'Exp3ori_f1': tpot_space['ori_test_score']['f1'], 'Exp3impute_auroc': tpot_space['test_score']['auroc'], 'Exp3impute_accuracy': tpot_space['test_score']['accuracy'], 'Exp3impute_balanced_accuracy': tpot_space['test_score']['balanced_accuracy'], 
                                             'Exp3impute_logloss': tpot_space['test_score']['logloss'], 'Exp3impute_f1': tpot_space['test_score']['f1'],
-                                            'Exp3ImputeModel': str(tpot_space['fit_model'][0]).split('(')[0], 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3ClassifierModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
+                                            'Exp3ImputeModel': Exp3ImputeModel, 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3ClassifierModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
                         
                         print(taskid+' '+str(num_run)+' passed: '+exp+item+lvl+iter)
 

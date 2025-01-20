@@ -24,6 +24,7 @@ import autoimpute
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer, KNNImputer
 from datetime import datetime
+import random
 
 import tpot2.tpot_estimator
 
@@ -289,19 +290,20 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
     try:
         print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
         #Simple Impute 
+        missingnessmodels = ['MAR', 'MNAR', 'MCAR']
+        random.seed(num_runs)
+        ourmodel = random.choice(missingnessmodels)
+        first_scores = {}
+        X_train_u = pd.DataFrame(X_train_u)
+        X_test_u = pd.DataFrame(X_test_u)
         
-        all_scores = {}
-        all_scores['impute_rmse'] = 0
-        all_scores['impute_space'] = 0
-        impute_train = X_train_i
-        '''
         if exp['exp_name'] == 'class_simple' or exp['exp_name'] == 'reg_simple':
             SimpleImputeSpace = autoimpute.AutoImputer(
                 model_names=['SimpleImputer'],
-                n_trials=16, n_jobs=n_jobs, show_progress=False, random_state=num_iter)
-            impute_train = SimpleImputeSpace.fit_transform(X_train_M)
+                n_jobs=n_jobs, show_progress=False, random_state=num_iter, missing_type=ourmodel)
+            impute_train = SimpleImputeSpace.fit_transform(X_train_u)
             print('simple fit')
-            impute_test = SimpleImputeSpace.transform(X_test_M)
+            impute_test = SimpleImputeSpace.transform(X_test_u)
             print('simple transform')
             print(impute_train.isna().sum())
             print(impute_test.isna().sum())
@@ -311,11 +313,11 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
             impute_test = impute_test.to_numpy()
             print(simple_rmse)
             print(simple_space)
-            all_scores['impute_rmse'] = simple_rmse
-            all_scores['impute_space'] = simple_space
+            first_scores['impute_rmse'] = simple_rmse
+            first_scores['impute_space'] = simple_space
         else:
             #Auto Impute 
-            AutoImputeSpace = autoimpute.AutoImputer(model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'VAE'], n_trials=16, n_jobs=n_jobs, show_progress=False, random_state=num_iter)
+            AutoImputeSpace = autoimpute.AutoImputer(model_names=['SimpleImputer', 'IterativeImputer', 'KNNImputer', 'GAIN', 'VAE'], n_jobs=n_jobs, show_progress=False, random_state=num_iter, missing_type=ourmodel)
             impute_train = AutoImputeSpace.fit_transform(X_train_u)
             print('auto fit')
             impute_test = AutoImputeSpace.transform(X_test_u)
@@ -328,9 +330,9 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
             impute_test = impute_test.to_numpy()
             print(auto_rmse)
             print(auto_space)
-            all_scores['impute_rmse'] = auto_rmse
-            all_scores['impute_space'] = auto_space
-        '''
+            first_scores['impute_rmse'] = auto_rmse
+            first_scores['impute_space'] = auto_space
+
         print("running experiment 2/3 - Does reconstruction give good automl predictions")
         #this section trains off of original train data, and then tests on the original, the simpleimputed,
         #  and the autoimpute test data. This section uses the normal params since it is checking just for predictive preformance, 
@@ -356,7 +358,6 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
         
         estimator_params = exp['params'].copy()
         estimator_params['search_space'] =  tpot2.search_spaces.pipelines.SequentialPipeline([
-            tpot2.config.get_search_space("Passthrough", random_state=num_iter),
             tpot2.config.get_search_space("classifiers", random_state=num_iter)
             ])
         est = tpot2.TPOTEstimator(**estimator_params)
@@ -364,8 +365,8 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
         print(est.evaluated_individuals)
 
         print('Start est fit')
-        print(np.count_nonzero(np.isnan(X_train_i)))
-        print(np.count_nonzero(np.isnan(y_train)))
+        #print(np.count_nonzero(np.isnan(X_train_u)))
+        #print(np.count_nonzero(np.isnan(y_train)))
         start = time.time()
         try:
             est.fit(impute_train, y_train)
@@ -396,43 +397,43 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
             est.classes_ = est.fitted_pipeline_.classes_
         print(est.fitted_pipeline_)
         print('score start')
-        train_score = score(est, X_train_i, y_train, r_or_c=r_or_c)
+        train_score = score(est, impute_train, y_train, r_or_c=r_or_c)
         print('train score:', train_score)
         ori_test_score = score(est, X_test_i, y_test, r_or_c=r_or_c)
         print('original test score:', ori_test_score)
         start2 = time.time()
-        imputed_test_score = score(est, X_test_i, y_test, r_or_c=r_or_c)
+        imputed_test_score = score(est, impute_test, y_test, r_or_c=r_or_c)
         stop2 = time.time()
         inferenceduration2 = stop2 - start2
         print('imputed test score:', imputed_test_score)
         print('score end')
         train_score = {f"train_{k}": v for k, v in train_score.items()}
-        all_scores['train_score'] = train_score
-        all_scores['ori_test_score']=ori_test_score
-        all_scores['imputed_test_score'] = imputed_test_score
-        all_scores["start"] = start
-        all_scores["taskid"] = outcome
-        all_scores["exp_name"] = 'Imputed_Predictive_Capacity'
-        all_scores["duration"] = duration
-        all_scores["inference_time"] = inferenceduration2
-        all_scores["run"] = num_iter
-        all_scores["fit_model"] = est.fitted_pipeline_
-        all_scores["r_or_c"] = r_or_c
+        first_scores['train_score'] = train_score
+        first_scores['ori_test_score']=ori_test_score
+        first_scores['imputed_test_score'] = imputed_test_score
+        first_scores["start"] = start
+        first_scores["taskid"] = outcome
+        first_scores["exp_name"] = 'Imputed_Predictive_Capacity'
+        first_scores["duration"] = duration
+        first_scores["inference_time"] = inferenceduration2
+        first_scores["run"] = num_iter
+        first_scores["fit_model"] = est.fitted_pipeline_
+        first_scores["r_or_c"] = r_or_c
 
         if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-            with open(f"{save_folder}/est_evaluated_individuals.pkl", "wb") as f:
+            with open(f"{save_folder}/first_evaluated_individuals.pkl", "wb") as f:
                 pickle.dump(est.evaluated_individuals, f)
                 print('estimator working as intended')
         print('check intended')
-        with open(f"{save_folder}/est_fitted_pipeline.pkl", "wb") as f:
+        with open(f"{save_folder}/first_fitted_pipeline.pkl", "wb") as f:
             pickle.dump(est.fitted_pipeline_, f)
 
-        with open(f"{save_folder}/all_scores.pkl", "wb") as f:
-            pickle.dump(all_scores, f)
+        with open(f"{save_folder}/first_scores.pkl", "wb") as f:
+            pickle.dump(first_scores, f)
 
         print('pre-imputed Finished')
         
-
+        '''
         print("running experiment 3/3 - What is the best automl settings?")
         try: 
             os.remove(f"{checkpoint_folder}/population.pkl")
@@ -495,7 +496,7 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
 
         with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
             pickle.dump(tpot_space_scores, f)
-        
+        '''
         #return
         
     except Exception as e:

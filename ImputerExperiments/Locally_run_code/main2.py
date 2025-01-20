@@ -138,27 +138,23 @@ def main():
             ]
     #try with 67 / 69 benchmark sets
     '''
-    ran_class = [6, *26, 30, 32, 137, 151, *183, 184, 251, 310, *375, 725, 728, 737, 803, 847, 871, 881,901,923, 1046, 1120, 1220, 1558, 1526, 1507, 1489, 1496, 1481, 1471, 4552, 1459, 4135, 40498, 40497, 40677, 40685, 23395, 40983, 41027, 23517,]
-    classification_id_list = [6, 26, 30, 32, 137, 151, 183, 184, 251, 310, 375, 725,
-                              728, 737, 803, 847, 871, 881, 901, 923, 1046, 
-                              1120, 1220, 1558, 1526, 1507, 1489, 1496, 1481,
-                              1471, 4552, 1459, 4135, 40498, 40497, 40677, 
-                              40685, 23395, 40983, 41027, 23517, 40701, 40922,
-                              41671, 41146, 42192, 823, 42477, 42493, 42636]
+    ran_reg = []
+    regression_id_list = [189, 197, 198, 215, 216, 218, 1193, 1199, 1200, 1213, 42183, 
+                          42545, 42225, 42712, 287, 42688, *23515, ]
     '''
-    classification_id_list = [26]
-    #regression_id_list = [197]
+    #classification_id_list = [26]
+    regression_id_list = [197]
 
     
     print('starting loops')
     start = time.time()
-    
+    '''
     utils.loop_through_tasks(class_experiments, classification_id_list, 
                              base_save_folder, num_runs, 'c', n_jobs=n_jobs)
     '''
     utils.loop_through_tasks(reg_experiments, regression_id_list, 
                              base_save_folder, num_runs, 'r', n_jobs=n_jobs)
-    '''
+    
     stop = time.time()
     duration = stop - start
     print('full run takes')

@@ -5,7 +5,7 @@
 #SBATCH -t 120:00:00
 #SBATCH --mem=330000
 #SBATCH --job-name=tpot2-impute
-#SBATCH -p defq,moore
+#SBATCH -p defq
 #SBATCH --exclude=esplhpc-cp040
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
@@ -28,7 +28,7 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 main5.py \
+srun -u python3.10 main4.py \
 --n_jobs 16 \
 --savepath ../data \
 --num_runs ${RUN} \

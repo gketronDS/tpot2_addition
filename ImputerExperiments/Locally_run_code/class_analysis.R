@@ -1,7 +1,9 @@
 #!/usr/bin/env Rscript
 
+.libPaths()
 #install.packages("tidyverse")
-#install.packages(c("tidyverse","agridat", "ggplot2", "ghibli", "ggdist", "ggstatsplot", "ISLR"))
+install.packages(c("tidyverse","ggplot2","ggdist", "ggstatsplot"), lib='/home/ketrong/R/x86_64-pc-linux-gnu-library/4.4', dependencies = TRUE)
+#/home/ketrong/R/x86_64-pc-linux-gnu-library/4.4/
 #library(tidyverse, lib.loc = "/R/x86_64-pc-linux-gnu-library/4.4")
 #library(agridat, lib.loc = "/R/x86_64-pc-linux-gnu-library/4.4")
 #library(ggplot2, lib.loc = "/R/x86_64-pc-linux-gnu-library/4.4")
@@ -10,14 +12,14 @@
 #library(ISLR, lib.loc = "/R/x86_64-pc-linux-gnu-library/4.4")
 #library(tidyverse, lib.loc = "/R/x86_64-pc-linux-gnu-library/4.4")
 
-library(ggplot2)
-library(ghibli)
-library(ggdist)
-library(tidyverse)
+library(ggplot2, lib.loc = '/home/ketrong/R/x86_64-pc-linux-gnu-library/4.4')
+#library(ghibli)
+library(ggdist, lib.loc = '/home/ketrong/R/x86_64-pc-linux-gnu-library/4.4')
+library(tidyverse,  lib.loc = '/home/ketrong/R/x86_64-pc-linux-gnu-library/4.4')
 #install.packages("ggstatsplot")
-library(ggstatsplot)
+library(ggstatsplot, lib.loc = '/home/ketrong/R/x86_64-pc-linux-gnu-library/4.4')
 #install.packages("ISLR")
-library(ISLR)
+#library(ISLR)
 
 set.seed(1)
 

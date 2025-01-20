@@ -42,11 +42,13 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
         name = 'classfull'
         temp = temp[temp.Exp_Name == name]
         subtitle = 'Complex'
+        sub2 = "Impute First"
         
     else:
         name = 'classsimple'
         temp = temp[temp.Exp_Name == name]
         subtitle = 'Simple'
+        sub2 = 'Simple First'
         
 
     xvals = [0.01, 0.1, 0.3, 0.5]
@@ -62,11 +64,11 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
         case 1: 
            pipe = 'Exp2ImputeModel'
            title = 'Imputer Models'
-           subtitle = 'Impute First'
+           subtitle = sub2
         case 2:
             pipe = 'Exp2ClassifierModel'
             title = 'Classifier Models'
-            subtitle = 'Impute First'
+            subtitle = sub2
         case 3:
             pipe = 'Exp3ImputeModel'
             title = subtitle+' TPOT2 Imputer Models'
@@ -147,7 +149,7 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
     fig.tight_layout()
     #fig.savefig(savepath + name+'_'+ str(dataset_list)+'_'+pipe+'.png', bbox_extra_artists=(lgd,), bbox_inches='tight')
     plt.show()
-    all_models['Missing Fraction'] = xvals
+    all_models['Missing_Fraction'] = xvals
     mar_models['Missing Fraction'] = xvals
     mcar_models['Missing Fraction'] = xvals
     mnar_models['Missing Fraction'] = xvals
@@ -157,36 +159,45 @@ def display_model_proportions(df, exp, savepath, complex = False, dataset_list=N
     mnar_table = pd.DataFrame(mnar_models)
     return all_table, mar_table, mcar_models, mnar_models
 
-for i in range(1,5):
-    complexed = True
-    all_table, mar_table, mcar_models, mnar_models = display_model_proportions(class_data, exp=i, complex=complexed, savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
-    all_table= all_table.map('{:.1%}'.format)
-    print(all_table)
-    if complexed:
-        name = 'classfull'
-        #temp = temp[temp.Exp_Name == name]
-        subtitle = 'Complex'
-    else:
-        name = 'classsimple'
-        #temp = temp[temp.Exp_Name == name]
-        subtitle = 'Simple'
+for twos in [True, False]:
+    for i in range(1,5):
+        complexed = twos
+        all_table, mar_table, mcar_models, mnar_models = display_model_proportions(class_data, exp=i, complex=complexed, savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
+        print(all_table)
+        if complexed:
+            name = 'classfull'
+            #temp = temp[temp.Exp_Name == name]
+            subtitle = 'Complex'
+            sub2 = 'Impute First'
+        else:
+            name = 'classsimple'
+            #temp = temp[temp.Exp_Name == name]
+            subtitle = 'Simple'
+            sub2 = 'Simple First'
 
-    match i:
-            case 1: 
-                pipe = 'Exp2ImputeModel'
-                title = 'Imputer_Models'
-                subtitle = 'Impute_First'
-            case 2:
-                pipe = 'Exp2ClassifierModel'
-                title = 'Classifier_Models'
-                subtitle = 'Impute_First'
-            case 3:
-                pipe = 'Exp3ImputeModel'
-                title = subtitle+'_TPOT2_Imputer_Models'
-            case 4: 
-                pipe = 'Exp3ClassifierModel'
-                title = subtitle+'_TPOT2_Classifier_Models'
-    out = all_table.to_csv('/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/'+name+pipe+title+subtitle+str(i)+'.csv')
+        match i:
+                case 1: 
+                    pipe = 'Exp2ImputeModel'
+                    title = 'Imputer_Models'
+                    subtitle = sub2
+                case 2:
+                    pipe = 'Exp2ClassifierModel'
+                    title = 'Classifier_Models'
+                    subtitle = sub2
+                case 3:
+                    pipe = 'Exp3ImputeModel'
+                    title = subtitle+'_TPOT2_Imputer_Models'
+                case 4: 
+                    pipe = 'Exp3ClassifierModel'
+                    title = subtitle+'_TPOT2_Classifier_Models'
+        all_table = all_table.T
+        all_table['Total'] = all_table.mean(axis=1)
+        all_table= all_table.map('{:.0%}'.format)
+        all_table.columns = all_table.iloc[-1]
+        all_table = all_table.add_suffix(" Missing")
+        all_table.columns = [*all_table.columns[:-1], 'Total']
+        all_table = all_table.drop('Missing_Fraction')
+        out = all_table.to_csv('/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/'+name+pipe+title+subtitle+str(i)+'.csv')
 
 def display_scores_over_options(df, test, score_type, savepath,
                                 dataset_list=None):
@@ -208,36 +219,43 @@ def display_scores_over_options(df, test, score_type, savepath,
             match score_type:
                 case 'f1':
                     imputer = 'Exp2train_f1'
+                    s_first = 'Exp2train_f1'
                     complexer = 'Exp3train_f1'
                     simpler = 'Exp3train_f1'
-                    ylabel = 'Macro f1 Score (%) '
+                    ylabel = 'Macro F1 Score (%) '
                 case 'auroc':
                     imputer = 'Exp2train_auroc'
+                    s_first = 'Exp2train_auroc'
                     complexer = 'Exp3train_auroc'
                     simpler = 'Exp3train_auroc'
                     ylabel = 'AUROC (%) '
                 case 'accuracy':
                     imputer = 'Exp2train_accuracy'
+                    s_first = 'Exp2train_accuracy'
                     complexer = 'Exp3train_accuracy'
                     simpler = 'Exp3train_accuracy'
                     ylabel = 'Accuracy (%) '
                 case 'balanced_accuracy':
                     imputer = 'Exp2train_balanced_accuracy'
+                    s_first = 'Exp2train_balanced_accuracy'
                     complexer = 'Exp3train_balanced_accuracy'
                     simpler = 'Exp3train_balanced_accuracy'
                     ylabel = 'Balanced Accuracy (%)'
                 case 'logloss':
                     imputer = 'Exp2train_logloss'
+                    s_first = 'Exp2train_logloss'
                     complexer = 'Exp3train_logloss'
                     simpler = 'Exp3train_logloss'
                     ylabel = 'Log Loss (%)'
                 case 'training_duration':
                     imputer = 'Exp2duration'
+                    s_first = 'Exp2duration'
                     complexer = 'Exp3duration'
                     simpler = 'Exp3duration'
                     ylabel = 'Training Time (Seconds)'
                 case 'RMSEAcc':
                     imputer = 'Exp1ImputeRMSEAcc'
+                    s_first = 'Exp1ImputeRMSEAcc'
                     complexer = 'Exp3ImputeRMSEAcc'
                     simpler = 'Exp3ImputeRMSEAcc'
                     ylabel = 'Imputation Accuracy (RMSE)'
@@ -245,39 +263,46 @@ def display_scores_over_options(df, test, score_type, savepath,
             match score_type:
                 case 'f1':
                     imputer = 'Exp2impute_f1'
+                    s_first = 'Exp2impute_f1'
                     complexer = 'Exp3impute_f1'
                     simpler = 'Exp3impute_f1'
-                    ylabel = 'Macro f1 Score (%) '
+                    ylabel = 'Macro F1 Score (%) '
                 case 'auroc':
                     imputer = 'Exp2impute_auroc'
+                    s_first = 'Exp2impute_auroc'
                     complexer = 'Exp3impute_auroc'
                     simpler = 'Exp3impute_auroc'
                     ylabel = 'AUROC (%) '
                 case 'accuracy':
                     imputer = 'Exp2impute_accuracy'
+                    s_first = 'Exp2impute_accuracy'
                     complexer = 'Exp3impute_accuracy'
                     simpler = 'Exp3impute_accuracy'
                     ylabel = 'Accuracy (%) '
                 case 'balanced_accuracy':
                     imputer = 'Exp2impute_balanced_accuracy'
+                    s_first = 'Exp2impute_balanced_accuracy'
                     complexer = 'Exp3impute_balanced_accuracy'
                     simpler = 'Exp3impute_balanced_accuracy'
                     ylabel = 'Balanced Accuracy (%)'
                 case 'logloss':
                     imputer = 'Exp2impute_logloss'
+                    s_first = 'Exp2impute_logloss'
                     complexer = 'Exp3impute_logloss'
                     simpler = 'Exp3impute_logloss'
                     ylabel = 'Log Loss (%)'
                 case 'training_duration':
                     imputer = 'Exp2inference_duration'
+                    s_first = 'Exp2inference_duration'
                     complexer = 'Exp3inference_duration'
                     simpler = 'Exp3inference_duration'
                     ylabel = 'Inference Time (Seconds)'
                 case 'RMSEAcc':
                     imputer = 'Exp1ImputeRMSEAcc'
+                    s_first = 'Exp1ImputeRMSEAcc'
                     complexer = 'Exp3ImputeRMSEAcc'
                     simpler = 'Exp3ImputeRMSEAcc'
-                    ylabel = 'Imputation Accurcy (RMSE)'
+                    ylabel = 'Imputation RMSE'
 
 
     xvals = [0.01, 0.1, 0.3, 0.5]
@@ -288,10 +313,10 @@ def display_scores_over_options(df, test, score_type, savepath,
     mnar_models = {}
 
 
-    for i, model in enumerate([imputer, complexer, simpler]):
+    for i, model in enumerate([imputer, complexer, simpler, s_first]):
         all_list = []
         for val in xvals:
-            if i == 2:
+            if i >= 2:
                 try:
                     all_list.append(simpletemp[simpletemp.Level == str(val)][model].mean())
                 except:
@@ -301,15 +326,15 @@ def display_scores_over_options(df, test, score_type, savepath,
                     all_list.append(fulltemp[fulltemp.Level == str(val)][model].mean())
                 except:
                     all_list.append(0.0)
-        if i == 2:
+        if i >= 2:
             all_models['simple_'+model] = all_list
         else:
             all_models[model] = all_list
     
-    for i, model in enumerate([imputer, complexer, simpler]):
+    for i, model in enumerate([imputer, complexer, simpler, s_first]):
         all_list = []
         for val in xvals:
-            if i == 2:
+            if i >= 2:
                 try:
                     all_list.append(simpletemp[(temp.Condition == 'MAR')&(temp.Level == str(val))][model].mean())
                 except:
@@ -319,15 +344,15 @@ def display_scores_over_options(df, test, score_type, savepath,
                     all_list.append(fulltemp[(temp.Condition == 'MAR')&(temp.Level == str(val))][model].mean())
                 except:
                     all_list.append(0.0)
-        if i == 2:
+        if i >= 2:
             mar_models['simple_'+model] = all_list
         else:
             mar_models[model] = all_list
     
-    for i, model in enumerate([imputer, complexer, simpler]):
+    for i, model in enumerate([imputer, complexer, simpler, s_first]):
         all_list = []
         for val in xvals:
-            if i == 2:
+            if i >= 2:
                 try:
                     all_list.append(simpletemp[(temp.Condition == 'MCAR')&(temp.Level == str(val))][model].mean())
                 except:
@@ -337,15 +362,15 @@ def display_scores_over_options(df, test, score_type, savepath,
                     all_list.append(fulltemp[(temp.Condition == 'MCAR')&(temp.Level == str(val))][model].mean())
                 except:
                     all_list.append(0.0)
-        if i == 2:           
+        if i >= 2:           
             mcar_models['simple_'+model] = all_list
         else:
             mcar_models[model] = all_list
     
-    for i, model in enumerate([imputer, complexer, simpler]):
+    for i, model in enumerate([imputer, complexer, simpler, s_first]):
         all_list = []
         for val in xvals:
-            if i == 2:
+            if i >= 2:
                 try:
                     all_list.append(simpletemp[(temp.Condition == 'MNAR')&(temp.Level == str(val))][model].mean())
                 except:
@@ -355,7 +380,7 @@ def display_scores_over_options(df, test, score_type, savepath,
                     all_list.append(fulltemp[(temp.Condition == 'MNAR')&(temp.Level == str(val))][model].mean())
                 except:
                     all_list.append(0.0)
-        if i == 2:
+        if i >= 2:
             mnar_models['simple_'+model] = all_list
         else:
             mnar_models[model] = all_list
@@ -363,9 +388,12 @@ def display_scores_over_options(df, test, score_type, savepath,
         sets['Impute First '+score_type] = sets[imputer]
         sets['Complex '+score_type] = sets[complexer]
         sets['Simple '+score_type] = sets['simple_'+simpler]
-        del sets[imputer], sets[complexer], sets['simple_'+simpler]
+        sets['Simple First '+score_type] = sets['simple_'+s_first]
+        del sets[imputer], sets[complexer], sets['simple_'+simpler], sets['simple_'+s_first]
     
-    fig, a = plt.subplots(2,2,sharey=True)
+    fig, a = plt.subplots(2,2,sharey=True, figsize=(12,10))
+    fig.text(0.5, 0.94, f'{test} Split {ylabel}', transform=fig.transFigure, fontsize=16, ha='center')
+
     maxed = [0]
     for i, label in enumerate(all_models):
         a[0][0].plot(xvals,all_models[label], color="C"+str(i), label=str(label))
@@ -385,8 +413,22 @@ def display_scores_over_options(df, test, score_type, savepath,
             maxed.append(max(mnar_models[label]))
         except:
             save = i
-
-    yaxes = np.arange(0, max(maxed), 0.2)
+    match score_type:
+        case 'f1':
+            yaxes = np.arange(0, 1.2, 0.2)
+        case 'auroc':
+            yaxes = np.arange(0, 1.2, 0.2)
+        case 'accuracy':
+            yaxes = np.arange(0, 1.2, 0.2)
+        case 'balanced_accuracy':
+            yaxes = np.arange(0, 1.2, 0.2)
+        case 'logloss':
+            yaxes = np.arange(0, np.round(max(maxed))+np.round(max(maxed))/5, np.round(max(maxed))/5)
+        case 'training_duration':
+            yaxes = np.arange(0, np.round(max(maxed))+np.round(max(maxed))/5, np.round(max(maxed))/5)
+        case 'RMSEAcc':
+            yaxes = np.arange(0, np.round(max(maxed), decimals=2)+np.round(max(maxed), decimals=2)/5, np.round(max(maxed), decimals=2)/5)
+    #yaxes = np.arange(0, max(maxed), 0.2)
     a[0][0].set_title('All Conditions')
     a[0][0].set_xlabel(xlabel)
     a[0][0].set_ylabel(ylabel)
@@ -411,11 +453,13 @@ def display_scores_over_options(df, test, score_type, savepath,
     fig.suptitle(name+': '+ str(dataset_list)+' '+test+' '+score_type+' Scores for Each Experiment')
     lgd = fig.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05))
     fig.tight_layout()
-    fig.savefig(savepath + name+'_'+ str(dataset_list)+'_'+score_type+'.png', bbox_extra_artists=(lgd,), bbox_inches='tight')
+    fig.savefig(savepath + name+'_'+ str(dataset_list)+'_'+test+'_'+score_type+'.png', bbox_extra_artists=(lgd,), bbox_inches='tight')
     plt.show()
     return
 
-display_scores_over_options(class_data, test='Test', score_type='f1', savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
+for test in ['Train', 'Test']:
+    for scoring in ['f1', 'auroc', 'accuracy', 'balanced_accuracy', 'logloss', 'training_duration', 'RMSEAcc']:
+        display_scores_over_options(class_data, test=test, score_type=scoring, savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
 
 def rainplot_annotate_brackets(num1, num2, data, size, center, height, yerr=None, dh=.05, barh=.05, fs=None, maxasterix=3):
     """ 
@@ -580,7 +624,7 @@ def wilcoxon_rainplot(data_x, scorer='Values', title='RaincloudPlot'):
     plt.title(title)
     plt.show()
 
-def display_wilcoxon_results(df, score_type, savepath, dataset_list=None):
+def display_wilcoxon_results(df, savepath, dataset_list=None):
     if dataset_list is not None:
         temp = df.loc[df['DatasetID'].isin(dataset_list)].copy()
     else:
@@ -608,36 +652,43 @@ def display_wilcoxon_results(df, score_type, savepath, dataset_list=None):
         match score_type:
             case 'f1':
                 imputer = 'Exp2impute_f1'
+                s_first = 'Exp2impute_f1'
                 complexer = 'Exp3impute_f1'
                 simpler = 'Exp3impute_f1'
                 ylabel = 'Weighted f1 Score (%) '
             case 'auroc':
                 imputer = 'Exp2impute_auroc'
+                s_first = 'Exp2impute_auroc'
                 complexer = 'Exp3impute_auroc'
                 simpler = 'Exp3impute_auroc'
                 ylabel = 'AUROC (%) '
             case 'accuracy':
                 imputer = 'Exp2impute_accuracy'
+                s_first = 'Exp2impute_accuracy'
                 complexer = 'Exp3impute_accuracy'
                 simpler = 'Exp3impute_accuracy'
                 ylabel = 'Accuracy (%) '
             case 'balanced_accuracy':
                 imputer = 'Exp2impute_balanced_accuracy'
+                s_first = 'Exp2impute_balanced_accuracy'
                 complexer = 'Exp3impute_balanced_accuracy'
                 simpler = 'Exp3impute_balanced_accuracy'
                 ylabel = 'Balanced Accuracy (%)'
             case 'logloss':
                 imputer = 'Exp2impute_logloss'
+                s_first= 'Exp2impute_logloss'
                 complexer = 'Exp3impute_logloss'
                 simpler = 'Exp3impute_logloss'
                 ylabel = 'Log Loss'
             case 'training_duration':
                 imputer = 'Exp2duration'
+                s_first = 'Exp2duration'
                 complexer = 'Exp3duration'
                 simpler = 'Exp3duration'
                 ylabel = 'Training Time (Seconds)'
             case 'RMSEAcc':
                 imputer = 'Exp1ImputeRMSEAcc'
+                s_first = 'Exp1ImputeRMSEAcc'
                 complexer = 'Exp3ImputeRMSEAcc'
                 simpler = 'Exp3ImputeRMSEAcc'
                 ylabel = 'Imputation Accurcy (RMSE)'
@@ -645,8 +696,8 @@ def display_wilcoxon_results(df, score_type, savepath, dataset_list=None):
         all_models = []
         
 
-        for i, space in enumerate([imputer, complexer, simpler]):
-            if i == 2:
+        for i, space in enumerate([imputer, complexer, simpler, s_first]):
+            if i >= 2:
                 all_list = simpletemp.sort_values(by=['DatasetID','Condition', 'Level', 'Triplicate'], ascending=True)[space].values
                 #print(simpletemp.sort_values(by=['DatasetID','Condition', 'Level', 'Triplicate'], ascending=True)[space].values)
                 
@@ -655,17 +706,19 @@ def display_wilcoxon_results(df, score_type, savepath, dataset_list=None):
                 #print(fulltemp.sort_values(by=['DatasetID','Condition', 'Level', 'Triplicate'], ascending=True)[space].values)
             all_models.append(all_list)
         
-        all_out = pd.DataFrame([all_models[0],all_models[1], all_models[2]]).T
+        all_out = pd.DataFrame([all_models[0],all_models[1], all_models[2], all_models[3]]).T
         all0 = all_out[0].to_frame(name=score_type)
-        all0['Model'] = 'Impute_F'
+        all0['Model'] = 'Impute_First'
         all1 = all_out[1].to_frame(name=score_type)
         all1['Model'] = 'Complex'
         all2 = all_out[2].to_frame(name=score_type)
         all2['Model'] = 'Simple'
-        correct_format = pd.concat([all0, all1, all2])
+        all3 = all_out[3].to_frame(name=score_type)
+        all3['Model'] = 'Simple_First'
+        correct_format = pd.concat([all0, all1, all2, all3])
         full_frame = pd.concat([full_frame,correct_format], axis=1)
-
+    full_frame = full_frame.loc[:,~full_frame.columns.duplicated()].copy()
     full_frame.to_csv('/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/class_kw_test.csv')
 
 
-display_wilcoxon_results(class_data, score_type='training_duration',savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')
+display_wilcoxon_results(class_data, savepath='/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/Saved_Analysis/')

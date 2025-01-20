@@ -17,13 +17,10 @@ RUN=${SLURM_ARRAY_TASK_ID:-1}
 
 echo "Run: ${RUN}"
 
-module purge
-module load R/4.4.0
 
-R
-install.packages(c("tidyverse","agridat", "ggplot2", "ghibli", "ggdist", "ggstatsplot", "ISLR"))
-yes
-70
-q()
+module load R/4.4.0
+module load cmake-3.23.1-gcc-8.5.0-rnrluk4
+
+conda deactivate
 
 Rscript class_analysis.R
