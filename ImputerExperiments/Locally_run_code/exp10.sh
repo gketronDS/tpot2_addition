@@ -10,7 +10,7 @@
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
-#SBATCH -o ../data/logs/output/output.%j_%a.out # STDOUT
+#SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
 #SBATCH --array=1-72%12
 
 
