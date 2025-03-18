@@ -111,18 +111,30 @@ class AutoImputer():
 def trial_suggestion(trial: optuna.trial.Trial, model_names,column_len, n_samples, random_state):
     model_name = trial.suggest_categorical('model_name', model_names)# Model names set up to run on multiple or individual models. Options include: 'SimpleImputer' , 'IterativeImputer','KNNImputer', 'VAEImputer', 'GAIN', 'Opt.SVM', 'Opt.Trees'.  Not yet working: 'DLImputer', Random Forest Imputer 
     my_params = {}
-    match model_name:
-      case 'SimpleImputer':
-        my_params = params_SimpleImpute(trial)  #Takes data from each column to input a value for all missing data. 
-      case 'IterativeImputer':
-        my_params = params_IterativeImpute(trial, column_len,random_state) #Uses the dependence between columns in the data set to predict for the one column. Predictions occur through a variety of strategies.
-      case 'KNNImputer':
-        my_params = params_KNNImpute(trial, n_samples) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
-      case 'GAIN':
-        my_params = params_GAINImpute(trial, random_state) #Uses a generative adversarial network model to predict values. 
-      case 'VAE':
-        my_params = params_VAEImpute(trial, random_state)
-        
+    try:
+        match model_name:
+            case 'SimpleImputer':
+                my_params = params_SimpleImpute(trial)  #Takes data from each column to input a value for all missing data. 
+            case 'IterativeImputer':
+                my_params = params_IterativeImpute(trial, column_len,random_state) #Uses the dependence between columns in the data set to predict for the one column. Predictions occur through a variety of strategies.
+            case 'KNNImputer':
+                my_params = params_KNNImpute(trial, n_samples) #uses nearest neighbors to predict missing values with k-neighbors in n-dimensional space with known values.
+            case 'GAIN':
+                my_params = params_GAINImpute(trial, random_state) #Uses a generative adversarial network model to predict values. 
+            case 'VAE':
+                my_params = params_VAEImpute(trial, random_state)
+    except:
+        if model_name == 'SimpleImputer':
+            my_params = params_SimpleImpute(trial)
+        elif model_name == 'IterativeImputer':
+            my_params = params_IterativeImpute(trial, column_len,random_state)
+        elif model_name == 'KNNImputer':
+            my_params = params_KNNImpute(trial, n_samples)
+        elif model_name == 'GAIN':
+            my_params = params_GAINImpute(trial, random_state)
+        elif model_name == 'VAE':
+            my_params = params_VAEImpute(trial, random_state)
+    
     my_params['model_name'] = model_name
     return my_params
   
@@ -131,27 +143,67 @@ def MyModel(**params):
     these_params = params
     model_name = these_params['model_name']
     del these_params['model_name']
-    match model_name:
-        case 'SimpleImputer':
-            this_model = SimpleImputer(
-                **these_params
+    try:
+        match model_name:
+            case 'SimpleImputer':
+                this_model = SimpleImputer(
+                    **these_params
+                    )
+            case 'IterativeImputer':
+                match params['estimator']:
+                    case 'Bayesian':
+                            estimator = sklearn.linear_model.BayesianRidge()
+                    case 'RFR':
+                            estimator = sklearn.ensemble.RandomForestRegressor()
+                    case 'Ridge':
+                            estimator = sklearn.linear_model.Ridge()
+                    case 'KNN':
+                            estimator = sklearn.neighbors.KNeighborsRegressor()
+                final_params = {
+                'estimator' : estimator,
+                'initial_strategy' : params['initial_strategy'],
+                'n_nearest_features' : params['n_nearest_features'],
+                'imputation_order' : params['imputation_order'],
+                }
+                if 'sample_posterior' in params:
+                    final_params['sample_posterior'] = params['sample_posterior']
+                if 'random_state' in params:
+                    final_params['random_state'] = params['random_state']
+                this_model = IterativeImputer(
+                    **final_params
+                    )
+            case 'KNNImputer':
+                this_model = KNNImputer( 
+                    **these_params
+                    )
+            case 'GAIN':
+                this_model = GainImputer(
+                    **these_params
+                    )
+            case 'VAE':
+                this_model = VAEImputer(
+                    **these_params
                 )
-        case 'IterativeImputer':
-            match params['estimator']:
-                case 'Bayesian':
-                        estimator = sklearn.linear_model.BayesianRidge()
-                case 'RFR':
-                        estimator = sklearn.ensemble.RandomForestRegressor()
-                case 'Ridge':
-                        estimator = sklearn.linear_model.Ridge()
-                case 'KNN':
-                        estimator = sklearn.neighbors.KNeighborsRegressor()
+    except:
+        if model_name == 'SimpleImputer':
+            this_model = SimpleImputer(
+                    **these_params
+                    )
+        elif model_name == 'IterativeImputer':
+            if params['estimator'] == 'Bayesian':
+                estimator = sklearn.linear_model.BayesianRidge()
+            elif params['estimator'] == 'RFR':
+                estimator = sklearn.ensemble.RandomForestRegressor()
+            elif params['estimator'] == 'Ridge':
+                estimator = sklearn.linear_model.Ridge()
+            elif params['estimator'] == 'KNN':
+                estimator = sklearn.neighbors.KNeighborsRegressor()
             final_params = {
-            'estimator' : estimator,
-            'initial_strategy' : params['initial_strategy'],
-            'n_nearest_features' : params['n_nearest_features'],
-            'imputation_order' : params['imputation_order'],
-            }
+                'estimator' : estimator,
+                'initial_strategy' : params['initial_strategy'],
+                'n_nearest_features' : params['n_nearest_features'],
+                'imputation_order' : params['imputation_order'],
+                }
             if 'sample_posterior' in params:
                 final_params['sample_posterior'] = params['sample_posterior']
             if 'random_state' in params:
@@ -159,18 +211,18 @@ def MyModel(**params):
             this_model = IterativeImputer(
                 **final_params
                 )
-        case 'KNNImputer':
+        elif model_name == 'KNNImputer':
             this_model = KNNImputer( 
-                **these_params
-                )
-        case 'GAIN':
+                    **these_params
+                    )
+        elif model_name == 'GAIN':
             this_model = GainImputer(
-                **these_params
-                )
-        case 'VAE':
+                    **these_params
+                    )
+        elif model_name == 'VAE':
             this_model = VAEImputer(
-                **these_params
-            )
+                    **these_params
+                )
     return this_model
 
 @timeout_decorator.timeout(180, timeout_exception=optuna.TrialPruned, use_signals=False)

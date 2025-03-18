@@ -54,15 +54,25 @@ def get_KNNImputer_config_space(n_samples):
 
 def IterativeImputer_hyperparameter_parser(params):
     est = params['estimator']
-    match est:
-        case 'Bayesian':
+    try:
+        match est:
+                case 'Bayesian':
+                        estimator = sklearn.linear_model.BayesianRidge()
+                case 'RFR':
+                        estimator = sklearn.ensemble.RandomForestRegressor()
+                case 'Ridge':
+                        estimator = sklearn.linear_model.Ridge()
+                case 'KNN':
+                        estimator = sklearn.neighbors.KNeighborsRegressor()
+    except:
+        if params['estimator'] == 'Bayesian':
                 estimator = sklearn.linear_model.BayesianRidge()
-        case 'RFR':
+        elif params['estimator'] == 'RFR':
                 estimator = sklearn.ensemble.RandomForestRegressor()
-        case 'Ridge':
+        elif params['estimator'] == 'Ridge':
                 estimator = sklearn.linear_model.Ridge()
-        case 'KNN':
-                estimator = sklearn.neighbors.KNeighborsRegressor()
+        elif params['estimator'] == 'KNN':
+         estimator = sklearn.neighbors.KNeighborsRegressor()
 
     final_params = {
             'estimator' : estimator,

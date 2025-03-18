@@ -810,15 +810,22 @@ def add_missing(X, add_missing = 0.05, missing_type = 'MAR'):
     missing_mask = missing_mask.mask(missing_mask.notna(), False)
     X = X.mask(X.isna(), 0)
     T = torch.tensor(X.to_numpy())
-
-    match missing_type:
-        case 'MAR':
+    try:
+        match missing_type:
+            case 'MAR':
+                out = MAR(T, [add_missing])
+            case 'MCAR':
+                out = MCAR(T, [add_missing])
+            case 'MNAR':
+                out = MNAR_mask_logistic(T, [add_missing])
+    except:
+        if missing_type == 'MAR':
             out = MAR(T, [add_missing])
-        case 'MCAR':
+        elif missing_type == 'MCAR':
             out = MCAR(T, [add_missing])
-        case 'MNAR':
+        elif missing_type == 'MNAR':
             out = MNAR_mask_logistic(T, [add_missing])
-    
+            
     masked_set = pd.DataFrame(out['Mask'].numpy())
     missing_combo = (missing_mask | masked_set.isna())
     masked_set = masked_set.mask(missing_combo, True)

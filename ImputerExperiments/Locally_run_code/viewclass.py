@@ -285,6 +285,8 @@ for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', 
                         if (Exp2ImputeModel == 'IterativeImputer'):
                             if str(est['impute_space']['estimator']) == 'RFR':
                                 Exp2ImputeModel = 'RandomForestImputer'
+                            if str(est['impute_space']['estimator']) == 'KNN':
+                                Exp2ImputeModel = 'KNNImputer'
 
                         #print(tpot_space["fit_model"][0])
 
@@ -293,6 +295,8 @@ for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', 
                             placeholder = str(tpot_space['fit_model'][0]).split('(')[1].split(',')
                             if placeholder == 'estimator=RandomForestRegressor()':
                                 Exp3ImputeModel = 'RandomForestImputer'
+                            if placeholder == 'estimator=KNeighborsRegressor()':
+                                Exp3ImputeModel = 'KNNImputer'
                                 
                         csvout.loc['/'+taskid+'_'+exp+item+lvl+iter] = pd.Series({'DatasetID':taskid,'Exp_Name': exp,'Condition': item, 'Level': lvl, 'Triplicate': iter,'Exp1ImputeRMSEAcc': est['impute_rmse'] ,'Exp2ImputeModel': Exp2ImputeModel,'Exp2train_auroc': est['train_score']['train_auroc'],'Exp2train_accuracy': est['train_score']['train_accuracy'], 
                                             'Exp2train_balanced_accuracy': est['train_score']['train_balanced_accuracy'], 'Exp2train_logloss': est['train_score']['train_logloss'],'Exp2train_f1': est['train_score']['train_f1'], 'Exp2ori_auroc': est['ori_test_score']['auroc'],'Exp2ori_accuracy': est['ori_test_score']['accuracy'], 

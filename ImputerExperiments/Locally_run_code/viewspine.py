@@ -16,13 +16,13 @@ for taskid in ['home', 'hosp', 'rehab', 'los', 'SNF']:
                                             'Exp3ori_logloss', 'Exp3ori_f1', 'Exp3impute_auroc', 'Exp3impute_accuracy', 'Exp3impute_balanced_accuracy', 
                                             'Exp3impute_logloss', 'Exp3impute_f1',
                                             'Exp3ImputeModel', 'Exp3ClassifierModel', 'Exp3duration', 'Exp3inference_duration'],
-                            index=['/'+taskid+'_class_full_1/',
-                                    '/'+taskid+'_class_full_2/',
-                                    '/'+taskid+'_class_full_3/',
+                            index=['/'+taskid+'_class_simple_1/',
+                                    '/'+taskid+'_class_simple_2/',
+                                    '/'+taskid+'_class_simple_3/',
                                      ])
     #print(csvout)
     locallist=[]
-    for exp in ['class_full_']:
+    for exp in ['class_simple_']:
         for iter in ['1/', '2/', '3/']:
             normalpath = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'+ taskid +'/'+exp + iter
             imputepath = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'+ taskid +'/'+exp + iter
@@ -34,15 +34,15 @@ for taskid in ['home', 'hosp', 'rehab', 'los', 'SNF']:
                 case '3/':
                     num_run = 3
             try:
-                with open(normalpath + 'first_scores.pkl', 'rb') as file:
+                with open(normalpath + 'simple_first_scores.pkl', 'rb') as file:
                     est = pickle.load(file)
                     #print(est)
-                with open(normalpath + 'first_fitted_pipeline.pkl', 'rb') as file:
+                with open(normalpath + 'simple_first_fitted_pipeline.pkl', 'rb') as file:
                     est_pipeline = pickle.load(file)
-                with open(imputepath + 'tpot_space_scores.pkl', 'rb') as file:
+                with open(imputepath + 'tpot_simple_scores.pkl', 'rb') as file:
                     tpot_space = pickle.load(file)
                     #print(tpot_space)
-                with open(imputepath + 'tpot_space_fitted_pipeline.pkl', 'rb') as file:
+                with open(imputepath + 'tpot_simple_fitted_pipeline.pkl', 'rb') as file:
                     tpot_space_pipeline = pickle.load(file)
                     #print(tpot_space_pipeline)
                 
@@ -81,7 +81,7 @@ for taskid in ['home', 'hosp', 'rehab', 'los', 'SNF']:
     redolist[taskid] = locallist
     print(taskid + 'complete')
 result = pd.concat(dflist, ignore_index=True)
-output = result.to_csv(fileoutput+'spine_first'+'.csv')
+output = result.to_csv(fileoutput+'spine_simple'+'.csv')
 print('all csvs complete')
 print('to redo:')
 print(redolist)

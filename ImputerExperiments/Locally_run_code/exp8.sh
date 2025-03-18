@@ -5,14 +5,13 @@
 #SBATCH -t 120:00:00
 #SBATCH --mem=330000
 #SBATCH --job-name=tpot2-impute
-#SBATCH -p defq
+#SBATCH -p defq,moore
 #SBATCH --exclude=esplhpc-cp040
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
 #SBATCH --mail-user=gketron@uci.edu
 #SBATCH -o ../data/logs/outputs/output.%j_%a.out # STDOUT
-#SBATCH --array=1-72%12
-
+#SBATCH --array=9,10,11,12,33,34,35,36,57,58,59,60
 
 RUN=${SLURM_ARRAY_TASK_ID:-1}
 

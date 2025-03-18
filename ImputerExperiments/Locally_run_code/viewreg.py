@@ -277,6 +277,8 @@ for taskid in ['189', '197', '198', '215', '216', '218', '1193', '1199', '1200',
                         if (Exp2ImputeModel == 'IterativeImputer'):
                             if str(est['impute_space']['estimator']) == 'RFR':
                                 Exp2ImputeModel = 'RandomForestImputer'
+                            if str(est['impute_space']['estimator']) == 'KNN':
+                                Exp2ImputeModel = 'KNNImputer'
 
                         #print(tpot_space["fit_model"][0])
 
@@ -285,6 +287,8 @@ for taskid in ['189', '197', '198', '215', '216', '218', '1193', '1199', '1200',
                             placeholder = str(tpot_space['fit_model'][0]).split('(')[1].split(',')[0]
                             if placeholder == 'estimator=RandomForestRegressor()':
                                 Exp3ImputeModel = 'RandomForestImputer'
+                            if placeholder == 'estimator=KNeighborsRegressor()':
+                                Exp3ImputeModel = 'KNNImputer'
                         
 
                         #print(tpot_space_pipeline)

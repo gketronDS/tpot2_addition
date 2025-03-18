@@ -190,6 +190,7 @@ for twos in [True, False]:
                 case 4: 
                     pipe = 'Exp3ClassifierModel'
                     title = subtitle+'_TPOT2_Classifier_Models'
+                    
         all_table = all_table.T
         all_table['Total'] = all_table.mean(axis=1)
         all_table= all_table.map('{:.0%}'.format)

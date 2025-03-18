@@ -10,7 +10,7 @@ from permute.core import one_sample
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
-path = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/spine_first.csv'
+path = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/spine_simple.csv'
 
 class_data = pd.read_csv(path)
 

@@ -139,278 +139,390 @@ GROUPNAMES = {
 
 
 def get_configspace(name, n_classes=3, n_samples=1000, n_features=100, random_state=None):
-    match name:
+    try:
+        match name:
 
-        #autoqtl_builtins.py
-        case "FeatureEncodingFrequencySelector":
-            return autoqtl_builtins.FeatureEncodingFrequencySelector_ConfigurationSpace
-        case "DominantEncoder":
-            return {}
-        case "RecessiveEncoder":
-            return {}
-        case "HeterosisEncoder":
-            return {}
-        case "UnderDominanceEncoder":
-            return {}
-        case "OverDominanceEncoder":
-            return {}
+            #autoqtl_builtins.py
+            case "FeatureEncodingFrequencySelector":
+                return autoqtl_builtins.FeatureEncodingFrequencySelector_ConfigurationSpace
+            case "DominantEncoder":
+                return {}
+            case "RecessiveEncoder":
+                return {}
+            case "HeterosisEncoder":
+                return {}
+            case "UnderDominanceEncoder":
+                return {}
+            case "OverDominanceEncoder":
+                return {}
 
-        case "Passthrough":
-            return {}
-        case "SkipTransformer":
-            return {}
+            case "Passthrough":
+                return {}
+            case "SkipTransformer":
+                return {}
 
-        #classifiers.py
-        case "LinearDiscriminantAnalysis":
+            #classifiers.py
+            case "LinearDiscriminantAnalysis":
+                return classifiers.get_LinearDiscriminantAnalysis_ConfigurationSpace()
+            case "AdaBoostClassifier":
+                return classifiers.get_AdaBoostClassifier_ConfigurationSpace(random_state=random_state)
+            case "LogisticRegression":
+                return classifiers.get_LogisticRegression_ConfigurationSpace(random_state=random_state)
+            case "KNeighborsClassifier":
+                return classifiers.get_KNeighborsClassifier_ConfigurationSpace(n_samples=n_samples)
+            case "DecisionTreeClassifier":
+                return classifiers.get_DecisionTreeClassifier_ConfigurationSpace(n_featues=n_features, random_state=random_state)
+            case "SVC":
+                return classifiers.get_SVC_ConfigurationSpace(random_state=random_state)
+            case "LinearSVC":
+                return classifiers.get_LinearSVC_ConfigurationSpace(random_state=random_state)
+            case "RandomForestClassifier":
+                return classifiers.get_RandomForestClassifier_ConfigurationSpace(random_state=random_state)
+            case "GradientBoostingClassifier":
+                return classifiers.get_GradientBoostingClassifier_ConfigurationSpace(n_classes=n_classes, random_state=random_state)
+            case "HistGradientBoostingClassifier":
+                return classifiers.get_HistGradientBoostingClassifier_ConfigurationSpace(random_state=random_state)
+            case "XGBClassifier":
+                return classifiers.get_XGBClassifier_ConfigurationSpace(random_state=random_state)
+            case "LGBMClassifier":
+                return classifiers.get_LGBMClassifier_ConfigurationSpace(random_state=random_state)
+            case "ExtraTreesClassifier":
+                return classifiers.get_ExtraTreesClassifier_ConfigurationSpace(random_state=random_state)
+            case "SGDClassifier":
+                return classifiers.get_SGDClassifier_ConfigurationSpace(random_state=random_state)
+            case "MLPClassifier":
+                return classifiers.get_MLPClassifier_ConfigurationSpace(random_state=random_state)
+            case "BernoulliNB":
+                return classifiers.get_BernoulliNB_ConfigurationSpace()
+            case "MultinomialNB":
+                return classifiers.get_MultinomialNB_ConfigurationSpace()
+            case "GaussianNB":
+                return {}
+            case "LassoLarsCV":
+                return {}
+            case "ElasticNetCV":
+                return regressors.ElasticNetCV_configspace
+            case "RidgeCV":
+                return {}
+            case "PassiveAggressiveClassifier":
+                return classifiers.get_PassiveAggressiveClassifier_ConfigurationSpace(random_state=random_state)
+            case "QuadraticDiscriminantAnalysis":
+                return classifiers.get_QuadraticDiscriminantAnalysis_ConfigurationSpace()
+            case "GaussianProcessClassifier":
+                return classifiers.get_GaussianProcessClassifier_ConfigurationSpace(n_features=n_features, random_state=random_state)
+            case "BaggingClassifier":
+                return classifiers.get_BaggingClassifier_ConfigurationSpace(random_state=random_state)
+
+            #regressors.py
+            case "RandomForestRegressor":
+                return regressors.get_RandomForestRegressor_ConfigurationSpace(random_state=random_state)
+            case "SGDRegressor":
+                return regressors.get_SGDRegressor_ConfigurationSpace(random_state=random_state)
+            case "Ridge":
+                return regressors.get_Ridge_ConfigurationSpace(random_state=random_state)
+            case "Lasso":
+                return regressors.get_Lasso_ConfigurationSpace(random_state=random_state)
+            case "ElasticNet":
+                return regressors.get_ElasticNet_ConfigurationSpace(random_state=random_state)
+            case "Lars":
+                return regressors.get_Lars_ConfigurationSpace(random_state=random_state)
+            case "OthogonalMatchingPursuit":
+                return regressors.get_OthogonalMatchingPursuit_ConfigurationSpace()
+            case "BayesianRidge":
+                return regressors.get_BayesianRidge_ConfigurationSpace()
+            case "LassoLars":
+                return regressors.get_LassoLars_ConfigurationSpace(random_state=random_state)
+            case "BaggingRegressor":
+                return regressors.get_BaggingRegressor_ConfigurationSpace(random_state=random_state)
+            case "ARDRegression":
+                return regressors.get_ARDRegression_ConfigurationSpace()
+            case "TheilSenRegressor":
+                return regressors.get_TheilSenRegressor_ConfigurationSpace(random_state=random_state)
+            case "Perceptron":
+                return regressors.get_Perceptron_ConfigurationSpace(random_state=random_state)
+            case "DecisionTreeRegressor":
+                return regressors.get_DecisionTreeRegressor_ConfigurationSpace(random_state=random_state)
+            case "LinearSVR":
+                return regressors.get_LinearSVR_ConfigurationSpace(random_state=random_state)
+            case "SVR":
+                return regressors.get_SVR_ConfigurationSpace()
+            case "XGBRegressor":
+                return regressors.get_XGBRegressor_ConfigurationSpace(random_state=random_state)
+            case "AdaBoostRegressor":
+                return regressors.get_AdaBoostRegressor_ConfigurationSpace(random_state=random_state)
+            case "ExtraTreesRegressor":
+                return regressors.get_ExtraTreesRegressor_ConfigurationSpace(random_state=random_state)
+            case "GradientBoostingRegressor":
+                return regressors.get_GradientBoostingRegressor_ConfigurationSpace(random_state=random_state)
+            case "HistGradientBoostingRegressor":
+                return regressors.get_HistGradientBoostingRegressor_ConfigurationSpace(random_state=random_state)
+            case "MLPRegressor":
+                return regressors.get_MLPRegressor_ConfigurationSpace(random_state=random_state)
+            case "KNeighborsRegressor":
+                return regressors.get_KNeighborsRegressor_ConfigurationSpace(n_samples=n_samples)
+            case "GaussianProcessRegressor":
+                return regressors.get_GaussianProcessRegressor_ConfigurationSpace(n_features=n_features, random_state=random_state)
+            case "LGBMRegressor":
+                return regressors.get_LGBMRegressor_ConfigurationSpace(random_state=random_state)
+            case "BaggingRegressor":
+                return regressors.get_BaggingRegressor_ConfigurationSpace(random_state=random_state)
+
+            #transformers.py
+            case "Binarizer":
+                return transformers.Binarizer_configspace
+            case "Normalizer":
+                return transformers.Normalizer_configspace
+            case "PCA":
+                return transformers.PCA_configspace
+            case "ZeroCount":
+                return transformers.ZeroCount_configspace
+            case "FastICA":
+                return transformers.get_FastICA_configspace(n_features=n_features, random_state=random_state)
+            case "FeatureAgglomeration":
+                return transformers.get_FeatureAgglomeration_configspace(n_samples=n_samples)
+            case "Nystroem":
+                return transformers.get_Nystroem_configspace(n_features=n_features, random_state=random_state)
+            case "RBFSampler":
+                return transformers.get_RBFSampler_configspace(n_features=n_features, random_state=random_state)
+            case "MinMaxScaler":
+                return {}
+            case "PowerTransformer":
+                return {}
+            case "QuantileTransformer":
+                return transformers.get_QuantileTransformer_configspace(random_state=random_state)
+            case "RobustScaler":
+                return transformers.RobustScaler_configspace
+            case "ColumnOneHotEncoder":
+                return {}
+            case "ColumnOrdinalEncoder":
+                return {}
+            case "MaxAbsScaler":
+                return {}
+            case "PolynomialFeatures":
+                return transformers.PolynomialFeatures_configspace
+            case "StandardScaler":
+                return {}
+            case "PassKBinsDiscretizer":
+                return transformers.get_passkbinsdiscretizer_configspace(random_state=random_state)
+
+            #selectors.py
+            case "SelectFwe":
+                return selectors.SelectFwe_configspace 
+            case "SelectPercentile":
+                return selectors.SelectPercentile_configspace
+            case "VarianceThreshold":
+                return selectors.VarianceThreshold_configspace
+            case "RFE":
+                return selectors.RFE_configspace_part
+            case "SelectFromModel":
+                return selectors.SelectFromModel_configspace_part
+
+            
+            #special_configs.py
+            case "AddTransformer":
+                return {}
+            case "mul_neg_1_Transformer":
+                return {}
+            case "MulTransformer":
+                return {}
+            case "SafeReciprocalTransformer":
+                return {}
+            case "EQTransformer":
+                return {}
+            case "NETransformer":
+                return {}
+            case "GETransformer":
+                return {}
+            case "GTTransformer":
+                return {}
+            case "LETransformer":
+                return {}
+            case "LTTransformer":
+                return {}        
+            case "MinTransformer":
+                return {}
+            case "MaxTransformer":
+                return {}
+            case "ZeroTransformer":
+                return {}
+            case "OneTransformer":
+                return {}
+            case "NTransformer":
+                return ConfigurationSpace(
+
+                    space = {
+
+                        'n': Float("n", bounds=(-1e2, 1e2)),
+                    }
+                ) 
+            
+            #imputers.py
+            case "SimpleImputer":
+                return imputers.simple_imputer_cs
+            case "IterativeImputer":
+                return imputers.get_IterativeImputer_config_space(n_features=n_features, random_state=random_state)
+            case "KNNImputer":
+                return imputers.get_KNNImputer_config_space(n_samples=n_samples)
+            case "GainImputer":
+                return imputers.get_GainImputer_config_space(random_state=random_state)
+            case "VAEImputer":
+                return imputers.get_VAEImputer_config_space(random_state=random_state)
+
+            #mdr_configs.py
+            case "MDR":
+                return mdr_configs.MDR_configspace
+            case "ContinuousMDR":
+                return mdr_configs.MDR_configspace
+            case "ReliefF":
+                return mdr_configs.get_skrebate_ReliefF_config_space(n_features=n_features)
+            case "SURF":
+                return mdr_configs.get_skrebate_SURF_config_space(n_features=n_features)
+            case "SURFstar":
+                return mdr_configs.get_skrebate_SURFstar_config_space(n_features=n_features)
+            case "MultiSURF":
+                return mdr_configs.get_skrebate_MultiSURF_config_space(n_features=n_features)
+
+            #classifiers_sklearnex.py
+            case "RandomForestClassifier_sklearnex":
+                return classifiers_sklearnex.get_RandomForestClassifier_ConfigurationSpace(random_state=random_state)
+            case "LogisticRegression_sklearnex":
+                return classifiers_sklearnex.get_LogisticRegression_ConfigurationSpace(random_state=random_state)
+            case "KNeighborsClassifier_sklearnex":
+                return classifiers_sklearnex.get_KNeighborsClassifier_ConfigurationSpace(n_samples=n_samples)
+            case "SVC_sklearnex":
+                return classifiers_sklearnex.get_SVC_ConfigurationSpace(random_state=random_state)
+            case "NuSVC_sklearnex":
+                return classifiers_sklearnex.get_NuSVC_ConfigurationSpace(random_state=random_state)
+            
+            #regressors_sklearnex.py
+            case "LinearRegression_sklearnex":
+                return {}
+            case "Ridge_sklearnex":
+                return regressors_sklearnex.get_Ridge_ConfigurationSpace(random_state=random_state)
+            case "Lasso_sklearnex":
+                return regressors_sklearnex.get_Lasso_ConfigurationSpace(random_state=random_state)
+            case "ElasticNet_sklearnex":
+                return regressors_sklearnex.get_ElasticNet_ConfigurationSpace(random_state=random_state)
+            case "SVR_sklearnex":
+                return regressors_sklearnex.get_SVR_ConfigurationSpace(random_state=random_state)
+            case "NuSVR_sklearnex":
+                return regressors_sklearnex.get_NuSVR_ConfigurationSpace(random_state=random_state)
+            case "RandomForestRegressor_sklearnex":
+                return regressors_sklearnex.get_RandomForestRegressor_ConfigurationSpace(random_state=random_state)
+            case "KNeighborsRegressor_sklearnex":
+                return regressors_sklearnex.get_KNeighborsRegressor_ConfigurationSpace(n_samples=n_samples)
+    except:
+        if name == "LinearDiscriminantAnalysis":
             return classifiers.get_LinearDiscriminantAnalysis_ConfigurationSpace()
-        case "AdaBoostClassifier":
+        elif name == "AdaBoostClassifier":
             return classifiers.get_AdaBoostClassifier_ConfigurationSpace(random_state=random_state)
-        case "LogisticRegression":
+        elif name == "LogisticRegression":
             return classifiers.get_LogisticRegression_ConfigurationSpace(random_state=random_state)
-        case "KNeighborsClassifier":
+        elif name == "KNeighborsClassifier":
             return classifiers.get_KNeighborsClassifier_ConfigurationSpace(n_samples=n_samples)
-        case "DecisionTreeClassifier":
+        elif name == "DecisionTreeClassifier":
             return classifiers.get_DecisionTreeClassifier_ConfigurationSpace(n_featues=n_features, random_state=random_state)
-        case "SVC":
+        elif name == "SVC":
             return classifiers.get_SVC_ConfigurationSpace(random_state=random_state)
-        case "LinearSVC":
+        elif name == "LinearSVC":
             return classifiers.get_LinearSVC_ConfigurationSpace(random_state=random_state)
-        case "RandomForestClassifier":
+        elif name == "RandomForestClassifier":
             return classifiers.get_RandomForestClassifier_ConfigurationSpace(random_state=random_state)
-        case "GradientBoostingClassifier":
+        elif name == "GradientBoostingClassifier":
             return classifiers.get_GradientBoostingClassifier_ConfigurationSpace(n_classes=n_classes, random_state=random_state)
-        case "HistGradientBoostingClassifier":
+        elif name == "HistGradientBoostingClassifier":
             return classifiers.get_HistGradientBoostingClassifier_ConfigurationSpace(random_state=random_state)
-        case "XGBClassifier":
+        elif name == "XGBClassifier":
             return classifiers.get_XGBClassifier_ConfigurationSpace(random_state=random_state)
-        case "LGBMClassifier":
+        elif name == "LGBMClassifier":
             return classifiers.get_LGBMClassifier_ConfigurationSpace(random_state=random_state)
-        case "ExtraTreesClassifier":
+        elif name == "ExtraTreesClassifier":
             return classifiers.get_ExtraTreesClassifier_ConfigurationSpace(random_state=random_state)
-        case "SGDClassifier":
+        elif name == "SGDClassifier":
             return classifiers.get_SGDClassifier_ConfigurationSpace(random_state=random_state)
-        case "MLPClassifier":
+        elif name == "MLPClassifier":
             return classifiers.get_MLPClassifier_ConfigurationSpace(random_state=random_state)
-        case "BernoulliNB":
+        elif name == "BernoulliNB":
             return classifiers.get_BernoulliNB_ConfigurationSpace()
-        case "MultinomialNB":
+        elif name == "MultinomialNB":
             return classifiers.get_MultinomialNB_ConfigurationSpace()
-        case "GaussianNB":
-            return {}
-        case "LassoLarsCV":
-            return {}
-        case "ElasticNetCV":
+        elif name == "ElasticNetCV":
             return regressors.ElasticNetCV_configspace
-        case "RidgeCV":
-            return {}
-        case "PassiveAggressiveClassifier":
+        elif name == "PassiveAggressiveClassifier":
             return classifiers.get_PassiveAggressiveClassifier_ConfigurationSpace(random_state=random_state)
-        case "QuadraticDiscriminantAnalysis":
+        elif name == "QuadraticDiscriminantAnalysis":
             return classifiers.get_QuadraticDiscriminantAnalysis_ConfigurationSpace()
-        case "GaussianProcessClassifier":
+        elif name == "GaussianProcessClassifier":
             return classifiers.get_GaussianProcessClassifier_ConfigurationSpace(n_features=n_features, random_state=random_state)
-        case "BaggingClassifier":
+        elif name == "BaggingClassifier":
             return classifiers.get_BaggingClassifier_ConfigurationSpace(random_state=random_state)
 
         #regressors.py
-        case "RandomForestRegressor":
+        elif name == "RandomForestRegressor":
             return regressors.get_RandomForestRegressor_ConfigurationSpace(random_state=random_state)
-        case "SGDRegressor":
+        elif name == "SGDRegressor":
             return regressors.get_SGDRegressor_ConfigurationSpace(random_state=random_state)
-        case "Ridge":
+        elif name == "Ridge":
             return regressors.get_Ridge_ConfigurationSpace(random_state=random_state)
-        case "Lasso":
+        elif name == "Lasso":
             return regressors.get_Lasso_ConfigurationSpace(random_state=random_state)
-        case "ElasticNet":
+        elif name == "ElasticNet":
             return regressors.get_ElasticNet_ConfigurationSpace(random_state=random_state)
-        case "Lars":
+        elif name == "Lars":
             return regressors.get_Lars_ConfigurationSpace(random_state=random_state)
-        case "OthogonalMatchingPursuit":
+        elif name == "OthogonalMatchingPursuit":
             return regressors.get_OthogonalMatchingPursuit_ConfigurationSpace()
-        case "BayesianRidge":
+        elif name == "BayesianRidge":
             return regressors.get_BayesianRidge_ConfigurationSpace()
-        case "LassoLars":
+        elif name == "LassoLars":
             return regressors.get_LassoLars_ConfigurationSpace(random_state=random_state)
-        case "BaggingRegressor":
+        elif name == "BaggingRegressor":
             return regressors.get_BaggingRegressor_ConfigurationSpace(random_state=random_state)
-        case "ARDRegression":
+        elif name == "ARDRegression":
             return regressors.get_ARDRegression_ConfigurationSpace()
-        case "TheilSenRegressor":
+        elif name == "TheilSenRegressor":
             return regressors.get_TheilSenRegressor_ConfigurationSpace(random_state=random_state)
-        case "Perceptron":
+        elif name == "Perceptron":
             return regressors.get_Perceptron_ConfigurationSpace(random_state=random_state)
-        case "DecisionTreeRegressor":
+        elif name == "DecisionTreeRegressor":
             return regressors.get_DecisionTreeRegressor_ConfigurationSpace(random_state=random_state)
-        case "LinearSVR":
+        elif name == "LinearSVR":
             return regressors.get_LinearSVR_ConfigurationSpace(random_state=random_state)
-        case "SVR":
+        elif name == "SVR":
             return regressors.get_SVR_ConfigurationSpace()
-        case "XGBRegressor":
+        elif name == "XGBRegressor":
             return regressors.get_XGBRegressor_ConfigurationSpace(random_state=random_state)
-        case "AdaBoostRegressor":
+        elif name == "AdaBoostRegressor":
             return regressors.get_AdaBoostRegressor_ConfigurationSpace(random_state=random_state)
-        case "ExtraTreesRegressor":
+        elif name == "ExtraTreesRegressor":
             return regressors.get_ExtraTreesRegressor_ConfigurationSpace(random_state=random_state)
-        case "GradientBoostingRegressor":
+        elif name == "GradientBoostingRegressor":
             return regressors.get_GradientBoostingRegressor_ConfigurationSpace(random_state=random_state)
-        case "HistGradientBoostingRegressor":
+        elif name == "HistGradientBoostingRegressor":
             return regressors.get_HistGradientBoostingRegressor_ConfigurationSpace(random_state=random_state)
-        case "MLPRegressor":
+        elif name == "MLPRegressor":
             return regressors.get_MLPRegressor_ConfigurationSpace(random_state=random_state)
-        case "KNeighborsRegressor":
+        elif name == "KNeighborsRegressor":
             return regressors.get_KNeighborsRegressor_ConfigurationSpace(n_samples=n_samples)
-        case "GaussianProcessRegressor":
+        elif name == "GaussianProcessRegressor":
             return regressors.get_GaussianProcessRegressor_ConfigurationSpace(n_features=n_features, random_state=random_state)
-        case "LGBMRegressor":
+        elif name == "LGBMRegressor":
             return regressors.get_LGBMRegressor_ConfigurationSpace(random_state=random_state)
-        case "BaggingRegressor":
+        elif name == "BaggingRegressor":
             return regressors.get_BaggingRegressor_ConfigurationSpace(random_state=random_state)
-
-        #transformers.py
-        case "Binarizer":
-            return transformers.Binarizer_configspace
-        case "Normalizer":
-            return transformers.Normalizer_configspace
-        case "PCA":
-            return transformers.PCA_configspace
-        case "ZeroCount":
-            return transformers.ZeroCount_configspace
-        case "FastICA":
-            return transformers.get_FastICA_configspace(n_features=n_features, random_state=random_state)
-        case "FeatureAgglomeration":
-            return transformers.get_FeatureAgglomeration_configspace(n_samples=n_samples)
-        case "Nystroem":
-            return transformers.get_Nystroem_configspace(n_features=n_features, random_state=random_state)
-        case "RBFSampler":
-            return transformers.get_RBFSampler_configspace(n_features=n_features, random_state=random_state)
-        case "MinMaxScaler":
-            return {}
-        case "PowerTransformer":
-            return {}
-        case "QuantileTransformer":
-            return transformers.get_QuantileTransformer_configspace(random_state=random_state)
-        case "RobustScaler":
-            return transformers.RobustScaler_configspace
-        case "ColumnOneHotEncoder":
-            return {}
-        case "ColumnOrdinalEncoder":
-            return {}
-        case "MaxAbsScaler":
-            return {}
-        case "PolynomialFeatures":
-            return transformers.PolynomialFeatures_configspace
-        case "StandardScaler":
-            return {}
-        case "PassKBinsDiscretizer":
-            return transformers.get_passkbinsdiscretizer_configspace(random_state=random_state)
-
-        #selectors.py
-        case "SelectFwe":
-            return selectors.SelectFwe_configspace 
-        case "SelectPercentile":
-            return selectors.SelectPercentile_configspace
-        case "VarianceThreshold":
-            return selectors.VarianceThreshold_configspace
-        case "RFE":
-            return selectors.RFE_configspace_part
-        case "SelectFromModel":
-            return selectors.SelectFromModel_configspace_part
-
-        
-        #special_configs.py
-        case "AddTransformer":
-            return {}
-        case "mul_neg_1_Transformer":
-            return {}
-        case "MulTransformer":
-            return {}
-        case "SafeReciprocalTransformer":
-            return {}
-        case "EQTransformer":
-            return {}
-        case "NETransformer":
-            return {}
-        case "GETransformer":
-            return {}
-        case "GTTransformer":
-            return {}
-        case "LETransformer":
-            return {}
-        case "LTTransformer":
-            return {}        
-        case "MinTransformer":
-            return {}
-        case "MaxTransformer":
-            return {}
-        case "ZeroTransformer":
-            return {}
-        case "OneTransformer":
-            return {}
-        case "NTransformer":
-            return ConfigurationSpace(
-
-                space = {
-
-                    'n': Float("n", bounds=(-1e2, 1e2)),
-                }
-            ) 
-        
         #imputers.py
-        case "SimpleImputer":
+        elif name == "SimpleImputer":
             return imputers.simple_imputer_cs
-        case "IterativeImputer":
+        elif name == "IterativeImputer":
             return imputers.get_IterativeImputer_config_space(n_features=n_features, random_state=random_state)
-        case "KNNImputer":
+        elif name == "KNNImputer":
             return imputers.get_KNNImputer_config_space(n_samples=n_samples)
-        case "GainImputer":
+        elif name == "GainImputer":
             return imputers.get_GainImputer_config_space(random_state=random_state)
-        case "VAEImputer":
+        elif name == "VAEImputer":
             return imputers.get_VAEImputer_config_space(random_state=random_state)
-
-        #mdr_configs.py
-        case "MDR":
-            return mdr_configs.MDR_configspace
-        case "ContinuousMDR":
-            return mdr_configs.MDR_configspace
-        case "ReliefF":
-            return mdr_configs.get_skrebate_ReliefF_config_space(n_features=n_features)
-        case "SURF":
-            return mdr_configs.get_skrebate_SURF_config_space(n_features=n_features)
-        case "SURFstar":
-            return mdr_configs.get_skrebate_SURFstar_config_space(n_features=n_features)
-        case "MultiSURF":
-            return mdr_configs.get_skrebate_MultiSURF_config_space(n_features=n_features)
-
-        #classifiers_sklearnex.py
-        case "RandomForestClassifier_sklearnex":
-            return classifiers_sklearnex.get_RandomForestClassifier_ConfigurationSpace(random_state=random_state)
-        case "LogisticRegression_sklearnex":
-            return classifiers_sklearnex.get_LogisticRegression_ConfigurationSpace(random_state=random_state)
-        case "KNeighborsClassifier_sklearnex":
-            return classifiers_sklearnex.get_KNeighborsClassifier_ConfigurationSpace(n_samples=n_samples)
-        case "SVC_sklearnex":
-            return classifiers_sklearnex.get_SVC_ConfigurationSpace(random_state=random_state)
-        case "NuSVC_sklearnex":
-            return classifiers_sklearnex.get_NuSVC_ConfigurationSpace(random_state=random_state)
-        
-        #regressors_sklearnex.py
-        case "LinearRegression_sklearnex":
+        else:
             return {}
-        case "Ridge_sklearnex":
-            return regressors_sklearnex.get_Ridge_ConfigurationSpace(random_state=random_state)
-        case "Lasso_sklearnex":
-            return regressors_sklearnex.get_Lasso_ConfigurationSpace(random_state=random_state)
-        case "ElasticNet_sklearnex":
-            return regressors_sklearnex.get_ElasticNet_ConfigurationSpace(random_state=random_state)
-        case "SVR_sklearnex":
-            return regressors_sklearnex.get_SVR_ConfigurationSpace(random_state=random_state)
-        case "NuSVR_sklearnex":
-            return regressors_sklearnex.get_NuSVR_ConfigurationSpace(random_state=random_state)
-        case "RandomForestRegressor_sklearnex":
-            return regressors_sklearnex.get_RandomForestRegressor_ConfigurationSpace(random_state=random_state)
-        case "KNeighborsRegressor_sklearnex":
-            return regressors_sklearnex.get_KNeighborsRegressor_ConfigurationSpace(n_samples=n_samples)
-
     #raise error
     raise ValueError(f"Could not find configspace for {name}")
    

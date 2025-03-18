@@ -206,63 +206,63 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
         case 1: 
             outcome = 'home'
             num_iter = 1
-            exp = experiments[0]
+            exp = experiments[1]
         case 2: 
             outcome = 'hosp'
             num_iter = 1
-            exp = experiments[0]
+            exp = experiments[1]
         case 3: 
             outcome = 'los'
             num_iter = 1
-            exp = experiments[0]
+            exp = experiments[1]
         case 4: 
             outcome = 'rehab'
             num_iter = 1
-            exp = experiments[0]
+            exp = experiments[1]
         case 5: 
             outcome = 'SNF'
             num_iter = 1
-            exp = experiments[0]
+            exp = experiments[1]
         case 6: 
             outcome = 'home'
             num_iter = 2
-            exp = experiments[0]
+            exp = experiments[1]
         case 7: 
             outcome = 'hosp'
             num_iter = 2
-            exp = experiments[0]
+            exp = experiments[1]
         case 8: 
             outcome = 'los'
             num_iter = 2
-            exp = experiments[0]
+            exp = experiments[1]
         case 9: 
             outcome = 'rehab'
             num_iter = 2
-            exp = experiments[0]
+            exp = experiments[1]
         case 10: 
             outcome = 'SNF'
             num_iter = 2
-            exp = experiments[0]
+            exp = experiments[1]
         case 11: 
             outcome = 'home'
             num_iter = 3
-            exp = experiments[0]
+            exp = experiments[1]
         case 12: 
             outcome = 'hosp'
             num_iter = 3
-            exp = experiments[0]
+            exp = experiments[1]
         case 13: 
             outcome = 'los'
             num_iter = 3
-            exp = experiments[0]
+            exp = experiments[1]
         case 14: 
             outcome = 'rehab'
             num_iter = 3
-            exp = experiments[0]
+            exp = experiments[1]
         case 15: 
             outcome = 'SNF'
             num_iter = 3
-            exp = experiments[0]
+            exp = experiments[1]
     save_folder = f"{base_save_folder}/{r_or_c}/{outcome}"
     time.sleep(random.random()*5)
     if not os.path.exists(save_folder):
@@ -421,19 +421,19 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
         first_scores["r_or_c"] = r_or_c
 
         if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-            with open(f"{save_folder}/first_evaluated_individuals.pkl", "wb") as f:
+            with open(f"{save_folder}/simple_first_evaluated_individuals.pkl", "wb") as f:
                 pickle.dump(est.evaluated_individuals, f)
                 print('estimator working as intended')
         print('check intended')
-        with open(f"{save_folder}/first_fitted_pipeline.pkl", "wb") as f:
+        with open(f"{save_folder}/simple_first_fitted_pipeline.pkl", "wb") as f:
             pickle.dump(est.fitted_pipeline_, f)
 
-        with open(f"{save_folder}/first_scores.pkl", "wb") as f:
+        with open(f"{save_folder}/simple_first_scores.pkl", "wb") as f:
             pickle.dump(first_scores, f)
 
         print('pre-imputed Finished')
         
-        '''
+
         print("running experiment 3/3 - What is the best automl settings?")
         try: 
             os.remove(f"{checkpoint_folder}/population.pkl")
@@ -488,15 +488,15 @@ def loop_through_tasks(experiments, base_save_folder, num_runs, r_or_c, n_jobs):
 
 
         if exp['automl'] is tpot2.TPOTClassifier or exp['automl'] is tpot2.tpot_estimator.TPOTEstimator or exp['automl'] is  tpot2.TPOTEstimatorSteadyState:
-            with open(f"{save_folder}/tpot_space_evaluated_individuals.pkl", "wb") as f:
+            with open(f"{save_folder}/tpot_simple_evaluated_individuals.pkl", "wb") as f:
                 pickle.dump(tpot_space.evaluated_individuals, f)
 
-        with open(f"{save_folder}/tpot_space_fitted_pipeline.pkl", "wb") as f:
+        with open(f"{save_folder}/tpot_simple_fitted_pipeline.pkl", "wb") as f:
             pickle.dump(tpot_space.fitted_pipeline_, f)
 
-        with open(f"{save_folder}/tpot_space_scores.pkl", "wb") as f:
+        with open(f"{save_folder}/tpot_simple_scores.pkl", "wb") as f:
             pickle.dump(tpot_space_scores, f)
-        '''
+
         #return
         
     except Exception as e:
