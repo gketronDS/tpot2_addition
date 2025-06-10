@@ -5,7 +5,7 @@
 #SBATCH -t 110:00:00
 #SBATCH --mem=100000
 #SBATCH --job-name=tpot2-pkl
-#SBATCH -p defq,moore
+#SBATCH -p preemptable
 #SBATCH --exclude=esplhpc-cp040
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=Gabriel.Ketron@cshs.org
@@ -28,4 +28,4 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 classnotebook.py
+srun -u python3.10 classnotebook_new.py

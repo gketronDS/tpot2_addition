@@ -28,4 +28,4 @@ pip install -r tpot2/ImputerExperiments/requirements_.txt
 
 echo RunStart
 
-srun -u python3.10 viewspine.py
+srun -u python3.10 viewspinenew.py

@@ -16,13 +16,13 @@ for taskid in ['home', 'hosp', 'rehab', 'los', 'SNF']:
                                             'Exp3ori_logloss', 'Exp3ori_f1', 'Exp3impute_auroc', 'Exp3impute_accuracy', 'Exp3impute_balanced_accuracy', 
                                             'Exp3impute_logloss', 'Exp3impute_f1',
                                             'Exp3ImputeModel', 'Exp3ClassifierModel', 'Exp3duration', 'Exp3inference_duration'],
-                            index=['/'+taskid+'_class_simple_1/',
-                                    '/'+taskid+'_class_simple_2/',
-                                    '/'+taskid+'_class_simple_3/',
+                            index=['/'+taskid+'_class_nonsimple_1/',
+                                    '/'+taskid+'_class_nonsimple_2/',
+                                    '/'+taskid+'_class_nonsimple_3/',
                                      ])
     #print(csvout)
     locallist=[]
-    for exp in ['class_simple_']:
+    for exp in ['class_nonsimple_']:
         for iter in ['1/', '2/', '3/']:
             normalpath = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'+ taskid +'/'+exp + iter
             imputepath = '/common/ketrong/tpotexp/tpot2/ImputerExperiments/data/c/'+ taskid +'/'+exp + iter
@@ -81,7 +81,7 @@ for taskid in ['home', 'hosp', 'rehab', 'los', 'SNF']:
     redolist[taskid] = locallist
     print(taskid + 'complete')
 result = pd.concat(dflist, ignore_index=True)
-output = result.to_csv(fileoutput+'spine_simple'+'.csv')
+output = result.to_csv(fileoutput+'spine_nonsimple'+'.csv')
 print('all csvs complete')
 print('to redo:')
 print(redolist)

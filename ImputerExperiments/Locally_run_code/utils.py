@@ -586,8 +586,9 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
         time.sleep(random.random()*5)
         duration = time.time() - start
         print(duration)
-
+    
         try:
+            '''
             print("running experiment 1/3 - Does large hyperparameter space improve reconstruction accuracy over simple")
             #Simple Impute 
             missingnessmodels = ['MAR', 'MNAR', 'MCAR']
@@ -709,7 +710,7 @@ def loop_through_tasks(experiments, task_id_lists, base_save_folder, num_runs, r
                 pickle.dump(all_scores, f)
 
             print('EXP2 Finished')
-            
+            '''
             if not os.path.exists(f"{save_folder}/tpot_space_scores.pkl"):
 
                 print("running experiment 3/3 - What is the best automl settings?")

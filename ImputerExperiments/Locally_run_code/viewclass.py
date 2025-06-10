@@ -20,7 +20,7 @@ for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', 
                                             'Exp3train_logloss', 'Exp3train_f1', 'Exp3ori_auroc', 'Exp3ori_accuracy', 'Exp3ori_balanced_accuracy', 
                                             'Exp3ori_logloss', 'Exp3ori_f1', 'Exp3impute_auroc', 'Exp3impute_accuracy', 'Exp3impute_balanced_accuracy', 
                                             'Exp3impute_logloss', 'Exp3impute_f1',
-                                            'Exp3ImputeModel', 'Exp3ImputeRMSEAcc', 'Exp3ClassifierModel', 'Exp3duration', 'Exp3inference_duration'],
+                                            'Exp3ImputeModel', 'Exp3TrainRMSEAcc','Exp3ImputeRMSEAcc', 'Exp3ClassifierModel', 'Exp3duration', 'Exp3inference_duration'],
                             index=['/'+taskid+'_class_simple_MAR_0.01_1/','/'+taskid+'_class_simple_MAR_0.1_1/',
                                    '/'+taskid+'_class_simple_MAR_0.3_1/','/'+taskid+'_class_simple_MAR_0.5_1/',
                                      '/'+taskid+'_class_simple_MNAR_0.01_1/',
@@ -306,7 +306,7 @@ for taskid in ['6', '26', '30', '32', '137', '151', '183', '184', '251', '310', 
                                             'Exp3train_logloss': tpot_space['train_score']['train_logloss'], 'Exp3train_f1': tpot_space['train_score']['train_f1'], 'Exp3ori_auroc': tpot_space['ori_test_score']['auroc'], 'Exp3ori_accuracy': tpot_space['ori_test_score']['accuracy'], 'Exp3ori_balanced_accuracy': tpot_space['ori_test_score']['balanced_accuracy'], 
                                             'Exp3ori_logloss': tpot_space['ori_test_score']['logloss'], 'Exp3ori_f1': tpot_space['ori_test_score']['f1'], 'Exp3impute_auroc': tpot_space['test_score']['auroc'], 'Exp3impute_accuracy': tpot_space['test_score']['accuracy'], 'Exp3impute_balanced_accuracy': tpot_space['test_score']['balanced_accuracy'], 
                                             'Exp3impute_logloss': tpot_space['test_score']['logloss'], 'Exp3impute_f1': tpot_space['test_score']['f1'],
-                                            'Exp3ImputeModel': Exp3ImputeModel, 'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3ClassifierModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
+                                            'Exp3ImputeModel': Exp3ImputeModel, 'Exp3TrainRMSEAcc': tpot_space["rmse_loss_train3"],'Exp3ImputeRMSEAcc': tpot_space["rmse_loss_test3"] ,'Exp3ClassifierModel': str(tpot_space['fit_model'][1]).split('(')[0] ,'Exp3duration': tpot_space['duration'], 'Exp3inference_duration': tpot_space['inference_time']})
                         
                         print(taskid+' '+str(num_run)+' passed: '+exp+item+lvl+iter)
 

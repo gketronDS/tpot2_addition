@@ -30,7 +30,7 @@ def main():
     total_duration = 360000
 
     classifier_pipeline_full = tpot2.search_spaces.pipelines.SequentialPipeline([
-        tpot2.config.get_search_space(['IterativeImputer', 'KNNImputer', 'GainImputer', 'VAEImputer']), 
+        tpot2.config.get_search_space(['IterativeImputer', 'KNNImputer', 'GainImputer', 'VAEImputer', 'SimpleImputer']), 
         tpot2.config.get_search_space("classifiers"),
     ])
     classifier_pipeline_simple = tpot2.search_spaces.pipelines.SequentialPipeline([
@@ -38,7 +38,7 @@ def main():
         tpot2.config.get_search_space("classifiers"),
     ])
     regression_pipeline_full = tpot2.search_spaces.pipelines.SequentialPipeline([
-        tpot2.config.get_search_space(['IterativeImputer', 'KNNImputer', 'GainImputer', 'VAEImputer']), 
+        tpot2.config.get_search_space(['IterativeImputer', 'KNNImputer', 'GainImputer', 'VAEImputer', 'SimpleImputer']), 
         tpot2.config.get_search_space("regressors"),
     ])
     regression_pipeline_simple = tpot2.search_spaces.pipelines.SequentialPipeline([
@@ -123,7 +123,7 @@ def main():
     reg_experiments = [
                 {
                 'automl': tpot2.tpot_estimator.TPOTEstimator(**regression_full),
-                'exp_name' : 'reg_non_simple',
+                'exp_name' : 'reg_full',
                 'params': regression_full,
                 }
             ]
@@ -137,19 +137,19 @@ def main():
                               40685, 23395, 40983, 41027, 23517, 40701, 40922,
                               41671, 41146, 42192, 823, 42477, 42493, 42636]
     '''
-    classification_id_list = [41671]
-    #regression_id_list = [189]
+    #classification_id_list = [42545]
+    regression_id_list = [42545]
 
     
     print('starting loops')
     start = time.time()
-    
+    '''
     utilsfinal.loop_through_tasks(class_experiments, classification_id_list, 
                              base_save_folder, num_runs, 'c', n_jobs=n_jobs)
     '''
     utilsfinal.loop_through_tasks(reg_experiments, regression_id_list, 
                              base_save_folder, num_runs, 'r', n_jobs=n_jobs)
-    '''
+    
     stop = time.time()
     duration = stop - start
     print('full run takes')
